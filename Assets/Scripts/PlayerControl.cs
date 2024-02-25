@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    public float speed = 1f;
+    public PlayerData playerData;
     public Transform lookRotationTrs;
     public Transform lookAtarget;
 
@@ -25,7 +25,7 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         if (_moveDir == Vector3.zero) return;
-        _rb.MovePosition(_rb.position + transform.TransformDirection(_moveDir) * speed * Time.deltaTime);
+        _rb.MovePosition(_rb.position + transform.TransformDirection(_moveDir) * playerData.startMoveSpeed * Time.deltaTime);
         lookAtarget.localPosition = _moveDir;
         lookRotationTrs.LookAt(lookAtarget, transform.up);
     }
