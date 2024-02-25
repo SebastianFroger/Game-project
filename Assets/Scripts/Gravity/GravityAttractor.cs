@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -8,6 +9,13 @@ public class GravityAttractor : MonoBehaviour
     public float gravity = -10;
 
     private Vector3 _gravityUp;
+
+    public static GravityAttractor attractor;
+
+    private void Start()
+    {
+        attractor = this;
+    }
 
     public void Attract(Transform body, Rigidbody rb)
     {

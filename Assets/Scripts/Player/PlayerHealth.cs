@@ -22,6 +22,9 @@ public class PlayerHealth : Health
         playerHitEvent?.Invoke(playerData.currentHP, playerData.startHP);
 
         if (playerData.currentHP <= 0)
+        {
+            Destroy(gameObject);
             playerDeadEvent?.Invoke();
+        }
     }
 }
