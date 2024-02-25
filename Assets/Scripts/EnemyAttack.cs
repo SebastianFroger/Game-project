@@ -7,7 +7,7 @@ public class EnemyAttack : MonoBehaviour
     public int damage = 10;
     public float interval = 2f;
 
-    private Health _playerHealth;
+    private PlayerHealth _playerHealth;
     private float _nextAttackTime = 0f;
 
 
@@ -17,7 +17,7 @@ public class EnemyAttack : MonoBehaviour
         if (Time.time < _nextAttackTime) return;
 
         if (_playerHealth == null)
-            _playerHealth = other.gameObject.GetComponent<Health>();
+            _playerHealth = other.gameObject.GetComponent<PlayerHealth>();
 
         _playerHealth.TakeDamage(damage);
 

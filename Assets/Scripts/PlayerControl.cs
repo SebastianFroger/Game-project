@@ -25,7 +25,7 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         if (_moveDir == Vector3.zero) return;
-        _rb.MovePosition(_rb.position + transform.TransformDirection(_moveDir) * playerData.startMoveSpeed * Time.deltaTime);
+        _rb.MovePosition(_rb.position + transform.TransformDirection(_moveDir) * playerData.moveSpeed * Time.deltaTime);
         lookAtarget.localPosition = _moveDir;
         lookRotationTrs.LookAt(lookAtarget, transform.up);
     }

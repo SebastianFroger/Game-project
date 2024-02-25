@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2490914712944907349}
   - component: {fileID: 8779180441509374298}
   - component: {fileID: 2389334002923278442}
+  - component: {fileID: 7335987211931231141}
+  - component: {fileID: 7253515151328449089}
   m_Layer: 0
   m_Name: Enemy A
   m_TagString: Enemy
@@ -76,8 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77e6ea37f631e347b5867ed061d447a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractor: {fileID: 5374021278074066996, guid: 4f34d1a4018ab5b41b2e1eb0b1f52f73,
-    type: 3}
+  attractor: {fileID: 0}
 --- !u!114 &8779180441509374298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,12 +86,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328409505970683906}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8c2ecb93e8054c45bbb40827caea0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5903297864969995812, guid: 8f5e135a19626f544908fc8f156144b9, type: 3}
+  player: {fileID: 0}
   speed: 5
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
@@ -117,6 +118,34 @@ CapsuleCollider:
   m_Height: 3.01
   m_Direction: 1
   m_Center: {x: 0, y: 1.35, z: 0.23}
+--- !u!114 &7335987211931231141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328409505970683906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02228f2bb938e44593e06281f13267f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  interval: 2
+--- !u!114 &7253515151328449089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328409505970683906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3643ed8360524141b1c606488d540ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 20
+  damageFlashTime: 0.1
 --- !u!1 &3691526587206051513
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   startHP: 100
-  currentHP: 0
-  startMoveSpeed: 10
-  currentMoveSpeed: 0
+  currentHP: 100
+  moveSpeed: 10
+  attackInterval: 1
+  damage: 10
   moveSound: {fileID: 0}

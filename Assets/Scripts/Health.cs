@@ -1,29 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public PlayerData playerData;
-    public float damageFlashTime = 0.2f;
+    public int HP;
+    public float damageFlashTime = 0.1f;
 
     private Material _material;
     private MeshRenderer _renderer;
 
-    void Start()
+    protected void Start()
     {
-        playerData.currentHP = playerData.startHP;
-
         _renderer = GetComponentInChildren<MeshRenderer>();
         _material = _renderer.sharedMaterial;
         _material.EnableKeyword("_EMISSION");
     }
 
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
-        playerData.currentHP -= amount;
-
+        HP -= amount;
         StartCoroutine("DamageFlash");
+
+        if (HP <= 0)
+            Destroy(gameObject);
     }
 
     IEnumerator DamageFlash()
