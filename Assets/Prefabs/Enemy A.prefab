@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 20
   damageFlashMat: {fileID: 2100000, guid: 560151db99df37444afa4bf641440ffe, type: 2}
-  damageFlashTime: 0.1
+  damageFlashTime: 0.125
 --- !u!1 &3691526587206051513
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     public PlayerData playerData;
-    public float attackSpeed = 1f;
-    public float bulletSpeed = 1f;
-    public int bulletDamage = 1;
     public GameObject bullet;
 
     private float _nextAttackTime = 0f;
@@ -25,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         if (Time.time < _nextAttackTime || _nearbyEnemies.Count == 0) return;
-        _nextAttackTime = Time.time + attackSpeed;
+        _nextAttackTime = Time.time + playerData.attacksPerSec;
 
         _smallestDistance = Mathf.Infinity;
         foreach (var enemy in _nearbyEnemies)
@@ -40,9 +38,6 @@ public class PlayerAttack : MonoBehaviour
         _bulletInst = MyObjectPool.GetInstance(bullet, MyObjectPool.bullet);
         _bulletInst.transform.position = transform.position;
         _bulletInst.transform.LookAt(_nearestEnemy);
-        var comp = _bulletInst.GetComponent<Bullet>();
-        comp.damage = bulletDamage;
-        comp.speed = bulletSpeed;
     }
 
     public void RemoveDeadEnemy(Transform obj)

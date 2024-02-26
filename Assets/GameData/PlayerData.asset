@@ -15,6 +15,5 @@ MonoBehaviour:
   startHP: 100
   currentHP: 100
   moveSpeed: 10
-  attackInterval: 1
-  damage: 10
+  attacksPerSec: 0.2
   moveSound: {fileID: 0}

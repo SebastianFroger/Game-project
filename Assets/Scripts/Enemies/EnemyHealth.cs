@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
 
     private Material[] _orgMaterials;
     private MeshRenderer[] _renderers;
+    private int _curretnHP;
 
     protected void Start()
     {
@@ -25,10 +26,15 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        _curretnHP = HP;
+    }
+
     public virtual void TakeDamage(int amount)
     {
-        HP -= amount;
-        if (HP <= 0)
+        _curretnHP -= amount;
+        if (_curretnHP <= 0)
         {
             MyObjectPool.enemyA.Release(gameObject);
             OnDeath?.Invoke(transform);

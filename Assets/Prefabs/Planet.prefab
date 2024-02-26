@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6057747163573918382}
   - component: {fileID: 5374021278074066996}
   - component: {fileID: 2898687669709629906}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Planet
   m_TagString: Planet
   m_Icon: {fileID: 0}
@@ -132,6 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401e065f1d061fc46b805831000f066c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRadius: 100
+  startRadius: 50
   shrinkRateSec: 1
   minRadius: 50

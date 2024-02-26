@@ -8,7 +8,6 @@ public class PlayerData : ScriptableObject
     public int startHP;
     public int currentHP;
     public int moveSpeed;
-    public float attackInterval;
-    public int damage;
+    public float attacksPerSec;
     public AudioClip moveSound;
 }

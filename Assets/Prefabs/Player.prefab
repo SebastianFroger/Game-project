@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2998296493391144119}
   - component: {fileID: 4982605469375419308}
   - component: {fileID: 5469990140329910171}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 492325893476034216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,7 +84,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 15.92
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5469990140329910171
 MonoBehaviour:
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df2887159710f44882c0f7a5017c822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
-  attackSpeed: 1
+  playerData: {fileID: 11400000, guid: bf96d9b9c6b745d4fa5839bca6aa89d5, type: 2}
+  bullet: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2, type: 3}
 --- !u!1 &5461052779654786451
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 8419413090062408324}
   - component: {fileID: 2724873074703203167}
   - component: {fileID: 1512072405223109325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 0
   damageFlashMat: {fileID: 2100000, guid: 560151db99df37444afa4bf641440ffe, type: 2}
-  damageFlashTime: 0.1
+  damageFlashTime: 0.125
   playerData: {fileID: 11400000, guid: bf96d9b9c6b745d4fa5839bca6aa89d5, type: 2}
 --- !u!1 &7715280590880787069
 GameObject:

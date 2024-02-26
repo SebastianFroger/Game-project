@@ -10,6 +10,7 @@ public class MyObjectPool : MonoBehaviour
     public static ObjectPool<GameObject> enemyA;
     public static ObjectPool<GameObject> enemyB;
     public static ObjectPool<GameObject> bullet;
+    public static ObjectPool<GameObject> planetScaler;
 
     private static GameObject objToCreate;
     // add pickable items pools
@@ -19,6 +20,7 @@ public class MyObjectPool : MonoBehaviour
         enemyA = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
         enemyB = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
         bullet = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
+        planetScaler = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
     }
 
     public static GameObject GetInstance(GameObject obj, ObjectPool<GameObject> pool)
