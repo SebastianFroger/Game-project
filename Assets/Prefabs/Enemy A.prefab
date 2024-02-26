@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2389334002923278442}
   - component: {fileID: 7335987211931231141}
   - component: {fileID: 7253515151328449089}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy A
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c2ecb93e8054c45bbb40827caea0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 5
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
@@ -145,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 20
+  damageFlashMat: {fileID: 2100000, guid: 560151db99df37444afa4bf641440ffe, type: 2}
   damageFlashTime: 0.1
 --- !u!1 &3691526587206051513
 GameObject:

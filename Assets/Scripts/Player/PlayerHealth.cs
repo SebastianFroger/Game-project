@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerHealth : Health
+public class PlayerHealth : EnemyHealth
 {
     public PlayerData playerData;
     public static UnityAction<int, int> playerHitEvent;
@@ -18,13 +18,15 @@ public class PlayerHealth : Health
     public override void TakeDamage(int amount)
     {
         playerData.currentHP -= amount;
-        StartCoroutine("DamageFlash");
         playerHitEvent?.Invoke(playerData.currentHP, playerData.startHP);
 
         if (playerData.currentHP <= 0)
         {
             Destroy(gameObject);
             playerDeadEvent?.Invoke();
+            return;
         }
+
+        StartCoroutine("DamageFlash");
     }
 }

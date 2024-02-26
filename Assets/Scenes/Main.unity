@@ -261,10 +261,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 492325893476034216, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982605469375419308, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: m_Radius
+      value: 15.92
+      objectReference: {fileID: 0}
     - target: {fileID: 5461052779654786451, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461052779654786451, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469990140329910171, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2,
+        type: 3}
+    - target: {fileID: 5469990140329910171, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469990140329910171, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: bf96d9b9c6b745d4fa5839bca6aa89d5,
+        type: 2}
+    - target: {fileID: 5469990140329910171, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469990140329910171, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469990140329910171, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: bulletDamage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5903297864969995812, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
@@ -615,6 +662,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 3608067453501761613, guid: 4f34d1a4018ab5b41b2e1eb0b1f52f73,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -677,6 +729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5544911107628806462, guid: 6b45e5bf98361bf4a9e8bf7957e7882b,
+        type: 3}
+      propertyPath: spawnInterval
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6716624154698479854, guid: 6b45e5bf98361bf4a9e8bf7957e7882b,
         type: 3}
