@@ -6,6 +6,7 @@ using UnityEngine;
 public class GravityBody : MonoBehaviour
 {
     public GravityAttractor attractor;
+
     private Transform _transform;
     private Rigidbody _rb;
 
@@ -15,7 +16,8 @@ public class GravityBody : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _rb.useGravity = false;
-        _transform  = transform;
+        _transform = transform;
+        attractor = ObjectManager.attractor;
     }
 
     void Update()

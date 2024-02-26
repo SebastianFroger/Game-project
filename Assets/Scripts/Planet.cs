@@ -9,10 +9,11 @@ public class Planet : MonoBehaviour
 
     private Vector3 _shrinkVector;
 
-    void Start()
+    void Awake()
     {
         transform.localScale = new Vector3(startRadius, startRadius, startRadius);
         _shrinkVector = new Vector3(shrinkRateSec, shrinkRateSec, shrinkRateSec);
+        currentRadius = transform.localScale.x / 2;
     }
 
     void Update()

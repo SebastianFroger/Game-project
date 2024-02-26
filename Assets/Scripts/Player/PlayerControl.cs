@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _rb.MovePosition(Vector3.up * Planet.currentRadius);
     }
 
     void OnMove(InputValue value)

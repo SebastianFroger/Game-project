@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    public Transform player;
     public float speed = 1f;
     public Transform lookRotationTrs;
     public Transform lookAtarget;
 
+    private Transform _player;
     private Vector3 _moveDir;
     private Vector3 _localMoveDir;
     private Rigidbody _rb;
 
     void Start()
     {
+        _player = ObjectManager.playerObj.transform;
         _rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        _moveDir = player.position - transform.position + transform.position;
+        _moveDir = _player.position - transform.position + transform.position;
         if (_moveDir == Vector3.zero) return;
         _localMoveDir = lookAtarget.InverseTransformDirection(_moveDir);
         lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);

@@ -21,7 +21,5 @@ public class EnemySpawner : MonoBehaviour
     {
         obj.transform.position = position;
         obj.transform.rotation = rotation;
-        obj.GetComponent<GravityBody>().attractor = ObjectManager.attractor;
-        obj.GetComponent<EnemyControl>().player = ObjectManager.player.transform;
     }
 }
