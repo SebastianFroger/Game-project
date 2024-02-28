@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 1343412798881972343}
   - component: {fileID: 547395340945434266}
   - component: {fileID: 2614150478869047685}
+  - component: {fileID: 6677869578692389268}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -269,3 +270,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e175d3bd727e0654c804524c93fcdcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHP: {fileID: 11400000, guid: 4d097bb944d60af4992871df3f991b38, type: 2}
+  playerMaxHP: {fileID: 11400000, guid: c9a85830a2d2b274cbc8ce9043fc9cf1, type: 2}
+--- !u!114 &6677869578692389268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316455559319153925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cad80a62adf384e92e74c84fe889f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: aa17c206464f769479a4a55659128c51, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2614150478869047685}
+        m_TargetAssemblyTypeName: Shooter.HealthBarController, Assembly-CSharp
+        m_MethodName: UpdateBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

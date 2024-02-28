@@ -4,48 +4,51 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class MyObjectPool : MonoBehaviour
+namespace Shooter
 {
-
-    public static ObjectPool<GameObject> enemyA;
-    public static ObjectPool<GameObject> enemyB;
-    public static ObjectPool<GameObject> bullet;
-    public static ObjectPool<GameObject> planetScaler;
-
-    private static GameObject objToCreate;
-    // add pickable items pools
-
-    void Start()
+    public class MyObjectPool : MonoBehaviour
     {
-        enemyA = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
-        enemyB = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
-        bullet = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
-        planetScaler = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
-    }
 
-    public static GameObject GetInstance(GameObject obj, ObjectPool<GameObject> pool)
-    {
-        objToCreate = obj;
-        return pool.Get();
-    }
+        public static ObjectPool<GameObject> enemyA;
+        public static ObjectPool<GameObject> enemyB;
+        public static ObjectPool<GameObject> bullet;
+        public static ObjectPool<GameObject> planetScaler;
 
-    GameObject Create()
-    {
-        return Instantiate(objToCreate);
-    }
+        private static GameObject objToCreate;
+        // add pickable items pools
 
-    void Get(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
+        void Start()
+        {
+            enemyA = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
+            enemyB = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
+            bullet = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
+            planetScaler = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
+        }
 
-    void Release(GameObject obj)
-    {
-        obj.SetActive(false);
-    }
+        public static GameObject GetInstance(GameObject obj, ObjectPool<GameObject> pool)
+        {
+            objToCreate = obj;
+            return pool.Get();
+        }
 
-    void Destroy(GameObject obj)
-    {
-        Destroy(obj);
+        GameObject Create()
+        {
+            return Instantiate(objToCreate);
+        }
+
+        void Get(GameObject obj)
+        {
+            obj.SetActive(true);
+        }
+
+        void Release(GameObject obj)
+        {
+            obj.SetActive(false);
+        }
+
+        void Destroy(GameObject obj)
+        {
+            Destroy(obj);
+        }
     }
 }

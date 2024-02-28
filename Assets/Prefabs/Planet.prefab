@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6057747163573918382}
   - component: {fileID: 5374021278074066996}
   - component: {fileID: 2898687669709629906}
+  - component: {fileID: 8533978983731796448}
   m_Layer: 7
   m_Name: Planet
   m_TagString: Planet
@@ -127,11 +128,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3608067453501761613}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 401e065f1d061fc46b805831000f066c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startRadius: 50
   shrinkRateSec: 1
+  growRateSec: 10
   minRadius: 50
+--- !u!114 &8533978983731796448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608067453501761613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69a0c3e23c537440aacb4d4e4f0e4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalManagerSO: {fileID: 11400000, guid: 5f89fc928d971de4d8db7b4a70ac3b0a, type: 2}

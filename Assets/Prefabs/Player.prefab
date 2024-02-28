@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df2887159710f44882c0f7a5017c822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: bf96d9b9c6b745d4fa5839bca6aa89d5, type: 2}
   bullet: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2, type: 3}
+  attacksInterval: {fileID: 11400000, guid: 78c42a3dcefdc314fabaf6ea0309c879, type: 2}
+  inAttackRange: {fileID: 11400000, guid: f4402c96150d74b46a380c6af2a2fee1, type: 2}
 --- !u!1 &5461052779654786451
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +115,8 @@ GameObject:
   - component: {fileID: 7251353718050488765}
   - component: {fileID: 8419413090062408324}
   - component: {fileID: 2724873074703203167}
-  - component: {fileID: 1512072405223109325}
+  - component: {fileID: 5569757095009114483}
+  - component: {fileID: 7789029669407182621}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -234,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77e6ea37f631e347b5867ed061d447a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractor: {fileID: 0}
+  globalManagerSO: {fileID: 11400000, guid: 5f89fc928d971de4d8db7b4a70ac3b0a, type: 2}
 --- !u!114 &2724873074703203167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,10 +249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99f55807f824d94f9b2427766df877a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: bf96d9b9c6b745d4fa5839bca6aa89d5, type: 2}
+  moveSpeed: {fileID: 11400000, guid: 6793e78e11f96d449910041a3ee2f42b, type: 2}
   lookRotationTrs: {fileID: 8446668166876806527}
   lookAtarget: {fileID: 6320259448362677100}
---- !u!114 &1512072405223109325
+--- !u!114 &5569757095009114483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,13 +261,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 5461052779654786451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62108c7e58735af45ac19270321e8812, type: 3}
+  m_Script: {fileID: 11500000, guid: 38a0720fb6cbafe4ea601263b0d8aa5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  damageFlashMat: {fileID: 2100000, guid: 560151db99df37444afa4bf641440ffe, type: 2}
-  damageFlashTime: 0.125
-  playerData: {fileID: 11400000, guid: bf96d9b9c6b745d4fa5839bca6aa89d5, type: 2}
+  HP: {fileID: 11400000, guid: 4d097bb944d60af4992871df3f991b38, type: 2}
+  reset: 1
+  startHP: {fileID: 11400000, guid: dff48c449b1ba594894d0eabc20b4ca9, type: 2}
+  maxHP: {fileID: 11400000, guid: c9a85830a2d2b274cbc8ce9043fc9cf1, type: 2}
+  takeDammageEffect: {fileID: 0}
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: aa17c206464f769479a4a55659128c51, type: 2}
+        m_TargetAssemblyTypeName: Shooter.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7789029669407182621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461052779654786451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69a0c3e23c537440aacb4d4e4f0e4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalManagerSO: {fileID: 11400000, guid: 5f89fc928d971de4d8db7b4a70ac3b0a, type: 2}
 --- !u!1 &7715280590880787069
 GameObject:
   m_ObjectHideFlags: 0
