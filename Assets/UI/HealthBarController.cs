@@ -7,8 +7,7 @@ namespace Shooter
 {
     public class HealthBarController : MonoBehaviour
     {
-        public IntVariable playerHP;
-        public IntVariable playerMaxHP;
+        public UnitHealthSO unitHealthSO;
 
         private VisualElement root;
         private ProgressBar chargeBar;
@@ -21,12 +20,12 @@ namespace Shooter
             actualBar.style.backgroundColor = Color.red;
 
             chargeBar = root.Q<ProgressBar>("HealthBar");
-            chargeBar.value = (float)playerHP.Value;
+            chargeBar.value = (float)unitHealthSO.currentHP;
         }
 
         public void UpdateBar()
         {
-            chargeBar.value = ((float)playerHP.Value / (float)playerMaxHP.Value) * 100f;
+            chargeBar.value = ((float)unitHealthSO.currentHP / (float)unitHealthSO.maxHP) * 100f;
         }
     }
 }

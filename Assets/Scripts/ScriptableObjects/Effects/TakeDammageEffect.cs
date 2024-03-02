@@ -4,5 +4,6 @@ using UnityEngine;
 
 public abstract class TakeDammageEffect : ScriptableObject
 {
-    public abstract IEnumerator Apply(GameObject go);
+    [ExecuteAlways]
+    public abstract IEnumerator Apply(MeshRenderer[] renderers, Material[] orgMaterials);
 }

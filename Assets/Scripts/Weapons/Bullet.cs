@@ -12,7 +12,7 @@ namespace Shooter
 
         private Vector3 startPosition;
 
-        private void Start()
+        private void OnEnable()
         {
             startPosition = transform.position;
         }

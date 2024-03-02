@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2, type: 3}
   attacksInterval: {fileID: 11400000, guid: 78c42a3dcefdc314fabaf6ea0309c879, type: 2}
-  inAttackRange: {fileID: 11400000, guid: f4402c96150d74b46a380c6af2a2fee1, type: 2}
+  enemiesInRange: {fileID: 11400000, guid: ed74b3c5e4c45bc4d9eb1ea2cfccf717, type: 2}
 --- !u!1 &5461052779654786451
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 2724873074703203167}
   - component: {fileID: 5569757095009114483}
   - component: {fileID: 7789029669407182621}
+  - component: {fileID: 804228855613330373}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -264,17 +265,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a0720fb6cbafe4ea601263b0d8aa5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: {fileID: 11400000, guid: 4d097bb944d60af4992871df3f991b38, type: 2}
-  reset: 1
-  startHP: {fileID: 11400000, guid: dff48c449b1ba594894d0eabc20b4ca9, type: 2}
-  maxHP: {fileID: 11400000, guid: c9a85830a2d2b274cbc8ce9043fc9cf1, type: 2}
-  takeDammageEffect: {fileID: 0}
+  healthSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  createInsance: 0
+  OnStartEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: aa17c206464f769479a4a55659128c51, type: 2}
+        m_TargetAssemblyTypeName: Shooter.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHitEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: aa17c206464f769479a4a55659128c51, type: 2}
         m_TargetAssemblyTypeName: Shooter.GameEvent, Assembly-CSharp
         m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 804228855613330373}
+        m_TargetAssemblyTypeName: FlashEffect, Assembly-CSharp
+        m_MethodName: PlayEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -300,6 +325,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalManagerSO: {fileID: 11400000, guid: 5f89fc928d971de4d8db7b4a70ac3b0a, type: 2}
+--- !u!114 &804228855613330373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461052779654786451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71971b1e3c088b24396a2ebcc3e4d943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashEffect: {fileID: 11400000, guid: 45a8ac96ead16aa46ac46166958b197f, type: 2}
 --- !u!1 &7715280590880787069
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,13 +365,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7715280590880787069}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5363144, y: -0, z: -0, w: 0.8440183}
-  m_LocalPosition: {x: 0, y: 28.3, z: -20.4}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 66.94, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5903297864969995812}
-  m_LocalEulerAnglesHint: {x: 64.866, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!20 &5157187737614811585
 Camera:
   m_ObjectHideFlags: 0

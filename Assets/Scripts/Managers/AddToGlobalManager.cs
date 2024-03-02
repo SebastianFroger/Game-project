@@ -10,7 +10,7 @@ namespace Shooter
     {
         public GlobalManagerSO globalManagerSO;
 
-        void Start()
+        void Awake()
         {
             switch (gameObject.name)
             {

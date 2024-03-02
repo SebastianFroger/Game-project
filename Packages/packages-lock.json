@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.postcyberpunk.vscodeunityautocompilation": {
+      "version": "https://github.com/PostCyberPunk/VSCodeUnityAutoCompliation.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "0b108ac15b99fd60c655040932778a7821b1e2a8"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

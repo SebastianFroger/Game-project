@@ -14,6 +14,9 @@ namespace Shooter
 
         void Start()
         {
+            if (globalManagerSO.attractor == null)
+                DebugExt.LogError(this, "Missing globalManagerSO");
+
             _rb = GetComponent<Rigidbody>();
             _rb.constraints = RigidbodyConstraints.FreezeRotation;
             _rb.useGravity = false;
@@ -22,7 +25,8 @@ namespace Shooter
 
         void Update()
         {
-            globalManagerSO.attractor.Attract(_transform, _rb);
+            if (globalManagerSO.attractor != null)
+                globalManagerSO.attractor.Attract(_transform, _rb);
         }
     }
 }

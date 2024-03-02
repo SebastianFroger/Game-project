@@ -9,7 +9,7 @@ namespace Shooter
     {
         public GameObject bullet;
         public FloatVariable attacksInterval;
-        public InAttackRange inAttackRange;
+        public GameObjectRuntimeSet enemiesInRange;
 
         private float _nextAttackTime = 0f;
         private Transform _nearestEnemy;
@@ -19,11 +19,11 @@ namespace Shooter
 
         private void Update()
         {
-            if (Time.time < _nextAttackTime || inAttackRange.enemies.Count == 0) return;
+            if (Time.time < _nextAttackTime || enemiesInRange.Items.Count == 0) return;
             _nextAttackTime = Time.time + attacksInterval.Value;
 
             _smallestDistance = Mathf.Infinity;
-            foreach (var enemy in inAttackRange.enemies)
+            foreach (var enemy in enemiesInRange.Items)
             {
                 _distance = Vector3.Distance(transform.position, enemy.position);
                 if (_distance > _smallestDistance) continue;
@@ -36,16 +36,5 @@ namespace Shooter
             _bulletInst.transform.position = transform.position;
             _bulletInst.transform.LookAt(_nearestEnemy);
         }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            inAttackRange.Add(other.transform);
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            inAttackRange.Remove(other.transform);
-        }
-
     }
 }
