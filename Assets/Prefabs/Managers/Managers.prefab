@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -8255545121539672844}
   - component: {fileID: 9196481844530961011}
   - component: {fileID: 1619805912655796473}
+  - component: {fileID: 353210872506060028}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -61,7 +62,9 @@ MonoBehaviour:
   globalManagerSO: {fileID: 11400000, guid: 5f89fc928d971de4d8db7b4a70ac3b0a, type: 2}
   enemyA: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a, type: 3}
   enemyB: {fileID: 0}
-  spawnInterval: 1
+  spawnInterval: 2
+  minSpawnInterval: 0.1
+  spawnIntervalDecreaseRate: 0.01
 --- !u!114 &1619805912655796473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,3 +79,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   points: {fileID: 11400000, guid: 07f25c8ccb825494c8f467e41c846719, type: 2}
+--- !u!114 &353210872506060028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479988335815413390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88e5776e9b953a42b1d78bcf448ece7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 9211762577373264714, guid: f0742f7c3f5a339429307c19d2b4a2ff, type: 3}
