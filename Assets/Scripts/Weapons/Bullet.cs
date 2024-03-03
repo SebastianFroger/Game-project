@@ -27,6 +27,7 @@ namespace Shooter
 
         private void OnCollisionEnter(Collision other)
         {
+            Debug.Log(other.gameObject.name);
             other.gameObject.GetComponent<Health>().TakeDamage(damage);
             MyObjectPool.bullet.Release(gameObject);
         }

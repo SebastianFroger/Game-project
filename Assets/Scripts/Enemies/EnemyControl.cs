@@ -24,7 +24,7 @@ namespace Shooter
             }
         }
 
-        void FixedUpdate()
+        void Update()
         {
             if (globalManagerSO.player != null)
             {
@@ -32,8 +32,15 @@ namespace Shooter
                 if (_moveDir == Vector3.zero) return;
                 _localMoveDir = lookAtarget.InverseTransformDirection(_moveDir);
                 lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
-                _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * speed.Value * Time.deltaTime);
                 lookRotationTrs.LookAt(lookAtarget, transform.up);
+            }
+        }
+
+        void FixedUpdate()
+        {
+            if (globalManagerSO.player != null)
+            {
+                _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * speed.Value * Time.deltaTime);
             }
         }
     }
