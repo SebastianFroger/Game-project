@@ -14,6 +14,7 @@ namespace Shooter
         {
             globalManagerSO.planet.GetComponent<Planet>().Grow(scaleAmount);
             MyObjectPool.planetScaler.Release(gameObject);
+            Debug.Log("scale");
         }
     }
 }

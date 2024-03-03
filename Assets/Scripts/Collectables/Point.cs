@@ -15,6 +15,7 @@ namespace Shooter
 
         private void OnTriggerEnter(Collider other)
         {
+            if (!other.CompareTag("PickUpCollider")) return;
             intVariable.ApplyChange(value);
             MyObjectPool.points.Release(gameObject);
             OnPickUpEvent.Invoke();

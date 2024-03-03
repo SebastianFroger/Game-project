@@ -13,7 +13,6 @@ namespace Shooter
         private Vector3 _shrinkVector;
         private Vector3 _growVector;
         private float _sizeTarget;
-        private bool _isGrowing;
 
         void Awake()
         {
@@ -25,26 +24,15 @@ namespace Shooter
 
         void Update()
         {
-            if (_isGrowing)
-            {
-                if (transform.localScale.x < _sizeTarget)
-                    transform.localScale += _growVector * Time.deltaTime;
-                else
-                    _isGrowing = false;
-            }
-            else
-            {
-                if (transform.localScale.x >= minRadius)
-                    transform.localScale -= _shrinkVector * Time.deltaTime;
-            }
+            if (transform.localScale.x >= minRadius)
+                transform.localScale -= _shrinkVector * Time.deltaTime;
 
             currentRadius = transform.localScale.x / 2;
         }
 
-        public void Grow(float amount)
+        public void Grow(float val)
         {
-            _sizeTarget = transform.localScale.x + amount;
-            _isGrowing = true;
+
         }
     }
 }

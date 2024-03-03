@@ -324,7 +324,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5222275296460066990}
-  - component: {fileID: 3363321657351471917}
   - component: {fileID: 2185066809433140280}
   m_Layer: 10
   m_Name: PlanetScalor
@@ -351,19 +350,6 @@ Transform:
   - {fileID: 13206424996081655}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3363321657351471917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9211762577373264714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 128b27ad0fb43e9459d359bda65a3a95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleAmount: 0
 --- !u!135 &2185066809433140280
 SphereCollider:
   m_ObjectHideFlags: 0
