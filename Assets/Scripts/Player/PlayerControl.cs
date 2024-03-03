@@ -5,13 +5,11 @@ namespace Shooter
 {
     public class PlayerControl : MonoBehaviour
     {
-        public FloatVariable moveSpeed;
-        public Transform lookRotationTrs;
-        public Transform lookAtarget;
+        public float moveSpeed = 10f;
 
-        private Vector2 _value;
-        private Vector3 _moveDir;
+        private Vector3 _inputDir;
         private Rigidbody _rb;
+        private Vector3 _movePos;
 
         void Start()
         {
@@ -21,16 +19,13 @@ namespace Shooter
 
         void OnMove(InputValue value)
         {
-            _value = value.Get<Vector2>();
-            _moveDir = new Vector3(_value.x, 0f, _value.y);
+            _inputDir = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
         }
 
         void FixedUpdate()
         {
-            if (_moveDir == Vector3.zero) return;
-            _rb.MovePosition(_rb.position + transform.TransformDirection(_moveDir) * moveSpeed.Value * Time.deltaTime);
-            lookAtarget.localPosition = _moveDir;
-            lookRotationTrs.LookAt(lookAtarget, transform.up);
+            _movePos = transform.rotation * _inputDir + transform.position;
+            _rb.velocity = (_movePos - transform.position) * moveSpeed;
         }
     }
 }
