@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class InPlayerRange : MonoBehaviour
 {
+    public string compareTag = "Player";
     public EnemiesInRange enemiesInRange;
 
     private void OnTriggerEnter(Collider other)
     {
-        enemiesInRange.Add(transform);
+        if (other.CompareTag(compareTag))
+            enemiesInRange.Add(transform);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        enemiesInRange.Remove(transform);
+        if (other.CompareTag(compareTag))
+            enemiesInRange.Remove(transform);
     }
 
     private void OnDisable()

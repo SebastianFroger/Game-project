@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c03b2781d8c0749956d4f3e75e741d, type: 3}
   m_Name: EnemyAStats
   m_EditorClassIdentifier: 
-  currentHP: 0
+  currentHP: 10
   startHP: 10
   maxHP: 0
   speed: 10

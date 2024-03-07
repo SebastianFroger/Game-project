@@ -7,14 +7,16 @@ public class GameManager : Singleton<GameManager>
 {
     private bool _isPaused;
     private bool _gameStarted;
-    private PlayerInput _playerInput;
+    public PlayerInput _playerInput;
     private string _actionMapPlayerControls = "Player Controls";
     private string _actionMenuControls = "Menu Controls";
 
     void Start()
     {
-        _isPaused = false;
         _gameStarted = false;
+
+        Time.timeScale = 0f; // stop time at startmenu
+        EnableMenuControls();
     }
 
     public void TogglePauseState()
@@ -54,5 +56,26 @@ public class GameManager : Singleton<GameManager>
     public void EnableMenuControls()
     {
         _playerInput.SwitchCurrentActionMap(_actionMenuControls);
+    }
+
+    public void OnStartResumeButtonPress()
+    {
+        if (!_gameStarted)
+        {
+            MenuManager.Instance.MenuClose();
+            MenuManager.Instance.OnStartPress();
+            ToggleTimeScale();
+            EnableGameplayControls();
+            _gameStarted = true;
+        }
+        else
+        {
+            TogglePauseState();
+        }
+    }
+
+    public void OnQuiButtonPress()
+    {
+        Application.Quit();
     }
 }

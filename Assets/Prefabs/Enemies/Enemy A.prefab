@@ -116,8 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c2ecb93e8054c45bbb40827caea0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runtimeObjectsSO: {fileID: 11400000, guid: 4ad510951cadf6342a166329b08f65a6, type: 2}
-  speed: 0
+  unitStatsSO: {fileID: 11400000, guid: 70765984d1714d343b3208473adec670, type: 2}
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
 --- !u!114 &7335987211931231141

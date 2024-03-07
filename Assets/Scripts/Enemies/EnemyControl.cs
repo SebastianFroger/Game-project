@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    public RuntimeObjectsSO runtimeObjectsSO;
-    public float speed;
+    public UnitStatsSO unitStatsSO;
     public Transform lookRotationTrs;
     public Transform lookAtarget;
 
@@ -17,29 +16,23 @@ public class EnemyControl : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        if (runtimeObjectsSO == null)
+        if (unitStatsSO == null)
         {
-            DebugExt.LogError(this, "Missing runtimeObjectsSO");
+            DebugExt.LogError(this, "Missing unitStatsSO");
         }
     }
 
     void Update()
     {
-        if (runtimeObjectsSO.playerInst != null)
-        {
-            _moveDir = runtimeObjectsSO.playerInst.transform.position - transform.position + transform.position;
-            if (_moveDir == Vector3.zero) return;
-            _localMoveDir = lookAtarget.InverseTransformDirection(_moveDir);
-            lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
-            lookRotationTrs.LookAt(lookAtarget, transform.up);
-        }
+        _moveDir = GlobalObjectsManager.Instance.player.transform.position - transform.position + transform.position;
+        if (_moveDir == Vector3.zero) return;
+        _localMoveDir = lookAtarget.InverseTransformDirection(_moveDir);
+        lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
+        lookRotationTrs.LookAt(lookAtarget, transform.up);
     }
 
     void FixedUpdate()
     {
-        if (runtimeObjectsSO.playerInst != null)
-        {
-            _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * speed * Time.deltaTime);
-        }
+        _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * unitStatsSO.speed * Time.deltaTime);
     }
 }

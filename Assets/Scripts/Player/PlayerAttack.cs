@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         // fire
-        _bulletInst = MyObjectPool.GetInstance(bullet, MyObjectPool.bullet);
+        _bulletInst = MyObjectPool.Instance.GetInstance(bullet, MyObjectPool.Instance.bullet);
         _bulletInst.transform.position = transform.position;
         _bulletInst.transform.LookAt(_nearestEnemy);
     }

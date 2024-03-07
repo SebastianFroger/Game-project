@@ -4,16 +4,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class MyObjectPool : MonoBehaviour
+public class MyObjectPool : Singleton<MyObjectPool>
 {
 
-    public static ObjectPool<GameObject> enemyA;
-    public static ObjectPool<GameObject> enemyB;
-    public static ObjectPool<GameObject> bullet;
-    public static ObjectPool<GameObject> planetScaler;
-    public static ObjectPool<GameObject> points;
+    public ObjectPool<GameObject> enemyA;
+    public ObjectPool<GameObject> enemyB;
+    public ObjectPool<GameObject> bullet;
+    public ObjectPool<GameObject> planetScaler;
+    public ObjectPool<GameObject> points;
 
-    private static GameObject objToCreate;
+    private GameObject objToCreate;
 
     void Start()
     {
@@ -24,10 +24,13 @@ public class MyObjectPool : MonoBehaviour
         points = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
     }
 
-    public static GameObject GetInstance(GameObject obj, ObjectPool<GameObject> pool)
+    public GameObject GetInstance(GameObject obj, ObjectPool<GameObject> pool)
     {
         objToCreate = obj;
-        return pool.Get();
+        var inst = pool.Get();
+        if (inst.transform.parent != transform)
+            inst.transform.parent = transform;
+        return inst;
     }
 
     GameObject Create()
