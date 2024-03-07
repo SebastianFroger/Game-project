@@ -2,31 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shooter
+
+public class GravityBody : MonoBehaviour
 {
-    public class GravityBody : MonoBehaviour
+    public GravityAttractor gravityAttractor;
+
+    private Transform _transform;
+    private Rigidbody _rb;
+
+
+    void Start()
     {
-        public GlobalManagerSO globalManagerSO;
+        if (gravityAttractor == null)
+            DebugExt.LogError(this, "Missing gravityAttractor");
 
-        private Transform _transform;
-        private Rigidbody _rb;
+        _rb = GetComponent<Rigidbody>();
+        _rb.constraints = RigidbodyConstraints.FreezeRotation;
+        _rb.useGravity = false;
+        _transform = transform;
+    }
 
-
-        void Start()
-        {
-            if (globalManagerSO.attractor == null)
-                DebugExt.LogError(this, "Missing globalManagerSO");
-
-            _rb = GetComponent<Rigidbody>();
-            _rb.constraints = RigidbodyConstraints.FreezeRotation;
-            _rb.useGravity = false;
-            _transform = transform;
-        }
-
-        void Update()
-        {
-            if (globalManagerSO.attractor != null)
-                globalManagerSO.attractor.Attract(_transform, _rb);
-        }
+    void Update()
+    {
+        if (gravityAttractor != null)
+            gravityAttractor.Attract(_transform, _rb);
     }
 }

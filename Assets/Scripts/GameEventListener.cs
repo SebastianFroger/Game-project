@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Shooter
+
+public class GameEventListener : MonoBehaviour
 {
-    public class GameEventListener : MonoBehaviour
-    {
-        public GameEvent Event;
-        public UnityEvent Response;
+    public GameEventSO Event;
+    public UnityEvent Response;
 
-        private void OnEnable()
-        { Event.RegisterListener(this); }
+    private void OnEnable()
+    { Event.RegisterListener(this); }
 
-        private void OnDisable()
-        { Event.UnregisterListener(this); }
+    private void OnDisable()
+    { Event.UnregisterListener(this); }
 
-        public void OnEventRaised()
-        { Response.Invoke(); }
-    }
+    public void OnEventRaised()
+    { Response.Invoke(); }
 }

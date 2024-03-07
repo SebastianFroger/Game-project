@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using Shooter;
 using UnityEngine;
 
 public class InPlayerRange : MonoBehaviour
 {
-    public GameObjectRuntimeSet inRange;
+    public EnemiesInRange enemiesInRange;
 
     private void OnTriggerEnter(Collider other)
     {
-        inRange.Add(transform);
+        enemiesInRange.Add(transform);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        inRange.Remove(transform);
+        enemiesInRange.Remove(transform);
     }
 
     private void OnDisable()
     {
-        inRange.Remove(transform);
+        enemiesInRange.Remove(transform);
     }
 }

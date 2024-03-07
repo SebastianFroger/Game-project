@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shooter
+
+public class PlanetScaler : MonoBehaviour
 {
+    public RuntimeObjectsSO runtimeObjectsSO;
+    public int scaleAmount;
 
-    public class PlanetScaler : MonoBehaviour
+    private void OnTriggerEnter(Collider other)
     {
-        public int scaleAmount;
-        public GlobalManagerSO globalManagerSO;
-
-        private void OnTriggerEnter(Collider other)
-        {
-            globalManagerSO.planet.GetComponent<Planet>().Grow(scaleAmount);
-            MyObjectPool.planetScaler.Release(gameObject);
-        }
+        runtimeObjectsSO.planetInst.GetComponent<Planet>().Grow(scaleAmount);
+        MyObjectPool.planetScaler.Release(gameObject);
     }
 }

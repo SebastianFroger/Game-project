@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6febd3a4515d3e4408b7305096b62df6, type: 3}
+  m_Name: RuntimeObjects
+  m_EditorClassIdentifier: 
+  player: {fileID: 5461052779654786451, guid: 8f5e135a19626f544908fc8f156144b9, type: 3}
+  playerInst: {fileID: 0}
+  planet: {fileID: 3608067453501761613, guid: 4f34d1a4018ab5b41b2e1eb0b1f52f73, type: 3}
+  planetInst: {fileID: 0}
+  gravityAttractorInst: {fileID: 0}
+  managers: {fileID: 6479988335815413390, guid: 7cb1cae516c0f1749a14e84927147490,
+    type: 3}
+  managersInst: {fileID: 0}
+  UI: {fileID: 3092792797900362770, guid: 197a2444f1c3fa940ac806712c5af9a1, type: 3}
+  UIInst: {fileID: 0}
