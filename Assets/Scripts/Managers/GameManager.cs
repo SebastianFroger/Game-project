@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
+    public PlayerStats playerStats;
     private bool _isPaused;
     private bool _gameStarted;
     public PlayerInput _playerInput;
@@ -14,9 +15,9 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         _gameStarted = false;
-
         Time.timeScale = 0f; // stop time at startmenu
         EnableMenuControls();
+        MenuManager.Instance.ShowGameUI(false);
     }
 
     public void TogglePauseState()
@@ -29,12 +30,14 @@ public class GameManager : Singleton<GameManager>
 
         if (_isPaused)
         {
-            MenuManager.Instance.MenuOpen();
+            MenuManager.Instance.ShowGameUI(false);
+            MenuManager.Instance.MenuOpen(true);
             EnableMenuControls();
         }
         else
         {
-            MenuManager.Instance.MenuClose();
+            MenuManager.Instance.ShowGameUI(true);
+            MenuManager.Instance.MenuOpen(false);
             EnableGameplayControls();
         }
     }
@@ -62,10 +65,11 @@ public class GameManager : Singleton<GameManager>
     {
         if (!_gameStarted)
         {
-            MenuManager.Instance.MenuClose();
+            MenuManager.Instance.MenuOpen(false);
             MenuManager.Instance.OnStartPress();
             ToggleTimeScale();
             EnableGameplayControls();
+            ResetStats();
             _gameStarted = true;
         }
         else
@@ -76,6 +80,11 @@ public class GameManager : Singleton<GameManager>
 
     public void OnQuiButtonPress()
     {
-        Application.Quit();
+        MenuManager.Instance.OnQuitPress();
+    }
+
+    private void ResetStats()
+    {
+        playerStats.points = 0;
     }
 }

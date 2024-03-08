@@ -24,9 +24,9 @@ public class Bullet : MonoBehaviour
             MyObjectPool.Instance.bullet.Release(gameObject);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Health>().TakeDamage(damage);
+        other.gameObject.GetComponent<Health>()?.TakeDamage(damage);
         MyObjectPool.Instance.bullet.Release(gameObject);
     }
 }

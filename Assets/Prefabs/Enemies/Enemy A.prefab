@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77e6ea37f631e347b5867ed061d447a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityAttractor: {fileID: 0}
 --- !u!114 &8779180441509374298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c7a72d7a32e1c4fbe107fc273f8d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  compareTag: Player
   enemiesInRange: {fileID: 11400000, guid: 08125d610ba39434780d96314231fb76, type: 2}
 --- !u!1 &3691526587206051513
 GameObject:
@@ -336,7 +336,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 134a2e9f2341edf48959e6dadb30b323, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

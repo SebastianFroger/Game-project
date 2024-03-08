@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8836952936683171452}
   - component: {fileID: -8255545121539672844}
   - component: {fileID: 9196481844530961011}
+  - component: {fileID: 2366366261655640617}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -58,9 +59,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  gravityAttractor: {fileID: 0}
   enemyA: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a, type: 3}
   enemyB: {fileID: 0}
   spawnInterval: 2
-  minSpawnInterval: 0.1
-  spawnIntervalDecreaseRate: 0.01
+  minSpawnInterval: 0.5
+  spawnIntervalDecreaseRate: 0.02
+--- !u!114 &2366366261655640617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479988335815413390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04795d53d6a713744a44a542b15b38d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  planet: {fileID: 0}
+  gravityAttractor: {fileID: 0}
