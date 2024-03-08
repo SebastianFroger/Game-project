@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
 
     void OnTogglePause()
     {
-        GameManager.Instance.TogglePauseState();
+        GameManager.Instance.PauseMenuToggle();
     }
 
     void FixedUpdate()

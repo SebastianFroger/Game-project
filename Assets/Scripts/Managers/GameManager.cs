@@ -9,55 +9,105 @@ public class GameManager : Singleton<GameManager>
 {
     public PlayerStats playerStats;
     private bool _isPaused;
-    private bool _gameStarted;
+    public bool gameStarted;
     public PlayerInput _playerInput;
     private string _actionMapPlayerControls = "Player Controls";
     private string _actionMenuControls = "Menu Controls";
 
     void Start()
     {
-        _gameStarted = false;
-        Time.timeScale = 0f; // stop time at startmenu
-        MenuManager.Instance.ShowGameUI(false);
-        MenuManager.Instance.MenuOpen(true);
+        gameStarted = false;
+        TimeActive(false);
+        MenuManager.Instance.EnableMainMenu(true);
+        MenuManager.Instance.EnableGameUI(false);
+        MenuManager.Instance.EnableRoundMenu(false);
+        MenuManager.Instance.EnablePauseMenu(false);
         EnableMenuControls();
+        DebugExt.Log(this, "Start");
     }
 
-    public void GameReset()
+
+    // buttons and menus
+    public void OnStarButtonPress() // start button in menu
     {
-        Debug.Log("GameReset");
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        ResetStats();
+        MenuManager.Instance.EnableMainMenu(false);
+        MenuManager.Instance.EnableGameUI(true);
+        EnableGameplayControls();
+        TimeActive(true);
+        gameStarted = true;
+        RoundManager.Instance.StartFirstRound();
+        DebugExt.Log(this, "OnStarButtonPress");
     }
 
-    public void TogglePauseState()
+    public void OnResumeButtonPress() // resume button in menu
     {
-        if (!_gameStarted) return;
+        PauseMenuToggle();
+    }
+
+    public void PauseMenuToggle()
+    {
+        if (!gameStarted) return;
 
         _isPaused = !_isPaused;
 
-        ToggleTimeScale();
-
         if (_isPaused)
         {
-            MenuManager.Instance.ShowGameUI(false);
-            MenuManager.Instance.MenuOpen(true);
+            DebugExt.Log(this, "current actionmap " + _playerInput.currentActionMap.name);
+            TimeActive(false);
+            MenuManager.Instance.EnableGameUI(false);
+            MenuManager.Instance.EnablePauseMenu(true);
             EnableMenuControls();
         }
         else
         {
-            MenuManager.Instance.ShowGameUI(true);
-            MenuManager.Instance.MenuOpen(false);
+            MenuManager.Instance.EnablePauseMenu(false);
+            MenuManager.Instance.EnableGameUI(true);
             EnableGameplayControls();
+            TimeActive(true);
+
         }
     }
 
-    void ToggleTimeScale()
+    public void EndRound()
     {
-        if (_isPaused)
-            Time.timeScale = 0f;
-        else
-            Time.timeScale = 1f;
+        TimeActive(false);
+        MenuManager.Instance.EnableRoundMenu(true);
+        MenuManager.Instance.EnableGameUI(false);
+        EnableMenuControls();
+        MyObjectPool.Instance.Clear();
+    }
+
+    public void OnRoundMenuReadyPress()
+    {
+        MenuManager.Instance.EnableRoundMenu(false);
+        MenuManager.Instance.EnableGameUI(true);
+        EnableGameplayControls();
+        TimeActive(true);
+    }
+
+    public void OnQuiButtonPress()
+    {
+        Application.Quit();
+    }
+
+    void TimeActive(bool active)
+    {
+        Time.timeScale = active == true ? 1f : 0f;
+    }
+
+    private void ResetStats()
+    {
+        playerStats.points = 0;
+        playerStats.currentHP = playerStats.startHP;
+        playerStats.maxHP = playerStats.startHP;
+    }
+
+    public void GameReset()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+        ResetStats();
     }
 
     // actioncontrols
@@ -70,35 +120,4 @@ public class GameManager : Singleton<GameManager>
     {
         _playerInput.SwitchCurrentActionMap(_actionMenuControls);
     }
-
-    public void OnStartResumeButtonPress()
-    {
-        if (!_gameStarted)
-        {
-            MenuManager.Instance.MenuOpen(false);
-            MenuManager.Instance.OnStartPress();
-            ToggleTimeScale();
-            EnableGameplayControls();
-            ResetStats();
-            _gameStarted = true;
-        }
-        else
-        {
-            TogglePauseState();
-        }
-    }
-
-    public void OnQuiButtonPress()
-    {
-        MenuManager.Instance.OnQuitPress();
-    }
-
-    private void ResetStats()
-    {
-        playerStats.points = 0;
-        playerStats.currentHP = playerStats.startHP;
-        playerStats.maxHP = playerStats.startHP;
-    }
-
-
 }

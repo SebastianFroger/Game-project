@@ -11,7 +11,7 @@ public class RoundManager : Singleton<RoundManager>
     public RoundDataSO roundDataSO;
     private float _nextRoundTime;
 
-    private void Start()
+    public void StartFirstRound()
     {
         roundDataSO.currentRound = 1;
         _nextRoundTime = Time.time + roundTime;
@@ -20,17 +20,20 @@ public class RoundManager : Singleton<RoundManager>
 
     void Update()
     {
+        if (!GameManager.Instance.gameStarted) return;
+
         roundDataSO.timeCountDown = _nextRoundTime - Time.deltaTime;
 
         if (Time.fixedTime >= _nextRoundTime)
         {
-            RoundEndState();
+            RoundEnd();
         }
     }
 
-    void RoundEndState()
+    void RoundEnd()
     {
-        GameManager.Instance.TogglePauseState();
+        DebugExt.Log(this, "RoundEnded");
+        GameManager.Instance.EndRound();
         roundDataSO.currentRound += 1;
         _nextRoundTime = Time.time + roundTime;
         roundDataSO.timeCountDown = _nextRoundTime - Time.time;

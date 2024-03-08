@@ -8,28 +8,28 @@ using UnityEngine.InputSystem;
 public class MenuManager : Singleton<MenuManager>
 {
     public GameObject mainMenuCanvas;
+    public GameObject pauseMenuCanvas;
     public GameObject gameUICanvas;
+    public GameObject roundMenuCanvas;
     public TMPro.TMP_Text startResumeButtonTMP;
 
-    public void MenuOpen(bool open)
+    public void EnableMainMenu(bool enable)
     {
-        mainMenuCanvas.SetActive(open);
+        mainMenuCanvas.SetActive(enable);
     }
 
-    public void ShowGameUI(bool show)
+    public void EnablePauseMenu(bool enable)
     {
-        gameUICanvas.SetActive(show);
+        pauseMenuCanvas.SetActive(enable);
     }
 
-    public void OnQuitPress()
+    public void EnableRoundMenu(bool enable)
     {
-        Application.Quit();
+        roundMenuCanvas.SetActive(enable);
     }
 
-    public void OnStartPress()
+    public void EnableGameUI(bool enable)
     {
-        startResumeButtonTMP.GetComponent<TMPro.TMP_Text>().text = "Resume";
-        mainMenuCanvas.SetActive(false);
-        gameUICanvas.SetActive(true);
+        gameUICanvas.SetActive(enable);
     }
 }

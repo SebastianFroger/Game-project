@@ -33,6 +33,11 @@ public class MyObjectPool : Singleton<MyObjectPool>
         return inst;
     }
 
+    public void Clear()
+    {
+        enemyA.Clear();
+    }
+
     GameObject Create()
     {
         return Instantiate(objToCreate);
@@ -47,6 +52,8 @@ public class MyObjectPool : Singleton<MyObjectPool>
     {
         obj.SetActive(false);
     }
+
+
 
     void Destroy(GameObject obj)
     {
