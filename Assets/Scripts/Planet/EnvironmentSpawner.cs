@@ -16,9 +16,9 @@ public class EnvironmentItem
 
 public class EnvironmentSpawner : MonoBehaviour
 {
+    public GameObject shopPrefab;
     public EnvironmentItem[] items;
 
-    // Start is called before the first frame update
     void Start()
     {
         foreach (var item in items)
@@ -33,16 +33,28 @@ public class EnvironmentSpawner : MonoBehaviour
 
         while (count < item.amount)
         {
+            RotatePlanetRandom();
+
+            // instantiate random env object and parent to planet
             var randomItem = Random.Range(0, items.Length - 1);
             var inst = Instantiate(item.prefab[randomItem]);
             inst.transform.position = new Vector3(0, Planet.currentRadius - item.yGblPosSubtract, 0);
-            transform.rotation = Quaternion.Euler(new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)));
-
             var scaleVector = Random.Range(item.scaleFactorMin, item.scaleFactorMax);
             inst.transform.localScale = new Vector3(scaleVector, scaleVector / 2, scaleVector);
 
             inst.transform.parent = transform;
+
             count += 1;
         }
+
+        // INSTANTIATE SHOP
+        var shopInst = Instantiate(shopPrefab);
+        shopInst.transform.position = new Vector3(0, Planet.currentRadius - item.yGblPosSubtract, 0);
+        RotatePlanetRandom();
+    }
+
+    void RotatePlanetRandom()
+    {
+        transform.rotation = Quaternion.Euler(new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)));
     }
 }
