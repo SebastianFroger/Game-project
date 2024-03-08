@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8836952936683171452}
+  - component: {fileID: 5189659615570142436}
   - component: {fileID: -8255545121539672844}
-  - component: {fileID: 9196481844530961011}
   - component: {fileID: 2366366261655640617}
+  - component: {fileID: 4503044677826738530}
+  - component: {fileID: 9196481844530961011}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -34,6 +36,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5189659615570142436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479988335815413390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a070d77860af89742a493c43c2bcef53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  _playerInput: {fileID: 0}
 --- !u!114 &-8255545121539672844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +62,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4934e25c913d9a479117fc9ceff6d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2366366261655640617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479988335815413390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04795d53d6a713744a44a542b15b38d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5461052779654786451, guid: 8f5e135a19626f544908fc8f156144b9, type: 3}
+  planet: {fileID: 3608067453501761613, guid: 4f34d1a4018ab5b41b2e1eb0b1f52f73, type: 3}
+  gravityAttractor: {fileID: 5374021278074066996, guid: 4f34d1a4018ab5b41b2e1eb0b1f52f73,
+    type: 3}
+--- !u!114 &4503044677826738530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479988335815413390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247bc882ef1e0204590f76069de16612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nrOfRounds: 10
+  roundTime: 30
+  roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
 --- !u!114 &9196481844530961011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,20 +109,5 @@ MonoBehaviour:
   enemyA: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a, type: 3}
   enemyB: {fileID: 0}
   spawnInterval: 2
-  minSpawnInterval: 0.5
+  minSpawnInterval: 0.2
   spawnIntervalDecreaseRate: 0.02
---- !u!114 &2366366261655640617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479988335815413390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04795d53d6a713744a44a542b15b38d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  planet: {fileID: 0}
-  gravityAttractor: {fileID: 0}

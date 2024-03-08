@@ -1,12 +1,7 @@
 Current features
 
-- game menu on death back to start menu
 - create shop + ui
   -- shop upgrades (heal, maxHP, firerate, damage)
-- rounds
-  -- timer
-  -- round counter
-  -- between rounds ui
 - player spider turret robot model
   -- auto legs
 - enemy model

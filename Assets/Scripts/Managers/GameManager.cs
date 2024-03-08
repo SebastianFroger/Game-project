@@ -18,8 +18,9 @@ public class GameManager : Singleton<GameManager>
     {
         _gameStarted = false;
         Time.timeScale = 0f; // stop time at startmenu
-        EnableMenuControls();
         MenuManager.Instance.ShowGameUI(false);
+        MenuManager.Instance.MenuOpen(true);
+        EnableMenuControls();
     }
 
     public void GameReset()
