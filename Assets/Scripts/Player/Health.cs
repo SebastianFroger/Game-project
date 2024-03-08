@@ -42,7 +42,10 @@ public class Health : MonoBehaviour
         if (unitStatsSO.currentHP <= 0)
         {
             if (OnDeathEvent != null)
+            {
+                Debug.Log("death event");
                 OnDeathEvent.Invoke();
+            }
         }
 
         if (OnHitEvent != null && gameObject.activeSelf)

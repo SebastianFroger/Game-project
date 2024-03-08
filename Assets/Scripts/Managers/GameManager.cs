@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+
 
 public class GameManager : Singleton<GameManager>
 {
@@ -18,6 +20,13 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 0f; // stop time at startmenu
         EnableMenuControls();
         MenuManager.Instance.ShowGameUI(false);
+    }
+
+    public void GameReset()
+    {
+        Debug.Log("GameReset");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     public void TogglePauseState()
@@ -86,5 +95,9 @@ public class GameManager : Singleton<GameManager>
     private void ResetStats()
     {
         playerStats.points = 0;
+        playerStats.currentHP = playerStats.startHP;
+        playerStats.maxHP = playerStats.startHP;
     }
+
+
 }
