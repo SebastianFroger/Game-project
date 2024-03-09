@@ -67,23 +67,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void EndRound()
-    {
-        TimeActive(false);
-        MenuManager.Instance.EnableRoundMenu(true);
-        MenuManager.Instance.EnableGameUI(false);
-        EnableMenuControls();
-        MyObjectPool.Instance.Clear();
-    }
-
-    public void OnRoundMenuReadyPress()
-    {
-        MenuManager.Instance.EnableRoundMenu(false);
-        MenuManager.Instance.EnableGameUI(true);
-        EnableGameplayControls();
-        TimeActive(true);
-    }
-
     public void ShopMenuOpen()
     {
         MenuManager.Instance.EnableGameUI(false);
@@ -111,7 +94,7 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
-    void TimeActive(bool active)
+    public void TimeActive(bool active)
     {
         Time.timeScale = active == true ? 1f : 0f;
     }

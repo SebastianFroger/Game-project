@@ -26,16 +26,30 @@ public class RoundManager : Singleton<RoundManager>
 
         if (Time.fixedTime >= _nextRoundTime)
         {
-            RoundEnd();
+            EndRound();
         }
     }
 
-    void RoundEnd()
+    public void EndRound()
     {
-        DebugExt.Log(this, "RoundEnded");
-        GameManager.Instance.EndRound();
+        MenuManager.Instance.EnableGameUI(false);
+        MenuManager.Instance.EnableRoundMenu(true);
+        GameManager.Instance.EnableMenuControls();
+        MyObjectPool.Instance.ReleaseAll();
+        GameManager.Instance.TimeActive(false);
+    }
+
+    public void OnRoundMenuReadyPress()
+    {
         roundDataSO.currentRound += 1;
         _nextRoundTime = Time.time + roundTime;
         roundDataSO.timeCountDown = _nextRoundTime - Time.time;
+
+        MenuManager.Instance.EnableRoundMenu(false);
+        MenuManager.Instance.EnableGameUI(true);
+        GameManager.Instance.EnableGameplayControls();
+        GameManager.Instance.TimeActive(true);
     }
+
+
 }

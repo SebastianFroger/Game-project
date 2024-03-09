@@ -20,7 +20,6 @@ public class MyObjectPool : Singleton<MyObjectPool>
         enemyA = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
         enemyB = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
         bullet = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
-        planetScaler = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
         points = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
     }
 
@@ -31,11 +30,6 @@ public class MyObjectPool : Singleton<MyObjectPool>
         if (inst.transform.parent != transform)
             inst.transform.parent = transform;
         return inst;
-    }
-
-    public void Clear()
-    {
-        enemyA.Clear();
     }
 
     GameObject Create()
@@ -53,10 +47,21 @@ public class MyObjectPool : Singleton<MyObjectPool>
         obj.SetActive(false);
     }
 
-
-
     void Destroy(GameObject obj)
     {
         Destroy(obj);
+    }
+
+    public void ReleaseAll()
+    {
+        GameObject child;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            child = transform.GetChild(i).gameObject;
+            if (child.activeSelf && child.name.StartsWith("EnemyA"))
+                enemyA.Release(child);
+            if (child.activeSelf && child.name.StartsWith("Point"))
+                points.Release(child);
+        }
     }
 }
