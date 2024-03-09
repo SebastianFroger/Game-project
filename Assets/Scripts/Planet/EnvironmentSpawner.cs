@@ -25,6 +25,7 @@ public class EnvironmentSpawner : MonoBehaviour
         {
             Instantiate(item);
         }
+        InstantiateShop();
     }
 
     private void Instantiate(EnvironmentItem item)
@@ -46,16 +47,19 @@ public class EnvironmentSpawner : MonoBehaviour
 
             count += 1;
         }
-
-        // INSTANTIATE SHOP
-        var shopInst = Instantiate(shopPrefab);
-        shopInst.transform.position = new Vector3(0, Planet.currentRadius - item.yGblPosSubtract, 0);
-        shopInst.transform.parent = transform;
-        RotatePlanetRandom();
     }
 
     void RotatePlanetRandom()
     {
         transform.rotation = Quaternion.Euler(new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)));
+    }
+
+    void InstantiateShop()
+    {
+        // INSTANTIATE SHOP
+        var shopInst = Instantiate(shopPrefab);
+        shopInst.transform.position = new Vector3(0, Planet.currentRadius - item.yGblPosSubtract, 0);
+        shopInst.transform.parent = transform;
+        RotatePlanetRandom();
     }
 }
