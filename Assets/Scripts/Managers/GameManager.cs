@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 
+
 public class GameManager : Singleton<GameManager>
 {
     public PlayerStats playerStats;
@@ -23,7 +24,6 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnableRoundMenu(false);
         MenuManager.Instance.EnablePauseMenu(false);
         EnableMenuControls();
-        DebugExt.Log(this, "Start");
     }
 
 
@@ -37,7 +37,6 @@ public class GameManager : Singleton<GameManager>
         TimeActive(true);
         gameStarted = true;
         RoundManager.Instance.StartFirstRound();
-        DebugExt.Log(this, "OnStarButtonPress");
     }
 
     public void OnResumeButtonPress() // resume button in menu
@@ -53,7 +52,6 @@ public class GameManager : Singleton<GameManager>
 
         if (_isPaused)
         {
-            DebugExt.Log(this, "current actionmap " + _playerInput.currentActionMap.name);
             TimeActive(false);
             MenuManager.Instance.EnableGameUI(false);
             MenuManager.Instance.EnablePauseMenu(true);
@@ -65,7 +63,6 @@ public class GameManager : Singleton<GameManager>
             MenuManager.Instance.EnableGameUI(true);
             EnableGameplayControls();
             TimeActive(true);
-
         }
     }
 
@@ -86,7 +83,12 @@ public class GameManager : Singleton<GameManager>
         TimeActive(true);
     }
 
-    public void OnQuiButtonPress()
+    public void OnRestartButtonPress()
+    {
+        GameReset();
+    }
+
+    public void OnQuitAppButtonPress()
     {
         Application.Quit();
     }
