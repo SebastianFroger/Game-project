@@ -344,7 +344,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6479988335815413390, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1514344636}
   m_SourcePrefab: {fileID: 100100000, guid: 7cb1cae516c0f1749a14e84927147490, type: 3}
 --- !u!114 &1120380182 stripped
 MonoBehaviour:
@@ -352,7 +356,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1064231168}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1514344630}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a070d77860af89742a493c43c2bcef53, type: 3}
@@ -491,6 +495,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5469990140329910171, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5569757095009114483, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
       propertyPath: OnStartEvent.m_PersistentCalls.m_Calls.Array.size
@@ -584,6 +593,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1514344630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6479988335815413390, guid: 7cb1cae516c0f1749a14e84927147490,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064231168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1514344636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514344630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894fdd504f5ce8549a1342fa2e2b8cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopItems: []
 --- !u!1001 &852828098284856459
 PrefabInstance:
   m_ObjectHideFlags: 0

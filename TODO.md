@@ -28,4 +28,3 @@ Future upgrades
 Bugs
 
 - player not always shooting nearby enemy. in range issue?
-- UI control not responding other than start menu

@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnableGameUI(false);
         MenuManager.Instance.EnableRoundMenu(false);
         MenuManager.Instance.EnablePauseMenu(false);
+        MenuManager.Instance.EnableShopMenu(false);
         EnableMenuControls();
     }
 
@@ -78,6 +79,22 @@ public class GameManager : Singleton<GameManager>
     public void OnRoundMenuReadyPress()
     {
         MenuManager.Instance.EnableRoundMenu(false);
+        MenuManager.Instance.EnableGameUI(true);
+        EnableGameplayControls();
+        TimeActive(true);
+    }
+
+    public void ShopMenuOpen()
+    {
+        MenuManager.Instance.EnableShopMenu(true);
+        MenuManager.Instance.EnableGameUI(false);
+        EnableMenuControls();
+        TimeActive(false);
+    }
+
+    public void ShopMenuClose()
+    {
+        MenuManager.Instance.EnableShopMenu(false);
         MenuManager.Instance.EnableGameUI(true);
         EnableGameplayControls();
         TimeActive(true);

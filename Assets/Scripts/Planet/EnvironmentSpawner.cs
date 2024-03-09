@@ -50,6 +50,7 @@ public class EnvironmentSpawner : MonoBehaviour
         // INSTANTIATE SHOP
         var shopInst = Instantiate(shopPrefab);
         shopInst.transform.position = new Vector3(0, Planet.currentRadius - item.yGblPosSubtract, 0);
+        shopInst.transform.parent = transform;
         RotatePlanetRandom();
     }
 
