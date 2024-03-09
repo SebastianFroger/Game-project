@@ -274,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 4503044677826738530, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: roundTime
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5189659615570142436, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
@@ -384,7 +384,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1120380182}
+      objectReference: {fileID: 1514344639}
+    - target: {fileID: 1446356102948443487, guid: 197a2444f1c3fa940ac806712c5af9a1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2021636236446757801, guid: 197a2444f1c3fa940ac806712c5af9a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -653,6 +658,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+--- !u!114 &1514344639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4503044677826738530, guid: 7cb1cae516c0f1749a14e84927147490,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064231168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514344630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247bc882ef1e0204590f76069de16612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &852828098284856459
 PrefabInstance:
   m_ObjectHideFlags: 0
