@@ -1,7 +1,8 @@
 Current features
 
-- create shop + ui
+- create shop + ui DONE
   -- shop upgrades (heal, maxHP, firerate, damage)
+- player upgrade stats system. SO
 - player spider turret robot model
   -- auto legs
 - enemy model

@@ -86,8 +86,9 @@ public class GameManager : Singleton<GameManager>
 
     public void ShopMenuOpen()
     {
-        MenuManager.Instance.EnableShopMenu(true);
         MenuManager.Instance.EnableGameUI(false);
+        MenuManager.Instance.EnableShopMenu(true);
+        MenuManager.Instance.SetCardContent(UpgradeManager.Instance.GetRandomUpgrades());
         EnableMenuControls();
         TimeActive(false);
     }

@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using Shooter;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+
+[System.Serializable]
+public class MenuCard
+{
+    public TMPro.TMP_Text title;
+    public TMPro.TMP_Text description;
+}
 
 public class MenuManager : Singleton<MenuManager>
 {
+    [Header("Menu Canvases")]
     public GameObject mainMenuCanvas;
     public GameObject pauseMenuCanvas;
     public GameObject gameUICanvas;
@@ -15,10 +20,14 @@ public class MenuManager : Singleton<MenuManager>
     public GameObject shopMenuCanvas;
     public TMPro.TMP_Text startResumeButtonTMP;
 
+    [Header("Menu Buttons")]
     public GameObject startBtn;
     public GameObject resumeBtn;
     public GameObject readyBtn;
     public GameObject exitShopBtn;
+
+    [Header("Shop Menu Cards")]
+    public MenuCard[] menuCards;
 
     public void EnableMainMenu(bool enable)
     {
@@ -52,4 +61,15 @@ public class MenuManager : Singleton<MenuManager>
     {
         gameUICanvas.SetActive(enable);
     }
+
+    public void SetCardContent(UpgradeSO[] upgrades)
+    {
+        for (int i = 0; i < menuCards.Length; i++)
+        {
+            menuCards[i].title.text = upgrades[i].title;
+            menuCards[i].description.text = upgrades[i].description;
+        }
+    }
 }
+
+
