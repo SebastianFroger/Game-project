@@ -43,7 +43,6 @@ public class Health : MonoBehaviour
         {
             if (OnDeathEvent != null)
             {
-                Debug.Log("death event");
                 OnDeathEvent.Invoke();
             }
         }

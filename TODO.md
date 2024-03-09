@@ -1,7 +1,5 @@
 Current features
 
-- create shop + ui DONE
-  -- shop upgrades (heal, maxHP, firerate, damage)
 - player upgrade stats system. SO
 - player spider turret robot model
   -- auto legs
@@ -11,6 +9,7 @@ Current features
   -- rocks
   -- plants?
 - enemy spawn circle?
+- upgrades
 
 Future upgrades
 

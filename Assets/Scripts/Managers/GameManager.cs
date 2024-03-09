@@ -110,7 +110,6 @@ public class GameManager : Singleton<GameManager>
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-        ResetStats();
     }
 
     // actioncontrols

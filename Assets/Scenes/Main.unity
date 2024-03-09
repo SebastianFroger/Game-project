@@ -281,6 +281,12 @@ PrefabInstance:
       propertyPath: _playerInput
       value: 
       objectReference: {fileID: 1305847779}
+    - target: {fileID: 5189659615570142436, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: playerStatsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935,
+        type: 2}
     - target: {fileID: 6479988335815413390, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: m_Name
@@ -630,6 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894fdd504f5ce8549a1342fa2e2b8cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   upgradeSO:
   - {fileID: 11400000, guid: cee10c2dd4a1182478e745e81292704a, type: 2}
   - {fileID: 11400000, guid: 81121f49aefed2848af350222532877c, type: 2}
@@ -645,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02814d5154915f84cb34b06fdbebe8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatsSO: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
 --- !u!1001 &852828098284856459
 PrefabInstance:
   m_ObjectHideFlags: 0

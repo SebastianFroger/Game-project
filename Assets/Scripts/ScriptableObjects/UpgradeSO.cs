@@ -8,4 +8,6 @@ public class UpgradeSO : ScriptableObject
     public string title;
     public string description;
     public int price;
+
+
 }
