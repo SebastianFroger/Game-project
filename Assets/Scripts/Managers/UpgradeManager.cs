@@ -19,6 +19,6 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     public void ApplyUpgrade(UpgradeSO upgradeSO)
     {
-        DebugExt.Log(this, "Apply upgrade " + upgradeSO.name);
+        upgradeSO.ApplyUpgrade(playerStatsSO);
     }
 }
