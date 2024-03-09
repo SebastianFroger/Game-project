@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class PointsController : MonoBehaviour
 {
-    public PlayerStats playerStats;
+    public PlayerStatsSO playerStats;
 
     private TMPro.TMP_Text _text;
 

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Point : MonoBehaviour
 {
-    public PlayerStats playerStats;
+    public PlayerStatsSO playerStats;
     public int value = 1;
 
     private void OnTriggerEnter(Collider other)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class PlayerStats : UnitStatsSO
+public class PlayerStatsSO : UnitStatsSO
 {
     public int points;
 }

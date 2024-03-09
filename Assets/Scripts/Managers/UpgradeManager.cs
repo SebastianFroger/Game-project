@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UpgradeManager : Singleton<UpgradeManager>
 {
-    [Header("Upgrades List")]
     public UpgradeSO[] upgradeSO;
+
 
     public UpgradeSO[] GetRandomUpgrades()
     {
@@ -15,5 +15,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
             upgradeSO[Random.Range(0, upgradeSO.Length)],
             upgradeSO[Random.Range(0, upgradeSO.Length)]
         };
+    }
+
+    public void ApplyUpgrade(UpgradeSO upgradeSO)
+    {
+        DebugExt.Log(this, "Apply upgrade " + upgradeSO.name);
     }
 }

@@ -8,7 +8,7 @@ namespace Shooter
 {
     public class HealthBarController : MonoBehaviour
     {
-        public PlayerStats playerStats;
+        public PlayerStatsSO playerStats;
 
         private Slider _slider;
 

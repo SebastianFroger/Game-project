@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
-    public PlayerStats playerStats;
+    public PlayerStatsSO playerStatsSO;
     private bool _isPaused;
     public bool gameStarted;
     public PlayerInput _playerInput;
@@ -88,7 +88,7 @@ public class GameManager : Singleton<GameManager>
     {
         MenuManager.Instance.EnableGameUI(false);
         MenuManager.Instance.EnableShopMenu(true);
-        MenuManager.Instance.SetCardContent(UpgradeManager.Instance.GetRandomUpgrades());
+        ShopManager.Instance.OnShopOpen();
         EnableMenuControls();
         TimeActive(false);
     }
@@ -118,9 +118,9 @@ public class GameManager : Singleton<GameManager>
 
     private void ResetStats()
     {
-        playerStats.points = 0;
-        playerStats.currentHP = playerStats.startHP;
-        playerStats.maxHP = playerStats.startHP;
+        playerStatsSO.points = 0;
+        playerStatsSO.currentHP = playerStatsSO.startHP;
+        playerStatsSO.maxHP = playerStatsSO.startHP;
     }
 
     public void GameReset()

@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Linq;
+using System.Threading;
 
 [System.Serializable]
 public class MenuCard
 {
+    public GameObject gameObject;
     public TMPro.TMP_Text title;
     public TMPro.TMP_Text description;
+    public TMPro.TMP_Text price;
+    public Image image;
 }
 
 public class MenuManager : Singleton<MenuManager>
@@ -27,7 +33,8 @@ public class MenuManager : Singleton<MenuManager>
     public GameObject exitShopBtn;
 
     [Header("Shop Menu Cards")]
-    public MenuCard[] menuCards;
+    public MenuCard[] shopCards;
+
 
     public void EnableMainMenu(bool enable)
     {
@@ -64,11 +71,31 @@ public class MenuManager : Singleton<MenuManager>
 
     public void SetCardContent(UpgradeSO[] upgrades)
     {
-        for (int i = 0; i < menuCards.Length; i++)
+        foreach (var card in shopCards)
         {
-            menuCards[i].title.text = upgrades[i].title;
-            menuCards[i].description.text = upgrades[i].description;
+            card.gameObject.SetActive(true);
         }
+
+        for (int i = 0; i < shopCards.Length; i++)
+        {
+            shopCards[i].title.text = upgrades[i].title;
+            shopCards[i].description.text = upgrades[i].description;
+            shopCards[i].price.text = upgrades[i].price.ToString();
+        }
+    }
+
+    public void DisableUpgradeCard(int index)
+    {
+        shopCards[index].gameObject.SetActive(false);
+
+        // select new card button
+        var next_button = exitShopBtn;
+        foreach (var card in shopCards)
+        {
+            if (card.gameObject.activeSelf)
+                next_button = card.gameObject.GetComponentInChildren<UnityEngine.UI.Button>().gameObject;
+        }
+        EventSystem.current.SetSelectedGameObject(next_button);
     }
 }
 

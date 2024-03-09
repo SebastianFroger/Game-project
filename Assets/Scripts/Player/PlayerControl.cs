@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    public PlayerStats playerStats;
+    public PlayerStatsSO playerStats;
 
     private Vector3 _inputDir;
     private Rigidbody _rb;
