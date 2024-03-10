@@ -5,6 +5,10 @@ using UnityEngine;
 public class ShopManager : Singleton<ShopManager>
 {
     public UnitStatsSO unitStats;
+    public RoundDataSO roundDataSO;
+    public int startPrice;
+    public int priceIncreasePrRound;
+
     private UpgradeSO[] _shopUpgrades;
 
     public void OnShopOpen()
@@ -21,6 +25,14 @@ public class ShopManager : Singleton<ShopManager>
             MenuManager.Instance.DisableUpgradeCard(index);
             UpgradeManager.Instance.ApplyUpgrade(upgrade);
             unitStats.points -= upgrade.price;
+        }
+    }
+
+    private void SetItemPrice()
+    {
+        foreach (var item in _shopUpgrades)
+        {
+            item.price = startPrice + (priceIncreasePrRound * roundDataSO.currentRound);
         }
     }
 }
