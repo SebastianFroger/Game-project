@@ -5,19 +5,19 @@ using System;
 using System.Reflection;
 
 [CreateAssetMenu]
-public class UpgradeSO : PlayerStatsSO
+public class UpgradeSO : UnitStatsSO
 {
     [Header("upgrade shop info")]
     public string title;
     public string description;
     public int price;
 
-    public PlayerStatsSO playerCurrentStats;
+    public UnitStatsSO playerCurrentStats;
 
-    public void ApplyUpgrade(PlayerStatsSO playerCurrentStats = null)
+    public void ApplyUpgrade(UnitStatsSO playerCurrentStats = null)
     {
-        var upgradeFields = typeof(PlayerStatsSO).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-        var playerFields = typeof(PlayerStatsSO).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        var upgradeFields = typeof(UnitStatsSO).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        var playerFields = typeof(UnitStatsSO).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
         foreach (var upgradeField in upgradeFields)
         {

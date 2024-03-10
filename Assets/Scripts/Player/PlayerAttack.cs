@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject bullet;
-    public float attacksInterval;
+    public UnitStatsSO unitStatsSO;
     public EnemiesInRange _enemiesInRange;
 
     private float _nextAttackTime;
@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         if (Time.time < _nextAttackTime || _enemiesInRange.Items.Count == 0) return;
-        _nextAttackTime = Time.time + attacksInterval;
+        _nextAttackTime = Time.time + (1f / unitStatsSO.attackSpeed);
 
         _smallestDistance = Mathf.Infinity;
         foreach (var e in _enemiesInRange.Items)

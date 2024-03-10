@@ -7,7 +7,6 @@ using UnityEngine.Events;
 using Unity.VisualScripting;
 
 
-[ExecuteAlways]
 public class Health : MonoBehaviour
 {
     public UnitStatsSO unitStatsSO;
@@ -34,7 +33,7 @@ public class Health : MonoBehaviour
         unitStatsSO.currentHP = unitStatsSO.startHP;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         unitStatsSO.currentHP -= amount;
 

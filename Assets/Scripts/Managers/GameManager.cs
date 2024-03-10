@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
-    public PlayerStatsSO playerStatsSO;
+    public UnitStatsSO unitStatsSO;
     private bool _isPaused;
     public bool gameStarted;
     public PlayerInput _playerInput;
@@ -101,9 +101,7 @@ public class GameManager : Singleton<GameManager>
 
     private void ResetStats()
     {
-        playerStatsSO.points = 0;
-        playerStatsSO.currentHP = playerStatsSO.startHP;
-        playerStatsSO.maxHP = playerStatsSO.startHP;
+        unitStatsSO.Reset();
     }
 
     public void GameReset()

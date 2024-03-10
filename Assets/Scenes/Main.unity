@@ -274,8 +274,14 @@ PrefabInstance:
     - target: {fileID: 4503044677826738530, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: roundTime
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 5189659615570142436, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: unitStatsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935,
+        type: 2}
     - target: {fileID: 5189659615570142436, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: _playerInput
@@ -347,6 +353,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1305847775}
+    - target: {fileID: 9196481844530961011, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: roundDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca,
+        type: 2}
+    - target: {fileID: 9196481844530961011, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: spawnIntervalDecreaseRate
+      value: 0.04
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -380,6 +397,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 334843139463044521, guid: 197a2444f1c3fa940ac806712c5af9a1,
+        type: 3}
+      propertyPath: unitStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935,
+        type: 2}
     - target: {fileID: 1446356102948443487, guid: 197a2444f1c3fa940ac806712c5af9a1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -485,6 +508,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1120380182}
+    - target: {fileID: 7589002328527226223, guid: 197a2444f1c3fa940ac806712c5af9a1,
+        type: 3}
+      propertyPath: unitStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935,
+        type: 2}
+    - target: {fileID: 8407613422358183378, guid: 197a2444f1c3fa940ac806712c5af9a1,
+        type: 3}
+      propertyPath: unitStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -520,6 +555,12 @@ PrefabInstance:
       propertyPath: m_NotificationBehavior
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2724873074703203167, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: unitStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935,
+        type: 2}
     - target: {fileID: 5461052779654786451, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
       propertyPath: m_Name
@@ -530,6 +571,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5469990140329910171, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: unitStatsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935,
+        type: 2}
     - target: {fileID: 5569757095009114483, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
       propertyPath: OnStartEvent.m_PersistentCalls.m_Calls.Array.size
@@ -641,10 +688,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894fdd504f5ce8549a1342fa2e2b8cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   upgradeSO:
   - {fileID: 11400000, guid: cee10c2dd4a1182478e745e81292704a, type: 2}
-  - {fileID: 11400000, guid: 81121f49aefed2848af350222532877c, type: 2}
+  - {fileID: 11400000, guid: a3ee0d6f33458f842b4342ab1a14cf94, type: 2}
+  - {fileID: 11400000, guid: 6550886bb96fbd94a9f33292c97dd648, type: 2}
+  - {fileID: 11400000, guid: 69f2384f79996ec4da50ab4f38c244a7, type: 2}
+  - {fileID: 11400000, guid: 7832d0e7cd6786e4d8c53a859f6a11ee, type: 2}
 --- !u!114 &1514344637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02814d5154915f84cb34b06fdbebe8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
 --- !u!114 &1514344639 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4503044677826738530, guid: 7cb1cae516c0f1749a14e84927147490,

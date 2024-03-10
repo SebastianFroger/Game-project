@@ -3,36 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : Singleton<EnemySpawner>
 {
     public GameObject player;
-    public GameObject enemyA;
-    public GameObject enemyB;
-    public float spawnInterval;
-    public float minSpawnInterval;
-    public float spawnIntervalDecreaseRate;
+
+    private float _spawnInterval;
+    private float _minSpawnInterval;
+    private float _spawnIntervalDecreaseRate;
 
     private float _nextSpawTime = 0f;
+    private GameObject _prefab;
     private GameObject _instance;
 
-    private void Start()
+    public void SetRoundData(RoundDataSO roundDataSO)
     {
-        _nextSpawTime = Time.time + spawnInterval;
+        _spawnInterval = (1 / roundDataSO.roundDatas[roundDataSO.currentRound].spawnPrSec);
+        _minSpawnInterval = (1 / roundDataSO.roundDatas[roundDataSO.currentRound].maxspawnPrSec);
+        _prefab = roundDataSO.roundDatas[roundDataSO.currentRound].enemies[0].prefab;
+        _nextSpawTime = _nextSpawTime = Time.time + _spawnInterval;
     }
 
     private void Update()
     {
+        if (_nextSpawTime == 0f) return;
+
         if (Time.time >= _nextSpawTime)
         {
-            _nextSpawTime = Time.time + spawnInterval;
-            _instance = MyObjectPool.Instance.GetInstance(enemyA, MyObjectPool.Instance.enemyA);
+            _nextSpawTime = Time.time + _spawnInterval;
+            _instance = MyObjectPool.Instance.GetInstance(_prefab, MyObjectPool.Instance.enemyA);
 
             // spawn on oposite side of the planet from the player
             var pos = (player.transform.position * -1).normalized * Planet.currentRadius;
             _instance.transform.position = pos;
 
-            if (spawnInterval > minSpawnInterval)
-                spawnInterval -= spawnIntervalDecreaseRate;
+            if (_spawnInterval > _minSpawnInterval)
+                _spawnInterval -= _spawnIntervalDecreaseRate;
         }
     }
 

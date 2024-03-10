@@ -6,19 +6,19 @@ using UnityEngine.UIElements;
 
 public class PointsController : MonoBehaviour
 {
-    public PlayerStatsSO playerStats;
+    public UnitStatsSO unitStats;
 
     private TMPro.TMP_Text _text;
 
     private void Start()
     {
         _text = GetComponentInChildren<TMPro.TMP_Text>();
-        _text.text = "Points " + playerStats.points.ToString();
+        _text.text = "Points " + unitStats.points.ToString();
     }
 
     public void Update()
     {
-        _text.text = "Points " + playerStats.points.ToString();
+        _text.text = "Points " + unitStats.points.ToString();
     }
 }
 

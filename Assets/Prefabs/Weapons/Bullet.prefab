@@ -118,6 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8384449b0487db145a7d5aa6ca7d02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  damage: 10
+  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   distance: 100
+  speed: 100

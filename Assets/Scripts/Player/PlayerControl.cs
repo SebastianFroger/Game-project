@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    public PlayerStatsSO playerStats;
+    public UnitStatsSO unitStats;
 
     private Vector3 _inputDir;
     private Rigidbody _rb;
@@ -30,7 +30,7 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         _movePos = transform.rotation * _inputDir + transform.position;
-        _rb.velocity = (_movePos - transform.position) * playerStats.speed;
+        _rb.velocity = (_movePos - transform.position) * unitStats.speed;
     }
 
     private void OnCollisionEnter(Collision other)

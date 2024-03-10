@@ -5,17 +5,14 @@ using UnityEngine;
 
 public class RoundManager : Singleton<RoundManager>
 {
-    public int nrOfRounds = 10;
-    public float roundTime = 30f;
-
     public RoundDataSO roundDataSO;
     private float _nextRoundTime;
 
     public void StartFirstRound()
     {
-        roundDataSO.currentRound = 1;
-        _nextRoundTime = Time.time + roundTime;
-        roundDataSO.timeCountDown = _nextRoundTime - Time.fixedTime;
+        roundDataSO.currentRound = 0;
+        EnemySpawner.Instance.SetRoundData(roundDataSO);
+        _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 
     void Update()
@@ -42,14 +39,11 @@ public class RoundManager : Singleton<RoundManager>
     public void OnRoundMenuReadyPress()
     {
         roundDataSO.currentRound += 1;
-        _nextRoundTime = Time.time + roundTime;
-        roundDataSO.timeCountDown = _nextRoundTime - Time.time;
-
         MenuManager.Instance.EnableRoundMenu(false);
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
+        EnemySpawner.Instance.SetRoundData(roundDataSO);
+        _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
-
-
 }

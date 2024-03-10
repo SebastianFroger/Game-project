@@ -2,13 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [CreateAssetMenu]
 public class UnitStatsSO : ScriptableObject
 {
-    public int currentHP;
-    public int startHP;
-    public int maxHP;
-    public int dammage;
+    public int points;
+    public float currentHP;
+    public float startHP;
+    public float maxHP;
+    public float dammage;
+    public float startDammage;
+    public float attackSpeed;
+    public float startAttackSpeed;
     public float speed;
+    public float startSpeed;
+
+    public void Reset()
+    {
+        points = 0;
+        currentHP = startHP;
+        maxHP = startHP;
+        speed = startSpeed;
+        attackSpeed = startAttackSpeed;
+        dammage = startDammage;
+    }
 }

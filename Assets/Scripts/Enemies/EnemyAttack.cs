@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public int damage = 10;
-    public float interval = 2f;
+    public UnitStatsSO unitStatsSO;
 
     private Health _health;
     private float _nextAttackTime = 0f;
@@ -20,8 +19,8 @@ public class EnemyAttack : MonoBehaviour
         if (_health == null)
             _health = other.gameObject.GetComponent<Health>();
 
-        _health.TakeDamage(damage);
+        _health.TakeDamage(unitStatsSO.dammage);
 
-        _nextAttackTime = Time.time + interval;
+        _nextAttackTime = Time.time + (1 / unitStatsSO.attackSpeed);
     }
 }

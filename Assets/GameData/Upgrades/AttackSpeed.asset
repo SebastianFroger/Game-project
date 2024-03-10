@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
-  m_Name: Health
+  m_Name: AttackSpeed
   m_EditorClassIdentifier: 
   points: 0
-  currentHP: 50
+  currentHP: 0
   startHP: 0
   maxHP: 0
   dammage: 0
   startDammage: 0
-  attackSpeed: 0
+  attackSpeed: 0.5
   startAttackSpeed: 0
   speed: 0
   startSpeed: 0
-  title: Health
-  description: Gain HP
+  title: Attack Speed
+  description: Increase attack peed
   price: 10
   playerCurrentStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}

@@ -20,8 +20,8 @@ public class RoundController : Singleton<RoundController>
 
     public void Update()
     {
-        roundCountText.text = roundText + roundDataSO.currentRound.ToString();
-        roundCountDownText.text = timeText + Mathf.Round(roundDataSO.timeCountDown - Time.fixedTime).ToString();
+        roundCountText.text = roundText + (roundDataSO.currentRound + 1).ToString();
+        roundCountDownText.text = timeText + Mathf.Round((roundDataSO.timeCountDown + 1) - Time.fixedTime).ToString();
     }
 }
 

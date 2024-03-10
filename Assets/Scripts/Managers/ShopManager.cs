@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShopManager : Singleton<ShopManager>
 {
-    public PlayerStatsSO playerStats;
+    public UnitStatsSO unitStats;
     private UpgradeSO[] _shopUpgrades;
 
     public void OnShopOpen()
@@ -16,11 +16,11 @@ public class ShopManager : Singleton<ShopManager>
     public void OnBuyItem(int index)
     {
         var upgrade = _shopUpgrades[index];
-        if (playerStats.points > upgrade.price)
+        if (upgrade.price <= unitStats.points)
         {
             MenuManager.Instance.DisableUpgradeCard(index);
             UpgradeManager.Instance.ApplyUpgrade(upgrade);
-            playerStats.points -= upgrade.price;
+            unitStats.points -= upgrade.price;
         }
     }
 }

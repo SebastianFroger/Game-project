@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public PlayerStatsSO playerStatsSO;
+    public UnitStatsSO unitStatsSO;
     public float distance = 100f;
+    public int speed = 100;
 
     private Vector3 startPosition;
 
@@ -17,7 +18,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.forward * playerStatsSO.speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (Vector3.Distance(startPosition, transform.position) >= distance)
             MyObjectPool.Instance.bullet.Release(gameObject);
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Health>()?.TakeDamage(playerStatsSO.dammage);
+        other.gameObject.GetComponent<Health>()?.TakeDamage(unitStatsSO.dammage);
         MyObjectPool.Instance.bullet.Release(gameObject);
     }
 }

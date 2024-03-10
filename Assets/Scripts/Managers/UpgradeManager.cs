@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UpgradeManager : Singleton<UpgradeManager>
 {
-    public PlayerStatsSO playerStatsSO;
+    public UnitStatsSO unitStatsSO;
     public UpgradeSO[] upgradeSO;
 
     public UpgradeSO[] GetRandomUpgrades()
@@ -19,6 +19,6 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     public void ApplyUpgrade(UpgradeSO upgradeSO)
     {
-        upgradeSO.ApplyUpgrade(playerStatsSO);
+        upgradeSO.ApplyUpgrade(unitStatsSO);
     }
 }

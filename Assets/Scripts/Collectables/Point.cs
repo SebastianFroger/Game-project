@@ -6,12 +6,21 @@ using UnityEngine.Events;
 
 public class Point : MonoBehaviour
 {
-    public PlayerStatsSO playerStats;
+    public UnitStatsSO unitStats;
     public int value = 1;
+
+    private Rigidbody _rigidbody;
+
+    private void OnEnable()
+    {
+        if (_rigidbody == null)
+            _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.velocity = Vector3.zero;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        playerStats.points += 1;
+        unitStats.points += 1;
         MyObjectPool.Instance.points.Release(gameObject);
     }
 }

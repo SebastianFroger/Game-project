@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd52633b84d02e74aa5293a3bc424789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   value: 1
 --- !u!65 &-1971248711921992453
 BoxCollider:
