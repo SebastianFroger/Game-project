@@ -14,6 +14,7 @@ public class ShopManager : Singleton<ShopManager>
     public void OnShopOpen()
     {
         _shopUpgrades = UpgradeManager.Instance.GetRandomUpgrades();
+        SetItemPrice();
         MenuManager.Instance.SetCardContent(_shopUpgrades);
     }
 
