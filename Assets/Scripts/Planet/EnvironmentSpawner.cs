@@ -63,11 +63,14 @@ public class EnvironmentSpawner : MonoBehaviour
         var shopInst = Instantiate(shopPrefab);
         shopInst.transform.position = new Vector3(0, Planet.currentRadius - 0.2f, 0);
 
-        var col = shopInst.GetComponent<BoxCollider>().size;
         var layerMask = LayerMask.GetMask("Environment");
-        while (Physics.CheckBox(shopInst.transform.position, col / 2, shopInst.transform.rotation, layerMask))
+        Collider[] results = new Collider[10];
+        int colliders = Physics.OverlapSphereNonAlloc(shopInst.transform.position, 3f, results);
+        Physics.OverlapSphereNonAlloc(shopInst.transform.position, 3f, results, layerMask);
+        while (colliders > 0)
         {
             RotatePlanetRandom();
+            colliders = Physics.OverlapSphereNonAlloc(shopInst.transform.position, 3f, results, layerMask);
         }
         shopInst.transform.parent = transform;
         RotatePlanetRandom();

@@ -53,7 +53,6 @@ public class EnemySpawner : Singleton<EnemySpawner>
             if (randomNr <= item.spawnChance && randomNr < enemy.spawnChance)
                 enemy = item;
         }
-        DebugExt.Log(this, $"randomNr {randomNr} || selected {enemy.prefab.name}");
 
         return enemy.prefab;
     }
