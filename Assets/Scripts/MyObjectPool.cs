@@ -18,7 +18,7 @@ public class MyObjectPool : Singleton<MyObjectPool>
             {
                 foreach (var item in _poolDict[key])
                 {
-                    if (item.activeInHierarchy)
+                    if (!item.activeInHierarchy)
                     {
                         item.SetActive(true);
                         return item;

@@ -14,12 +14,13 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private float _nextSpawTime = 0f;
     private GameObject _prefab;
     private GameObject _instance;
+    private RoundDataSO _roundDataSO;
 
     public void SetRoundData(RoundDataSO roundDataSO)
     {
-        _spawnInterval = (1 / roundDataSO.roundDatas[roundDataSO.currentRound].spawnPrSec);
-        _minSpawnInterval = (1 / roundDataSO.roundDatas[roundDataSO.currentRound].maxspawnPrSec);
-        _prefab = roundDataSO.roundDatas[roundDataSO.currentRound].enemies[0].prefab;
+        _roundDataSO = roundDataSO;
+        _spawnInterval = (1 / _roundDataSO.roundDatas[_roundDataSO.currentRound].spawnPrSec);
+        _minSpawnInterval = (1 / _roundDataSO.roundDatas[_roundDataSO.currentRound].maxspawnPrSec);
         _nextSpawTime = _nextSpawTime = Time.time + _spawnInterval;
     }
 
@@ -27,10 +28,10 @@ public class EnemySpawner : Singleton<EnemySpawner>
     {
         if (_nextSpawTime == 0f) return;
 
-        if (Time.time >= _nextSpawTime)
+        if (Time.time > _nextSpawTime)
         {
             _nextSpawTime = Time.time + _spawnInterval;
-            _instance = MyObjectPool.Instance.GetInstance(_prefab);
+            _instance = MyObjectPool.Instance.GetInstance(EnemySelector());
 
             // spawn on oposite side of the planet from the player
             var pos = (player.transform.position * -1).normalized * Planet.currentRadius;
@@ -39,6 +40,22 @@ public class EnemySpawner : Singleton<EnemySpawner>
             if (_spawnInterval > _minSpawnInterval)
                 _spawnInterval -= _spawnIntervalDecreaseRate;
         }
+    }
+
+    private GameObject EnemySelector()
+    {
+        var randomNr = Random.Range(1, 10);
+        var enemyList = _roundDataSO.roundDatas[_roundDataSO.currentRound].enemies;
+        var enemy = enemyList[0];
+
+        foreach (var item in enemyList)
+        {
+            if (randomNr <= item.spawnChance && randomNr < enemy.spawnChance)
+                enemy = item;
+        }
+        DebugExt.Log(this, $"randomNr {randomNr} || selected {enemy.prefab.name}");
+
+        return enemy.prefab;
     }
 
     // Vector3 CalculatePositionInRing(int positionID, Vector3 spawnRingPos)

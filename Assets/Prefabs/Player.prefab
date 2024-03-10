@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 2724873074703203167}
   - component: {fileID: 5569757095009114483}
   - component: {fileID: 804228855613330373}
-  - component: {fileID: 3946963704890576287}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -280,20 +279,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashEffect: {fileID: 11400000, guid: 45a8ac96ead16aa46ac46166958b197f, type: 2}
---- !u!114 &3946963704890576287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5461052779654786451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7196fd034afbd64a9d11b5ea4f28f23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
-  pickUpCollider: {fileID: 7901066170790075687}
 --- !u!1 &5531970302393211126
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +509,8 @@ GameObject:
   m_Component:
   - component: {fileID: 385381305740648786}
   - component: {fileID: 7901066170790075687}
-  m_Layer: 6
+  - component: {fileID: 3349931086349107449}
+  m_Layer: 10
   m_Name: PickUpCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,3 +553,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3349931086349107449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831414104360935079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7196fd034afbd64a9d11b5ea4f28f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}

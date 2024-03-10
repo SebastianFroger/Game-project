@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [Serializable]
 public class RoundData
@@ -17,7 +18,7 @@ public class RoundData
 public class EnemyData
 {
     public GameObject prefab;
-    public float spawnChance;
+    [Range(1, 10)] public int spawnChance;
 }
 
 [CreateAssetMenu]
