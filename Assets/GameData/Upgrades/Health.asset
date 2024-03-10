@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
   m_Name: Health
   m_EditorClassIdentifier: 
+  currentHP: 50
+  startHP: 0
+  maxHP: 0
+  speed: 0
+  points: 0
   title: Health
   description: Heal some amount of damage
   price: 10
+  playerCurrentStats: {fileID: 0}

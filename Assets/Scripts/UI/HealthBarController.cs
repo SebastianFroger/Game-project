@@ -20,6 +20,9 @@ namespace Shooter
 
         public void Update()
         {
+            if (playerStats.currentHP > playerStats.maxHP)
+                playerStats.currentHP = playerStats.maxHP;
+
             _slider.value = ((float)playerStats.currentHP / (float)playerStats.maxHP);
         }
     }

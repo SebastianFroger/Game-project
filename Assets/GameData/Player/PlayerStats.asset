@@ -16,4 +16,4 @@ MonoBehaviour:
   startHP: 100
   maxHP: 100
   speed: 20
-  points: 0
+  points: 1

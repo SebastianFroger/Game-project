@@ -1,6 +1,5 @@
 Current features
 
-- player upgrade stats system. SO
 - player spider turret robot model
   -- auto legs
 - enemy model
@@ -27,4 +26,5 @@ Future upgrades
 
 Bugs
 
+- how to avoid setting more currenthp than max?
 - player not always shooting nearby enemy. in range issue?
