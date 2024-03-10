@@ -20,8 +20,10 @@ MonoBehaviour:
   startDammage: 0
   attackSpeed: 0
   startAttackSpeed: 0
-  speed: 2
+  speed: 1
   startSpeed: 0
+  pickUpRange: 0
+  startPickUpRange: 0
   title: Movement Speed
   description: Increase movement peed
   price: 10

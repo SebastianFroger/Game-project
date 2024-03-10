@@ -242,6 +242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &622405173 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 7901066170790075687, guid: 8f5e135a19626f544908fc8f156144b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1305847774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &981076714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3608067453501761613, guid: 4f34d1a4018ab5b41b2e1eb0b1f52f73,
@@ -650,7 +656,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5461052779654786451, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1305847787}
   m_SourcePrefab: {fileID: 100100000, guid: 8f5e135a19626f544908fc8f156144b9, type: 3}
 --- !u!1 &1305847775 stripped
 GameObject:
@@ -670,6 +680,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1305847787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305847775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7196fd034afbd64a9d11b5ea4f28f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  pickUpCollider: {fileID: 622405173}
 --- !u!1 &1514344630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6479988335815413390, guid: 7cb1cae516c0f1749a14e84927147490,
@@ -695,6 +719,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6550886bb96fbd94a9f33292c97dd648, type: 2}
   - {fileID: 11400000, guid: 69f2384f79996ec4da50ab4f38c244a7, type: 2}
   - {fileID: 11400000, guid: 7832d0e7cd6786e4d8c53a859f6a11ee, type: 2}
+  - {fileID: 11400000, guid: 90724431dedf01544bdf5834620df73b, type: 2}
 --- !u!114 &1514344637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,6 +733,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
+  startPrice: 10
+  priceIncreasePrRound: 5
 --- !u!114 &1514344639 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4503044677826738530, guid: 7cb1cae516c0f1749a14e84927147490,

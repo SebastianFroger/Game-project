@@ -25,6 +25,3 @@ Future upgrades
   -- boss
 
 Bugs
-
-- how to avoid setting more currenthp than max?
-- player not always shooting nearby enemy. in range issue?

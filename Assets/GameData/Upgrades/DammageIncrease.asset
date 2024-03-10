@@ -16,12 +16,14 @@ MonoBehaviour:
   currentHP: 0
   startHP: 0
   maxHP: 0
-  dammage: 5
+  dammage: 3
   startDammage: 0
   attackSpeed: 0
   startAttackSpeed: 0
   speed: 0
   startSpeed: 0
+  pickUpRange: 0
+  startPickUpRange: 0
   title: Dammage
   description: Increase Dammage
   price: 10

@@ -18,10 +18,12 @@ MonoBehaviour:
   maxHP: 0
   dammage: 0
   startDammage: 0
-  attackSpeed: 0.5
+  attackSpeed: 0.2
   startAttackSpeed: 0
   speed: 0
   startSpeed: 0
+  pickUpRange: 0
+  startPickUpRange: 0
   title: Attack Speed
   description: Increase attack peed
   price: 10

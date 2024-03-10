@@ -61,13 +61,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492325893476034216}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9df2887159710f44882c0f7a5017c822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2, type: 3}
-  attacksInterval: 0.2
+  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   _enemiesInRange: {fileID: 11400000, guid: 08125d610ba39434780d96314231fb76, type: 2}
   _nearestEnemy: {fileID: 0}
 --- !u!1 &5461052779654786451
@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2724873074703203167}
   - component: {fileID: 5569757095009114483}
   - component: {fileID: 804228855613330373}
+  - component: {fileID: 3946963704890576287}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99f55807f824d94f9b2427766df877a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
 --- !u!114 &5569757095009114483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,19 +235,7 @@ MonoBehaviour:
   createInsance: 0
   OnStartEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shooter.HealthBarController, Assembly-CSharp
-        m_MethodName: UpdateBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnHitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -290,6 +279,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashEffect: {fileID: 11400000, guid: 45a8ac96ead16aa46ac46166958b197f, type: 2}
+--- !u!114 &3946963704890576287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461052779654786451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7196fd034afbd64a9d11b5ea4f28f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  pickUpCollider: {fileID: 7901066170790075687}
 --- !u!1 &5531970302393211126
 GameObject:
   m_ObjectHideFlags: 0

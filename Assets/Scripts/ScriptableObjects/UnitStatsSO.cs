@@ -15,6 +15,8 @@ public class UnitStatsSO : ScriptableObject
     public float startAttackSpeed;
     public float speed;
     public float startSpeed;
+    public float pickUpRange;
+    public float startPickUpRange;
 
     public void Reset()
     {
@@ -24,5 +26,6 @@ public class UnitStatsSO : ScriptableObject
         speed = startSpeed;
         attackSpeed = startAttackSpeed;
         dammage = startDammage;
+        pickUpRange = startPickUpRange;
     }
 }
