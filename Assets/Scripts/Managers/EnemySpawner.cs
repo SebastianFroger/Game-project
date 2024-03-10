@@ -30,7 +30,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
         if (Time.time >= _nextSpawTime)
         {
             _nextSpawTime = Time.time + _spawnInterval;
-            _instance = MyObjectPool.Instance.GetInstance(_prefab, MyObjectPool.Instance.enemyA);
+            _instance = MyObjectPool.Instance.GetInstance(_prefab);
 
             // spawn on oposite side of the planet from the player
             var pos = (player.transform.position * -1).normalized * Planet.currentRadius;

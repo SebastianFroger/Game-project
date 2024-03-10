@@ -8,6 +8,7 @@ public class EnemyControl : MonoBehaviour
     public UnitStatsSO unitStatsSO;
     public Transform lookRotationTrs;
     public Transform lookAtarget;
+    public bool stopped;
 
     private Vector3 _moveDir;
     private Vector3 _localMoveDir;
@@ -33,6 +34,7 @@ public class EnemyControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (stopped) return;
         _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * unitStatsSO.speed * Time.deltaTime);
     }
 }

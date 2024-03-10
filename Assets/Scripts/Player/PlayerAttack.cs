@@ -10,11 +10,16 @@ public class PlayerAttack : MonoBehaviour
     public UnitStatsSO unitStatsSO;
     public EnemiesInRange _enemiesInRange;
 
-    private float _nextAttackTime;
+    public float _nextAttackTime;
     [SerializeField] private Transform _nearestEnemy;
     private float _smallestDistance;
     private float _distance;
     private GameObject _bulletInst;
+
+    private void Start()
+    {
+        _enemiesInRange.Items.Clear();
+    }
 
     private void Update()
     {
@@ -31,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         // fire
-        _bulletInst = MyObjectPool.Instance.GetInstance(bullet, MyObjectPool.Instance.bullet);
+        _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
         _bulletInst.transform.position = transform.position;
         _bulletInst.transform.LookAt(_nearestEnemy);
     }

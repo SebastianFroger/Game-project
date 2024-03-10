@@ -6,62 +6,71 @@ using UnityEngine.Pool;
 
 public class MyObjectPool : Singleton<MyObjectPool>
 {
+    private Dictionary<string, List<GameObject>> _poolDict = new();
+    private GameObject newInst;
+    private List<GameObject> newList;
 
-    public ObjectPool<GameObject> enemyA;
-    public ObjectPool<GameObject> enemyB;
-    public ObjectPool<GameObject> bullet;
-    public ObjectPool<GameObject> planetScaler;
-    public ObjectPool<GameObject> points;
-
-    private GameObject objToCreate;
-
-    void Start()
+    public GameObject GetInstance(GameObject obj)
     {
-        enemyA = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
-        enemyB = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
-        bullet = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
-        points = new ObjectPool<GameObject>(Create, Get, Release, Destroy, false, 50, 200);
+        foreach (var key in _poolDict.Keys)
+        {
+            if (obj.name == key)
+            {
+                foreach (var item in _poolDict[key])
+                {
+                    if (item.activeInHierarchy)
+                    {
+                        item.SetActive(true);
+                        return item;
+                    }
+
+                    newInst = Instantiate(obj);
+                    newInst.transform.parent = transform;
+                    _poolDict[key].Add(newInst);
+                    return newInst;
+                }
+            }
+        }
+
+        newInst = Instantiate(obj);
+        newInst.transform.parent = transform;
+        newList = new List<GameObject>() { newInst };
+        _poolDict.Add(obj.name, newList);
+        return newInst;
     }
 
-    public GameObject GetInstance(GameObject obj, ObjectPool<GameObject> pool)
-    {
-        objToCreate = obj;
-        var inst = pool.Get();
-        if (inst.transform.parent != transform)
-            inst.transform.parent = transform;
-        return inst;
-    }
-
-    GameObject Create()
-    {
-        return Instantiate(objToCreate);
-    }
-
-    void Get(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
-
-    void Release(GameObject obj)
+    public void Release(GameObject obj)
     {
         obj.SetActive(false);
     }
 
-    void Destroy(GameObject obj)
-    {
-        Destroy(obj);
-    }
-
     public void ReleaseAll()
     {
-        GameObject child;
-        for (int i = 0; i < transform.childCount; i++)
+        foreach (var list in _poolDict.Values)
         {
-            child = transform.GetChild(i).gameObject;
-            if (child.activeSelf && child.name.StartsWith("EnemyA"))
-                enemyA.Release(child);
-            if (child.activeSelf && child.name.StartsWith("Point"))
-                points.Release(child);
+            foreach (var item in list)
+            {
+                item.SetActive(false);
+            }
+        }
+    }
+
+    public void Destroy(GameObject obj)
+    {
+        foreach (var key in _poolDict.Keys)
+        {
+            if (obj.name == key)
+            {
+                _poolDict.Remove(key);
+            }
+        }
+    }
+
+    public void DestroyAll(GameObject obj)
+    {
+        foreach (var key in _poolDict.Keys)
+        {
+            _poolDict.Remove(key);
         }
     }
 }

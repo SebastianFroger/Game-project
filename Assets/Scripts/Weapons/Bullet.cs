@@ -21,12 +21,12 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (Vector3.Distance(startPosition, transform.position) >= distance)
-            MyObjectPool.Instance.bullet.Release(gameObject);
+            MyObjectPool.Instance.Release(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.GetComponent<Health>()?.TakeDamage(unitStatsSO.dammage);
-        MyObjectPool.Instance.bullet.Release(gameObject);
+        MyObjectPool.Instance.Release(gameObject);
     }
 }

@@ -21,8 +21,8 @@ TagManager:
   - Weapon
   - Collectable
   - Environment
-  - 
-  - 
+  - EnemyRangeCollider
+  - EnemyProjectile
   - 
   - 
   - 

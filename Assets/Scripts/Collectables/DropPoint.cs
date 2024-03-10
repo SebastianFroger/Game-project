@@ -8,7 +8,7 @@ public class DropPoint : MonoBehaviour
 
     public void Drop()
     {
-        var inst = MyObjectPool.Instance.GetInstance(pointSO.prefab, MyObjectPool.Instance.points);
+        var inst = MyObjectPool.Instance.GetInstance(pointSO.prefab);
         inst.transform.position = transform.position;
         inst.transform.rotation = transform.rotation;
     }

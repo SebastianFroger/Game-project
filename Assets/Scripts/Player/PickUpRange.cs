@@ -5,10 +5,11 @@ using UnityEngine;
 public class PickUpRange : MonoBehaviour
 {
     public UnitStatsSO unitStatsSO;
-    public SphereCollider pickUpCollider;
+    private SphereCollider pickUpCollider;
     // Start is called before the first frame update
     void Start()
     {
+        pickUpCollider = GetComponent<SphereCollider>();
         pickUpCollider.radius = unitStatsSO.pickUpRange;
     }
 
