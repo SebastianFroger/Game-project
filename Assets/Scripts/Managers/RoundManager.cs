@@ -6,7 +6,7 @@ using UnityEngine;
 public class RoundManager : Singleton<RoundManager>
 {
     public RoundDataSO roundDataSO;
-    private float _nextRoundTime;
+    private float _nextRoundTime = 0f;
 
     public void StartFirstRound()
     {
@@ -22,10 +22,11 @@ public class RoundManager : Singleton<RoundManager>
 
         roundDataSO.timeCountDown = _nextRoundTime - Time.deltaTime;
 
-        if (Time.fixedTime >= _nextRoundTime)
+        if (_nextRoundTime <= Time.fixedTime)
         {
             EndRound();
         }
+
     }
 
     public void EndRound()
@@ -45,6 +46,7 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
+        MyObjectPool.Instance.ReleaseAll();
         EnemySpawner.Instance.SetRoundData(roundDataSO);
         PlanetDiggerManager.Instance.SetRoundData(roundDataSO);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;

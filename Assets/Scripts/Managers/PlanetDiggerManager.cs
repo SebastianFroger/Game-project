@@ -47,7 +47,7 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.gameStarted) return;
+        if (_spawnTimes.Count == 0) return;
 
         if (Time.time >= _nextSpawTime)
         {

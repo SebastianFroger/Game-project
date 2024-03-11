@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour
     // player movement
     void OnMove(InputValue value)
     {
-        if (!GameManager.Instance.gameStarted) return;
+        // if (!GameManager.Instance.gameStarted) return;
         _inputDir = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
     }
 
@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!GameManager.Instance.gameStarted) return;
+        // if (!GameManager.Instance.gameStarted) return;
 
         if (other.gameObject.CompareTag("Shop"))
         {

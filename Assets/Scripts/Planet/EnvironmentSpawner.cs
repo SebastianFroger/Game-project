@@ -20,13 +20,14 @@ public class EnvironmentSpawner : MonoBehaviour
     public EnvironmentItem[] items;
     public LayerMask myLayerMask;
 
+    private bool _objectPlaced;
+
     void Start()
     {
         foreach (var item in items)
         {
             Instantiate(item);
         }
-        StartCoroutine(InstantiateShop());
     }
 
     private void Instantiate(EnvironmentItem item)
@@ -35,56 +36,81 @@ public class EnvironmentSpawner : MonoBehaviour
 
         while (count < item.amount)
         {
-            RotatePlanetRandom();
-
-            // instantiate random env object and parent to planet
+            // inst obj
             var randomItem = Random.Range(0, items.Length - 1);
             var inst = Instantiate(item.prefab[randomItem]);
+
+            // set position on top of planet
             inst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
+
+            // set random y rot
+            inst.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(-180f, 180f), 0));
+
+            // move to random position on sphere and rotate
+            inst.transform.position = Random.rotation * inst.transform.position;
+            inst.transform.LookAt(Vector3.zero);
+            inst.transform.Rotate(new Vector3(-90, 0, 0));
+
+            // scale
             var scaleVector = Random.Range(item.scaleFactorMin, item.scaleFactorMax);
             inst.transform.localScale = new Vector3(scaleVector, scaleVector / 2, scaleVector);
 
+            // parent to sphere
             inst.transform.parent = transform;
 
             count += 1;
         }
     }
 
-    void RotatePlanetRandom()
+    private void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)));
-    }
-
-    IEnumerator InstantiateShop()
-    {
-        yield return null;
-
-        var shopInst = Instantiate(shopPrefab);
-        shopInst.SetActive(false);
-        shopInst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - 0.2f, 0);
-
-        RotatePlanetRandom();
-        var collisions = Physics.OverlapSphere(shopInst.transform.position, 10f, 1 << 11);
-        while (collisions.Length > 0)
+        if (!_objectPlaced)
         {
-            RotatePlanetRandom();
-            collisions = Physics.OverlapSphere(shopInst.transform.position, 10f, 1 << 11);
-            yield return null;
+            InstantiateShop();
+            MovePlayer();
         }
 
+    }
 
-        // // find position
-        // var center = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Planet.Instance.GetRadius();
-        // var collisions = Physics.OverlapSphere(center, 5f, 1 << 11);
-        // while (collisions.Length > 0)
-        // {
-        //     center = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Planet.Instance.GetRadius();
-        //     collisions = Physics.OverlapSphere(center, 5f, 1 << 11);
-        //     yield return null;
-        // }
+    void InstantiateShop()
+    {
+        var randomPosOnSphere = Random.rotation * new Vector3(0, Planet.Instance.GetRadius() - 0.2f, 0);
 
-        shopInst.transform.parent = transform;
-        shopInst.SetActive(true);
-        RotatePlanetRandom();
+        Physics.SyncTransforms();
+        var collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
+        while (collisions.Length > 0)
+        {
+            randomPosOnSphere = Random.rotation * new Vector3(0, Planet.Instance.GetRadius(), 0);
+            collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
+        }
+
+        var inst = Instantiate(shopPrefab);
+        inst.transform.position = randomPosOnSphere;
+        inst.transform.LookAt(Vector3.zero);
+        inst.transform.Rotate(new Vector3(-90, 0, 0));
+        inst.transform.parent = transform;
+
+        _objectPlaced = true;
+    }
+
+    void MovePlayer()
+    {
+        var randomPosOnSphere = Random.rotation * new Vector3(0, Planet.Instance.GetRadius(), 0);
+
+        Physics.SyncTransforms();
+        var collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
+        while (collisions.Length > 0)
+        {
+            randomPosOnSphere = Random.rotation * new Vector3(0, Planet.Instance.GetRadius(), 0);
+            collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
+        }
+
+        var player = GlobalObjectsManager.Instance.player;
+        player.transform.position = randomPosOnSphere;
+        player.transform.LookAt(Vector3.zero);
+        player.transform.Rotate(new Vector3(-90, 0, 0));
+        player.transform.parent = transform;
+
+        _objectPlaced = true;
     }
 }
