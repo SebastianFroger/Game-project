@@ -63,7 +63,7 @@ public class EnemyAttack : MonoBehaviour
         if (!other.gameObject.CompareTag("Player")) return;
         if (!rangedAttack)
         {
-            _enemyControl.enabled = false;
+            _enemyControl.stopped = true;
             if (Time.time < _nextAttackTime) return;
 
             if (_health == null)
