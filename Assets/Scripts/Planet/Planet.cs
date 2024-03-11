@@ -1,63 +1,43 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Planet : MonoBehaviour
+public class Planet : Singleton<Planet>
 {
     public float startRadius;
     public float shrinkRate;
-    public float growkRate;
-    public float minScale;
-    public static float currentRadius;
+    public float minRadius;
 
-    private Vector3 _scaleVector;
-    private Vector3 _targetScale;
-    private Vector3 _minScale;
-    private float _currentScaleX;
+    private bool _isShrinking;
+
 
     void Awake()
     {
-        // start scale
-        transform.localScale = new Vector3(startRadius, startRadius, startRadius);
-
-        // min scale
-        _minScale = new Vector3(minScale, minScale, minScale);
-
-        // scale vector
-        _scaleVector = new Vector3(shrinkRate, shrinkRate, shrinkRate);
-
-        // set current radius for other scripts to use
-        currentRadius = transform.localScale.x / 2;
+        ResetScale();
     }
 
     void Update()
     {
-        _currentScaleX = transform.localScale.x;
+        if (!_isShrinking) return;
 
         // shrink
-        if (_currentScaleX >= _targetScale.x)
+        if (transform.localScale.x >= minRadius)
         {
-            _scaleVector = new Vector3(shrinkRate, shrinkRate, shrinkRate);
-            _targetScale = _minScale;
+            transform.localScale += new Vector3(shrinkRate, shrinkRate, shrinkRate) * Time.deltaTime;
         }
-
-        // grow
-        if (_currentScaleX <= _targetScale.x)
-        {
-            _scaleVector = new Vector3(growkRate, growkRate, growkRate);
-        }
-
-        // do nothing 
-        if (_currentScaleX <= _minScale.x && _targetScale == _minScale)
-            return;
-
-        // change scale
-        transform.localScale += _scaleVector;
-
-        currentRadius = _currentScaleX / 2;
     }
 
-    public void Grow(int val)
+    public float GetRadius()
     {
-        _targetScale = transform.localScale + new Vector3(val, val, val);
+        return transform.localScale.x / 2;
+    }
+
+    public void ResetScale()
+    {
+        transform.localScale = new Vector3(startRadius, startRadius, startRadius);
+    }
+
+    public void Shrinking(bool shrinking)
+    {
+        _isShrinking = shrinking;
     }
 }

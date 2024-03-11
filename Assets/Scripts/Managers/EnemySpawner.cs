@@ -12,7 +12,6 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private float _spawnIntervalDecreaseRate;
 
     private float _nextSpawTime = 0f;
-    private GameObject _prefab;
     private GameObject _instance;
     private RoundDataSO _roundDataSO;
 
@@ -35,7 +34,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
             _instance = MyObjectPool.Instance.GetInstance(EnemySelector());
 
             // spawn on oposite side of the planet from the player
-            var pos = (player.transform.position * -1).normalized * Planet.currentRadius;
+            var pos = (player.transform.position * -1).normalized * Planet.Instance.GetRadius();
             _instance.transform.position = pos;
 
             if (_spawnInterval > _minSpawnInterval)

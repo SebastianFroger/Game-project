@@ -25,5 +25,3 @@ Future upgrades
   -- boss
 
 Bugs
-
-- shop spawns inside environment

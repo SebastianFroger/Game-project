@@ -11,6 +11,7 @@ public class RoundData
     public float spawnPrSec;
     public float spawnPrSecIncrement;
     public float maxspawnPrSec;
+    public int planetDiggerCount;
     public EnemyData[] enemies;
 }
 

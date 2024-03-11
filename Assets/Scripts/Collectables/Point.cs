@@ -8,6 +8,7 @@ public class Point : MonoBehaviour
 {
     public UnitStatsSO unitStats;
     public int value = 1;
+    public float groundHeightAdjust = 0.5f;
 
     private Rigidbody _rigidbody;
 
@@ -16,6 +17,11 @@ public class Point : MonoBehaviour
         if (_rigidbody == null)
             _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.velocity = Vector3.zero;
+    }
+
+    private void Update()
+    {
+        transform.position = transform.position.normalized * (Planet.Instance.GetRadius() + groundHeightAdjust);
     }
 
     private void OnTriggerEnter(Collider other)

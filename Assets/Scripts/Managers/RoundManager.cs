@@ -12,6 +12,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         roundDataSO.currentRound = 0;
         EnemySpawner.Instance.SetRoundData(roundDataSO);
+        PlanetDiggerManager.Instance.SetRoundData(roundDataSO);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 
@@ -44,6 +45,7 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
         EnemySpawner.Instance.SetRoundData(roundDataSO);
+        PlanetDiggerManager.Instance.ResetCount();
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 }

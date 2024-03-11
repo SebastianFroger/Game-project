@@ -40,7 +40,7 @@ public class EnvironmentSpawner : MonoBehaviour
             // instantiate random env object and parent to planet
             var randomItem = Random.Range(0, items.Length - 1);
             var inst = Instantiate(item.prefab[randomItem]);
-            inst.transform.position = new Vector3(0, Planet.currentRadius - item.yGblPosSubtract, 0);
+            inst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
             var scaleVector = Random.Range(item.scaleFactorMin, item.scaleFactorMax);
             inst.transform.localScale = new Vector3(scaleVector, scaleVector / 2, scaleVector);
 
@@ -58,9 +58,10 @@ public class EnvironmentSpawner : MonoBehaviour
     IEnumerator InstantiateShop()
     {
         yield return null;
+
         var shopInst = Instantiate(shopPrefab);
         shopInst.SetActive(false);
-        shopInst.transform.position = new Vector3(0, Planet.currentRadius - 0.2f, 0);
+        shopInst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - 0.2f, 0);
 
         RotatePlanetRandom();
         var collisions = Physics.OverlapSphere(shopInst.transform.position, 5f, 1 << 11);
@@ -70,6 +71,17 @@ public class EnvironmentSpawner : MonoBehaviour
             collisions = Physics.OverlapSphere(shopInst.transform.position, 5f, 1 << 11);
             yield return null;
         }
+
+
+        // // find position
+        // var center = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Planet.Instance.GetRadius();
+        // var collisions = Physics.OverlapSphere(center, 5f, 1 << 11);
+        // while (collisions.Length > 0)
+        // {
+        //     center = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Planet.Instance.GetRadius();
+        //     collisions = Physics.OverlapSphere(center, 5f, 1 << 11);
+        //     yield return null;
+        // }
 
         shopInst.transform.parent = transform;
         shopInst.SetActive(true);
