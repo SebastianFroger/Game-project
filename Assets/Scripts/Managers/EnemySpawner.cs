@@ -26,6 +26,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
     private void Update()
     {
+        if (!GameManager.Instance.gameStarted) return;
         if (_nextSpawTime == 0f) return;
 
         if (Time.time > _nextSpawTime)

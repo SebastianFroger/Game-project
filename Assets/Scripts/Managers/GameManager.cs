@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         gameStarted = false;
-        TimeActive(false);
+        // TimeActive(false);
         MenuManager.Instance.EnableMainMenu(true);
         MenuManager.Instance.EnableGameUI(false);
         MenuManager.Instance.EnableRoundMenu(false);

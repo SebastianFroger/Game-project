@@ -18,6 +18,7 @@ public class EnvironmentSpawner : MonoBehaviour
 {
     public GameObject shopPrefab;
     public EnvironmentItem[] items;
+    public LayerMask myLayerMask;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class EnvironmentSpawner : MonoBehaviour
         {
             Instantiate(item);
         }
-        InstantiateShop();
+        StartCoroutine(InstantiateShop());
     }
 
     private void Instantiate(EnvironmentItem item)
@@ -54,25 +55,24 @@ public class EnvironmentSpawner : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f)));
     }
 
-    void InstantiateShop()
+    IEnumerator InstantiateShop()
     {
-        // INSTANTIATE SHOP
-
-
-
+        yield return null;
         var shopInst = Instantiate(shopPrefab);
+        shopInst.SetActive(false);
         shopInst.transform.position = new Vector3(0, Planet.currentRadius - 0.2f, 0);
 
-        var layerMask = LayerMask.GetMask("Environment");
-        Collider[] results = new Collider[10];
-        int colliders = Physics.OverlapSphereNonAlloc(shopInst.transform.position, 3f, results);
-        Physics.OverlapSphereNonAlloc(shopInst.transform.position, 10f, results, layerMask);
-        while (colliders > 0)
+        RotatePlanetRandom();
+        var collisions = Physics.OverlapSphere(shopInst.transform.position, 5f, 1 << 11);
+        while (collisions.Length > 0)
         {
             RotatePlanetRandom();
-            colliders = Physics.OverlapSphereNonAlloc(shopInst.transform.position, 10f, results, layerMask);
+            collisions = Physics.OverlapSphere(shopInst.transform.position, 5f, 1 << 11);
+            yield return null;
         }
+
         shopInst.transform.parent = transform;
+        shopInst.SetActive(true);
         RotatePlanetRandom();
     }
 }
