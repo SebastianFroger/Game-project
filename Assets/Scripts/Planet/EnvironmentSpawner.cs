@@ -66,11 +66,11 @@ public class EnvironmentSpawner : MonoBehaviour
         var layerMask = LayerMask.GetMask("Environment");
         Collider[] results = new Collider[10];
         int colliders = Physics.OverlapSphereNonAlloc(shopInst.transform.position, 3f, results);
-        Physics.OverlapSphereNonAlloc(shopInst.transform.position, 3f, results, layerMask);
+        Physics.OverlapSphereNonAlloc(shopInst.transform.position, 10f, results, layerMask);
         while (colliders > 0)
         {
             RotatePlanetRandom();
-            colliders = Physics.OverlapSphereNonAlloc(shopInst.transform.position, 3f, results, layerMask);
+            colliders = Physics.OverlapSphereNonAlloc(shopInst.transform.position, 10f, results, layerMask);
         }
         shopInst.transform.parent = transform;
         RotatePlanetRandom();
