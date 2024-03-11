@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbd2726880031b4cb4a127607bf6267, type: 3}
   m_Name: RoundData
   m_EditorClassIdentifier: 
-  timeCountDown: 121.22925
+  timeCountDown: 120.69325
   currentRound: 0
   roundDatas:
   - timeSec: 120
     spawnPrSec: 1
     spawnPrSecIncrement: 0.01
     maxspawnPrSec: 1
-    planetDiggerCount: 10
+    planetDiggerCount: 1
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
       spawnChance: 10
   - timeSec: 140
     spawnPrSec: 1.2
-    spawnPrSecIncrement: 0.01
+    spawnPrSecIncrement: 0.02
     maxspawnPrSec: 2
-    planetDiggerCount: 0
+    planetDiggerCount: 2
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -38,9 +38,9 @@ MonoBehaviour:
       spawnChance: 2
   - timeSec: 160
     spawnPrSec: 1.4
-    spawnPrSecIncrement: 0.01
+    spawnPrSecIncrement: 0.03
     maxspawnPrSec: 3
-    planetDiggerCount: 0
+    planetDiggerCount: 3
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -50,9 +50,9 @@ MonoBehaviour:
       spawnChance: 4
   - timeSec: 180
     spawnPrSec: 1.6
-    spawnPrSecIncrement: 0.01
+    spawnPrSecIncrement: 0.04
     maxspawnPrSec: 4
-    planetDiggerCount: 0
+    planetDiggerCount: 4
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -62,9 +62,9 @@ MonoBehaviour:
       spawnChance: 5
   - timeSec: 200
     spawnPrSec: 1.8
-    spawnPrSecIncrement: 0.01
+    spawnPrSecIncrement: 0.05
     maxspawnPrSec: 5
-    planetDiggerCount: 0
+    planetDiggerCount: 5
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}

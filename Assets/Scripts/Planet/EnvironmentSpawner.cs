@@ -64,11 +64,11 @@ public class EnvironmentSpawner : MonoBehaviour
         shopInst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - 0.2f, 0);
 
         RotatePlanetRandom();
-        var collisions = Physics.OverlapSphere(shopInst.transform.position, 5f, 1 << 11);
+        var collisions = Physics.OverlapSphere(shopInst.transform.position, 10f, 1 << 11);
         while (collisions.Length > 0)
         {
             RotatePlanetRandom();
-            collisions = Physics.OverlapSphere(shopInst.transform.position, 5f, 1 << 11);
+            collisions = Physics.OverlapSphere(shopInst.transform.position, 10f, 1 << 11);
             yield return null;
         }
 

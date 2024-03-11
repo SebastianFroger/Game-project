@@ -8,26 +8,30 @@ public class PlanetDiggerMovement : MonoBehaviour
     public float groundHeightAdjust = 1f;
 
     private bool _hasLanded;
+    private Rigidbody _rb;
+
 
     private void Start()
     {
-        transform.LookAt(Vector3.zero, transform.up);
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void OnEnable()
     {
+        transform.LookAt(Vector3.zero);
         _hasLanded = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!_hasLanded)
         {
-            transform.position += -transform.position.normalized * unitStatsSO.speed * Time.deltaTime;
+            transform.LookAt(Vector3.zero);
+            _rb.MovePosition(-transform.position.normalized * unitStatsSO.speed * Time.deltaTime);
         }
         else
         {
-            transform.position = transform.position.normalized * (Planet.Instance.GetRadius() + groundHeightAdjust);
+            _rb.MovePosition(transform.position.normalized * (Planet.Instance.GetRadius() + groundHeightAdjust));
         }
     }
 

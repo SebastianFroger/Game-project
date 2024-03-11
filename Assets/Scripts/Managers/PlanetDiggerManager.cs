@@ -20,8 +20,11 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
     {
         _roundDataSO = roundDataSO;
         var round = _roundDataSO.roundDatas[_roundDataSO.currentRound];
+
         _spawnCount = 0;
+
         _spawnTimes.Clear();
+
         while (_spawnTimes.Count < round.planetDiggerCount)
         {
             _spawnTimes.Add(Random.Range(Time.time, Time.time + round.timeSec - 20f));
@@ -49,7 +52,7 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
         if (Time.time >= _nextSpawTime)
         {
             _nextSpawTime = Time.time + _spawnTimes[_spawnCount];
-            SpawnDigger();
+            InstantiateSpawnDigger();
         }
 
         if (_diggersCount > 0)
@@ -64,7 +67,7 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
         }
     }
 
-    void SpawnDigger()
+    void InstantiateSpawnDigger()
     {
         // find position
         var center = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Planet.Instance.GetRadius();
@@ -78,11 +81,5 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
         // spawn
         var inst = MyObjectPool.Instance.GetInstance(prefab);
         inst.transform.position = center * 10;
-        // inst.GetComponent<PlanetDiggerMovement>().enabled = true;
-    }
-
-    public void ResetCount()
-    {
-        _spawnCount = 0;
     }
 }

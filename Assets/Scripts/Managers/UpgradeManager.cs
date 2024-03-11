@@ -16,10 +16,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
         while (_currentUpgrades.Count < upgradesCount)
         {
-            var newUpgrade = upgradeSO[Random.Range(0, upgradeSO.Length - 1)];
+            var newUpgrade = upgradeSO[Random.Range(0, upgradeSO.Length)];
             while (_currentUpgrades.Contains(newUpgrade))
             {
-                newUpgrade = upgradeSO[Random.Range(0, upgradeSO.Length - 1)];
+                newUpgrade = upgradeSO[Random.Range(0, upgradeSO.Length)];
             }
             _currentUpgrades.Add(newUpgrade);
         }

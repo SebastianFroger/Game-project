@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MaxHealth
   m_EditorClassIdentifier: 
   points: 0
-  currentHP: 0
+  currentHP: 10
   startHP: 0
   maxHP: 10
   dammage: 0
@@ -22,7 +22,9 @@ MonoBehaviour:
   startAttackSpeed: 0
   speed: 0
   startSpeed: 0
+  pickUpRange: 0
+  startPickUpRange: 0
   title: Max Health
   description: Increase Max HP
-  price: 10
+  price: 15
   playerCurrentStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}

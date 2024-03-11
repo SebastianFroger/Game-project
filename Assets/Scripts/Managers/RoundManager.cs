@@ -33,8 +33,9 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableGameUI(false);
         MenuManager.Instance.EnableRoundMenu(true);
         GameManager.Instance.EnableMenuControls();
-        MyObjectPool.Instance.ReleaseAll();
+        // MyObjectPool.Instance.ReleaseAll();
         GameManager.Instance.TimeActive(false);
+        Planet.Instance.ResetScale();
     }
 
     public void OnRoundMenuReadyPress()
@@ -45,7 +46,7 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
         EnemySpawner.Instance.SetRoundData(roundDataSO);
-        PlanetDiggerManager.Instance.ResetCount();
+        PlanetDiggerManager.Instance.SetRoundData(roundDataSO);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 }
