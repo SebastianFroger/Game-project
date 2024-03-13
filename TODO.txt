@@ -2,10 +2,8 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
-- refactor round system in enemy and digger managers.
-  -- pass single roundata from roundmanager?
-  -- let them be self contained? and keep track of rounds from roundataSO?
-
+- coins moving - physics
+- many diggers
 
 ------------------------------------------------------------------------
 ## TODO

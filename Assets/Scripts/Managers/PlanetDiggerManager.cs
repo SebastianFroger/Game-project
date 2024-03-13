@@ -34,14 +34,16 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
         // when to spawn
         if (Time.time >= _nextSpawTime)
         {
+            var roundData = _roundDataSO.roundDatas[_roundDataSO.currentRound];
             if (_nextSpawTime == 0)
             {
-                var roundData = _roundDataSO.roundDatas[_roundDataSO.currentRound];
-                _nextSpawTime = Random.Range(Time.time + 1f, Time.time + (roundData.timeSec / roundData.planetDiggerCount));
+                _nextSpawTime = Time.time + Random.Range(Time.time + 1f, Time.time + (roundData.timeSec / roundData.planetDiggerCount));
                 return;
             }
 
             InstantiateSpawnDigger();
+
+            _nextSpawTime = Time.time + Random.Range(Time.time + 1f, Time.time + (roundData.timeSec / roundData.planetDiggerCount));
         }
 
         // events for nr of diggers
