@@ -27,7 +27,6 @@ public class GameManager : Singleton<GameManager>
         EnableMenuControls();
     }
 
-
     // buttons and menus
     public void OnStarButtonPress() // start button in menu
     {

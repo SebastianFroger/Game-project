@@ -77,7 +77,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328409505970683906}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a407db65ce0a00d4397836c28dc60478, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   unitStatsSO: {fileID: 11400000, guid: 70765984d1714d343b3208473adec670, type: 2}
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
+  stopped: 0
 --- !u!114 &7335987211931231141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: 70765984d1714d343b3208473adec670, type: 2}
+  rangedAttack: 0
+  bulletPrefab: {fileID: 0}
+  bulletSpawn: {fileID: 0}
 --- !u!114 &8059782168554662308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: 70765984d1714d343b3208473adec670, type: 2}
   createInsance: 1
+  invincible: 0
   OnStartEvent:
     m_PersistentCalls:
       m_Calls: []

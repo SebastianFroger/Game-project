@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
 {
     public UnitStatsSO unitStatsSO;
     public bool createInsance;
+    public bool invincible;
     public UnityEvent OnStartEvent;
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeathEvent;
@@ -35,6 +36,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (invincible) return;
+
         unitStatsSO.currentHP -= amount;
 
 

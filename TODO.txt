@@ -2,18 +2,18 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
-- coins moving - physics
-- many diggers
+- diggers dont pawn right?!
+
 
 ------------------------------------------------------------------------
 ## TODO
 ------------------------------------------------------------------------
 
-- world generator
 - bomb enemy
-- world events
 - fix colliders to not get stuck
 - balance current gameplay?
+- move stats to round upgrades - add reroll
+- world events
 
 - audio
 - effects
@@ -26,7 +26,7 @@
 
 - fast paced
 - instadeath (no progress)
-- random world generation (rock formations, dammage ares (fire?))
+- random world generation (rock formations, dammage areas (fire?))
 - general randomness (enemies, upgrades, world events)
 - in game upgrades/progress (hp, dammage, weapons, secondary effects(shield?))
 - steam Acchievements and LeaderBoard?

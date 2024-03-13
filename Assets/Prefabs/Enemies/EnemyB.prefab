@@ -78,7 +78,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328409505970683906}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a407db65ce0a00d4397836c28dc60478, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: 4232cbafd8158b54c8ecb83091968371, type: 2}
   createInsance: 1
+  invincible: 0
   OnStartEvent:
     m_PersistentCalls:
       m_Calls: []

@@ -83,4 +83,9 @@ public class EnemyAttack : MonoBehaviour
             _enemyControl.stopped = false;
         }
     }
+
+    private void OnDisable()
+    {
+        _inRange = false;
+    }
 }

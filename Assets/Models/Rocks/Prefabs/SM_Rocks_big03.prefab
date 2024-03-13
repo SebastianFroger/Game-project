@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4563372550702056529}
   - component: {fileID: 8977101047082046561}
   - component: {fileID: 7893785750660969085}
-  - component: {fileID: 7304924561307935038}
   - component: {fileID: 8165757544298637144}
+  - component: {fileID: 1187521562513049865}
   m_Layer: 11
   m_Name: SM_Rocks_big03
   m_TagString: Untagged
@@ -85,27 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7304924561307935038
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2290846898853941114}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.57544214, y: 0.7392076, z: 0.5109899}
-  m_Center: {x: 0.016663522, y: 0.3411801, z: 0.00023694336}
 --- !u!54 &8165757544298637144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,3 +112,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &1187521562513049865
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290846898853941114}
+  m_Material: {fileID: 13400000, guid: a407db65ce0a00d4397836c28dc60478, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1.16
+  m_Direction: 1
+  m_Center: {x: -0.01, y: 0.3411801, z: 0.03}

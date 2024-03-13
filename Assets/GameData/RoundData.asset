@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbd2726880031b4cb4a127607bf6267, type: 3}
   m_Name: RoundData
   m_EditorClassIdentifier: 
-  timeCountDown: 120.69325
+  timeCountDown: 59.98995
   currentRound: 0
   roundDatas:
-  - timeSec: 120
+  - timeSec: 60
     spawnPrSec: 1
     spawnPrSecIncrement: 0.01
     maxspawnPrSec: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
       spawnChance: 10
-  - timeSec: 140
+  - timeSec: 90
     spawnPrSec: 1.2
     spawnPrSecIncrement: 0.02
     maxspawnPrSec: 2
@@ -36,7 +36,7 @@ MonoBehaviour:
     - prefab: {fileID: 328409505970683906, guid: 8a342e08da423be4c80b333cf6723650,
         type: 3}
       spawnChance: 2
-  - timeSec: 160
+  - timeSec: 120
     spawnPrSec: 1.4
     spawnPrSecIncrement: 0.03
     maxspawnPrSec: 3
@@ -48,7 +48,7 @@ MonoBehaviour:
     - prefab: {fileID: 328409505970683906, guid: 8a342e08da423be4c80b333cf6723650,
         type: 3}
       spawnChance: 4
-  - timeSec: 180
+  - timeSec: 150
     spawnPrSec: 1.6
     spawnPrSecIncrement: 0.04
     maxspawnPrSec: 4
@@ -60,7 +60,7 @@ MonoBehaviour:
     - prefab: {fileID: 328409505970683906, guid: 8a342e08da423be4c80b333cf6723650,
         type: 3}
       spawnChance: 5
-  - timeSec: 200
+  - timeSec: 180
     spawnPrSec: 1.8
     spawnPrSecIncrement: 0.05
     maxspawnPrSec: 5
