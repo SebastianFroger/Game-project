@@ -1,0 +1,74 @@
+------------------------------------------------------------------------
+## BUGS & SHIT CODE
+------------------------------------------------------------------------
+
+- refactor round system in enemy and digger managers.
+  -- pass single roundata from roundmanager?
+  -- let them be self contained? and keep track of rounds from roundataSO?
+
+
+------------------------------------------------------------------------
+## TODO
+------------------------------------------------------------------------
+
+- world generator
+- bomb enemy
+- world events
+- fix colliders to not get stuck
+- balance current gameplay?
+
+- audio
+- effects
+- graphics
+
+
+------------------------------------------------------------------------
+## GAME RULES & STUFF
+------------------------------------------------------------------------
+
+- fast paced
+- instadeath (no progress)
+- random world generation (rock formations, dammage ares (fire?))
+- general randomness (enemies, upgrades, world events)
+- in game upgrades/progress (hp, dammage, weapons, secondary effects(shield?))
+- steam Acchievements and LeaderBoard?
+
+
+Enemies
+
+- standard melee minion
+- ranged attack with low hp
+- fast suicide bomb (explodes on proximity)
+- boss or elite
+
+
+World/Round events (random every round)
+
+- shop closed 
+- planet shrinks (digging machines spawn on planet and shrink it. Destroy them to stop shrink)
+- boss 
+- meteors (dammages player or all?)
+
+
+Round upgrades
+
+(all current player upgrades?)
+- max HP
+- dammage
+- fire rate?
+- movement speed
+- pickup range
+- armor?
+- luck?
+
+
+Shop upgrades (Secondary - can only own 1 at the time?)
+(cooldown based?)
+
+- HP (if dammage taken)
+- shield
+- weapons
+- traps on ground?
+- push
+- grenades (auto/taget strongest ennemy?)
+- dash? (through environment?)
