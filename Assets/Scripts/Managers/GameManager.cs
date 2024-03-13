@@ -12,8 +12,8 @@ public class GameManager : Singleton<GameManager>
     private bool _isPaused;
     public bool gameStarted;
     public PlayerInput _playerInput;
-    private string _actionMapPlayerControls = "Player Controls";
-    private string _actionMenuControls = "Menu Controls";
+    private string _actionMapPlayerControls = "Player Control";
+    private string _actionMenuControls = "Menu Control";
 
     void Start()
     {

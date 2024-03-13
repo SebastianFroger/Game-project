@@ -5,39 +5,32 @@ using UnityEngine;
 
 public class EnemySpawner : Singleton<EnemySpawner>
 {
+    public RoundDataSO roundDataSO;
     public GameObject player;
 
     private float _spawnInterval;
-    private float _minSpawnInterval;
     private float _spawnIntervalDecreaseRate;
-
     private float _nextSpawTime = 0f;
     private GameObject _instance;
-    private RoundDataSO _roundDataSO;
-
-    public void SetRoundData(RoundDataSO roundDataSO)
-    {
-        _roundDataSO = roundDataSO;
-        _spawnInterval = (1 / _roundDataSO.roundDatas[_roundDataSO.currentRound].spawnPrSec);
-        _minSpawnInterval = (1 / _roundDataSO.roundDatas[_roundDataSO.currentRound].maxspawnPrSec);
-        _nextSpawTime = _nextSpawTime = Time.time + _spawnInterval;
-    }
 
     private void Update()
     {
         // if (!GameManager.Instance.gameStarted) return;
-        if (_nextSpawTime == 0f) return;
+        if (_nextSpawTime == 0f)
+        {
+            _nextSpawTime = Time.time + (1 / roundDataSO.roundDatas[roundDataSO.currentRound].spawnPrSec);
+        }
 
         if (Time.time > _nextSpawTime)
         {
-            _nextSpawTime = Time.time + _spawnInterval;
+            _nextSpawTime = Time.time + (1 / roundDataSO.roundDatas[roundDataSO.currentRound].spawnPrSec);
             _instance = MyObjectPool.Instance.GetInstance(EnemySelector());
 
             // spawn on oposite side of the planet from the player
             var pos = (player.transform.position * -1).normalized * Planet.Instance.GetRadius();
             _instance.transform.position = pos;
 
-            if (_spawnInterval > _minSpawnInterval)
+            if (_spawnInterval > (1 / roundDataSO.roundDatas[roundDataSO.currentRound].maxspawnPrSec))
                 _spawnInterval -= _spawnIntervalDecreaseRate;
         }
     }
@@ -45,7 +38,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private GameObject EnemySelector()
     {
         var randomNr = Random.Range(1, 10);
-        var enemyList = _roundDataSO.roundDatas[_roundDataSO.currentRound].enemies;
+        var enemyList = roundDataSO.roundDatas[roundDataSO.currentRound].enemies;
         var enemy = enemyList[0];
 
         foreach (var item in enemyList)

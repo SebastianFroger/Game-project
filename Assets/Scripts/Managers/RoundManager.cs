@@ -11,8 +11,6 @@ public class RoundManager : Singleton<RoundManager>
     public void StartFirstRound()
     {
         roundDataSO.currentRound = 0;
-        EnemySpawner.Instance.SetRoundData(roundDataSO);
-        PlanetDiggerManager.Instance.SetRoundData(roundDataSO);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 
@@ -34,7 +32,7 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableGameUI(false);
         MenuManager.Instance.EnableRoundMenu(true);
         GameManager.Instance.EnableMenuControls();
-        // MyObjectPool.Instance.ReleaseAll();
+        MyObjectPool.Instance.ReleaseAll();
         GameManager.Instance.TimeActive(false);
         Planet.Instance.ResetScale();
     }
@@ -46,9 +44,6 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
-        MyObjectPool.Instance.ReleaseAll();
-        EnemySpawner.Instance.SetRoundData(roundDataSO);
-        PlanetDiggerManager.Instance.SetRoundData(roundDataSO);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 }

@@ -9,30 +9,11 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
     public UnityEvent OnDiggerLand;
     public UnityEvent OnNoDiggers;
 
-    private RoundDataSO _roundDataSO;
-    private List<float> _spawnTimes = new();
+    public RoundDataSO _roundDataSO;
     private float _nextSpawTime = 0f;
-    private int _spawnCount = 0;
     private int _diggersCount = 0;
     private bool _previouslyEnabled;
-
-    public void SetRoundData(RoundDataSO roundDataSO)
-    {
-        _roundDataSO = roundDataSO;
-        var round = _roundDataSO.roundDatas[_roundDataSO.currentRound];
-
-        _spawnCount = 0;
-
-        _spawnTimes.Clear();
-
-        while (_spawnTimes.Count < round.planetDiggerCount)
-        {
-            _spawnTimes.Add(Random.Range(Time.time, Time.time + round.timeSec - 20f));
-        }
-        _spawnTimes.Sort();
-
-        _nextSpawTime = Time.time + _spawnTimes[_spawnCount];
-    }
+    private RoundData _currentRound;
 
     public void AddDigger()
     {
@@ -47,14 +28,23 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
     // Update is called once per frame
     void Update()
     {
-        if (_spawnTimes.Count == 0) return;
+        if (_currentRound == null)
+            _currentRound = _roundDataSO.roundDatas[_roundDataSO.currentRound];
 
+        // when to spawn
         if (Time.time >= _nextSpawTime)
         {
-            _nextSpawTime = Time.time + _spawnTimes[_spawnCount];
+            if (_nextSpawTime == 0)
+            {
+                var roundData = _roundDataSO.roundDatas[_roundDataSO.currentRound];
+                _nextSpawTime = Random.Range(Time.time + 1f, Time.time + (roundData.timeSec / roundData.planetDiggerCount));
+                return;
+            }
+
             InstantiateSpawnDigger();
         }
 
+        // events for nr of diggers
         if (_diggersCount > 0)
         {
             OnDiggerLand?.Invoke();

@@ -367,6 +367,12 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1305847775}
+    - target: {fileID: 9196481844530961011, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: roundDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -670,6 +676,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
 --- !u!1001 &852828098284856459
 PrefabInstance:
   m_ObjectHideFlags: 0
