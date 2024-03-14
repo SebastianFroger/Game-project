@@ -187,7 +187,6 @@ public class EnvironmentSpawner : MonoBehaviour
         player.transform.position = randomPosOnSphere;
         player.transform.LookAt(Vector3.zero);
         player.transform.Rotate(new Vector3(-90, 0, 0));
-        player.transform.parent = transform;
 
         _creatingMap = true;
     }
