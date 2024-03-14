@@ -44,6 +44,7 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
+        PlanetDiggerManager.Instance.ResetSpawnTime();
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 }

@@ -10,10 +10,16 @@
 ------------------------------------------------------------------------
 
 - bomb enemy
-- fix colliders to not get stuck
 - balance current gameplay?
-- move stats to round upgrades - add reroll
+-- test bigger planet
+-- faster fire rate
+-- enemy HP
+-- more enemies (more hectic bullet hell/heaven)
+-- smaller enemies and player for bigger hord - performance issues?
+- move stats to round upgrades?
+- add reroll
 - world events
+- better use of planet (sphere gameplay)
 
 - audio
 - effects
@@ -26,9 +32,11 @@
 
 - fast paced
 - instadeath (no progress)
+- player skills based
 - random world generation (rock formations, dammage areas (fire?))
 - general randomness (enemies, upgrades, world events)
 - in game upgrades/progress (hp, dammage, weapons, secondary effects(shield?))
+- fun upgrade quotes
 - steam Acchievements and LeaderBoard?
 
 
@@ -38,6 +46,7 @@ Enemies
 - ranged attack with low hp
 - fast suicide bomb (explodes on proximity)
 - boss or elite
+- unique/special attacks
 
 
 World/Round events (random every round)
@@ -58,6 +67,11 @@ Round upgrades
 - pickup range
 - armor?
 - luck?
+- crit chance
+- penetration (hit multiple simultaneously)
+- multi shots
+- shoot in all directions
+
 
 
 Shop upgrades (Secondary - can only own 1 at the time?)
@@ -70,3 +84,5 @@ Shop upgrades (Secondary - can only own 1 at the time?)
 - push
 - grenades (auto/taget strongest ennemy?)
 - dash? (through environment?)
+- upgrade shop upgrades (cooldown, dammage)
+- slow enemies in range

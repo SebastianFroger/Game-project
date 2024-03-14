@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +15,7 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
     private int _diggersCount = 0;
     private bool _previouslyEnabled;
     private RoundData _currentRound;
+    private int _currentRoundCount;
 
     public void AddDigger()
     {
@@ -23,6 +25,11 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
     public void RemoveDigger()
     {
         _diggersCount -= 1;
+    }
+
+    public void ResetSpawnTime()
+    {
+        _nextSpawTime = 0;
     }
 
     // Update is called once per frame
@@ -35,15 +42,18 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
         if (Time.time >= _nextSpawTime)
         {
             var roundData = _roundDataSO.roundDatas[_roundDataSO.currentRound];
+            var timeInc = Random.Range(1f, roundData.timeSec / roundData.planetDiggerCount);
             if (_nextSpawTime == 0)
             {
-                _nextSpawTime = Time.time + Random.Range(Time.time + 1f, Time.time + (roundData.timeSec / roundData.planetDiggerCount));
+                _nextSpawTime = Time.time + timeInc;
+                DebugExt.Log(this, $"_nextSpawTime {_nextSpawTime} || diggers{roundData.planetDiggerCount} || {_roundDataSO.currentRound} || randomInc {timeInc}");
                 return;
             }
 
             InstantiateSpawnDigger();
 
-            _nextSpawTime = Time.time + Random.Range(Time.time + 1f, Time.time + (roundData.timeSec / roundData.planetDiggerCount));
+            _nextSpawTime = Time.time + timeInc;
+            DebugExt.Log(this, $"_nextSpawTime {_nextSpawTime} || Time.time {Time.time} || randomInc {timeInc}");
         }
 
         // events for nr of diggers
