@@ -8,15 +8,20 @@ public class RoundManager : Singleton<RoundManager>
     public RoundDataSO roundDataSO;
     private float _nextRoundTime = 0f;
 
-    public void StartFirstRound()
+    private void Start()
     {
         roundDataSO.currentRound = 0;
-        _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 
     void Update()
     {
         if (!GameManager.Instance.gameStarted) return;
+
+        if (_nextRoundTime == 0)
+        {
+            _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
+        }
+
 
         roundDataSO.timeCountDown = _nextRoundTime - Time.deltaTime;
 
@@ -24,7 +29,17 @@ public class RoundManager : Singleton<RoundManager>
         {
             EndRound();
         }
+    }
 
+    public void StartFirstRound()
+    {
+        MenuManager.Instance.EnableMainMenu(false);
+        MenuManager.Instance.EnableRoundMenu(false);
+        MenuManager.Instance.EnableGameUI(true);
+        GameManager.Instance.EnableGameplayControls();
+        GameManager.Instance.TimeActive(true);
+        PlanetDiggerManager.Instance.SetupRound();
+        _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 
     public void EndRound()
@@ -34,7 +49,6 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.EnableMenuControls();
         MyObjectPool.Instance.ReleaseAll();
         GameManager.Instance.TimeActive(false);
-        Planet.Instance.ResetScale();
     }
 
     public void OnRoundMenuReadyPress()
@@ -44,7 +58,7 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
-        PlanetDiggerManager.Instance.ResetSpawnTime();
+        PlanetDiggerManager.Instance.SetupRound();
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
     }
 }

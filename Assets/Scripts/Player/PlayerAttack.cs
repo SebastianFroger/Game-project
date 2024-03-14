@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject bullet;
     public UnitStatsSO unitStatsSO;
-    public EnemiesInRange _enemiesInRange;
+    public TransformRuntimeSet _enemiesInRange;
 
     public float _nextAttackTime;
     [SerializeField] private Transform _nearestEnemy;

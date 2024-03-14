@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class EnemiesInRange : RuntimeSetSO<Transform>
+public class TransformRuntimeSet : RuntimeSetSO<Transform>
 {
 
 }

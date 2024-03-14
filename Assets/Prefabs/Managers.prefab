@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9196481844530961011}
   - component: {fileID: 2638406913620596162}
   - component: {fileID: 2960729698760636033}
+  - component: {fileID: 5022619109391281427}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbb362e92b22544db93e77a3a4e2be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
   player: {fileID: 0}
 --- !u!114 &2638406913620596162
 MonoBehaviour:
@@ -126,6 +128,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69f2384f79996ec4da50ab4f38c244a7, type: 2}
   - {fileID: 11400000, guid: 7832d0e7cd6786e4d8c53a859f6a11ee, type: 2}
   - {fileID: 11400000, guid: 90724431dedf01544bdf5834620df73b, type: 2}
+  upgradesCount: 3
 --- !u!114 &2960729698760636033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,4 +144,35 @@ MonoBehaviour:
   unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
   startPrice: 10
-  priceIncreasePrRound: 5
+  priceIncreasePrRound: 10
+--- !u!114 &5022619109391281427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479988335815413390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15486f02b937d34ab249b44e3cf0c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
+  transformRuntimeSet: {fileID: 11400000, guid: c9859c1305a832c44b7b116b08384df5,
+    type: 2}
+  prefab: {fileID: 328409505970683906, guid: 770a0de2c1bc7f9469473db4ff1ca59a, type: 3}
+  OnDiggerSpawned:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIBlinking, Assembly-CSharp
+        m_MethodName: StartBlink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -2,7 +2,13 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
-- diggers dont pawn right?!
+- remove disabled enemies from inrange list in player script. and remove inplayerrange script from enemies
+
+------------------------------------------------------------------------
+## BUGS TO FIX LATER
+------------------------------------------------------------------------
+
+- ui not scaling properly with free aspect - fix later if necessary
 
 
 ------------------------------------------------------------------------
@@ -11,11 +17,7 @@
 
 - bomb enemy
 - balance current gameplay?
--- test bigger planet
--- faster fire rate
--- enemy HP
 -- more enemies (more hectic bullet hell/heaven)
--- smaller enemies and player for bigger hord - performance issues?
 - move stats to round upgrades?
 - add reroll
 - world events

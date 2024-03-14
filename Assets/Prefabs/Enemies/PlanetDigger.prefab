@@ -63,7 +63,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: 6ae12e8e6672fdf428187f9858591bb5, type: 2}
   createInsance: 1
+  invincible: 0
   OnStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -191,6 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: 6ae12e8e6672fdf428187f9858591bb5, type: 2}
+  transformRuntimeSet: {fileID: 11400000, guid: c9859c1305a832c44b7b116b08384df5,
+    type: 2}
   groundHeightAdjust: 1
 --- !u!136 &1633676166459942579
 CapsuleCollider:
@@ -207,7 +210,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2

@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlanetDiggerMovement : MonoBehaviour
 {
     public UnitStatsSO unitStatsSO;
-    public float groundHeightAdjust = 1f;
+    public TransformRuntimeSet transformRuntimeSet;
+    public float groundHeightAdjust = 0.2f;
 
     private bool _hasLanded;
     private Rigidbody _rb;
@@ -27,25 +28,34 @@ public class PlanetDiggerMovement : MonoBehaviour
         if (!_hasLanded)
         {
             transform.LookAt(Vector3.zero);
-            _rb.MovePosition(-transform.position.normalized * unitStatsSO.speed * Time.deltaTime);
+            _rb.velocity = transform.forward * unitStatsSO.speed;
         }
         else
         {
+            return;
             _rb.MovePosition(transform.position.normalized * (Planet.Instance.GetRadius() + groundHeightAdjust));
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Planet"))
         {
             _hasLanded = true;
-            PlanetDiggerManager.Instance.AddDigger();
+            _rb.isKinematic = true;
+
+            foreach (var item in transformRuntimeSet.Items)
+            {
+                if (item == transform)
+                    return;
+            }
+            transformRuntimeSet.Items.Add(transform);
+            DebugExt.Log(this, $"add");
         }
     }
 
     private void OnDisable()
     {
-        PlanetDiggerManager.Instance.RemoveDigger();
+        transformRuntimeSet.Items.Remove(transform);
     }
 }

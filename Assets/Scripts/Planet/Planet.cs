@@ -6,8 +6,7 @@ public class Planet : Singleton<Planet>
     public float startRadius;
     public float shrinkRate;
     public float minRadius;
-
-    private bool _isShrinking;
+    public TransformRuntimeSet harvestersSO;
 
 
     void Awake()
@@ -17,7 +16,7 @@ public class Planet : Singleton<Planet>
 
     void Update()
     {
-        if (!_isShrinking) return;
+        if (harvestersSO.Items.Count == 0) return;
 
         // shrink
         if (transform.localScale.x >= minRadius)
@@ -34,10 +33,5 @@ public class Planet : Singleton<Planet>
     public void ResetScale()
     {
         transform.localScale = new Vector3(startRadius, startRadius, startRadius);
-    }
-
-    public void Shrinking(bool shrinking)
-    {
-        _isShrinking = shrinking;
     }
 }

@@ -31,12 +31,8 @@ public class GameManager : Singleton<GameManager>
     public void OnStarButtonPress() // start button in menu
     {
         ResetStats();
-        MenuManager.Instance.EnableMainMenu(false);
-        MenuManager.Instance.EnableGameUI(true);
-        EnableGameplayControls();
-        TimeActive(true);
-        gameStarted = true;
         RoundManager.Instance.StartFirstRound();
+        gameStarted = true;
     }
 
     public void OnResumeButtonPress() // resume button in menu
