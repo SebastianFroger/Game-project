@@ -7,7 +7,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
 {
     public UnitStatsSO unitStatsSO;
     public UpgradeSO[] upgradeSO;
-    public int upgradesCount = 3;
+    public int upgradesCount = 4;
     private List<UpgradeSO> _currentUpgrades = new();
 
     public UpgradeSO[] GetRandomUpgrades()

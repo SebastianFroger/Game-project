@@ -2,7 +2,6 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
-- remove disabled enemies from inrange list in player script. and remove inplayerrange script from enemies
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
@@ -15,11 +14,11 @@
 ## TODO
 ------------------------------------------------------------------------
 
+- add reroll
 - bomb enemy
 - balance current gameplay?
 -- more enemies (more hectic bullet hell/heaven)
 - move stats to round upgrades?
-- add reroll
 - world events
 - better use of planet (sphere gameplay)
 
@@ -56,7 +55,7 @@ World/Round events (random every round)
 - shop closed 
 - planet shrinks (digging machines spawn on planet and shrink it. Destroy them to stop shrink)
 - boss 
-- meteors (dammages player or all?)
+- meteors / space lasers (dammages player or all?)
 
 
 Round upgrades
@@ -72,13 +71,13 @@ Round upgrades
 - crit chance
 - penetration (hit multiple simultaneously)
 - multi shots
-- shoot in all directions
 
 
 
 Shop upgrades (Secondary - can only own 1 at the time?)
 (cooldown based?)
 
+- shoot in all directions
 - HP (if dammage taken)
 - shield
 - weapons
