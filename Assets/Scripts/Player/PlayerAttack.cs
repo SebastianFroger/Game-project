@@ -26,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
         if (Time.time < _nextAttackTime || _enemiesInRange.Items.Count == 0) return;
         _nextAttackTime = Time.time + (1f / unitStatsSO.attackSpeed);
 
+        _nearestEnemy = null;
         _smallestDistance = Mathf.Infinity;
         foreach (var e in _enemiesInRange.Items)
         {
@@ -36,6 +37,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         // fire
+        if (_nearestEnemy == null) return;
         _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
         _bulletInst.transform.position = transform.position;
         _bulletInst.transform.LookAt(_nearestEnemy);

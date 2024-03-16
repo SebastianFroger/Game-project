@@ -32,7 +32,6 @@ public class PlanetDiggerManager : Singleton<PlanetDiggerManager>
             _diggersInstCount += 1;
             OnDiggerSpawned?.Invoke();
             _nextSpawTime = Time.time + Random.Range(1f, _currRoundData.timeSec / (_currRoundData.planetDiggerCount + 1));
-            DebugExt.Log(this, $"spawn harvester");
         }
     }
 

@@ -20,7 +20,6 @@ public class UIBlinking : MonoBehaviour
     public void StartBlink()
     {
         StartCoroutine(Blink());
-        DebugExt.Log(this, $"Blink");
     }
 
     IEnumerator Blink()

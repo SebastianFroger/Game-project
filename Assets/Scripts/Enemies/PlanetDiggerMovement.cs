@@ -11,16 +11,12 @@ public class PlanetDiggerMovement : MonoBehaviour
     private bool _hasLanded;
     private Rigidbody _rb;
 
-
-    private void Start()
-    {
-        _rb = GetComponent<Rigidbody>();
-    }
-
     private void OnEnable()
     {
         transform.LookAt(Vector3.zero);
         _hasLanded = false;
+        _rb = GetComponent<Rigidbody>();
+        _rb.isKinematic = false;
     }
 
     private void FixedUpdate()
@@ -32,7 +28,6 @@ public class PlanetDiggerMovement : MonoBehaviour
         }
         else
         {
-            return;
             _rb.MovePosition(transform.position.normalized * (Planet.Instance.GetRadius() + groundHeightAdjust));
         }
     }

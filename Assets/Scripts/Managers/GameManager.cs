@@ -113,6 +113,7 @@ public class GameManager : Singleton<GameManager>
 
     public void EnableMenuControls()
     {
+        GlobalObjectsManager.Instance.player.GetComponent<PlayerControl>().ResetMoveSpeed();
         _playerInput.SwitchCurrentActionMap(_actionMenuControls);
     }
 }
