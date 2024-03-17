@@ -62,6 +62,7 @@ public class MenuManager : Singleton<MenuManager>
 
     public void SetCardContent(UpgradeSO[] upgrades)
     {
+        DebugExt.Log(this, $"done");
         foreach (var card in shopCards)
         {
             card.gameObject.SetActive(true);
@@ -74,6 +75,7 @@ public class MenuManager : Singleton<MenuManager>
             shopCards[i].price.text = upgrades[i].price.ToString();
             shopCards[i].image.sprite = upgrades[i].image;
         }
+
     }
 
     public void DisableUpgradeCard(int index)

@@ -13,7 +13,7 @@ public class RoundManager : Singleton<RoundManager>
         roundDataSO.currentRound = 0;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!GameManager.Instance.gameStarted) return;
 
@@ -21,7 +21,6 @@ public class RoundManager : Singleton<RoundManager>
         {
             _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
         }
-
 
         roundDataSO.timeCountDown = _nextRoundTime - Time.deltaTime;
 
@@ -45,9 +44,11 @@ public class RoundManager : Singleton<RoundManager>
     {
         MenuManager.Instance.EnableGameUI(false);
         MenuManager.Instance.EnableShopMenu(true);
+        ShopManager.Instance.SetShopContent();
         GameManager.Instance.EnableMenuControls();
         MyObjectPool.Instance.ReleaseAll();
         GameManager.Instance.TimeActive(false);
+
     }
 
     public void OnRoundMenuReadyPress()

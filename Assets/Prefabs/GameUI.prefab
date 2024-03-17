@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3867,8 +3867,8 @@ RectTransform:
   - {fileID: 5171837129319940689}
   - {fileID: 4736518670045477449}
   - {fileID: 1506536005663378782}
-  - {fileID: 4784745638731768733}
   - {fileID: 4196403040398034836}
+  - {fileID: 4784745638731768733}
   - {fileID: 6097418523990136016}
   - {fileID: 4469815666444730012}
   - {fileID: 2337481147117390474}

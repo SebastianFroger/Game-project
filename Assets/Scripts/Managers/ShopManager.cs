@@ -12,7 +12,7 @@ public class ShopManager : Singleton<ShopManager>
 
     private List<UpgradeSO> _currentUpgrades = new();
 
-    public void OnShopOpen()
+    public void SetShopContent()
     {
         _currentUpgrades.Clear();
 
@@ -30,7 +30,7 @@ public class ShopManager : Singleton<ShopManager>
         if (unitStats.points < rerollPrice)
             return;
         unitStats.points -= rerollPrice;
-        OnShopOpen();
+        SetShopContent();
     }
 
     public void OnBuyItem(int index)
