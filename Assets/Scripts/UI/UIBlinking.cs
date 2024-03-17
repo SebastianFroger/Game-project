@@ -9,8 +9,9 @@ public class UIBlinking : MonoBehaviour
     public int blinkCount;
 
     private TMPro.TMP_Text _text;
+    private bool _isBlinking;
 
-    private void Start()
+    private void Awake()
     {
         _text = GetComponentInChildren<TMPro.TMP_Text>();
         _text.gameObject.SetActive(false);
@@ -19,11 +20,13 @@ public class UIBlinking : MonoBehaviour
 
     public void StartBlink()
     {
+        if (_isBlinking) return;
         StartCoroutine(Blink());
     }
 
     IEnumerator Blink()
     {
+        _isBlinking = true;
         for (int i = 0; i < blinkCount; i++)
         {
             _text.gameObject.SetActive(true);
@@ -31,5 +34,6 @@ public class UIBlinking : MonoBehaviour
             _text.gameObject.SetActive(false);
             yield return new WaitForSeconds(blinkTimeSec);
         }
+        _isBlinking = false;
     }
 }

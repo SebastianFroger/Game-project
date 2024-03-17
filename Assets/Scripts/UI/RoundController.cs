@@ -15,12 +15,14 @@ public class RoundController : Singleton<RoundController>
     private void Start()
     {
         roundCountText.text = roundDataSO.currentRound.ToString();
+        if (roundCountDownText == null) return;
         roundCountDownText.text = timeText + 0.ToString();
     }
 
     public void Update()
     {
         roundCountText.text = roundText + (roundDataSO.currentRound + 1).ToString();
+        if (roundCountDownText == null) return;
         roundCountDownText.text = timeText + Mathf.Round((roundDataSO.timeCountDown + 1) - Time.fixedTime).ToString();
     }
 }

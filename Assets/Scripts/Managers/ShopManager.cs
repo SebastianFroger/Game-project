@@ -8,32 +8,39 @@ public class ShopManager : Singleton<ShopManager>
     public RoundDataSO roundDataSO;
     public int startPrice;
     public int priceIncreasePrRound;
+    public int rerollPrice;
 
-    private UpgradeSO[] _shopUpgrades;
+    private List<UpgradeSO> _currentUpgrades = new();
 
     public void OnShopOpen()
     {
-        _shopUpgrades = UpgradeManager.Instance.GetRandomUpgrades();
-        SetItemPrice();
-        MenuManager.Instance.SetCardContent(_shopUpgrades);
+        _currentUpgrades.Clear();
+
+        foreach (var card in MenuManager.Instance.shopCards)
+        {
+            var upgrade = UpgradeManager.Instance.GetRandomUpgrades();
+            _currentUpgrades.Add(upgrade);
+            card.price.text = (startPrice + (priceIncreasePrRound * roundDataSO.currentRound)).ToString();
+        }
+        MenuManager.Instance.SetCardContent(_currentUpgrades.ToArray());
+    }
+
+    public void OnReroll()
+    {
+        if (unitStats.points < rerollPrice)
+            return;
+        unitStats.points -= rerollPrice;
+        OnShopOpen();
     }
 
     public void OnBuyItem(int index)
     {
-        var upgrade = _shopUpgrades[index];
+        var upgrade = _currentUpgrades[index];
         if (upgrade.price <= unitStats.points)
         {
             MenuManager.Instance.DisableUpgradeCard(index);
             UpgradeManager.Instance.ApplyUpgrade(upgrade);
             unitStats.points -= upgrade.price;
-        }
-    }
-
-    private void SetItemPrice()
-    {
-        foreach (var item in _shopUpgrades)
-        {
-            item.price = startPrice + (priceIncreasePrRound * roundDataSO.currentRound);
         }
     }
 }

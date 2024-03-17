@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbd2726880031b4cb4a127607bf6267, type: 3}
   m_Name: RoundData
   m_EditorClassIdentifier: 
-  timeCountDown: 20
+  timeCountDown: 180
   currentRound: 0
   roundDatas:
+  - timeSec: 180
+    spawnPrSec: 4
+    spawnPrSecIncrement: 1.8
+    maxspawnPrSec: 10
+    planetDiggerCount: 10
+    enemies:
+    - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
+        type: 3}
+      spawnChance: 10
+    - prefab: {fileID: 328409505970683906, guid: 8a342e08da423be4c80b333cf6723650,
+        type: 3}
+      spawnChance: 5
   - timeSec: 20
     spawnPrSec: 1
     spawnPrSecIncrement: 0.01

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Reflection;
+using UnityEngine.UI;
 
 [CreateAssetMenu]
 public class UpgradeSO : UnitStatsSO
@@ -11,6 +12,7 @@ public class UpgradeSO : UnitStatsSO
     public string title;
     public string description;
     public int price;
+    public Sprite image;
 
     public UnitStatsSO playerCurrentStats;
 

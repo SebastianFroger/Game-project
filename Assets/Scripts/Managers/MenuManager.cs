@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using System.Linq;
-using System.Threading;
 
 [System.Serializable]
 public class MenuCard
@@ -23,13 +21,13 @@ public class MenuManager : Singleton<MenuManager>
     public GameObject pauseMenuCanvas;
     public GameObject gameUICanvas;
     public GameObject roundMenuCanvas;
-    public GameObject shopMenuCanvas;
+    // public GameObject shopMenuCanvas;
     public TMPro.TMP_Text startResumeButtonTMP;
 
     [Header("Menu Buttons")]
     public GameObject startBtn;
     public GameObject resumeBtn;
-    public GameObject readyBtn;
+    public GameObject rerollBtn;
     public GameObject exitShopBtn;
 
     [Header("Shop Menu Cards")]
@@ -50,18 +48,11 @@ public class MenuManager : Singleton<MenuManager>
             EventSystem.current.SetSelectedGameObject(resumeBtn);
     }
 
-    public void EnableRoundMenu(bool enable)
+    public void EnableShopMenu(bool enable)
     {
         roundMenuCanvas.SetActive(enable);
         if (enable)
-            EventSystem.current.SetSelectedGameObject(readyBtn);
-    }
-
-    public void EnableShopMenu(bool enable)
-    {
-        shopMenuCanvas.SetActive(enable);
-        if (enable)
-            EventSystem.current.SetSelectedGameObject(exitShopBtn);
+            EventSystem.current.SetSelectedGameObject(rerollBtn);
     }
 
     public void EnableGameUI(bool enable)
@@ -81,6 +72,7 @@ public class MenuManager : Singleton<MenuManager>
             shopCards[i].title.text = upgrades[i].title;
             shopCards[i].description.text = upgrades[i].description;
             shopCards[i].price.text = upgrades[i].price.ToString();
+            shopCards[i].image.sprite = upgrades[i].image;
         }
     }
 

@@ -34,7 +34,6 @@ public class RoundManager : Singleton<RoundManager>
     public void StartFirstRound()
     {
         MenuManager.Instance.EnableMainMenu(false);
-        MenuManager.Instance.EnableRoundMenu(false);
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
@@ -45,7 +44,7 @@ public class RoundManager : Singleton<RoundManager>
     public void EndRound()
     {
         MenuManager.Instance.EnableGameUI(false);
-        MenuManager.Instance.EnableRoundMenu(true);
+        MenuManager.Instance.EnableShopMenu(true);
         GameManager.Instance.EnableMenuControls();
         MyObjectPool.Instance.ReleaseAll();
         GameManager.Instance.TimeActive(false);
@@ -54,7 +53,7 @@ public class RoundManager : Singleton<RoundManager>
     public void OnRoundMenuReadyPress()
     {
         roundDataSO.currentRound += 1;
-        MenuManager.Instance.EnableRoundMenu(false);
+        MenuManager.Instance.EnableShopMenu(false);
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);

@@ -14,7 +14,6 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- add reroll
 - bomb enemy
 - balance current gameplay?
 -- more enemies (more hectic bullet hell/heaven)

@@ -45,7 +45,6 @@ public class PlanetDiggerMovement : MonoBehaviour
                     return;
             }
             transformRuntimeSet.Items.Add(transform);
-            DebugExt.Log(this, $"add");
         }
     }
 

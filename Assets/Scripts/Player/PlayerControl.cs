@@ -37,12 +37,4 @@ public class PlayerControl : MonoBehaviour
         _movePos = transform.rotation * _inputDir + transform.position;
         _rb.velocity = (_movePos - transform.position) * unitStats.speed;
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Shop"))
-        {
-            GameManager.Instance.ShopMenuOpen();
-        }
-    }
 }

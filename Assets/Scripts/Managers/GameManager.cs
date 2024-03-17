@@ -21,7 +21,6 @@ public class GameManager : Singleton<GameManager>
         TimeActive(false);
         MenuManager.Instance.EnableMainMenu(true);
         MenuManager.Instance.EnableGameUI(false);
-        MenuManager.Instance.EnableRoundMenu(false);
         MenuManager.Instance.EnablePauseMenu(false);
         MenuManager.Instance.EnableShopMenu(false);
         EnableMenuControls();
@@ -60,23 +59,6 @@ public class GameManager : Singleton<GameManager>
             EnableGameplayControls();
             TimeActive(true);
         }
-    }
-
-    public void ShopMenuOpen()
-    {
-        MenuManager.Instance.EnableGameUI(false);
-        MenuManager.Instance.EnableShopMenu(true);
-        ShopManager.Instance.OnShopOpen();
-        EnableMenuControls();
-        TimeActive(false);
-    }
-
-    public void ShopMenuClose()
-    {
-        MenuManager.Instance.EnableShopMenu(false);
-        MenuManager.Instance.EnableGameUI(true);
-        EnableGameplayControls();
-        TimeActive(true);
     }
 
     public void OnRestartButtonPress()

@@ -27,4 +27,5 @@ MonoBehaviour:
   title: Max Health
   description: Increase Max HP
   price: 15
+  image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}
   playerCurrentStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
