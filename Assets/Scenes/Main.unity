@@ -482,9 +482,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5569757095009114483, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
-      propertyPath: OnDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: OnDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1120380182}
+    - target: {fileID: 5569757095009114483, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: OnDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GameReset
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569757095009114483, guid: 8f5e135a19626f544908fc8f156144b9,
+        type: 3}
+      propertyPath: OnDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5903297864969995812, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
       propertyPath: m_LocalPosition.x

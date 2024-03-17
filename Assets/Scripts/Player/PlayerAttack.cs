@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class PlayerAttack : MonoBehaviour
@@ -9,9 +10,11 @@ public class PlayerAttack : MonoBehaviour
     public GameObject bullet;
     public UnitStatsSO unitStatsSO;
     public TransformRuntimeSet _enemiesInRange;
+    public UnityEvent OnShoot;
 
-    public float _nextAttackTime;
-    [SerializeField] private Transform _nearestEnemy;
+
+    private float _nextAttackTime;
+    private Transform _nearestEnemy;
     private float _smallestDistance;
     private float _distance;
     private GameObject _bulletInst;
@@ -41,6 +44,8 @@ public class PlayerAttack : MonoBehaviour
         _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
         _bulletInst.transform.position = transform.position;
         _bulletInst.transform.LookAt(_nearestEnemy);
+
+        OnShoot?.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)

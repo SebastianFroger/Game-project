@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class Bullet : MonoBehaviour
@@ -9,6 +10,7 @@ public class Bullet : MonoBehaviour
     public float distance = 100f;
     public int speed = 100;
     public GameObject hitEffect;
+    public UnityEvent OnHitEvent;
 
     private Vector3 startPosition;
     private Vector3 _prevPosition;
@@ -32,6 +34,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        OnHitEvent?.Invoke();
         other.gameObject.GetComponent<Health>()?.TakeDamage(unitStatsSO.dammage);
         MyObjectPool.Instance.Release(gameObject);
 
