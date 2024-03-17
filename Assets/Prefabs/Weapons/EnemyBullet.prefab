@@ -121,3 +121,5 @@ MonoBehaviour:
   unitStatsSO: {fileID: 11400000, guid: 4232cbafd8158b54c8ecb83091968371, type: 2}
   distance: 100
   speed: 10
+  hitEffect: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b,
+    type: 3}

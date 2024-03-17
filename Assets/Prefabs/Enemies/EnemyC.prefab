@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: 7b8b749d362c9434bb20e5bb13a4da10, type: 2}
   explosionRange: 4
-  particle: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
+  particle: {fileID: 2433282508537954060, guid: f216f93cd915eeb4b9476962fc27bfbf,
     type: 3}
   layerMask:
     serializedVersion: 2

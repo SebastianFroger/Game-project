@@ -14,7 +14,6 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- add stats to roundmenu
 - audio
 - effects
 - balance current gameplay?

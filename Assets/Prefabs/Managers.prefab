@@ -128,7 +128,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69f2384f79996ec4da50ab4f38c244a7, type: 2}
   - {fileID: 11400000, guid: 7832d0e7cd6786e4d8c53a859f6a11ee, type: 2}
   - {fileID: 11400000, guid: 90724431dedf01544bdf5834620df73b, type: 2}
-  upgradesCount: 3
 --- !u!114 &2960729698760636033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +144,7 @@ MonoBehaviour:
   roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
   startPrice: 10
   priceIncreasePrRound: 10
+  rerollPrice: 10
 --- !u!114 &5022619109391281427
 MonoBehaviour:
   m_ObjectHideFlags: 0

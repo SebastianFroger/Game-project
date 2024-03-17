@@ -136,7 +136,7 @@ MonoBehaviour:
   startRadius: 60
   shrinkRate: -0.4
   minRadius: 20
-  harvestersSO: {fileID: 0}
+  harvestersSO: {fileID: 11400000, guid: c9859c1305a832c44b7b116b08384df5, type: 2}
 --- !u!114 &5488328234260292913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcd7e6815bf9a4e8adb369c5c963c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopPrefab: {fileID: 1607794851038060, guid: 9a519935455363d45a2fddc43a8ab660, type: 3}
   items:
   - prefab:
     - {fileID: 2290846898853941114, guid: b0abe2cf3d0874541a042aeb54738371, type: 3}
