@@ -83,6 +83,15 @@ public class GameManager : Singleton<GameManager>
 
     public void GameReset()
     {
+        StartCoroutine(OnPlayerDeathWait());
+    }
+
+    IEnumerator OnPlayerDeathWait()
+    {
+        Camera.main.transform.parent = null;
+        GlobalObjectsManager.Instance.player.SetActive(false);
+
+        yield return new WaitForSecondsRealtime(5);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }

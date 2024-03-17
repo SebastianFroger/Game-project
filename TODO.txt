@@ -15,7 +15,6 @@
 ------------------------------------------------------------------------
 
 - audio
-- effects
 - balance current gameplay?
 -- more enemies (more hectic bullet hell/heaven)
 - world events
