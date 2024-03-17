@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  points: 0
+  points: 282
   currentHP: 100
   startHP: 100
   maxHP: 100
   dammage: 20
   startDammage: 20
-  attackSpeed: 8
-  startAttackSpeed: 8
-  speed: 25
-  startSpeed: 25
+  attackSpeed: 5
+  startAttackSpeed: 5
+  speed: 15
+  startSpeed: 15
   pickUpRange: 10
   startPickUpRange: 10

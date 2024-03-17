@@ -10,15 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 4462523135328065168}
   - component: {fileID: 1953114217092605080}
-  - component: {fileID: 177989411456811174}
   - component: {fileID: 2490914712944907349}
   - component: {fileID: 8779180441509374298}
-  - component: {fileID: 7335987211931231141}
   - component: {fileID: 8059782168554662308}
   - component: {fileID: 4293908424935782114}
   - component: {fileID: 1618795733962209068}
   - component: {fileID: 2108351788115388616}
   - component: {fileID: 2161616131918356746}
+  - component: {fileID: 3485938154433265220}
+  - component: {fileID: 3033937988834375568}
+  - component: {fileID: -6602115111421434538}
   m_Layer: 8
   m_Name: EnemyC
   m_TagString: Enemy
@@ -41,7 +42,6 @@ Transform:
   m_Children:
   - {fileID: 4593814009461411415}
   - {fileID: 5452155860448324686}
-  - {fileID: 4726626352768963969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1953114217092605080
@@ -71,29 +71,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &177989411456811174
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328409505970683906}
-  m_Material: {fileID: 13400000, guid: a407db65ce0a00d4397836c28dc60478, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.5
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!114 &2490914712944907349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,27 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c2ecb93e8054c45bbb40827caea0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStatsSO: {fileID: 11400000, guid: 70765984d1714d343b3208473adec670, type: 2}
+  unitStatsSO: {fileID: 11400000, guid: 7b8b749d362c9434bb20e5bb13a4da10, type: 2}
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
   stopped: 0
---- !u!114 &7335987211931231141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328409505970683906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02228f2bb938e44593e06281f13267f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitStatsSO: {fileID: 11400000, guid: 4232cbafd8158b54c8ecb83091968371, type: 2}
-  rangedAttack: 1
-  bulletPrefab: {fileID: 319917157052235949, guid: 36c0a5d696c8f134cbd7c11ea027de86,
-    type: 3}
-  bulletSpawn: {fileID: 8963559158119539137}
 --- !u!114 &8059782168554662308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a0720fb6cbafe4ea601263b0d8aa5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStatsSO: {fileID: 11400000, guid: 4232cbafd8158b54c8ecb83091968371, type: 2}
+  unitStatsSO: {fileID: 11400000, guid: 7b8b749d362c9434bb20e5bb13a4da10, type: 2}
   createInsance: 1
   invincible: 0
   OnStartEvent:
@@ -190,6 +150,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2108351788115388616}
         m_TargetAssemblyTypeName: PoolReleaseGO, Assembly-CSharp
         m_MethodName: Release
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3485938154433265220}
+        m_TargetAssemblyTypeName: EnemyExplosionAttack, Assembly-CSharp
+        m_MethodName: Explode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -251,37 +223,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compareTag: Player
   enemiesInRange: {fileID: 11400000, guid: 08125d610ba39434780d96314231fb76, type: 2}
---- !u!1 &774274733291356268
-GameObject:
+--- !u!114 &3485938154433265220
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8963559158119539137}
-  m_Layer: 0
-  m_Name: Weapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8963559158119539137
-Transform:
+  m_GameObject: {fileID: 328409505970683906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d32fa34ca71d9b43ae962ac8b7c7e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStatsSO: {fileID: 11400000, guid: 7b8b749d362c9434bb20e5bb13a4da10, type: 2}
+  explosionRange: 4
+  particle: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
+    type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 320
+--- !u!135 &3033937988834375568
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774274733291356268}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4593814009461411415}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 328409505970683906}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &-6602115111421434538
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328409505970683906}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3691526587206051513
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,62 +314,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 350992076915738958}
-  - {fileID: 8963559158119539137}
   m_Father: {fileID: 4462523135328065168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3916074277530604080
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4726626352768963969}
-  - component: {fileID: 6412348287627493957}
-  m_Layer: 12
-  m_Name: AttackRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4726626352768963969
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3916074277530604080}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.05}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4462523135328065168}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6412348287627493957
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3916074277530604080}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4966573821260998714
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
     private GameObject EnemySelector()
     {
-        var randomNr = Random.Range(1, 10);
+        var randomNr = Random.Range(1, 100);
         var enemyList = roundDataSO.roundDatas[roundDataSO.currentRound].enemies;
         var enemy = enemyList[0];
 

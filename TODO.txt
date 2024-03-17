@@ -14,15 +14,15 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- bomb enemy
+- add stats to roundmenu
+- audio
+- effects
 - balance current gameplay?
 -- more enemies (more hectic bullet hell/heaven)
-- move stats to round upgrades?
 - world events
 - better use of planet (sphere gameplay)
 
-- audio
-- effects
+
 - graphics
 
 

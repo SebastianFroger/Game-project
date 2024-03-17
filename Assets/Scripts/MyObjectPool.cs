@@ -10,7 +10,7 @@ public class MyObjectPool : Singleton<MyObjectPool>
     private GameObject newInst;
     private List<GameObject> newList;
 
-    public GameObject GetInstance(GameObject obj)
+    public GameObject GetInstance(GameObject obj, Transform transforms = null)
     {
         foreach (var key in _poolDict.Keys)
         {
@@ -21,26 +21,61 @@ public class MyObjectPool : Singleton<MyObjectPool>
                     if (!item.activeInHierarchy)
                     {
                         item.SetActive(true);
+                        if (transforms != null)
+                        {
+                            item.transform.position = transforms.position;
+                            item.transform.rotation = transforms.rotation;
+                        }
                         return item;
                     }
 
-                    newInst = Instantiate(obj);
-                    newInst.transform.parent = transform;
+                    newInst = InstantiateNew(obj, transforms);
                     _poolDict[key].Add(newInst);
+
                     return newInst;
                 }
             }
         }
 
-        newInst = Instantiate(obj);
-        newInst.transform.parent = transform;
+        newInst = InstantiateNew(obj, transforms);
         newList = new List<GameObject>() { newInst };
         _poolDict.Add(obj.name, newList);
+
+        return newInst;
+    }
+
+    private GameObject InstantiateNew(GameObject obj, Transform transforms = null)
+    {
+        newInst = Instantiate(obj);
+        newInst.transform.parent = this.transform;
+        newList = new List<GameObject>() { newInst };
+
+        if (transforms != null)
+        {
+            newInst.transform.position = transforms.position;
+            newInst.transform.rotation = transforms.rotation;
+        }
+
         return newInst;
     }
 
     public void Release(GameObject obj)
     {
+        obj.SetActive(false);
+    }
+
+    public void Release(GameObject obj, float timeDelay)
+    {
+        StartCoroutine(ReleaseTimeCR(obj, Time.time + timeDelay));
+    }
+
+    IEnumerator ReleaseTimeCR(GameObject obj, float time)
+    {
+        while (Time.time < time)
+        {
+            yield return null;
+        }
+
         obj.SetActive(false);
     }
 

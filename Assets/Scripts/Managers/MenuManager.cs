@@ -21,7 +21,6 @@ public class MenuManager : Singleton<MenuManager>
     public GameObject pauseMenuCanvas;
     public GameObject gameUICanvas;
     public GameObject roundMenuCanvas;
-    // public GameObject shopMenuCanvas;
     public TMPro.TMP_Text startResumeButtonTMP;
 
     [Header("Menu Buttons")]
@@ -62,7 +61,6 @@ public class MenuManager : Singleton<MenuManager>
 
     public void SetCardContent(UpgradeSO[] upgrades)
     {
-        DebugExt.Log(this, $"done");
         foreach (var card in shopCards)
         {
             card.gameObject.SetActive(true);

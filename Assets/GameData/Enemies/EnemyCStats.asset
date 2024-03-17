@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
-  m_Name: EnemyBStats
+  m_Name: EnemyCStats
   m_EditorClassIdentifier: 
   points: 0
   currentHP: 10
   startHP: 10
   maxHP: 20
-  dammage: 10
-  startDammage: 10
+  dammage: 30
+  startDammage: 30
   attackSpeed: 0.5
   startAttackSpeed: 0.5
-  speed: 2
-  startSpeed: 5
+  speed: 8
+  startSpeed: 10
   pickUpRange: 0
   startPickUpRange: 0
