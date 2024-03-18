@@ -2,6 +2,8 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
+- escape when in settings menu starts should go back to pause menu
+- endround menu show up when player is dead
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
@@ -14,8 +16,7 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- options menu (volume, resolution?)
-- save settings on change
+- options menu (resolution?)
 - stats system
 - player selection screen
 - secondary action system

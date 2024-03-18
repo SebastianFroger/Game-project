@@ -29,7 +29,6 @@ public class GameManager : Singleton<GameManager>
 
         // keep music running
         var dontDestroyManager = GameObject.FindGameObjectWithTag("MusicManager");
-        DebugExt.Log(this, $"{dontDestroyManager}");
         if (dontDestroyManager == null)
             Instantiate(DontDestroyOnLoadManager);
     }
@@ -37,7 +36,7 @@ public class GameManager : Singleton<GameManager>
     // buttons and menus
     public void OnStarButtonPress() // start button in menu
     {
-        ResetStats();
+        UpgradeManager.Instance.SetStartStats();
         RoundManager.Instance.StartFirstRound();
         gameStarted = true;
     }
@@ -103,11 +102,6 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = active == true ? 1f : 0f;
     }
 
-    private void ResetStats()
-    {
-        unitStatsSO.Reset();
-    }
-
     public void GameReset(bool instant = false)
     {
         if (instant)
@@ -122,7 +116,6 @@ public class GameManager : Singleton<GameManager>
 
     IEnumerator OnPlayerDeathWait()
     {
-        Debug.Log("Player death wait");
         Camera.main.transform.parent = null;
         GlobalObjectsManager.Instance.player.SetActive(false);
 

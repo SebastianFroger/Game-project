@@ -23,16 +23,9 @@ public class Health : MonoBehaviour
             unitStatsSO = Instantiate(unitStatsSO);
         }
 
-        // this is for the lpayer HP bar to update
-        unitStatsSO.currentHP = unitStatsSO.startHP;
         OnStartEvent.Invoke();
     }
 
-    // reset enemy HP when taken from pool
-    void OnEnable()
-    {
-        unitStatsSO.currentHP = unitStatsSO.startHP;
-    }
 
     public void TakeDamage(float amount)
     {
