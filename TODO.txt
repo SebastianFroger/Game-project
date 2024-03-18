@@ -14,13 +14,14 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- restart round
 - options menu (volume, resolution?)
+- save settings on change
 - stats system
 - player selection screen
 - secondary action system
 - world events
 - more use of planet (sphere gameplay)
+- sound pool?
 
 
 - graphics

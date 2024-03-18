@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnableGameUI(false);
         MenuManager.Instance.EnablePauseMenu(false);
         MenuManager.Instance.EnableShopMenu(false);
+        MenuManager.Instance.EnableSettingsMenu(false);
         EnableMenuControls();
 
         // keep music running
@@ -66,6 +67,25 @@ public class GameManager : Singleton<GameManager>
             EnableGameplayControls();
             TimeActive(true);
         }
+    }
+
+    public void OnSettingsBtnPress()
+    {
+        MenuManager.Instance.EnableMainMenu(false);
+        MenuManager.Instance.EnablePauseMenu(false);
+        MenuManager.Instance.EnableSettingsMenu(true);
+        EnableMenuControls();
+    }
+
+    public void OnSettingsBackBtnPress()
+    {
+        MenuManager.Instance.EnableSettingsMenu(false);
+        if (!gameStarted)
+        {
+            MenuManager.Instance.EnableMainMenu(true);
+            return;
+        }
+        MenuManager.Instance.EnablePauseMenu(true);
     }
 
     public void OnRestartButtonPress()

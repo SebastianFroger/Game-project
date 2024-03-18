@@ -21,13 +21,14 @@ public class MenuManager : Singleton<MenuManager>
     public GameObject pauseMenuCanvas;
     public GameObject gameUICanvas;
     public GameObject roundMenuCanvas;
-    public TMPro.TMP_Text startResumeButtonTMP;
+    public GameObject settingsMenuCanvas;
 
     [Header("Menu Buttons")]
     public GameObject startBtn;
     public GameObject resumeBtn;
     public GameObject rerollBtn;
     public GameObject exitShopBtn;
+    public GameObject settingsBackBtn;
 
     [Header("Shop Menu Cards")]
     public MenuCard[] shopCards;
@@ -57,6 +58,13 @@ public class MenuManager : Singleton<MenuManager>
     public void EnableGameUI(bool enable)
     {
         gameUICanvas.SetActive(enable);
+    }
+
+    public void EnableSettingsMenu(bool enable)
+    {
+        settingsMenuCanvas.SetActive(enable);
+        if (enable)
+            EventSystem.current.SetSelectedGameObject(settingsBackBtn);
     }
 
     public void SetCardContent(UpgradeSO[] upgrades)
