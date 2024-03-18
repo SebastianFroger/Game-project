@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class PlayAudioClip : MonoBehaviour
 {
 
@@ -22,5 +21,10 @@ public class PlayAudioClip : MonoBehaviour
     {
         if (playOnEnable)
             _audioSource.Play();
+    }
+
+    public void PlayAtPoint()
+    {
+        AudioSource.PlayClipAtPoint(clip, transform.position);
     }
 }

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3087248801186900192}
   - component: {fileID: 1446686069841588020}
   - component: {fileID: -3887603039642408836}
-  - component: {fileID: 7870229160469609728}
+  - component: {fileID: -5194776898104458262}
+  - component: {fileID: 7859983398735522000}
   m_Layer: 3
   m_Name: Bullet
   m_TagString: Untagged
@@ -127,9 +128,9 @@ MonoBehaviour:
   OnHitEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7870229160469609728}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 7859983398735522000}
+        m_TargetAssemblyTypeName: PlayAudioClip, Assembly-CSharp
+        m_MethodName: PlayAtPoint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -139,7 +140,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!82 &7870229160469609728
+--- !u!82 &-5194776898104458262
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,9 +150,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ee20026cf7dafe04788a9f4d9799a54b, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.429
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -195,7 +196,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.813
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -235,3 +236,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7859983398735522000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319917157052235949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a9089ed3102b04e82070e9293f4c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: ee20026cf7dafe04788a9f4d9799a54b, type: 3}
+  volume: 1
+  playOnEnable: 0
