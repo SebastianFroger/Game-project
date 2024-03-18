@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
     public AudioClip[] musicClips;
 
@@ -12,9 +12,11 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
         _audioSource = GetComponent<AudioSource>();
-        _audioSource.clip = musicClips[Random.Range(0, musicClips.Length - 1)];
-        _audioSource.Play();
     }
 
     void Update()

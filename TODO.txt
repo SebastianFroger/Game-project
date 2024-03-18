@@ -14,10 +14,13 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- balance current gameplay?
--- more enemies (more hectic bullet hell/heaven)
+- restart round
+- options menu (volume, resolution?)
+- stats system
+- player selection screen
+- secondary action system
 - world events
-- better use of planet (sphere gameplay)
+- more use of planet (sphere gameplay)
 
 
 - graphics
@@ -39,47 +42,68 @@
 
 Enemies
 
-- standard melee minion
-- ranged attack with low hp
-- fast suicide bomb (explodes on proximity)
+v standard melee minion
+v ranged attack with low hp
+v fast suicide bomb (explodes on proximity)
 - boss or elite
 - unique/special attacks
+- scale stats with levels?
 
 
 World/Round events (random every round)
 
-- shop closed 
 - planet shrinks (digging machines spawn on planet and shrink it. Destroy them to stop shrink)
 - boss 
 - meteors / space lasers (dammages player or all?)
 
 
-Round upgrades
+Player character (choose between robot configurations at start)
 
-(all current player upgrades?)
-- max HP
-- dammage
-- fire rate?
-- movement speed
-- pickup range
-- armor?
-- luck?
-- crit chance
+- glass cannon (dammage / crit over armor / hp)
+- tank (armor and hp)
+- life regen / steal
+- fast
+- fast cool down
+
+
+Weapons
+
+- normal gun
+- shotgun (medium dammage / medium fire rate)
+- rocket / grenades (high dammage / slow fire rate)
+- lasers 
+
+
+Weapon upgrades
+
+- knock back
 - penetration (hit multiple simultaneously)
 - multi shots
-
-
-
-Shop upgrades (Secondary - can only own 1 at the time?)
-(cooldown based?)
-
 - shoot in all directions
-- HP (if dammage taken)
-- shield
-- weapons
-- traps on ground?
-- push
-- grenades (auto/taget strongest ennemy?)
-- dash? (through environment?)
-- upgrade shop upgrades (cooldown, dammage)
+- lifesteal
+- slow enemies
+
+
+Secondary (cooldown based / more than one?)
+
+- shield (on player or on ground)
+- traps on ground / deploy turret (dammage/slow enemy)
+- dash / teleport (through environment)
 - slow enemies in range
+- faster cooldown
+- make enemies attack enemies (time based)
+- heal 
+
+
+Player upgrades
+
+v max HP num
+v dammage %
+v fire rate %
+v movement speed %
+v pickup range %
+- HP regen num
+- armor num
+- luck? %
+- crit chance %
+- HP (if dammage taken) num

@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class GameManager : Singleton<GameManager>
 {
     public UnitStatsSO unitStatsSO;
+    public GameObject DontDestroyOnLoadManager;
     private bool _isPaused;
     public bool gameStarted;
     public PlayerInput _playerInput;
@@ -24,6 +25,12 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnablePauseMenu(false);
         MenuManager.Instance.EnableShopMenu(false);
         EnableMenuControls();
+
+        // keep music running
+        var dontDestroyManager = GameObject.FindGameObjectWithTag("MusicManager");
+        DebugExt.Log(this, $"{dontDestroyManager}");
+        if (dontDestroyManager == null)
+            Instantiate(DontDestroyOnLoadManager);
     }
 
     // buttons and menus
@@ -63,7 +70,7 @@ public class GameManager : Singleton<GameManager>
 
     public void OnRestartButtonPress()
     {
-        GameReset();
+        GameReset(true);
     }
 
     public void OnQuitAppButtonPress()
@@ -81,13 +88,21 @@ public class GameManager : Singleton<GameManager>
         unitStatsSO.Reset();
     }
 
-    public void GameReset()
+    public void GameReset(bool instant = false)
     {
+        if (instant)
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+            return;
+        }
+
         StartCoroutine(OnPlayerDeathWait());
     }
 
     IEnumerator OnPlayerDeathWait()
     {
+        Debug.Log("Player death wait");
         Camera.main.transform.parent = null;
         GlobalObjectsManager.Instance.player.SetActive(false);
 

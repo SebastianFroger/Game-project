@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  DontDestroyOnLoadManager: {fileID: 431016809489599065, guid: cb846d4137115c24ea3fe0352ac4455a,
+    type: 3}
   gameStarted: 0
   _playerInput: {fileID: 0}
 --- !u!114 &-8255545121539672844
@@ -94,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
+  playerStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
 --- !u!114 &9196481844530961011
 MonoBehaviour:
   m_ObjectHideFlags: 0
