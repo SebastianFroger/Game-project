@@ -9,27 +9,35 @@ public class RoundManager : Singleton<RoundManager>
     public UnitStatsSO playerStatsSO;
     private float _nextRoundTime = 0f;
     private UnitStatsSO _savedPlayerStatsSO;
+    private bool _stopTime;
 
     private void Start()
     {
         roundDataSO.currentRound = 0;
+        _stopTime = false;
     }
 
     void FixedUpdate()
     {
         if (!GameManager.Instance.gameStarted) return;
+        if (_stopTime) return;
 
         if (_nextRoundTime == 0)
         {
             _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
         }
 
-        roundDataSO.timeCountDown = _nextRoundTime - Time.deltaTime;
+        roundDataSO.timeCountDown = _nextRoundTime - Time.fixedTime;
 
         if (_nextRoundTime <= Time.fixedTime)
         {
             EndRound();
         }
+    }
+
+    public void StopRoundTime()
+    {
+        _stopTime = true;
     }
 
     public void StartFirstRound()
@@ -78,6 +86,7 @@ public class RoundManager : Singleton<RoundManager>
         PlanetDiggerManager.Instance.SetupRound();
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
         playerStatsSO.currentHP = playerStatsSO.maxHP;
+        _stopTime = false;
         SavePlayerStats();
     }
 

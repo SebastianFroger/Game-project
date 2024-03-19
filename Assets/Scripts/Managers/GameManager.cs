@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
     public PlayerInput _playerInput;
     private string _actionMapPlayerControls = "Player Control";
     private string _actionMenuControls = "Menu Control";
+    private bool _inSettingsMenu;
 
     void Start()
     {
@@ -50,6 +51,12 @@ public class GameManager : Singleton<GameManager>
     {
         if (!gameStarted) return;
 
+        if (_inSettingsMenu)
+        {
+            OnSettingsBackBtnPress();
+            return;
+        }
+
         _isPaused = !_isPaused;
 
         if (_isPaused)
@@ -74,6 +81,7 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnablePauseMenu(false);
         MenuManager.Instance.EnableSettingsMenu(true);
         EnableMenuControls();
+        _inSettingsMenu = true;
     }
 
     public void OnSettingsBackBtnPress()
@@ -85,6 +93,7 @@ public class GameManager : Singleton<GameManager>
             return;
         }
         MenuManager.Instance.EnablePauseMenu(true);
+        _inSettingsMenu = false;
     }
 
     public void OnRestartButtonPress()
@@ -104,14 +113,17 @@ public class GameManager : Singleton<GameManager>
 
     public void GameReset(bool instant = false)
     {
-        if (instant)
+
+        if (instant)    // restrt game
         {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
             return;
         }
 
+        // when player dies wait 5 seconds before restarting
         StartCoroutine(OnPlayerDeathWait());
+        RoundManager.Instance.StopRoundTime();
     }
 
     IEnumerator OnPlayerDeathWait()

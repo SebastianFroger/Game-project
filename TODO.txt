@@ -2,8 +2,7 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
-- escape when in settings menu starts should go back to pause menu
-- endround menu show up when player is dead
+- endround menu show up when player is dead - stop time countdown
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
