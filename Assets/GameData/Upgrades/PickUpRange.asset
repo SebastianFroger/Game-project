@@ -12,13 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
   m_Name: PickUpRange
   m_EditorClassIdentifier: 
-  points: 0
-  currentHP: 0
-  maxHP: 0
-  dammage: 0
-  attackSpeed: 0
-  speed: 0
-  pickUpRange: 0.5
+  points:
+    isPercentage: 0
+    value: 0
+  currentHP:
+    isPercentage: 0
+    value: 0
+  maxHP:
+    isPercentage: 0
+    value: 0
+  dammage:
+    isPercentage: 0
+    value: 0
+  attackSpeed:
+    isPercentage: 0
+    value: 0
+  speed:
+    isPercentage: 0
+    value: 0
+  pickUpRange:
+    isPercentage: 1
+    value: 10
   title: Pick Up Range
   description: Increase pick up range
   price: 15

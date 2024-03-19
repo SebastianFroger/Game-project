@@ -10,13 +10,13 @@ public class PickUpRange : MonoBehaviour
     void Start()
     {
         pickUpCollider = GetComponent<SphereCollider>();
-        pickUpCollider.radius = unitStatsSO.pickUpRange;
+        pickUpCollider.radius = unitStatsSO.pickUpRange.value;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (pickUpCollider.radius != unitStatsSO.pickUpRange)
-            pickUpCollider.radius = unitStatsSO.pickUpRange;
+        if (pickUpCollider.radius != unitStatsSO.pickUpRange.value)
+            pickUpCollider.radius = unitStatsSO.pickUpRange.value;
     }
 }

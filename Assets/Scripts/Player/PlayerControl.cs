@@ -35,6 +35,6 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         _movePos = transform.rotation * _inputDir + transform.position;
-        _rb.velocity = (_movePos - transform.position) * unitStats.speed;
+        _rb.velocity = (_movePos - transform.position) * unitStats.speed.value;
     }
 }

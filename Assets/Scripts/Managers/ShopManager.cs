@@ -27,20 +27,20 @@ public class ShopManager : Singleton<ShopManager>
 
     public void OnReroll()
     {
-        if (unitStats.points < rerollPrice)
+        if (unitStats.points.value < rerollPrice)
             return;
-        unitStats.points -= rerollPrice;
+        unitStats.points.value -= rerollPrice;
         SetShopContent();
     }
 
     public void OnBuyItem(int index)
     {
         var upgrade = _currentUpgrades[index];
-        if (upgrade.price <= unitStats.points)
+        if (upgrade.price <= unitStats.points.value)
         {
             MenuManager.Instance.DisableUpgradeCard(index);
             UpgradeManager.Instance.ApplyUpgrade(upgrade);
-            unitStats.points -= upgrade.price;
+            unitStats.points.value -= upgrade.price;
         }
     }
 }

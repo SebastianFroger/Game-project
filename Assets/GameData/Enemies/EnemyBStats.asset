@@ -12,10 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
   m_Name: EnemyBStats
   m_EditorClassIdentifier: 
-  points: 0
-  currentHP: 1
-  maxHP: 1
-  dammage: 1
-  attackSpeed: 0.5
-  speed: 3
-  pickUpRange: 0
+  points:
+    isPercentage: 0
+    value: 0
+  currentHP:
+    isPercentage: 0
+    value: 1
+  maxHP:
+    isPercentage: 0
+    value: 1
+  dammage:
+    isPercentage: 0
+    value: 1
+  attackSpeed:
+    isPercentage: 0
+    value: 1
+  speed:
+    isPercentage: 0
+    value: 3
+  pickUpRange:
+    isPercentage: 0
+    value: 0

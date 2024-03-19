@@ -72,8 +72,8 @@ public class RoundManager : Singleton<RoundManager>
         PlanetDiggerManager.Instance.SetupRound();
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
 
-        playerStatsSO.points = _savedPlayerStatsSO.points;
-        playerStatsSO.currentHP = playerStatsSO.maxHP;
+        playerStatsSO.points.value = _savedPlayerStatsSO.points.value;
+        playerStatsSO.currentHP.value = playerStatsSO.maxHP.value;
     }
 
     public void OnRoundMenuReadyPress()
@@ -85,7 +85,7 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.TimeActive(true);
         PlanetDiggerManager.Instance.SetupRound();
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
-        playerStatsSO.currentHP = playerStatsSO.maxHP;
+        playerStatsSO.currentHP.value = playerStatsSO.maxHP.value;
         _stopTime = false;
         SavePlayerStats();
     }

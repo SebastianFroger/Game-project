@@ -27,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         if (Time.time < _nextAttackTime || _enemiesInRange.Items.Count == 0) return;
-        _nextAttackTime = Time.time + (1f / unitStatsSO.attackSpeed);
+        _nextAttackTime = Time.time + (1f / unitStatsSO.attackSpeed.value);
 
         _nearestEnemy = null;
         _smallestDistance = Mathf.Infinity;

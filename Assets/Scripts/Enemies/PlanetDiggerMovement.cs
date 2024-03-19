@@ -24,7 +24,7 @@ public class PlanetDiggerMovement : MonoBehaviour
         if (!_hasLanded)
         {
             transform.LookAt(Vector3.zero);
-            _rb.velocity = transform.forward * unitStatsSO.speed;
+            _rb.velocity = transform.forward * unitStatsSO.speed.value;
         }
         else
         {

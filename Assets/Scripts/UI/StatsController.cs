@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Reflection;
+using System.Linq.Expressions;
 
 public class StatsController : MonoBehaviour
 {
@@ -12,41 +13,37 @@ public class StatsController : MonoBehaviour
 
     private void Update()
     {
-        var playerFields = typeof(UnitStatsSO).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         var text = "";
         var values = "";
-        foreach (var field in playerFields)
+        foreach (var field in unitStatsSO.GetAllFieldInfos())
         {
+            var name = field.Name;
+            var upgrade = (Upgrade)field.GetValue(unitStatsSO);
             switch (field.Name)
             {
-                case "currentHP":
-                    text += $"Health\n";
-                    values += $"{field.GetValue(unitStatsSO)}\n";
-                    break;
-
                 case "maxHP":
-                    text += $"Max Health\n";
-                    values += $"{field.GetValue(unitStatsSO)}\n";
+                    text += $"Health\n";
+                    values += $"{upgrade.value}\n";
                     break;
 
                 case "dammage":
                     text += $"Dammage\n";
-                    values += $"{field.GetValue(unitStatsSO)}\n";
+                    values += $"{upgrade.value}\n";
                     break;
 
                 case "attackSpeed":
                     text += $"Attack Speed\n";
-                    values += $"{field.GetValue(unitStatsSO)}\n";
+                    values += $"{upgrade.value}\n";
                     break;
 
                 case "speed":
                     text += $"Movement Speed\n";
-                    values += $"{field.GetValue(unitStatsSO)}\n";
+                    values += $"{upgrade.value}\n";
                     break;
 
                 case "pickUpRange":
                     text += $"Pick Up Range\n";
-                    values += $"{field.GetValue(unitStatsSO)}\n";
+                    values += $"{upgrade.value}\n";
                     break;
             }
         }

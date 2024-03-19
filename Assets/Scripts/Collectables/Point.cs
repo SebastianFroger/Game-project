@@ -17,7 +17,7 @@ public class Point : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        unitStats.points += 1;
+        unitStats.points.value += 1;
         MyObjectPool.Instance.Release(gameObject);
     }
 }

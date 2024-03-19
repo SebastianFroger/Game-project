@@ -35,6 +35,6 @@ public class EnemyControl : MonoBehaviour
     void FixedUpdate()
     {
         if (stopped) return;
-        _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * unitStatsSO.speed * Time.deltaTime);
+        _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * unitStatsSO.speed.value * Time.deltaTime);
     }
 }

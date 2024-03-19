@@ -23,27 +23,30 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public void SetStartStats()
     {
         ResetStats();
-        ApplyUpgrade(baseStatsSO);
     }
 
     public void ApplyUpgrade(UnitStatsSO upgradeStats)
     {
-        var upgradeStatsFields = typeof(UnitStatsSO).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-
-        foreach (var field in upgradeStatsFields)
+        var upgradeFields = upgradeStats.GetAllFieldInfos();
+        foreach (var field in upgradeFields)
         {
-            var upgradeValue = field.GetValue(upgradeStats);
-            var playerValue = field.GetValue(currentStatsSO);
-            field.SetValue(currentStatsSO, (float)playerValue + (float)upgradeValue);
+            var upgrade = (Upgrade)field.GetValue(upgradeStats);
+            var current = (Upgrade)field.GetValue(currentStatsSO);
+            if (upgrade.isPercentage)
+                current.value += (current.value * upgrade.value) / 100f;
+            else
+                current.value += upgrade.value;
         }
     }
 
     public void ResetStats()
     {
-        var upgradeFields = typeof(UnitStatsSO).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-        foreach (var field in upgradeFields)
+        // copy all fields values from baseStatsSO to currentStatsSO
+        foreach (var field in currentStatsSO.GetAllFieldInfos())
         {
-            field.SetValue(currentStatsSO, 0f);
+            var current = (Upgrade)field.GetValue(currentStatsSO);
+            var basest = (Upgrade)field.GetValue(baseStatsSO);
+            current.value = basest.value;
         }
     }
 }

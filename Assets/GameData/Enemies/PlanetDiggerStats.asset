@@ -12,10 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
   m_Name: PlanetDiggerStats
   m_EditorClassIdentifier: 
-  points: 0
-  currentHP: 5
-  maxHP: 5
-  dammage: 0
-  attackSpeed: 0
-  speed: 30
-  pickUpRange: 0
+  points:
+    isPercentage: 0
+    value: 0
+  currentHP:
+    isPercentage: 0
+    value: 5
+  maxHP:
+    isPercentage: 0
+    value: 5
+  dammage:
+    isPercentage: 0
+    value: 0
+  attackSpeed:
+    isPercentage: 0
+    value: 0
+  speed:
+    isPercentage: 0
+    value: 30
+  pickUpRange:
+    isPercentage: 0
+    value: 0

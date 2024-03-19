@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         OnHitEvent?.Invoke();
-        other.gameObject.GetComponent<Health>()?.TakeDamage(unitStatsSO.dammage);
+        other.gameObject.GetComponent<Health>()?.TakeDamage(unitStatsSO.dammage.value);
         MyObjectPool.Instance.Release(gameObject);
 
         var inst = MyObjectPool.Instance.GetInstance(hitEffect);

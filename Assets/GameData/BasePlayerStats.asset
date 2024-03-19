@@ -12,10 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
   m_Name: BasePlayerStats
   m_EditorClassIdentifier: 
-  points: 0
-  currentHP: 100
-  maxHP: 100
-  dammage: 1
-  attackSpeed: 1
-  speed: 10
-  pickUpRange: 5
+  points:
+    isPercentage: 0
+    value: 100
+  currentHP:
+    isPercentage: 0
+    value: 100
+  maxHP:
+    isPercentage: 0
+    value: 100
+  dammage:
+    isPercentage: 0
+    value: 1
+  attackSpeed:
+    isPercentage: 0
+    value: 1
+  speed:
+    isPercentage: 0
+    value: 10
+  pickUpRange:
+    isPercentage: 0
+    value: 5

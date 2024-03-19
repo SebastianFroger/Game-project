@@ -31,10 +31,10 @@ public class Health : MonoBehaviour
     {
         if (invincible) return;
 
-        unitStatsSO.currentHP -= amount;
+        unitStatsSO.currentHP.value -= amount;
 
 
-        if (unitStatsSO.currentHP <= 0)
+        if (unitStatsSO.currentHP.value <= 0)
         {
             if (OnDeathEvent != null)
             {

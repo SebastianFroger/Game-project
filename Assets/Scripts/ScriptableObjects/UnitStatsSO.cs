@@ -1,18 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 
-
+[Serializable]
+public class Upgrade
+{
+    public bool isPercentage;
+    public float value;
+}
 
 [CreateAssetMenu]
 public class UnitStatsSO : ScriptableObject
 {
-    public float points;
-    public float currentHP;
-    public float maxHP;
-    public float dammage;
-    public float attackSpeed;
-    public float speed;
-    public float pickUpRange;
+    public Upgrade points;
+    public Upgrade currentHP;
+    public Upgrade maxHP;
+    public Upgrade dammage;
+    public Upgrade attackSpeed;
+    public Upgrade speed;
+    public Upgrade pickUpRange;
+
+    // get all fields of the class
+    public FieldInfo[] GetAllFieldInfos()
+    {
+        return typeof(UnitStatsSO).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+    }
 }
