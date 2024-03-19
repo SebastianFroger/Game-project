@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
-  m_Name: EnemyAStats
+  m_Name: EnemyDStats
   m_EditorClassIdentifier: 
   points: 0
-  currentHP: 2
-  maxHP: 2
-  dammage: 1
+  currentHP: 5
+  maxHP: 5
+  dammage: 2
   attackSpeed: 1
   speed: 5
   pickUpRange: 0

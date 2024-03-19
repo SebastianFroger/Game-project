@@ -13,14 +13,9 @@ MonoBehaviour:
   m_Name: EnemyBStats
   m_EditorClassIdentifier: 
   points: 0
-  currentHP: 10
-  startHP: 10
-  maxHP: 20
-  dammage: 10
-  startDammage: 10
+  currentHP: 1
+  maxHP: 1
+  dammage: 1
   attackSpeed: 0.5
-  startAttackSpeed: 0.5
-  speed: 2
-  startSpeed: 5
+  speed: 3
   pickUpRange: 0
-  startPickUpRange: 0

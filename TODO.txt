@@ -2,7 +2,6 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
-- endround menu show up when player is dead - stop time countdown
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER

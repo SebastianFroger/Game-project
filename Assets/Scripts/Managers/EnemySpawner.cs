@@ -15,7 +15,6 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
     private void Update()
     {
-        // if (!GameManager.Instance.gameStarted) return;
         if (_nextSpawTime == 0f)
         {
             _nextSpawTime = Time.time + (1 / roundDataSO.roundDatas[roundDataSO.currentRound].spawnPrSec);
@@ -37,17 +36,27 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
     private GameObject EnemySelector()
     {
-        var randomNr = Random.Range(1, 100);
         var enemyList = roundDataSO.roundDatas[roundDataSO.currentRound].enemies;
-        var enemy = enemyList[0];
+
+        var randomNr = Random.Range(0f, 1f);
+        var numForAdding = 0f;
+        var total = 0f;
+
 
         foreach (var item in enemyList)
         {
-            if (randomNr <= item.spawnChance && randomNr < enemy.spawnChance)
-                enemy = item;
+            total += item.spawnChance;
         }
 
-        return enemy.prefab;
+        foreach (var item in enemyList)
+        {
+            if (item.spawnChance / total + numForAdding >= randomNr)
+            {
+                return item.prefab;
+            }
+            numForAdding += item.spawnChance / total;
+        }
+        return enemyList[0].prefab;
     }
 
     // Vector3 CalculatePositionInRing(int positionID, Vector3 spawnRingPos)

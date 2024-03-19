@@ -13,14 +13,9 @@ MonoBehaviour:
   m_Name: PlanetDiggerStats
   m_EditorClassIdentifier: 
   points: 0
-  currentHP: 50
-  startHP: 50
-  maxHP: 50
+  currentHP: 5
+  maxHP: 5
   dammage: 0
-  startDammage: 0
   attackSpeed: 0
-  startAttackSpeed: 0
   speed: 30
-  startSpeed: 30
   pickUpRange: 0
-  startPickUpRange: 0

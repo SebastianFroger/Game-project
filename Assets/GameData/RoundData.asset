@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbd2726880031b4cb4a127607bf6267, type: 3}
   m_Name: RoundData
   m_EditorClassIdentifier: 
-  timeCountDown: 43.46
+  timeCountDown: 0
   currentRound: 0
   roundDatas:
-  - timeSec: 30
+  - timeSec: 3
     spawnPrSec: 10
     spawnPrSecIncrement: 0.01
     maxspawnPrSec: 20

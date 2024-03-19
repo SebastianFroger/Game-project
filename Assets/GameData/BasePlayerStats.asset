@@ -15,7 +15,7 @@ MonoBehaviour:
   points: 0
   currentHP: 100
   maxHP: 100
-  dammage: 10
-  attackSpeed: 5
-  speed: 15
+  dammage: 1
+  attackSpeed: 1
+  speed: 10
   pickUpRange: 5
