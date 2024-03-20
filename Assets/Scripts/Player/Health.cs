@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Events;
-using Unity.VisualScripting;
 
 
 public class Health : MonoBehaviour
@@ -24,6 +23,8 @@ public class Health : MonoBehaviour
         }
 
         OnStartEvent.Invoke();
+
+        StartCoroutine(RegenHealth());
     }
 
 
@@ -31,14 +32,20 @@ public class Health : MonoBehaviour
     {
         if (invincible) return;
 
-        unitStatsSO.currentHP.value -= amount;
+        if (UnityEngine.Random.Range(0, 100) < unitStatsSO.dodgeChance.value)
+        {
+            return;
+        }
 
+        amount -= unitStatsSO.armor.value;
+        unitStatsSO.currentHP.value -= amount;
 
         if (unitStatsSO.currentHP.value <= 0)
         {
             if (OnDeathEvent != null)
             {
                 OnDeathEvent.Invoke();
+                StopCoroutine(RegenHealth());
             }
         }
 
@@ -55,6 +62,15 @@ public class Health : MonoBehaviour
 #else
                 Destroy(unitStatsSO);
 #endif
+        }
+    }
+
+    IEnumerator RegenHealth()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            unitStatsSO.currentHP.value += unitStatsSO.HPRegen.value;
         }
     }
 }

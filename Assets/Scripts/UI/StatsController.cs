@@ -26,6 +26,16 @@ public class StatsController : MonoBehaviour
                     values += $"{upgrade.value}\n";
                     break;
 
+                case "HPRegen":
+                    text += $"HP Regeneration\n";
+                    values += $"{upgrade.value}\n";
+                    break;
+
+                case "lifeSteal":
+                    text += $"LifeSteal\n";
+                    values += $"{upgrade.value}\n";
+                    break;
+
                 case "dammage":
                     text += $"Dammage\n";
                     values += $"{upgrade.value}\n";
@@ -36,6 +46,21 @@ public class StatsController : MonoBehaviour
                     values += $"{upgrade.value}\n";
                     break;
 
+                case "critChance":
+                    text += $"Crit Chance\n";
+                    values += $"{upgrade.value}\n";
+                    break;
+
+                case "armor":
+                    text += $"Armor\n";
+                    values += $"{upgrade.value}\n";
+                    break;
+
+                case "dodgeChance":
+                    text += $"Dodge Chance\n";
+                    values += $"{upgrade.value}\n";
+                    break;
+
                 case "speed":
                     text += $"Movement Speed\n";
                     values += $"{upgrade.value}\n";
@@ -43,6 +68,17 @@ public class StatsController : MonoBehaviour
 
                 case "pickUpRange":
                     text += $"Pick Up Range\n";
+                    values += $"{upgrade.value}\n";
+                    break;
+
+
+                case "doublePointsChance":
+                    text += $"Double Points Chance\n";
+                    values += $"{upgrade.value}\n";
+                    break;
+
+                case "luck":
+                    text += $"Luck\n";
                     values += $"{upgrade.value}\n";
                     break;
             }

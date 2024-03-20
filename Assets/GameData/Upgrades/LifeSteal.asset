@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
-  m_Name: PickUpRange
+  m_Name: LifeSteal
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
@@ -31,15 +31,30 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   pickUpRange:
-    isPercentage: 1
-    value: 10
+    isPercentage: 0
+    value: 0
   HPRegen:
     isPercentage: 0
     value: 0
   critChance:
     isPercentage: 0
     value: 0
-  title: Pick Up Range
-  description: Increase pick up range
+  armor:
+    isPercentage: 0
+    value: 0
+  dodgeChance:
+    isPercentage: 0
+    value: 0
+  doublePointsChance:
+    isPercentage: 0
+    value: 0
+  lifeSteal:
+    isPercentage: 1
+    value: 3
+  luck:
+    isPercentage: 0
+    value: 0
+  title: Life Steal
+  description: Chance to steal life on attack
   price: 10
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

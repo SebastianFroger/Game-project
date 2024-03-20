@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
-  m_Name: PickUpRange
+  m_Name: HPRegen
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
@@ -31,15 +31,15 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   pickUpRange:
-    isPercentage: 1
-    value: 10
-  HPRegen:
     isPercentage: 0
     value: 0
+  HPRegen:
+    isPercentage: 0
+    value: 1
   critChance:
     isPercentage: 0
     value: 0
-  title: Pick Up Range
-  description: Increase pick up range
+  title: HP Regen
+  description: Gain HP every second
   price: 10
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

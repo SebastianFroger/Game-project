@@ -33,7 +33,13 @@ MonoBehaviour:
   pickUpRange:
     isPercentage: 0
     value: 0
+  HPRegen:
+    isPercentage: 0
+    value: 0
+  critChance:
+    isPercentage: 0
+    value: 0
   title: Max Health
   description: Increase Max HP
-  price: 15
+  price: 10
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

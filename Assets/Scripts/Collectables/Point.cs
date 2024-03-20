@@ -17,6 +17,11 @@ public class Point : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (Random.Range(0, 100) < unitStats.doublePointsChance.value)
+        {
+            return;
+        }
+
         unitStats.points.value += 1;
         MyObjectPool.Instance.Release(gameObject);
     }

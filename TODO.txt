@@ -2,6 +2,7 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
+- upgrades not applied
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
@@ -14,13 +15,12 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- options menu (resolution?)
-- stats system
 - player selection screen
 - secondary action system
 - world events
 - more use of planet (sphere gameplay)
 - sound pool?
+- options menu (resolution?)
 
 
 - graphics
@@ -102,8 +102,11 @@ v dammage %
 v fire rate %
 v movement speed %
 v pickup range %
-- HP regen num
-- armor num
+v HP regen num
+v crit chance %
+v armor num
+v dodge %
+v double point %
 - luck? %
-- crit chance %
-- HP (if dammage taken) num
+v lifesteal
+- cooldown

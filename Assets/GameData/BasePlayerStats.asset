@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
-    value: 100
+    value: 1000
   currentHP:
     isPercentage: 0
     value: 100
@@ -33,3 +33,9 @@ MonoBehaviour:
   pickUpRange:
     isPercentage: 0
     value: 5
+  HPRegen:
+    isPercentage: 0
+    value: 0
+  critChance:
+    isPercentage: 0
+    value: 0

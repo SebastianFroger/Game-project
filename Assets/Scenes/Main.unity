@@ -245,53 +245,6 @@ PrefabInstance:
       propertyPath: gravityAttractor
       value: 
       objectReference: {fileID: 34931033}
-    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
-        type: 3}
-      propertyPath: baseStatsSO
-      value: 
-      objectReference: {fileID: 11400000, guid: a05a52cb6019d0949b4992ae9cea9f18,
-        type: 2}
-    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
-        type: 3}
-      propertyPath: currentStatsSO
-      value: 
-      objectReference: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935,
-        type: 2}
-    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
-        type: 3}
-      propertyPath: allUpgrades.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
-        type: 3}
-      propertyPath: allUpgrades.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: a3ee0d6f33458f842b4342ab1a14cf94,
-        type: 2}
-    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
-        type: 3}
-      propertyPath: allUpgrades.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6550886bb96fbd94a9f33292c97dd648,
-        type: 2}
-    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
-        type: 3}
-      propertyPath: allUpgrades.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 69f2384f79996ec4da50ab4f38c244a7,
-        type: 2}
-    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
-        type: 3}
-      propertyPath: allUpgrades.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7832d0e7cd6786e4d8c53a859f6a11ee,
-        type: 2}
-    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
-        type: 3}
-      propertyPath: allUpgrades.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 90724431dedf01544bdf5834620df73b,
-        type: 2}
     - target: {fileID: 4907634744181094313, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: musicVol
@@ -542,6 +495,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1514344637}
+    - target: {fileID: 8560898590965620785, guid: 197a2444f1c3fa940ac806712c5af9a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

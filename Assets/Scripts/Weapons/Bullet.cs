@@ -34,8 +34,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        var dammage = unitStatsSO.dammage.value;
+        if (Random.Range(0f, 100f) <= unitStatsSO.critChance.value)
+            dammage *= 1.5f;
+        if (Random.Range(0f, 100f) <= unitStatsSO.lifeSteal.value)
+            unitStatsSO.currentHP.value += 1;
+
         OnHitEvent?.Invoke();
-        other.gameObject.GetComponent<Health>()?.TakeDamage(unitStatsSO.dammage.value);
+        other.gameObject.GetComponent<Health>()?.TakeDamage(dammage);
         MyObjectPool.Instance.Release(gameObject);
 
         var inst = MyObjectPool.Instance.GetInstance(hitEffect);
