@@ -32,11 +32,26 @@ MonoBehaviour:
     value: 0
   pickUpRange:
     isPercentage: 1
-    value: 10
+    value: 0.5
   HPRegen:
     isPercentage: 0
     value: 0
   critChance:
+    isPercentage: 0
+    value: 0
+  armor:
+    isPercentage: 0
+    value: 0
+  dodgeChance:
+    isPercentage: 0
+    value: 0
+  doublePointsChance:
+    isPercentage: 0
+    value: 0
+  lifeSteal:
+    isPercentage: 0
+    value: 0
+  luck:
     isPercentage: 0
     value: 0
   title: Pick Up Range

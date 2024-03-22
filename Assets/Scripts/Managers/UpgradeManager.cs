@@ -34,10 +34,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
         {
             var upgrade = (Upgrade)field.GetValue(upgradeStats);
             var current = (Upgrade)field.GetValue(currentStatsSO);
-            // if (upgrade.isPercentage)
-            //     current.value += upgrade.value;
-            // else
-            current.value += upgrade.value;
+            if (upgrade.isPercentage)
+                current.value += upgrade.value;
+            else
+                current.value += upgrade.value;
         }
 
         AddUpgrade((UpgradeSO)upgradeStats);

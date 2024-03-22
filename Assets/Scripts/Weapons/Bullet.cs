@@ -37,11 +37,11 @@ public class Bullet : MonoBehaviour
         var dammage = unitStatsSO.dammage.value;
         if (Random.Range(0f, 100f) <= unitStatsSO.critChance.value)
             dammage *= 1.5f;
-        if (Random.Range(0f, 100f) <= unitStatsSO.lifeSteal.value)
-            unitStatsSO.currentHP.value += 1;
+        // if (Random.Range(0f, 100f) <= unitStatsSO.lifeSteal.value)
+        //     unitStatsSO.currentHP.value += 1;
 
         OnHitEvent?.Invoke();
-        other.gameObject.GetComponent<Health>()?.TakeDamage(dammage);
+        other.gameObject.GetComponent<IHealth>()?.TakeDamage(dammage);
         MyObjectPool.Instance.Release(gameObject);
 
         var inst = MyObjectPool.Instance.GetInstance(hitEffect);

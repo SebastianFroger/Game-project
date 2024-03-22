@@ -11,7 +11,7 @@ public class EnemyAttack : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
-    private Health _health;
+    private IHealth _health;
     private float _nextAttackTime = 0f;
     private bool _inRange;
     private GameObject _bulletInst;
@@ -67,7 +67,7 @@ public class EnemyAttack : MonoBehaviour
             if (Time.time < _nextAttackTime) return;
 
             if (_health == null)
-                _health = other.gameObject.GetComponent<Health>();
+                _health = other.gameObject.GetComponent<IHealth>();
 
             _health.TakeDamage(unitStatsSO.dammage.value);
 

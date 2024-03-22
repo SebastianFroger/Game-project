@@ -6,11 +6,10 @@ using UnityEditor;
 using UnityEngine.Events;
 
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IHealth
 {
     public UnitStatsSO unitStatsSO;
     public bool createInsance;
-    public bool invincible;
     public UnityEvent OnStartEvent;
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeathEvent;
@@ -23,21 +22,11 @@ public class Health : MonoBehaviour
         }
 
         OnStartEvent.Invoke();
-
-        StartCoroutine(RegenHealth());
     }
 
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, bool ignoreShield = false)
     {
-        if (invincible) return;
-
-        if (UnityEngine.Random.Range(0, 100) < unitStatsSO.dodgeChance.value)
-        {
-            return;
-        }
-
-        amount -= unitStatsSO.armor.value;
         unitStatsSO.currentHP.value -= amount;
 
         if (unitStatsSO.currentHP.value <= 0)
@@ -45,7 +34,6 @@ public class Health : MonoBehaviour
             if (OnDeathEvent != null)
             {
                 OnDeathEvent.Invoke();
-                StopCoroutine(RegenHealth());
             }
         }
 
@@ -62,15 +50,6 @@ public class Health : MonoBehaviour
 #else
                 Destroy(unitStatsSO);
 #endif
-        }
-    }
-
-    IEnumerator RegenHealth()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            unitStatsSO.currentHP.value += unitStatsSO.HPRegen.value;
         }
     }
 }

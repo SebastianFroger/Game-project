@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2, type: 3}
-  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   _enemiesInRange: {fileID: 11400000, guid: 08125d610ba39434780d96314231fb76, type: 2}
   OnShoot:
     m_PersistentCalls:
@@ -212,9 +212,9 @@ GameObject:
   - component: {fileID: 8419413090062408324}
   - component: {fileID: 1430362499083658599}
   - component: {fileID: 2724873074703203167}
-  - component: {fileID: 5569757095009114483}
   - component: {fileID: 804228855613330373}
   - component: {fileID: 1552379523398740268}
+  - component: {fileID: 6642900039281189716}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
---- !u!114 &5569757095009114483
+--- !u!114 &804228855613330373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,11 +356,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 5461052779654786451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a0720fb6cbafe4ea601263b0d8aa5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 71971b1e3c088b24396a2ebcc3e4d943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
-  createInsance: 0
+  flashEffect: {fileID: 11400000, guid: 45a8ac96ead16aa46ac46166958b197f, type: 2}
+--- !u!114 &1552379523398740268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461052779654786451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53955f5c489e71244a6f893fd80d692b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 2433282508537954060, guid: f216f93cd915eeb4b9476962fc27bfbf, type: 3}
+--- !u!114 &6642900039281189716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461052779654786451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beeba9a683b3b884bbc4701bf7d2b9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   invincible: 0
   OnStartEvent:
     m_PersistentCalls:
@@ -407,32 +432,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &804228855613330373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5461052779654786451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71971b1e3c088b24396a2ebcc3e4d943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashEffect: {fileID: 11400000, guid: 45a8ac96ead16aa46ac46166958b197f, type: 2}
---- !u!114 &1552379523398740268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5461052779654786451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53955f5c489e71244a6f893fd80d692b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effect: {fileID: 2433282508537954060, guid: f216f93cd915eeb4b9476962fc27bfbf, type: 3}
 --- !u!1 &5531970302393211126
 GameObject:
   m_ObjectHideFlags: 0

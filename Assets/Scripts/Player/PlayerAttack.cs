@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject bullet;
-    public UnitStatsSO unitStatsSO;
+    public UnitStatsSO unitStats;
     public TransformRuntimeSet _enemiesInRange;
     public UnityEvent OnShoot;
 
@@ -27,8 +27,13 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         if (Time.time < _nextAttackTime || _enemiesInRange.Items.Count == 0) return;
-        _nextAttackTime = Time.time + (1f / unitStatsSO.attackSpeed.value);
+        _nextAttackTime = Time.time + (1f / unitStats.attackSpeed.value);
 
+        // attack battery
+        if (unitStats.currentAttackBattery.value <= 0)
+            return;
+
+        // find nearest enemy
         _nearestEnemy = null;
         _smallestDistance = Mathf.Infinity;
         foreach (var e in _enemiesInRange.Items)
@@ -44,6 +49,13 @@ public class PlayerAttack : MonoBehaviour
         _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
         _bulletInst.transform.position = transform.position;
         _bulletInst.transform.LookAt(_nearestEnemy);
+
+        // heat
+        unitStats.currentHeat.value += unitStats.attackHeatCostPerShot.value;
+
+        // attack battery cost
+        if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
+            unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
 
         OnShoot?.Invoke();
     }

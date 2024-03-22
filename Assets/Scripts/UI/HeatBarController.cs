@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Shooter
 {
-    public class HealthBarController : MonoBehaviour
+    public class HeatBarController : MonoBehaviour
     {
         public UnitStatsSO unitStats;
 
@@ -15,12 +15,12 @@ namespace Shooter
         private void Start()
         {
             _slider = GetComponentInChildren<Slider>();
-            _slider.maxValue = (float)unitStats.currentHP.value;
+            _slider.maxValue = (float)unitStats.currentHeat.value;
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
-            _slider.value = (float)unitStats.currentHP.value;
+            _slider.value = (float)unitStats.currentHeat.value;
         }
     }
 }

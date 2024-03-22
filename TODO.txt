@@ -15,7 +15,10 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- player selection screen
+- stats selection screen
+-shield
+- power and heat life
+- power and heat drain system
 - secondary action system
 - world events
 - more use of planet (sphere gameplay)
@@ -40,12 +43,25 @@
 - steam Acchievements and LeaderBoard?
 
 
+Game Mechanics
+
+- you are a robot - what do robots have/use
+-- battery (share between multiple stats? move / hp / shield / self repair) 
+--- recharge battery
+-- robot swarm that can be equiped
+--- faster recharge / bigger charge 
+-- build upgrades around tech (capacitors / better cogs / better battery)
+- planet - use sphere gameplay (shrink? / attacks from above / upgrades from above)
+-- sunny and dark side
+--- power stations (solar panels to defend and upgrade as they charge your battery)
+
+
 Enemies
 
 v standard melee minion
 v ranged attack with low hp
 v fast suicide bomb (explodes on proximity)
-- boss or elite
+v big guy
 - unique/special attacks
 - scale stats with levels?
 

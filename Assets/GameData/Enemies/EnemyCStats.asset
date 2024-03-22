@@ -15,6 +15,51 @@ MonoBehaviour:
   points:
     isPercentage: 0
     value: 0
+  currentMoveBatteri:
+    isPercentage: 0
+    value: 0
+  maxMoveBatteri:
+    isPercentage: 0
+    value: 0
+  moveBatteriRegenRate:
+    isPercentage: 0
+    value: 0
+  moveCostPerSecond:
+    isPercentage: 0
+    value: 0
+  moveSpeed:
+    isPercentage: 0
+    value: 10
+  currentAttackBatteri:
+    isPercentage: 0
+    value: 0
+  maxAttackBatteri:
+    isPercentage: 0
+    value: 0
+  attackBatteriRegenRate:
+    isPercentage: 0
+    value: 0
+  attackCost:
+    isPercentage: 0
+    value: 0
+  currentShieldBatteri:
+    isPercentage: 0
+    value: 0
+  maxShieldBatteri:
+    isPercentage: 0
+    value: 0
+  shieldBatteriRegenRate:
+    isPercentage: 0
+    value: 0
+  currentArmor:
+    isPercentage: 0
+    value: 0
+  maxArmor:
+    isPercentage: 0
+    value: 0
+  armorThickness:
+    isPercentage: 0
+    value: 0
   currentHP:
     isPercentage: 0
     value: 1
@@ -27,9 +72,9 @@ MonoBehaviour:
   attackSpeed:
     isPercentage: 0
     value: 1
-  speed:
-    isPercentage: 0
-    value: 10
   pickUpRange:
+    isPercentage: 0
+    value: 0
+  critChance:
     isPercentage: 0
     value: 0

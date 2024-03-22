@@ -34,7 +34,19 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        // move battery
+        if (unitStats.currentMoveBattery.value <= 0)
+            return;
+
+        // move
         _movePos = transform.rotation * _inputDir + transform.position;
-        _rb.velocity = (_movePos - transform.position) * unitStats.speed.value;
+        _rb.velocity = (_movePos - transform.position) * unitStats.moveSpeed.value;
+
+        // apply heat and battery cost
+        if (_inputDir != Vector3.zero)
+        {
+            unitStats.currentHeat.value += unitStats.moveHeatCostPerSecond.value * Time.fixedDeltaTime;
+            unitStats.currentMoveBattery.value -= unitStats.moveCostPerSecond.value * Time.fixedDeltaTime;
+        }
     }
 }
