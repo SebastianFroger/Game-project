@@ -8,9 +8,8 @@ public class MyObjectPool : Singleton<MyObjectPool>
 {
     private Dictionary<string, List<GameObject>> _poolDict = new();
     private GameObject newInst;
-    private List<GameObject> newList;
 
-    public GameObject GetInstance(GameObject obj, Transform transforms = null)
+    public GameObject GetInstance(GameObject obj, Vector3 position = new Vector3(), Quaternion rotation = new Quaternion())
     {
         foreach (var key in _poolDict.Keys)
         {
@@ -18,45 +17,41 @@ public class MyObjectPool : Singleton<MyObjectPool>
             {
                 foreach (var item in _poolDict[key])
                 {
+                    // select disabled instance
                     if (!item.activeInHierarchy)
                     {
+                        item.transform.position = position;
+                        item.transform.rotation = rotation;
                         item.SetActive(true);
-                        if (transforms != null)
-                        {
-                            item.transform.position = transforms.position;
-                            item.transform.rotation = transforms.rotation;
-                        }
                         return item;
                     }
 
-                    newInst = InstantiateNew(obj, transforms);
+                    // create new instance if none are disabled
+                    newInst = InstantiateNew(obj);
+                    newInst.transform.position = position;
+                    newInst.transform.rotation = rotation;
                     _poolDict[key].Add(newInst);
-
                     return newInst;
                 }
             }
         }
 
-        newInst = InstantiateNew(obj, transforms);
-        newList = new List<GameObject>() { newInst };
-        _poolDict.Add(obj.name, newList);
+        // create new list if items is not in pool
+        newInst = InstantiateNew(obj);
+        _poolDict.Add(obj.name, new List<GameObject>() { newInst });
+
+        newInst.transform.position = position;
+        newInst.transform.rotation = rotation;
 
         return newInst;
     }
 
-    private GameObject InstantiateNew(GameObject obj, Transform transforms = null)
+
+    private GameObject InstantiateNew(GameObject obj)
     {
-        newInst = Instantiate(obj);
-        newInst.transform.parent = this.transform;
-        newList = new List<GameObject>() { newInst };
-
-        if (transforms != null)
-        {
-            newInst.transform.position = transforms.position;
-            newInst.transform.rotation = transforms.rotation;
-        }
-
-        return newInst;
+        var inst = Instantiate(obj);
+        inst.transform.parent = this.transform;
+        return inst;
     }
 
     public void Release(GameObject obj)

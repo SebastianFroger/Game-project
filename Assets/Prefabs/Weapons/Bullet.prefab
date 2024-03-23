@@ -140,6 +140,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2432
 --- !u!82 &-5194776898104458262
 AudioSource:
   m_ObjectHideFlags: 0

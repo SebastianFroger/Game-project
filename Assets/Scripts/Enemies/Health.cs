@@ -14,6 +14,8 @@ public class Health : MonoBehaviour, IHealth
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeathEvent;
 
+    [SerializeField] private bool _isInvincible;
+
     void Start()
     {
         if (createInsance)
@@ -27,6 +29,9 @@ public class Health : MonoBehaviour, IHealth
 
     public void TakeDamage(float amount, bool ignoreShield = false)
     {
+        if (_isInvincible)
+            return;
+
         unitStatsSO.currentHP.value -= amount;
 
         if (unitStatsSO.currentHP.value <= 0)

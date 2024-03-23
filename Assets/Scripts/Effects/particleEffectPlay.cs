@@ -8,6 +8,6 @@ public class particleEffectPlay : MonoBehaviour
 
     public void Play()
     {
-        MyObjectPool.Instance.GetInstance(effect, transform);
+        MyObjectPool.Instance.GetInstance(effect, transform.position, transform.rotation);
     }
 }

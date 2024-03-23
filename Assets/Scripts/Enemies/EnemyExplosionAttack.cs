@@ -31,7 +31,7 @@ public class EnemyExplosionAttack : MonoBehaviour
             item.gameObject.GetComponent<IHealth>().TakeDamage(unitStatsSO.dammage.value);
         }
 
-        var go = MyObjectPool.Instance.GetInstance(particle, transform);
+        var go = MyObjectPool.Instance.GetInstance(particle, transform.position, transform.rotation);
         var _particleEffect = go.GetComponent<ParticleSystem>();
         _particleEffect.Play();
 

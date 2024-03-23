@@ -19,6 +19,11 @@ public class RoundController : Singleton<RoundController>
         roundCountDownText.text = timeText + 0.ToString();
     }
 
+    private void OnEnable()
+    {
+        roundCountText.text = roundDataSO.currentRound.ToString();
+    }
+
     public void FixedUpdate()
     {
         roundCountText.text = roundText + (roundDataSO.currentRound + 1).ToString();

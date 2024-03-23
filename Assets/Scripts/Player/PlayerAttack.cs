@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     private float _smallestDistance;
     private float _distance;
     private GameObject _bulletInst;
+    [SerializeField] private bool _ignoreBatteryCost;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
         _nextAttackTime = Time.time + (1f / unitStats.attackSpeed.value);
 
         // attack battery
-        if (unitStats.currentAttackBattery.value <= 0)
+        if (!_ignoreBatteryCost && unitStats.currentAttackBattery.value <= 0)
             return;
 
         // find nearest enemy
