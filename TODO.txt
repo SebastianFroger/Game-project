@@ -2,7 +2,6 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
-- upgrades not applied
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
@@ -15,10 +14,6 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- stats selection screen
--shield
-- power and heat life
-- power and heat drain system
 - secondary action system
 - world events
 - more use of planet (sphere gameplay)
@@ -126,3 +121,338 @@ v double point %
 - luck? %
 v lifesteal
 - cooldown
+
+
+
+
+Names for the game
+
+MechMission: Planet Protector
+StarStriker: Robot Rebellion
+NebulaNexus: Circuit Combat
+ElectraGuard: Space Savior
+BotBattle: Cosmic Conquest
+AstroDefender: Robo Rampart
+QuantumQuell: Galactic Guardian
+MechMayhem: Stellar Standoff
+NovaNinja: Robot Riot
+SpaceSentry: Circuit Crusader
+GalacticGladiator: Mech Madness
+CyberStorm: Celestial Clash
+PowerPulse: Robo Raid
+AstroAnnihilator: Bot Brawl
+MechMilitia: Space Skirmish
+CircuitCrusade: Stellar Showdown
+VoltageVanguard: Galactic Glory
+BotBlitz: Celestial Chaos
+MechMaster: Robo Realm
+AstroAvenger: Circuit Chaos
+CyberGuardian
+MechMayhem: Galactic Defender
+Circuit Defender
+BotBlast: Space Sentinel
+AstroGuard: Robot Rampage
+Voltage Vanguard
+Stellar Sentry
+MechSavior: Cosmic Clash
+PowerProtector
+NovaKnight: Robot Rumble
+Galactic Garrison
+MechMania: Celestial Defense
+Electron Enforcer
+Cosmic Charge: Robo Resistor
+AstroAssault: Mechanical Mayhem
+BotBlitz: Space Showdown
+Celestial Sentinel
+VoltageVigilante: Galactic Guardians
+RoboRescue: Space Siege
+AstroArmada: Cybernetic Chaos
+
+
+Upgrade Names
+
+battery cost reducing
+
+Efficient Energy Module
+Power Saver Circuitry
+Battery Optimizer
+Eco-Energy Core
+Voltage Vortex: Battery Efficiency
+Energy Conservation Unit
+Ampere Attenuator
+Power Pincher: Battery Saver
+Battery Buffer Booster
+Energy Evaluator: Battery Management
+Wattage Whittler: Energy Preservation
+Current Control Chip
+Battery Bargainer: Efficient Upgrade
+Ampere Alleviator
+Power Pinpoint: Battery Optimization
+Energy Efficiency Enhancer
+Voltage Vise: Battery Conservation
+Battery Balancer Module
+Wattage Wizard: Battery Economy
+Power Polymath: Battery Efficiency Upgrade
+
+heatsink
+
+Thermal Dissipator
+Heat Sink Enhancer
+Temperature Regulator Module
+Heatwave Negator
+Coolant Circulator
+Thermodynamic Tuner
+Heat Deflector Shield
+Thermal Throttle: Heat Reduction
+Chill Catalyst
+Heatwave Inhibitor
+Thermic Tranquilizer
+Chill Core Upgrade
+Heat Halt Module
+Frost Flux: Heat Mitigation
+Thermic Tactician: Cooling Upgrade
+Heatwave Suppressant
+Arctic Attenuator
+Thermal Transformer: Cooling Boost
+Frost Forge: Heat Reduction Enhancement
+Cryo Core: Heat Management
+
+firerate
+
+Rapid Fire Amplifier
+Laser Blitz Accelerator
+Photon Pulse Enhancer
+Turbo Beam Booster
+Speedy Shot Module
+Laser Lance: Rapid Reload
+Hyperfire Circuitry
+Pulse Power Pacer
+Beam Barrage Booster
+Swift Spark: Laser Speed Upgrade
+Photon Flurry Fuser
+Blaze Burst Blaster
+Laser Rush: Rate of Fire Upgrade
+Quickshot Capacitor
+Flash Flicker: Laser Burst Enhancement
+Accelerated Annihilator
+Swift Stream Synthesizer
+Pulse Prowess: Laser Fire Rate Amplifier
+Laser Liveliness: Rapid Fire Enhancement
+Flash Furnace: Laser Firing Frequency Booster
+
+laser dammage
+
+Photon Fury Amplifier
+Laser Lethality Enhancer
+Power Beam Intensifier
+Mega Maser Booster
+Damage Deluge Module
+Laser Lancer: Damage Upgrade
+Photon Power Surge
+Blazing Beam Blaster
+Beam Bombardment Booster
+Devastating Discharge: Laser Damage Augment
+Photon Punisher Power-up
+Mega Melt Modifier
+Laser Lacerator: Damage Enhancement
+Destructor Defibrillator
+Photon Precision Pacer
+Beam Blitz: Damage Amplifier
+Annihilation Accelerator
+Photon Fury Forge
+Laser Liveliness: Damage Boost
+Flash Furnace: Laser Damage Intensifier
+
+laser guns
+
+Plasma Pulse Phaser
+Ion Burst Blaster
+Particle Beam Cannon
+Neutron Nova Gun
+Quantum Quasar Blaster
+Solar Sizzle Rifle
+Photon Phaser Pistol
+Electromagnetic Emitter
+Fusion Firearm
+Proton Pulse Pistol
+Thermal Thrasher Turret
+Disruptor Ray Rifle
+Cryo Cannon
+Sonic Shockwave Shooter
+Laser Lancer Launcher
+Graviton Gun
+EMP Emitter
+Arcing Arcanum Artillery
+Plasma Pistol
+Tachyon Torpedo Launcher
+
+movement speed
+
+Turbo Thrusters
+Hydraulic Hustle Upgrade
+Mach Momentum Module
+Speed Surge Servos
+Acceleration Augmenter
+Rapid Revolver Rollers
+Swift Stride System
+Velocity Vortex: Movement Boost
+Agile Actuator
+Turbocharged Treads
+Momentum Maximization Module
+Rapid Roll Relay
+Speedy Strut Synthesizer
+Hustle Haste: Mechanical Speed Enhancement
+Turbo Thrust Traction
+Swift Sprinter Servo
+Velocity Virtuoso: Movement Mastery
+Rapid Rotor Rollers
+Agile Assembler: Speed Upgrade
+Hustle Harmonizer: Mechanical Mobility Boost
+
+
+battery upgrades
+
+MegaCell Expansion
+PowerPak Amplifier
+High-Capacity Cell Upgrade
+MegaJuice Module
+Energy Reservoir Enhancer
+VoltVault Booster
+SuperCell Capacitor
+HyperCharge Chamber
+MegaWatt Upgrade: Battery Capacity
+PowerPod Enlarger
+ChargeMax Capacitor
+TurboCell Expansion
+Energy Elevation Module
+Ampere Augmenter: Battery Capacity Boost
+UltraCell Capacitor
+High-Endurance Battery Pack
+MegaCharge Matrix
+SuperCell Surge: Capacity Enhancement
+PowerPulse Prodigy: Battery Expansion
+HyperCharge Core
+
+and charging rate
+
+Rapid Recharge Relay
+Turbocharge Transformer
+Quick Juice Injector
+High-Speed Charging Circuit
+Swift Charge Accelerator
+Fast Flux Capacitor
+Turbo Tap Transmitter
+HyperCharge Hustler
+Rapid Refuel Regulator
+ChargeBoost Converter
+Lightning Load Lifter
+Speedy Socket Synthesizer
+HyperCharge Haste
+Swift Surge Station
+Blitz Boost Battery Charger
+Rapid Refill Reactor
+Accelerated Ampere Adapter
+Turbocharge Terminal
+SwiftSocket Supercharger
+HyperCharge Hub
+
+replicas
+
+MicroMech Minion
+Miniature Metal Mate
+NanoBot Ally
+Pocket Protector
+TinyTech Twin
+MicroGuard Companion
+MechMite Sidekick
+Byte-Sized Buddy
+Miniature Maverick
+NanoKnight Companion
+Pint-Sized Protector
+MicroMech Ally
+TinyTrooper Twin
+Pocket Paladin
+MicroGuardian Helper
+MechMate Mini
+NanoNova Sidekick
+Byte-Bot Buddy
+TinyTitan Twin
+MiniMech Ally
+
+
+heat damage reduce
+
+FlameGuard System
+PyroShield Module
+InfernoDefender
+FireSafe Barrier
+BlazeBlocker Tech
+IgnisInsulator
+InfernoInhibitor
+PyroProof Shielding
+FlameFusion Protector
+BlazeBarrier Defense
+EmberExtinguish Module
+FireForge Firewall
+IgnitionInhibitor
+BlazeBane Technology
+PyroPulse Suppressor
+EmberEradicator Module
+FireFusion Safeguard
+InfernoImmune Tech
+PyroGuardian System
+EmberEjector Module
+
+pickup range
+
+MagneMax Module
+PolarPulse Processor
+MagneForce Field
+MagnetMaster Mechanism
+FluxFusion Technology
+PolarPulse Propulsion
+MagneTech Magnifier
+FluxFlow Generator
+PolarPulse Propeller
+MagneForce Field Generator
+FluxForge Reactor
+MagneMotion Engine
+PolarPulse Propulsion System
+FluxField Amplifier
+MagneMatrix Module
+PolarPulse Propeller System
+FluxFlow Generator
+MagneMotion Mechanism
+PolarPulse Propulsion Engine
+FluxForge Reactor Core
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

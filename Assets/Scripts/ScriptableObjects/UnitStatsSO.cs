@@ -17,6 +17,7 @@ public class UnitStatsSO : ScriptableObject
 {
     [Header("Points")]
     public Upgrade points;
+    public Upgrade configurationPoints;
 
     [Header("Movement")]
     public Upgrade currentMoveBattery;

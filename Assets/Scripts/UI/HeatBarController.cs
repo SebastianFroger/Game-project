@@ -15,7 +15,7 @@ namespace Shooter
         private void Start()
         {
             _slider = GetComponentInChildren<Slider>();
-            _slider.maxValue = (float)unitStats.currentHeat.value;
+            _slider.maxValue = (float)unitStats.maxHeat.value;
         }
 
         public void FixedUpdate()

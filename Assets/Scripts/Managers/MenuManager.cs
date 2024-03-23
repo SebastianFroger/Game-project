@@ -22,6 +22,7 @@ public class MenuManager : Singleton<MenuManager>
     public GameObject gameUICanvas;
     public GameObject roundMenuCanvas;
     public GameObject settingsMenuCanvas;
+    public GameObject configurationMenuCanvas;
 
     [Header("Menu Buttons")]
     public GameObject startBtn;
@@ -29,6 +30,7 @@ public class MenuManager : Singleton<MenuManager>
     public GameObject rerollBtn;
     public GameObject exitShopBtn;
     public GameObject settingsBackBtn;
+    public GameObject configurationStartBtn;
 
     [Header("Shop Menu Cards")]
     public MenuCard[] shopCards;
@@ -39,6 +41,13 @@ public class MenuManager : Singleton<MenuManager>
         mainMenuCanvas.SetActive(enable);
         if (enable)
             EventSystem.current.SetSelectedGameObject(startBtn);
+    }
+
+    public void EnableConfigurationsMenu(bool enable)
+    {
+        configurationMenuCanvas.SetActive(enable);
+        if (enable)
+            EventSystem.current.SetSelectedGameObject(configurationStartBtn);
     }
 
     public void EnablePauseMenu(bool enable)

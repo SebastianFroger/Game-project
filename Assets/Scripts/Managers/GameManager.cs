@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using Shooter;
 
 
 
@@ -16,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     private string _actionMapPlayerControls = "Player Control";
     private string _actionMenuControls = "Menu Control";
     private bool _inSettingsMenu;
+    private bool _inConfigsMenu;
 
     void Start()
     {
@@ -26,6 +28,8 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnablePauseMenu(false);
         MenuManager.Instance.EnableShopMenu(false);
         MenuManager.Instance.EnableSettingsMenu(false);
+        MenuManager.Instance.EnableConfigurationsMenu(false);
+        UpgradeManager.Instance.SetStartStats();
         EnableMenuControls();
 
         // keep music running
@@ -35,11 +39,20 @@ public class GameManager : Singleton<GameManager>
     }
 
     // buttons and menus
-    public void OnStarButtonPress() // start button in menu
+    public void OnStarButtonPress() // start button in main menu
     {
-        UpgradeManager.Instance.SetStartStats();
-        RoundManager.Instance.StartFirstRound();
+        MenuManager.Instance.EnableMainMenu(false);
+        MenuManager.Instance.EnableConfigurationsMenu(true);
         gameStarted = true;
+        _inConfigsMenu = true;
+    }
+
+    public void OnConfigStarButtonPress() // start button config in menu
+    {
+        ConfigurationController.Instance.ApplyConfigValues();
+        MenuManager.Instance.EnableConfigurationsMenu(false);
+        RoundManager.Instance.StartFirstRound();
+        _inConfigsMenu = false;
     }
 
     public void OnResumeButtonPress() // resume button in menu
@@ -63,16 +76,27 @@ public class GameManager : Singleton<GameManager>
         {
             TimeActive(false);
             MenuManager.Instance.EnableGameUI(false);
+            MenuManager.Instance.EnableConfigurationsMenu(false);
             MenuManager.Instance.EnablePauseMenu(true);
             EnableMenuControls();
         }
         else
         {
+            if (_inConfigsMenu)
+            {
+                MenuManager.Instance.EnableConfigurationsMenu(true);
+            }
+            else
+            {
+                MenuManager.Instance.EnableConfigurationsMenu(false);
+                MenuManager.Instance.EnableGameUI(true);
+                EnableGameplayControls();
+                TimeActive(true);
+            }
+
             MenuManager.Instance.EnablePauseMenu(false);
-            MenuManager.Instance.EnableGameUI(true);
-            EnableGameplayControls();
-            TimeActive(true);
         }
+
     }
 
     public void OnSettingsBtnPress()
