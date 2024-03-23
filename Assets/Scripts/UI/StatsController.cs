@@ -19,7 +19,7 @@ public class StatsController : MonoBehaviour
             var name = field.Name;
             string value = (field.GetValue(unitStatsSO) as Upgrade).value.ToString();
 
-            if (name.StartsWith("current")) continue;
+            // if (name.StartsWith("current")) continue;
             if (name == "maxHP") continue;
 
             colorChange = !colorChange;

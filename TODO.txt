@@ -127,16 +127,18 @@ v lifesteal
 
 Names for the game
 
+Circuit Defender - Invasion of the Machines
+
 MechMission: Planet Protector
 StarStriker: Robot Rebellion
 NebulaNexus: Circuit Combat
 ElectraGuard: Space Savior
 BotBattle: Cosmic Conquest
-AstroDefender: Robo Rampart
+    AstroDefender: Robo Rampart
 QuantumQuell: Galactic Guardian
-MechMayhem: Stellar Standoff
+    MechMayhem: Stellar Standoff
 NovaNinja: Robot Riot
-SpaceSentry: Circuit Crusader
+SpaceSentry:    "Circuit" Crusader
 GalacticGladiator: Mech Madness
 CyberStorm: Celestial Clash
 PowerPulse: Robo Raid
@@ -149,7 +151,7 @@ MechMaster: Robo Realm
 AstroAvenger: Circuit Chaos
 CyberGuardian
 MechMayhem: Galactic Defender
-Circuit Defender
+    Circuit Defender
 BotBlast: Space Sentinel
 AstroGuard: Robot Rampage
 Voltage Vanguard

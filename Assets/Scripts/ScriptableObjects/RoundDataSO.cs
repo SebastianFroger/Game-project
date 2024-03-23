@@ -18,7 +18,7 @@ public class RoundData
 public class EnemyData
 {
     public GameObject prefab;
-    [Range(1, 100)] public int spawnChance;
+    [Range(0, 100)] public int spawnChance;
 }
 
 [CreateAssetMenu]

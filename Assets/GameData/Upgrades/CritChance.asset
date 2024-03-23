@@ -95,5 +95,5 @@ MonoBehaviour:
     value: 0
   title: Critical Surge Module
   description: Increase chance to deal +50% damage
-  price: 10
+  price: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

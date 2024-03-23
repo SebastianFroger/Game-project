@@ -143,6 +143,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2432
+  useRaycast: 1
 --- !u!82 &-5194776898104458262
 AudioSource:
   m_ObjectHideFlags: 0

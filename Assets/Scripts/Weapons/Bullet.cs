@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public GameObject hitEffect;
     public UnityEvent OnHitEvent;
     public LayerMask layerMask;
+    public bool useRaycast;
 
     private Vector3 startPosition;
     private Vector3 _prevPosition;
@@ -30,13 +31,16 @@ public class Bullet : MonoBehaviour
         if (Vector3.Distance(startPosition, transform.position) >= distance)
             MyObjectPool.Instance.Release(gameObject);
 
+        if (!useRaycast) return;
+
+        // Check if the bullet hit something, by using a linecast from previous position to current position
+        // fast bullets
         if (_prevPosition == Vector3.zero)
         {
             _prevPosition = transform.position;
             return;
         }
 
-        // Check if the bullet hit something, by using a linecast from previous position to current position
         if (Physics.Linecast(_prevPosition, transform.position, out RaycastHit hit, layerMask))
         {
             var dammage = unitStatsSO.dammage.value;
@@ -53,6 +57,18 @@ public class Bullet : MonoBehaviour
 
         _prevPosition = transform.position;
     }
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (!other.CompareTag("Player")) return;
+
+    //     other.gameObject.GetComponent<IHealth>()?.TakeDamage(unitStatsSO.dammage.value);
+
+    //     OnHitEvent?.Invoke();
+    //     MyObjectPool.Instance.Release(gameObject);
+
+    //     MyObjectPool.Instance.GetInstance(hitEffect, other, Quaternion.FromToRotation(Vector3.forward, hit.normal));
+    // }
 }
 
 

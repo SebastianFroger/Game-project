@@ -23,18 +23,14 @@ public class EnemyControl : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         _moveDir = GlobalObjectsManager.Instance.player.transform.position - transform.position + transform.position;
         if (_moveDir == Vector3.zero) return;
         _localMoveDir = lookAtarget.InverseTransformDirection(_moveDir);
         lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
         lookRotationTrs.LookAt(lookAtarget, transform.up);
-    }
-
-    void FixedUpdate()
-    {
         if (stopped) return;
-        _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * unitStatsSO.moveSpeed.value * Time.deltaTime);
+        _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * unitStatsSO.moveSpeed.value * Time.fixedDeltaTime);
     }
 }

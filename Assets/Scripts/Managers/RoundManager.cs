@@ -99,6 +99,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         playerStatsSO.currentHP.value = playerStatsSO.maxHP.value;
         playerStatsSO.currentAttackBattery.value = playerStatsSO.maxAttackBattery.value;
+        playerStatsSO.currentShieldBattery.value = playerStatsSO.maxShieldBattery.value;
         playerStatsSO.currentMoveBattery.value = playerStatsSO.maxMoveBattery.value;
         playerStatsSO.currentHeat.value = 0;
 

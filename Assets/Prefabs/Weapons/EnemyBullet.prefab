@@ -128,6 +128,10 @@ MonoBehaviour:
   OnHitEvent:
     m_PersistentCalls:
       m_Calls: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2240
+  useRaycast: 1
 --- !u!114 &-6472111142014895288
 MonoBehaviour:
   m_ObjectHideFlags: 0

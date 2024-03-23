@@ -56,7 +56,7 @@ MonoBehaviour:
     value: 0
   attackCost:
     isPercentage: 0
-    value: 0.5
+    value: 0.3
   attackHeatCostPerShot:
     isPercentage: 0
     value: 0.3

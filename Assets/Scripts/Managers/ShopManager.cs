@@ -8,8 +8,8 @@ public class ShopManager : Singleton<ShopManager>
     public RoundDataSO roundDataSO;
     public int startPrice;
     public int priceIncreasePrRound;
-    public int rerollPrice;
 
+    private int _roundPrice;
     private List<UpgradeSO> _currentUpgrades = new();
 
     public void SetShopContent()
@@ -19,17 +19,24 @@ public class ShopManager : Singleton<ShopManager>
         foreach (var card in MenuManager.Instance.shopCards)
         {
             var upgrade = UpgradeManager.Instance.GetRandomUpgrades();
+            upgrade.price = _roundPrice;
             _currentUpgrades.Add(upgrade);
-            card.price.text = (startPrice + (priceIncreasePrRound * roundDataSO.currentRound)).ToString();
+            card.price.text = upgrade.price.ToString();
         }
         MenuManager.Instance.SetCardContent(_currentUpgrades.ToArray());
     }
 
+    public string GetRerollPrice()
+    {
+        _roundPrice = startPrice + (priceIncreasePrRound * roundDataSO.currentRound);
+        return $"Reroll ({_roundPrice})";
+    }
+
     public void OnReroll()
     {
-        if (unitStats.points.value < rerollPrice)
+        if (unitStats.points.value < _roundPrice)
             return;
-        unitStats.points.value -= rerollPrice;
+        unitStats.points.value -= _roundPrice;
         SetShopContent();
     }
 

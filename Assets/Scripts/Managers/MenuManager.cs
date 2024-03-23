@@ -62,6 +62,8 @@ public class MenuManager : Singleton<MenuManager>
         roundMenuCanvas.SetActive(enable);
         if (enable)
             EventSystem.current.SetSelectedGameObject(rerollBtn);
+
+        rerollBtn.GetComponentInChildren<TMPro.TMP_Text>().text = ShopManager.Instance.GetRerollPrice();
     }
 
     public void EnableGameUI(bool enable)
