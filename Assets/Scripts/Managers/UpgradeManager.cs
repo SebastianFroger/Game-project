@@ -35,7 +35,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             var upgrade = (Upgrade)field.GetValue(upgradeStats);
             var current = (Upgrade)field.GetValue(currentStatsSO);
             if (upgrade.isPercentage)
-                current.value += upgrade.value;
+                current.value += current.value * (upgrade.value / 100);
             else
                 current.value += upgrade.value;
         }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
-  m_Name: EnemyDStats
+  m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
+  m_Name: MoveBatteryIncrease
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
@@ -22,8 +22,8 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   maxMoveBattery:
-    isPercentage: 0
-    value: 0
+    isPercentage: 1
+    value: 10
   moveBatteryRegenRate:
     isPercentage: 0
     value: 0
@@ -32,8 +32,17 @@ MonoBehaviour:
     value: 0
   moveSpeed:
     isPercentage: 0
-    value: 5
+    value: 0
   moveHeatCostPerSecond:
+    isPercentage: 0
+    value: 0
+  dammage:
+    isPercentage: 0
+    value: 0
+  attackSpeed:
+    isPercentage: 0
+    value: 0
+  critChance:
     isPercentage: 0
     value: 0
   currentAttackBattery:
@@ -62,16 +71,10 @@ MonoBehaviour:
     value: 0
   currentHP:
     isPercentage: 0
-    value: 50
+    value: 0
   maxHP:
     isPercentage: 0
     value: 0
-  dammage:
-    isPercentage: 0
-    value: 30
-  attackSpeed:
-    isPercentage: 0
-    value: 1
   currentHeat:
     isPercentage: 0
     value: 0
@@ -90,6 +93,7 @@ MonoBehaviour:
   pickUpRange:
     isPercentage: 0
     value: 0
-  critChance:
-    isPercentage: 0
-    value: 0
+  title: PowerPak Amplifier
+  description: Increase Movement Battery
+  price: 10
+  image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

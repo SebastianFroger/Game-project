@@ -15,13 +15,16 @@ MonoBehaviour:
   points:
     isPercentage: 0
     value: 0
-  currentMoveBatteri:
+  configurationPoints:
     isPercentage: 0
     value: 0
-  maxMoveBatteri:
+  currentMoveBattery:
     isPercentage: 0
     value: 0
-  moveBatteriRegenRate:
+  maxMoveBattery:
+    isPercentage: 0
+    value: 0
+  moveBatteryRegenRate:
     isPercentage: 0
     value: 0
   moveCostPerSecond:
@@ -30,48 +33,60 @@ MonoBehaviour:
   moveSpeed:
     isPercentage: 0
     value: 5
-  currentAttackBatteri:
+  moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
-  maxAttackBatteri:
+  currentAttackBattery:
     isPercentage: 0
     value: 0
-  attackBatteriRegenRate:
+  maxAttackBattery:
+    isPercentage: 0
+    value: 0
+  attackBatteryRegenRate:
     isPercentage: 0
     value: 0
   attackCost:
     isPercentage: 0
     value: 0
-  currentShieldBatteri:
+  attackHeatCostPerShot:
     isPercentage: 0
     value: 0
-  maxShieldBatteri:
+  currentShieldBattery:
     isPercentage: 0
     value: 0
-  shieldBatteriRegenRate:
+  maxShieldBattery:
     isPercentage: 0
     value: 0
-  currentArmor:
-    isPercentage: 0
-    value: 0
-  maxArmor:
-    isPercentage: 0
-    value: 0
-  armorThickness:
+  shieldBatteryRegenRate:
     isPercentage: 0
     value: 0
   currentHP:
     isPercentage: 0
-    value: 2
+    value: 20
   maxHP:
     isPercentage: 0
-    value: 2
+    value: 20
   dammage:
     isPercentage: 0
-    value: 1
+    value: 10
   attackSpeed:
     isPercentage: 0
-    value: 0.5
+    value: 1
+  currentHeat:
+    isPercentage: 0
+    value: 0
+  maxHeat:
+    isPercentage: 0
+    value: 0
+  heatCoolingRate:
+    isPercentage: 0
+    value: 0
+  heatDammage:
+    isPercentage: 0
+    value: 0
+  heatDammageRate:
+    isPercentage: 0
+    value: 0
   pickUpRange:
     isPercentage: 0
     value: 0

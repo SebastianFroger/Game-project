@@ -15,10 +15,25 @@ MonoBehaviour:
   points:
     isPercentage: 0
     value: 0
-  currentHP:
+  configurationPoints:
     isPercentage: 0
     value: 0
-  maxHP:
+  currentMoveBattery:
+    isPercentage: 0
+    value: 0
+  maxMoveBattery:
+    isPercentage: 0
+    value: 0
+  moveBatteryRegenRate:
+    isPercentage: 0
+    value: 0
+  moveCostPerSecond:
+    isPercentage: 0
+    value: 0
+  moveSpeed:
+    isPercentage: 0
+    value: 0
+  moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
   dammage:
@@ -27,13 +42,58 @@ MonoBehaviour:
   attackSpeed:
     isPercentage: 0
     value: 0
-  speed:
+  critChance:
+    isPercentage: 0
+    value: 0
+  currentAttackBattery:
+    isPercentage: 0
+    value: 0
+  maxAttackBattery:
+    isPercentage: 0
+    value: 0
+  attackBatteryRegenRate:
+    isPercentage: 0
+    value: 0
+  attackCost:
+    isPercentage: 0
+    value: 0
+  attackHeatCostPerShot:
+    isPercentage: 1
+    value: 10
+  currentShieldBattery:
+    isPercentage: 0
+    value: 0
+  maxShieldBattery:
+    isPercentage: 0
+    value: 0
+  shieldBatteryRegenRate:
+    isPercentage: 0
+    value: 0
+  currentHP:
+    isPercentage: 0
+    value: 0
+  maxHP:
+    isPercentage: 0
+    value: 0
+  currentHeat:
+    isPercentage: 0
+    value: 0
+  maxHeat:
+    isPercentage: 0
+    value: 0
+  heatCoolingRate:
+    isPercentage: 0
+    value: 0
+  heatDammage:
+    isPercentage: 0
+    value: 0
+  heatDammageRate:
     isPercentage: 0
     value: 0
   pickUpRange:
     isPercentage: 0
     value: 0
-  title: Dammage
+  title: Mega Melt Modifier
   description: Increase Dammage
   price: 10
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

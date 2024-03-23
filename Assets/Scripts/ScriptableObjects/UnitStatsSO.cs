@@ -19,6 +19,7 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade points;
     public Upgrade configurationPoints;
 
+    [Header("")]
     [Header("Movement")]
     public Upgrade currentMoveBattery;
     public Upgrade maxMoveBattery;
@@ -27,26 +28,29 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade moveSpeed;
     public Upgrade moveHeatCostPerSecond;
 
+    [Header("")]
     [Header("Attack")]
+    public Upgrade dammage;
+    public Upgrade attackSpeed;
+    public Upgrade critChance;
     public Upgrade currentAttackBattery;
     public Upgrade maxAttackBattery;
     public Upgrade attackBatteryRegenRate;
     public Upgrade attackCost;
     public Upgrade attackHeatCostPerShot;
 
+    [Header("")]
     [Header("Shield")]
     public Upgrade currentShieldBattery;
     public Upgrade maxShieldBattery;
     public Upgrade shieldBatteryRegenRate;
 
+    [Header("")]
     [Header("Health")]
     public Upgrade currentHP;
     public Upgrade maxHP;
 
-    [Header("Attack")]
-    public Upgrade dammage;
-    public Upgrade attackSpeed;
-
+    [Header("")]
     [Header("Heat")]
     public Upgrade currentHeat;
     public Upgrade maxHeat;
@@ -54,9 +58,9 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade heatDammage;
     public Upgrade heatDammageRate;
 
+    [Header("")]
     [Header("Other")]
     public Upgrade pickUpRange;
-    public Upgrade critChance;
 
     // public Upgrade doublePointsChance;
     // public Upgrade lifeSteal;

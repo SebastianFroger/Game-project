@@ -291,7 +291,7 @@ movement speed
 Turbo Thrusters
 Hydraulic Hustle Upgrade
 Mach Momentum Module
-Speed Surge Servos
+- Speed Surge Servos
 Acceleration Augmenter
 Rapid Revolver Rollers
 Swift Stride System
@@ -312,7 +312,7 @@ Hustle Harmonizer: Mechanical Mobility Boost
 
 battery upgrades
 
-MegaCell Expansion
+- MegaCell Expansion
 PowerPak Amplifier
 High-Capacity Cell Upgrade
 MegaJuice Module
@@ -411,7 +411,7 @@ MagneForce Field
 MagnetMaster Mechanism
 FluxFusion Technology
 PolarPulse Propulsion
-MagneTech Magnifier
+- MagneTech Magnifier
 FluxFlow Generator
 PolarPulse Propeller
 MagneForce Field Generator

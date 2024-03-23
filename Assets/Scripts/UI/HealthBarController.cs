@@ -12,7 +12,7 @@ namespace Shooter
 
         private Slider _slider;
 
-        private void Start()
+        private void OnEnable()
         {
             _slider = GetComponentInChildren<Slider>();
             _slider.maxValue = (float)unitStats.currentHP.value;

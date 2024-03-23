@@ -70,8 +70,7 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.TimeActive(true);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
 
-        playerStatsSO.points.value = _savedPlayerStatsSO.points.value;
-        playerStatsSO.currentHP.value = playerStatsSO.maxHP.value;
+        ResetRoundStats(true);
     }
 
     public void OnRoundMenuReadyPress()
@@ -82,7 +81,9 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.EnableGameplayControls();
         GameManager.Instance.TimeActive(true);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
-        playerStatsSO.currentHP.value = playerStatsSO.maxHP.value;
+
+        ResetRoundStats();
+
         _stopTime = false;
         SavePlayerStats();
     }
@@ -92,5 +93,16 @@ public class RoundManager : Singleton<RoundManager>
         if (_savedPlayerStatsSO != null)
             Destroy(_savedPlayerStatsSO);
         _savedPlayerStatsSO = Instantiate(playerStatsSO);
+    }
+
+    void ResetRoundStats(bool setPoints = false)
+    {
+        playerStatsSO.currentHP.value = playerStatsSO.maxHP.value;
+        playerStatsSO.currentAttackBattery.value = playerStatsSO.maxAttackBattery.value;
+        playerStatsSO.currentMoveBattery.value = playerStatsSO.maxMoveBattery.value;
+        playerStatsSO.currentHeat.value = 0;
+
+        if (setPoints)
+            playerStatsSO.points.value = _savedPlayerStatsSO.points.value;
     }
 }

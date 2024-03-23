@@ -12,38 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbd2726880031b4cb4a127607bf6267, type: 3}
   m_Name: RoundData
   m_EditorClassIdentifier: 
-  timeCountDown: 155.82
+  timeCountDown: 0
   currentRound: 0
   roundDatas:
-  - timeSec: 300
-    spawnPrSec: 5
-    spawnPrSecIncrement: 0.1
-    maxspawnPrSec: 20
+  - timeSec: 60
+    spawnPrSec: 2.5
+    spawnPrSecIncrement: 0
+    maxspawnPrSec: 10
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
-        type: 3}
-      spawnChance: 100
-    - prefab: {fileID: 328409505970683906, guid: 8a342e08da423be4c80b333cf6723650,
-        type: 3}
-      spawnChance: 30
-    - prefab: {fileID: 328409505970683906, guid: bd2b594f5139dde4095d545c11dd9f85,
-        type: 3}
-      spawnChance: 10
-    - prefab: {fileID: 328409505970683906, guid: 8197a12692b4a4741b5417e551bf43c9,
         type: 3}
       spawnChance: 10
   - timeSec: 60
-    spawnPrSec: 1
-    spawnPrSecIncrement: 0.01
-    maxspawnPrSec: 1
-    enemies:
-    - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
-        type: 3}
-      spawnChance: 10
-  - timeSec: 90
-    spawnPrSec: 1.2
-    spawnPrSecIncrement: 0.02
-    maxspawnPrSec: 2
+    spawnPrSec: 3
+    spawnPrSecIncrement: 0
+    maxspawnPrSec: 10
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -53,8 +36,8 @@ MonoBehaviour:
       spawnChance: 2
   - timeSec: 120
     spawnPrSec: 1.4
-    spawnPrSecIncrement: 0.03
-    maxspawnPrSec: 3
+    spawnPrSecIncrement: 0
+    maxspawnPrSec: 90
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -84,3 +67,20 @@ MonoBehaviour:
     - prefab: {fileID: 328409505970683906, guid: 8a342e08da423be4c80b333cf6723650,
         type: 3}
       spawnChance: 5
+  - timeSec: 300
+    spawnPrSec: 5
+    spawnPrSecIncrement: 0.1
+    maxspawnPrSec: 20
+    enemies:
+    - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
+        type: 3}
+      spawnChance: 100
+    - prefab: {fileID: 328409505970683906, guid: 8a342e08da423be4c80b333cf6723650,
+        type: 3}
+      spawnChance: 30
+    - prefab: {fileID: 328409505970683906, guid: bd2b594f5139dde4095d545c11dd9f85,
+        type: 3}
+      spawnChance: 10
+    - prefab: {fileID: 328409505970683906, guid: 8197a12692b4a4741b5417e551bf43c9,
+        type: 3}
+      spawnChance: 10

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
-    value: 200
+    value: 0
   configurationPoints:
     isPercentage: 0
     value: 12
@@ -29,13 +29,22 @@ MonoBehaviour:
     value: 0
   moveCostPerSecond:
     isPercentage: 0
-    value: 1
+    value: 0.5
   moveSpeed:
     isPercentage: 0
-    value: 1
+    value: 12
   moveHeatCostPerSecond:
     isPercentage: 0
-    value: 50
+    value: 0.5
+  dammage:
+    isPercentage: 0
+    value: 10
+  attackSpeed:
+    isPercentage: 0
+    value: 2
+  critChance:
+    isPercentage: 0
+    value: 0
   currentAttackBattery:
     isPercentage: 0
     value: 20
@@ -47,10 +56,10 @@ MonoBehaviour:
     value: 0
   attackCost:
     isPercentage: 0
-    value: 0.3
+    value: 0.5
   attackHeatCostPerShot:
     isPercentage: 0
-    value: 0
+    value: 0.3
   currentShieldBattery:
     isPercentage: 0
     value: 20
@@ -66,12 +75,6 @@ MonoBehaviour:
   maxHP:
     isPercentage: 0
     value: 100
-  dammage:
-    isPercentage: 0
-    value: 2
-  attackSpeed:
-    isPercentage: 0
-    value: 2
   currentHeat:
     isPercentage: 0
     value: 0
@@ -80,7 +83,7 @@ MonoBehaviour:
     value: 20
   heatCoolingRate:
     isPercentage: 0
-    value: 0
+    value: 0.3
   heatDammage:
     isPercentage: 0
     value: 5
@@ -89,7 +92,4 @@ MonoBehaviour:
     value: 1
   pickUpRange:
     isPercentage: 0
-    value: 5
-  critChance:
-    isPercentage: 0
-    value: 0
+    value: 3
