@@ -94,6 +94,6 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   title: Mega Melt Modifier
-  description: Increase Dammage
+  description: Increase Dammage - Affects heat
   price: 10
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

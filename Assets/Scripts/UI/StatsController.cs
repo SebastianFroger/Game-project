@@ -30,8 +30,8 @@ public class StatsController : MonoBehaviour
             }
             else
             {
-                name = "<color=#D5D5D5>" + name + "</color>";
-                value = "<color=#D5D5D5>" + value + "</color>";
+                name = "<color=#CCCCCC>" + name + "</color>";
+                value = "<color=#CCCCCC>" + value + "</color>";
             }
 
             text += name + "\n";
