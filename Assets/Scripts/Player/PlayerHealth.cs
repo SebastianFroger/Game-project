@@ -15,6 +15,7 @@ public interface IHealth
 public class PlayerHealth : MonoBehaviour, IHealth
 {
     public UnitStatsSO unitStats;
+    public GameObject shieldObject;
     public bool invincible;
     public UnityEvent OnStartEvent;
     public UnityEvent OnHitEvent;
@@ -42,7 +43,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
                 TakeDamage(unitStats.heatDammage.value, true);
                 _nextHeatDammageTime = Time.fixedTime + unitStats.heatDammageRate.value;
             }
-
         }
 
         // shield regen
@@ -52,13 +52,23 @@ public class PlayerHealth : MonoBehaviour, IHealth
             if (unitStats.currentShieldBattery.value > unitStats.maxShieldBattery.value)
                 unitStats.currentShieldBattery.value = unitStats.maxShieldBattery.value;
         }
+
+        if (unitStats.currentShieldBattery.value <= 0)
+        {
+            shieldObject.SetActive(false);
+        }
+        else
+        {
+            if (!shieldObject.activeSelf && unitStats.currentShieldBattery.value > 10)
+                shieldObject.SetActive(true);
+        }
     }
 
     public void TakeDamage(float amount, bool ignoreShield = false)
     {
         if (invincible) return;
 
-        if (!ignoreShield && unitStats.currentShieldBattery.value > 0)
+        if (!ignoreShield && shieldObject.activeSelf)
         {
             unitStats.currentShieldBattery.value -= amount;
             return;

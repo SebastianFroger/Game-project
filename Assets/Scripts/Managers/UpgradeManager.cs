@@ -7,6 +7,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
 {
     public UnitStatsSO currentStatsSO;
     public UnitStatsSO baseStatsSO;
+    public UnitStatsSO UIStatsSO;
     public UpgradeSO[] allUpgrades;
     private List<UnitStatsSO> _playerUpgrades = new();
 
@@ -27,6 +28,29 @@ public class UpgradeManager : Singleton<UpgradeManager>
         ResetStats();
     }
 
+    public void CalcUpgradesForUI()
+    {
+        // reset all ui stats
+        // copy all fields values from baseStatsSO to currentStatsSO
+        foreach (var field in currentStatsSO.GetAllFieldInfos())
+        {
+            var fieldVal = (Upgrade)field.GetValue(UIStatsSO);
+            fieldVal.value = 0;
+        }
+
+        // add them all up
+        foreach (var upgradeStats in _playerUpgrades)
+        {
+            var upgradeFields = upgradeStats.GetAllFieldInfos();
+            foreach (var field in upgradeFields)
+            {
+                var upgrade = (Upgrade)field.GetValue(upgradeStats);
+                var current = (Upgrade)field.GetValue(UIStatsSO);
+                current.value += upgrade.value;
+            }
+        }
+    }
+
     public void ApplyUpgrade(UnitStatsSO upgradeStats)
     {
         var upgradeFields = upgradeStats.GetAllFieldInfos();
@@ -41,6 +65,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
         }
 
         AddUpgrade((UpgradeSO)upgradeStats);
+        CalcUpgradesForUI();
     }
 
     public void ResetStats()

@@ -36,7 +36,7 @@ MonoBehaviour:
   moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
-  dammage:
+  damage:
     isPercentage: 0
     value: 10
   attackSpeed:
