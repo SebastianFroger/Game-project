@@ -71,7 +71,7 @@ MonoBehaviour:
     value: 0
   currentHP:
     isPercentage: 0
-    value: 50
+    value: 80
   maxHP:
     isPercentage: 0
     value: 0

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1446686069841588020}
   - component: {fileID: -3887603039642408836}
   - component: {fileID: -5194776898104458262}
-  - component: {fileID: 7859983398735522000}
   m_Layer: 3
   m_Name: Bullet
   m_TagString: Untagged
@@ -128,9 +127,9 @@ MonoBehaviour:
   OnHitEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7859983398735522000}
-        m_TargetAssemblyTypeName: PlayAudioClip, Assembly-CSharp
-        m_MethodName: PlayAtPoint
+      - m_Target: {fileID: -5194776898104458262}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -241,18 +240,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7859983398735522000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319917157052235949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a9089ed3102b04e82070e9293f4c89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: bf83fc39b7580c448b4c8b8bedf57634, type: 3}
-  volume: 1
-  playOnEnable: 0

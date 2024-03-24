@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         startPosition = transform.position;
-        _prevPosition = Vector3.zero;
+        _prevPosition = GlobalObjectsManager.Instance.player.transform.position;
     }
 
     private void Update()
@@ -34,12 +34,6 @@ public class Bullet : MonoBehaviour
         if (!useRaycast) return;
 
         // Check if the bullet hit something, by using a linecast from previous position to current position
-        // fast bullets
-        if (_prevPosition == Vector3.zero)
-        {
-            _prevPosition = transform.position;
-            return;
-        }
 
         if (Physics.Linecast(_prevPosition, transform.position, out RaycastHit hit, layerMask))
         {
@@ -57,18 +51,6 @@ public class Bullet : MonoBehaviour
 
         _prevPosition = transform.position;
     }
-
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (!other.CompareTag("Player")) return;
-
-    //     other.gameObject.GetComponent<IHealth>()?.TakeDamage(unitStatsSO.dammage.value);
-
-    //     OnHitEvent?.Invoke();
-    //     MyObjectPool.Instance.Release(gameObject);
-
-    //     MyObjectPool.Instance.GetInstance(hitEffect, other, Quaternion.FromToRotation(Vector3.forward, hit.normal));
-    // }
 }
 
 

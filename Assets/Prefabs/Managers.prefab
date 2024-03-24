@@ -124,18 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
-  baseStatsSO: {fileID: 11400000, guid: a05a52cb6019d0949b4992ae9cea9f18, type: 2}
+  baseStatsSO: {fileID: 11400000, guid: 6ae0afc48f1bd0649a0dfafc10741ade, type: 2}
   allUpgrades:
-  - {fileID: 11400000, guid: 68f509b741ec8ab46b6731cf14dec985, type: 2}
+  - {fileID: 11400000, guid: cb5e0fff9d18178478bfb2a0f5291d64, type: 2}
+  - {fileID: 11400000, guid: 8274f7b9e56d54f42bed275815b32ad9, type: 2}
+  - {fileID: 11400000, guid: d82b8f414ee4dd546b022b83c0e564df, type: 2}
+  - {fileID: 11400000, guid: c37028dc629dea043be78463e2d59c39, type: 2}
+  - {fileID: 11400000, guid: e1c31fec7ba891b4a95a7e77d9308a0b, type: 2}
   - {fileID: 11400000, guid: a3ee0d6f33458f842b4342ab1a14cf94, type: 2}
-  - {fileID: 11400000, guid: 9dbafc2b2785e0f4c92c3c73698945e7, type: 2}
   - {fileID: 11400000, guid: 6550886bb96fbd94a9f33292c97dd648, type: 2}
-  - {fileID: 11400000, guid: 563ccfe1cf02ddd408b5289946f5a115, type: 2}
-  - {fileID: 11400000, guid: 751d252af53420a49b1047f6f4fb82ba, type: 2}
-  - {fileID: 11400000, guid: 06a39b37026b13c4189cd09539ec2c06, type: 2}
-  - {fileID: 11400000, guid: 221c39c38f971464dbd1b2e59f3285a2, type: 2}
-  - {fileID: 11400000, guid: 4e68186e3f67545488fcc0c7b82c29df, type: 2}
-  - {fileID: 11400000, guid: 69f2384f79996ec4da50ab4f38c244a7, type: 2}
   - {fileID: 11400000, guid: 7832d0e7cd6786e4d8c53a859f6a11ee, type: 2}
   - {fileID: 11400000, guid: 90724431dedf01544bdf5834620df73b, type: 2}
 --- !u!114 &2960729698760636033
@@ -152,9 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
-  startPrice: 10
-  priceIncreasePrRound: 10
-  rerollPrice: 10
+  startPrice: 5
+  priceIncreasePrRound: 5
 --- !u!114 &4907634744181094313
 MonoBehaviour:
   m_ObjectHideFlags: 0
