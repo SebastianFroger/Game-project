@@ -32,7 +32,7 @@ MonoBehaviour:
     value: 0.5
   moveSpeed:
     isPercentage: 0
-    value: 12
+    value: 10
   moveHeatCostPerSecond:
     isPercentage: 0
     value: 0.5

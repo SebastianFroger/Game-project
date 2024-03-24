@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbd2726880031b4cb4a127607bf6267, type: 3}
   m_Name: RoundData
   m_EditorClassIdentifier: 
-  timeCountDown: 0.8800049
-  currentRound: 1
+  timeCountDown: 47.2
+  currentRound: 0
   roundDatas:
   - timeSec: 60
     spawnPrSec: 2.3
@@ -46,8 +46,8 @@ MonoBehaviour:
         type: 3}
       spawnChance: 40
   - timeSec: 60
-    spawnPrSec: 1.6
-    spawnPrSecIncrement: 0.04
+    spawnPrSec: 2.5
+    spawnPrSecIncrement: 0
     maxspawnPrSec: 4
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
@@ -60,8 +60,8 @@ MonoBehaviour:
         type: 3}
       spawnChance: 10
   - timeSec: 60
-    spawnPrSec: 1.8
-    spawnPrSecIncrement: 0.04
+    spawnPrSec: 2.5
+    spawnPrSecIncrement: 0
     maxspawnPrSec: 4
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
@@ -74,8 +74,8 @@ MonoBehaviour:
         type: 3}
       spawnChance: 20
   - timeSec: 60
-    spawnPrSec: 2
-    spawnPrSecIncrement: 0.04
+    spawnPrSec: 2.7
+    spawnPrSecIncrement: 0
     maxspawnPrSec: 4
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,

@@ -10,9 +10,10 @@ public class EnemyControl : MonoBehaviour
     public Transform lookAtarget;
     public bool stopped;
 
-    private Vector3 _moveDir;
+    private Vector3 _moveTowards;
     private Vector3 _localMoveDir;
     private Rigidbody _rb;
+    private Transform player;
 
     void Start()
     {
@@ -21,16 +22,25 @@ public class EnemyControl : MonoBehaviour
         {
             DebugExt.LogError(this, "Missing unitStatsSO");
         }
+
+        player = GlobalObjectsManager.Instance.player.transform;
     }
 
     void FixedUpdate()
     {
-        _moveDir = GlobalObjectsManager.Instance.player.transform.position - transform.position + transform.position;
-        if (_moveDir == Vector3.zero) return;
-        _localMoveDir = lookAtarget.InverseTransformDirection(_moveDir);
+        var rotTowards = Vector3.RotateTowards(transform.position, player.position, .1f, .1f);
+        _moveTowards = (rotTowards - transform.position);
+        // _moveTowards = GlobalObjectsManager.Instance.player.transform.position - transform.position + transform.position;
+        if (_moveTowards == Vector3.zero) return;
+
+        _localMoveDir = lookAtarget.InverseTransformDirection(_moveTowards);
         lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
         lookRotationTrs.LookAt(lookAtarget, transform.up);
+
         if (stopped) return;
-        _rb.MovePosition(_rb.position + (lookAtarget.position - transform.position).normalized * unitStatsSO.moveSpeed.value * Time.fixedDeltaTime);
+        // _rb.velocity = (_moveTowards);
+        _rb.velocity = _moveTowards.normalized * unitStatsSO.moveSpeed.value;
+
+        Debug.DrawRay(transform.position, _moveTowards, Color.red);
     }
 }

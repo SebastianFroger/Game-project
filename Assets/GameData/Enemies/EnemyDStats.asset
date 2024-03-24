@@ -36,6 +36,15 @@ MonoBehaviour:
   moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
+  dammage:
+    isPercentage: 0
+    value: 30
+  attackSpeed:
+    isPercentage: 0
+    value: 1
+  critChance:
+    isPercentage: 0
+    value: 0
   currentAttackBattery:
     isPercentage: 0
     value: 0
@@ -66,12 +75,6 @@ MonoBehaviour:
   maxHP:
     isPercentage: 0
     value: 0
-  dammage:
-    isPercentage: 0
-    value: 30
-  attackSpeed:
-    isPercentage: 0
-    value: 1
   currentHeat:
     isPercentage: 0
     value: 0
@@ -88,8 +91,5 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   pickUpRange:
-    isPercentage: 0
-    value: 0
-  critChance:
     isPercentage: 0
     value: 0
