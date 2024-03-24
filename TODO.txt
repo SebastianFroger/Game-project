@@ -2,9 +2,6 @@
 ## BUGS & SHIT CODE
 ------------------------------------------------------------------------
 
-- player moves faster in build than enemies. fixedUpdate vs velocity???
-- only 1 song added in build
-
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
