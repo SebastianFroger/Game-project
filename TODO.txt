@@ -31,9 +31,9 @@
 - fast paced
 - instadeath (no progress)
 - player skills based
-- random world generation (rock formations, dammage areas (fire?))
+- random world generation (rock formations, damage areas (fire?))
 - general randomness (enemies, upgrades, world events)
-- in game upgrades/progress (hp, dammage, weapons, secondary effects(shield?))
+- in game upgrades/progress (hp, damage, weapons, secondary effects(shield?))
 - fun upgrade quotes
 - steam Acchievements and LeaderBoard?
 
@@ -65,12 +65,12 @@ World/Round events (random every round)
 
 - planet shrinks (digging machines spawn on planet and shrink it. Destroy them to stop shrink)
 - boss 
-- meteors / space lasers (dammages player or all?)
+- meteors / space lasers (damages player or all?)
 
 
 Player character (choose between robot configurations at start)
 
-- glass cannon (dammage / crit over armor / hp)
+- glass cannon (damage / crit over armor / hp)
 - tank (armor and hp)
 - life regen / steal
 - fast
@@ -80,8 +80,8 @@ Player character (choose between robot configurations at start)
 Weapons
 
 - normal gun
-- shotgun (medium dammage / medium fire rate)
-- rocket / grenades (high dammage / slow fire rate)
+- shotgun (medium damage / medium fire rate)
+- rocket / grenades (high damage / slow fire rate)
 - lasers 
 
 
@@ -98,7 +98,7 @@ Weapon upgrades
 Secondary (cooldown based / more than one?)
 
 - shield (on player or on ground)
-- traps on ground / deploy turret (dammage/slow enemy)
+- traps on ground / deploy turret (damage/slow enemy)
 - dash / teleport (through environment)
 - slow enemies in range
 - faster cooldown
@@ -109,7 +109,7 @@ Secondary (cooldown based / more than one?)
 Player upgrades
 
 v max HP num
-v dammage %
+v damage %
 v fire rate %
 v movement speed %
 v pickup range %
@@ -242,7 +242,7 @@ Pulse Prowess: Laser Fire Rate Amplifier
 Laser Liveliness: Rapid Fire Enhancement
 Flash Furnace: Laser Firing Frequency Booster
 
-laser dammage
+laser damage
 
 Photon Fury Amplifier
 Laser Lethality Enhancer

@@ -37,10 +37,10 @@ public class Bullet : MonoBehaviour
 
         if (Physics.Linecast(_prevPosition, transform.position, out RaycastHit hit, layerMask))
         {
-            var dammage = unitStatsSO.dammage.value;
+            var damage = unitStatsSO.damage.value;
             if (Random.Range(0f, 100f) <= unitStatsSO.critChance.value)
-                dammage *= 1.5f;
-            hit.collider.gameObject.GetComponent<IHealth>()?.TakeDamage(dammage);
+                damage *= 1.5f;
+            hit.collider.gameObject.GetComponent<IHealth>()?.TakeDamage(damage);
 
             OnHitEvent?.Invoke();
             MyObjectPool.Instance.Release(gameObject);

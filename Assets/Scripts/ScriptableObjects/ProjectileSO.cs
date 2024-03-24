@@ -6,7 +6,7 @@ using UnityEngine;
 public class ProjectileSO : ScriptableObject
 {
     public GameObject prefab;
-    public int dammage;
+    public int damage;
     public float speed = 50f;
     public AudioClip shootAudio;
     public AudioClip hitAudio;

@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
                 unitStats.currentHeat.value = 0;
         }
 
-        // heat dammage player 
+        // heat damage player 
         if (unitStats.currentHeat.value >= unitStats.maxHeat.value)
         {
             unitStats.currentHeat.value = unitStats.maxHeat.value;

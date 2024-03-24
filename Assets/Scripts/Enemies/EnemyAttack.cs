@@ -69,7 +69,7 @@ public class EnemyAttack : MonoBehaviour
             if (_health == null)
                 _health = other.gameObject.GetComponent<IHealth>();
 
-            _health.TakeDamage(unitStatsSO.dammage.value);
+            _health.TakeDamage(unitStatsSO.damage.value);
 
             _nextAttackTime = Time.time + (1 / unitStatsSO.attackSpeed.value);
         }

@@ -28,7 +28,7 @@ public class EnemyExplosionAttack : MonoBehaviour
         var colliders = Physics.OverlapSphere(transform.position, explosionRange, layerMask);
         foreach (var item in colliders)
         {
-            item.gameObject.GetComponent<IHealth>().TakeDamage(unitStatsSO.dammage.value);
+            item.gameObject.GetComponent<IHealth>().TakeDamage(unitStatsSO.damage.value);
         }
 
         var go = MyObjectPool.Instance.GetInstance(particle, transform.position, transform.rotation);

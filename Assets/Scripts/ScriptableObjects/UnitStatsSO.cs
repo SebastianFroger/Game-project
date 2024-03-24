@@ -30,7 +30,7 @@ public class UnitStatsSO : ScriptableObject
 
     [Header("")]
     [Header("Attack")]
-    public Upgrade dammage;
+    public Upgrade damage;
     public Upgrade attackSpeed;
     public Upgrade critChance;
     public Upgrade currentAttackBattery;
