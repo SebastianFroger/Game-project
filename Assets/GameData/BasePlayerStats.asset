@@ -15,7 +15,7 @@ MonoBehaviour:
   points:
     isPercentage: 0
     multiply: 0
-    value: 100
+    value: 0
   configurationPoints:
     isPercentage: 0
     multiply: 0
@@ -132,10 +132,6 @@ MonoBehaviour:
     isPercentage: 0
     multiply: 0
     value: 20
-  cooldownTimeReduction:
-    isPercentage: 0
-    multiply: 0
-    value: 0
   pickUpRange:
     isPercentage: 0
     multiply: 0

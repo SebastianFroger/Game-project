@@ -2,7 +2,12 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
-- cooldown upgrade not set
+- on player death , new start laset stats are not reset
+- not enough money in later rounds?
+- cant get past lvlv 6
+- enemies have constant hp which makes no sense to use more bullets. maybe later with bigger enemies?
+- increase dammage feels redundant - increase enemy hp over rounds
+
 - look into % in stats upgrade. % of base stat or % of max value
 - synergy between unit stats (battery etc.) and other upgrades (weapons and secondary)
 

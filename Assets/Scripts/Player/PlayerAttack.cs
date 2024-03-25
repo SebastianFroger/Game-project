@@ -19,7 +19,6 @@ public class PlayerAttack : MonoBehaviour
     private float _smallestDistance;
     private float _distance;
     private GameObject _bulletInst;
-    private bool _ignoreBatteryCost;
 
     private void Start()
     {
@@ -32,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
         _nextAttackTime = Time.time + (1f / unitStats.attackSpeed.value);
 
         // attack battery
-        if (!_ignoreBatteryCost && unitStats.currentAttackBattery.value <= 0)
+        if (unitStats.currentAttackBattery.value < unitStats.attackCost.value)
             return;
 
         // find nearest enemy
@@ -52,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < unitStats.laserCount.value; i++)
         {
             _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
-            _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), Random.Range(-laserRandomRange, laserRandomRange), 0);
+            _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
             _bulletInst.transform.LookAt(_nearestEnemy);
 
             // heat

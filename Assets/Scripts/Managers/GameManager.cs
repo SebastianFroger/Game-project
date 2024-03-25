@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using Shooter;
+using Unity.VisualScripting;
 
 
 
@@ -120,9 +121,12 @@ public class GameManager : Singleton<GameManager>
         _inSettingsMenu = false;
     }
 
-    public void OnRestartButtonPress()
+    public void OnRestartButtonPress() // restart round
     {
         GameReset(true);
+        MenuManager.Instance.EnablePauseMenu(false);
+        MenuManager.Instance.EnableShopMenu(false);
+        MenuManager.Instance.EnableGameUI(true);
     }
 
     public void OnQuitAppButtonPress()
