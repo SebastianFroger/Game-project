@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Transform player;
+    public Rigidbody rb;
 
-    void Update()
+    private void Start()
     {
-        var rotTowards = (Vector3.RotateTowards(transform.position, player.position, 0.1f, 0.1f) - transform.position);
-        var moveDir = rotTowards.normalized * 5 * Time.deltaTime;
+        var colliders = Physics.OverlapSphere(transform.position, 10);
 
-
-        // transform.position = moveDir + transform.position;
-
-
-        // var target = Quaternion.LookRotation(moveDir - transform.position);
-        // transform.rotation = target;
-        transform.LookAt(player);
-
-        Debug.DrawRay(transform.position, player.position, Color.red);
+        foreach (var item in colliders)
+        {
+            if (item.transform == transform) continue;
+            item.GetComponent<Rigidbody>().AddExplosionForce(1000, transform.position, 10);
+        }
+        Debug.Log("ForcePush Execute");
     }
 }

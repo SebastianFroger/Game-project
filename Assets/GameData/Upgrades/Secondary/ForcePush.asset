@@ -9,49 +9,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
-  m_Name: BasePlayerStats
+  m_Script: {fileID: 11500000, guid: cf2b815154ac16c47ab570de4c3e16bb, type: 3}
+  m_Name: ForcePush
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
     multiply: 0
-    value: 100
+    value: 0
   configurationPoints:
     isPercentage: 0
     multiply: 0
-    value: 12
+    value: 0
   currentMoveBattery:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   maxMoveBattery:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   moveBatteryRegenRate:
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   moveCostPerSecond:
     isPercentage: 0
     multiply: 0
-    value: 0.6
+    value: 0
   moveSpeed:
     isPercentage: 0
     multiply: 0
-    value: 10
+    value: 0
   moveHeatCostPerSecond:
     isPercentage: 0
     multiply: 0
-    value: 0.6
+    value: 0
   damage:
     isPercentage: 0
     multiply: 0
-    value: 10
+    value: 0
   attackSpeed:
     isPercentage: 0
     multiply: 0
-    value: 2
+    value: 0
   critChance:
     isPercentage: 0
     multiply: 0
@@ -59,27 +59,27 @@ MonoBehaviour:
   currentAttackBattery:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   maxAttackBattery:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   attackBatteryRegenRate:
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   attackCost:
     isPercentage: 0
     multiply: 0
-    value: 0.4
+    value: 0
   attackHeatCostPerShot:
     isPercentage: 0
     multiply: 0
-    value: 0.2
+    value: 0
   laserCount:
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   laserAroundCount:
     isPercentage: 0
     multiply: 0
@@ -87,23 +87,23 @@ MonoBehaviour:
   currentShieldBattery:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   maxShieldBattery:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   shieldBatteryRegenRate:
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   currentHP:
     isPercentage: 0
     multiply: 0
-    value: 100
+    value: 0
   maxHP:
     isPercentage: 0
     multiply: 0
-    value: 100
+    value: 0
   currentHeat:
     isPercentage: 0
     multiply: 0
@@ -111,19 +111,19 @@ MonoBehaviour:
   maxHeat:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   heatCoolingRate:
     isPercentage: 0
     multiply: 0
-    value: 0.3
+    value: 0
   heatDammage:
     isPercentage: 0
     multiply: 0
-    value: 5
+    value: 0
   heatDammageRate:
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   currentCooldownTime:
     isPercentage: 0
     multiply: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   cooldownTime:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   cooldownTimeReduction:
     isPercentage: 0
     multiply: 0
@@ -139,4 +139,8 @@ MonoBehaviour:
   pickUpRange:
     isPercentage: 0
     multiply: 0
-    value: 3
+    value: 0
+  title: Force Push
+  description: Push all enemies around you
+  price: 5
+  image: {fileID: 0}

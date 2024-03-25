@@ -62,6 +62,12 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade heatDammageRate;
 
     [Header("")]
+    [Header("Secondary")]
+    public Upgrade currentCooldownTime;
+    public Upgrade cooldownTime;
+    public Upgrade cooldownTimeReduction;
+
+    [Header("")]
     [Header("Other")]
     public Upgrade pickUpRange;
 

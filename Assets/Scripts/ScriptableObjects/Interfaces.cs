@@ -1,0 +1,11 @@
+using UnityEngine;
+
+public interface ISecondary
+{
+    void Execute(Transform transform = null);
+}
+
+public interface IHealth
+{
+    void TakeDamage(float amount, bool ignoreShield = false);
+}

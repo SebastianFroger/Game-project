@@ -85,7 +85,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _ignoreBatteryCost: 0
+  laserRandomRange: 1.5
 --- !u!82 &5459473301192215884
 AudioSource:
   m_ObjectHideFlags: 0
@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 804228855613330373}
   - component: {fileID: 1552379523398740268}
   - component: {fileID: 6642900039281189716}
+  - component: {fileID: 1415989063149032876}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -530,6 +531,20 @@ MonoBehaviour:
         m_CallState: 2
   smokeEffect: {fileID: 3707906349670995855}
   sparksEffect: {fileID: 3264295262595870166}
+--- !u!114 &1415989063149032876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461052779654786451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d96186cf7d1c646baab345db33cb36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  secondary: {fileID: 11400000, guid: d370f6cd08932244b9407e5ac6db2ad8, type: 2}
 --- !u!1 &5531970302393211126
 GameObject:
   m_ObjectHideFlags: 0

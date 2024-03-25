@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
   player: {fileID: 0}
-  spawnRandomness: 5
+  spawnRandomness: 8
 --- !u!114 &2638406913620596162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,15 +128,8 @@ MonoBehaviour:
   baseStatsSO: {fileID: 11400000, guid: 6ae0afc48f1bd0649a0dfafc10741ade, type: 2}
   UIStatsSO: {fileID: 11400000, guid: 38ab137b7b6b0ba46bedc0d5fb9dc110, type: 2}
   allUpgrades:
-  - {fileID: 11400000, guid: cb5e0fff9d18178478bfb2a0f5291d64, type: 2}
-  - {fileID: 11400000, guid: 8274f7b9e56d54f42bed275815b32ad9, type: 2}
-  - {fileID: 11400000, guid: d82b8f414ee4dd546b022b83c0e564df, type: 2}
-  - {fileID: 11400000, guid: c37028dc629dea043be78463e2d59c39, type: 2}
-  - {fileID: 11400000, guid: e1c31fec7ba891b4a95a7e77d9308a0b, type: 2}
-  - {fileID: 11400000, guid: a3ee0d6f33458f842b4342ab1a14cf94, type: 2}
-  - {fileID: 11400000, guid: 6550886bb96fbd94a9f33292c97dd648, type: 2}
-  - {fileID: 11400000, guid: 7832d0e7cd6786e4d8c53a859f6a11ee, type: 2}
-  - {fileID: 11400000, guid: 90724431dedf01544bdf5834620df73b, type: 2}
+  - {fileID: 11400000, guid: e9a3751efc7f6994e98b0388b6e184a3, type: 2}
+  _playerUpgrades: []
 --- !u!114 &2960729698760636033
 MonoBehaviour:
   m_ObjectHideFlags: 0

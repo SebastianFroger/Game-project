@@ -6,12 +6,6 @@ using UnityEditor;
 using UnityEngine.Events;
 
 
-// IHealth interface
-public interface IHealth
-{
-    void TakeDamage(float amount, bool ignoreShield = false);
-}
-
 public class PlayerHealth : MonoBehaviour, IHealth
 {
     public UnitStatsSO unitStats;
