@@ -95,5 +95,5 @@ MonoBehaviour:
     value: 0
   title: Heat Sink Enhancer
   description: Increase cooling rate
-  price: 5
+  price: 15
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

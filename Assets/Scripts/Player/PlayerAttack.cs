@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public UnitStatsSO unitStats;
     public TransformRuntimeSet _enemiesInRange;
     public UnityEvent OnShoot;
+    public float laserRandomRange = 0.3f;
 
 
     private float _nextAttackTime;
@@ -18,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     private float _smallestDistance;
     private float _distance;
     private GameObject _bulletInst;
-    [SerializeField] private bool _ignoreBatteryCost;
+    private bool _ignoreBatteryCost;
 
     private void Start()
     {
@@ -47,16 +48,37 @@ public class PlayerAttack : MonoBehaviour
 
         // fire
         if (_nearestEnemy == null) return;
-        _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
-        _bulletInst.transform.position = transform.position;
-        _bulletInst.transform.LookAt(_nearestEnemy);
 
-        // heat
-        unitStats.currentHeat.value += unitStats.attackHeatCostPerShot.value;
+        for (int i = 0; i < unitStats.laserCount.value; i++)
+        {
+            _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
+            _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), Random.Range(-laserRandomRange, laserRandomRange), 0);
+            _bulletInst.transform.LookAt(_nearestEnemy);
 
-        // attack battery cost
-        if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
-            unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
+            // heat
+            unitStats.currentHeat.value += unitStats.attackHeatCostPerShot.value;
+
+            // attack battery cost
+            if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
+                unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
+        }
+
+        var rotIncrement = 360 / (unitStats.laserAroundCount.value * 4);
+        for (int i = 0; i < unitStats.laserAroundCount.value * 4; i++)
+        {
+            _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
+            _bulletInst.transform.localPosition = transform.position;
+            _bulletInst.transform.rotation = transform.rotation;
+            _bulletInst.transform.Rotate(new Vector3(0, rotIncrement * i, 0), Space.Self);
+
+            // heat
+            unitStats.currentHeat.value += unitStats.attackHeatCostPerShot.value;
+
+            // attack battery cost
+            if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
+                unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
+        }
+
 
         OnShoot?.Invoke();
     }

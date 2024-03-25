@@ -44,6 +44,15 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
                     ""processors"": ""StickDeadzone,NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Secondary"",
+                    ""type"": ""Button"",
+                    ""id"": ""9c75c433-2c7c-4bea-a8ca-088f044a0426"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -222,6 +231,28 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2670487b-f125-4587-9010-f272da471061"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""948300df-bcaa-4e10-891e-654ff2866c2d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -521,6 +552,7 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
         m_PlayerControl = asset.FindActionMap("Player Control", throwIfNotFound: true);
         m_PlayerControl_TogglePause = m_PlayerControl.FindAction("TogglePause", throwIfNotFound: true);
         m_PlayerControl_Move = m_PlayerControl.FindAction("Move", throwIfNotFound: true);
+        m_PlayerControl_Secondary = m_PlayerControl.FindAction("Secondary", throwIfNotFound: true);
         // Menu Control
         m_MenuControl = asset.FindActionMap("Menu Control", throwIfNotFound: true);
         m_MenuControl_Navigate = m_MenuControl.FindAction("Navigate", throwIfNotFound: true);
@@ -589,12 +621,14 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
     private List<IPlayerControlActions> m_PlayerControlActionsCallbackInterfaces = new List<IPlayerControlActions>();
     private readonly InputAction m_PlayerControl_TogglePause;
     private readonly InputAction m_PlayerControl_Move;
+    private readonly InputAction m_PlayerControl_Secondary;
     public struct PlayerControlActions
     {
         private @PlayerControlInput m_Wrapper;
         public PlayerControlActions(@PlayerControlInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @TogglePause => m_Wrapper.m_PlayerControl_TogglePause;
         public InputAction @Move => m_Wrapper.m_PlayerControl_Move;
+        public InputAction @Secondary => m_Wrapper.m_PlayerControl_Secondary;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -610,6 +644,9 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Secondary.started += instance.OnSecondary;
+            @Secondary.performed += instance.OnSecondary;
+            @Secondary.canceled += instance.OnSecondary;
         }
 
         private void UnregisterCallbacks(IPlayerControlActions instance)
@@ -620,6 +657,9 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Secondary.started -= instance.OnSecondary;
+            @Secondary.performed -= instance.OnSecondary;
+            @Secondary.canceled -= instance.OnSecondary;
         }
 
         public void RemoveCallbacks(IPlayerControlActions instance)
@@ -721,6 +761,7 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
     {
         void OnTogglePause(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnSecondary(InputAction.CallbackContext context);
     }
     public interface IMenuControlActions
     {

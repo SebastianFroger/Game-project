@@ -9,6 +9,7 @@ using Shooter;
 public class Upgrade
 {
     public bool isPercentage;
+    public bool multiply;
     public float value;
 }
 
@@ -38,6 +39,8 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade attackBatteryRegenRate;
     public Upgrade attackCost;
     public Upgrade attackHeatCostPerShot;
+    public Upgrade laserCount;
+    public Upgrade laserAroundCount;
 
     [Header("")]
     [Header("Shield")]

@@ -12,7 +12,7 @@ public class FlashEffect : MonoBehaviour
     private MeshRenderer[] _renderers;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _renderers = GetComponentsInChildren<MeshRenderer>();
         _orgMaterials = new Material[_renderers.Length];
@@ -20,6 +20,14 @@ public class FlashEffect : MonoBehaviour
         for (int i = 0; i < _renderers.Length; i++)
         {
             _orgMaterials[i] = _renderers[i].sharedMaterial;
+        }
+    }
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < _renderers.Length; i++)
+        {
+            _renderers[i].sharedMaterial = _orgMaterials[i];
         }
     }
 

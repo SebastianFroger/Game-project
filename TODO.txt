@@ -4,12 +4,12 @@
 
 - look into % in stats upgrade. % of base stat or % of max value
 - synergy between unit stats (battery etc.) and other upgrades (weapons and secondary)
-- % in UIstatscontrol - if upgrade is % show it in ui - store Upgrade classes and add to them??
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
 ------------------------------------------------------------------------
 
+- % in UIstatscontrol - if upgrade is % show it in ui - store Upgrade classes and add to them??
 - ui not scaling properly with free aspect - fix later if necessary
 
 
@@ -88,10 +88,9 @@ Player character (choose between robot configurations at start)
 
 Weapons
 
-- normal gun
-- shotgun (medium damage / medium fire rate)
-- rocket / grenades (high damage / slow fire rate)
-- lasers 
+- more lasers 
+- shoot in all directions
+- droids
 
 
 Weapon upgrades
@@ -99,7 +98,6 @@ Weapon upgrades
 - knock back
 - penetration (hit multiple simultaneously)
 - multi shots
-- shoot in all directions
 - lifesteal
 - slow enemies
 - bypass shield (if shileded enemies)
@@ -107,26 +105,17 @@ Weapon upgrades
 
 Secondary (cooldown based / more than one?)
 
-- traps on ground / deploy turret (damage/slow enemy)
+- mines
 - dash / teleport (through environment)
-- slow enemies in range
-- faster cooldown
 - make enemies attack enemies (time based)
 - emp charge (explosion thing)
 
 
 Player upgrades
 
-v max HP num
-v damage %
-v fire rate %
-v movement speed %
-v pickup range %
-v HP regen num
-v crit chance %
-v armor num
-v dodge %
-v double point %
+- faster cooldown
+- dodge %
+- double point %
 - luck? %
 - lifesteal
 - cooldown

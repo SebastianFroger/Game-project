@@ -36,7 +36,7 @@ MonoBehaviour:
   moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
-  dammage:
+  damage:
     isPercentage: 0
     value: 0
   attackSpeed:
@@ -52,7 +52,7 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   attackBatteryRegenRate:
-    isPercentage: 0
+    isPercentage: 1
     value: 3
   attackCost:
     isPercentage: 0
@@ -95,5 +95,5 @@ MonoBehaviour:
     value: 0
   title: BatteryBoost Rejuvenator
   description: Increase laser battery regen rate
-  price: 5
+  price: 10
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

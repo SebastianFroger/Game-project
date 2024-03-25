@@ -15,7 +15,7 @@ MonoBehaviour:
   timeCountDown: 0
   currentRound: 0
   roundDatas:
-  - timeSec: 60
+  - timeSec: 1
     spawnPrSec: 2
     spawnPrSecIncrement: 0
     maxspawnPrSec: 10

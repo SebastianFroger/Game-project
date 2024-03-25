@@ -14,82 +14,117 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
-    value: 0
+    multiply: 0
+    value: 100
   configurationPoints:
     isPercentage: 0
+    multiply: 0
     value: 12
   currentMoveBattery:
     isPercentage: 0
+    multiply: 0
     value: 20
   maxMoveBattery:
     isPercentage: 0
+    multiply: 0
     value: 20
   moveBatteryRegenRate:
     isPercentage: 0
+    multiply: 0
     value: 1
   moveCostPerSecond:
     isPercentage: 0
+    multiply: 0
     value: 0.6
   moveSpeed:
     isPercentage: 0
+    multiply: 0
     value: 10
   moveHeatCostPerSecond:
     isPercentage: 0
+    multiply: 0
     value: 0.6
   damage:
     isPercentage: 0
+    multiply: 0
     value: 10
   attackSpeed:
     isPercentage: 0
+    multiply: 0
     value: 2
   critChance:
     isPercentage: 0
+    multiply: 0
     value: 0
   currentAttackBattery:
     isPercentage: 0
+    multiply: 0
     value: 20
   maxAttackBattery:
     isPercentage: 0
+    multiply: 0
     value: 20
   attackBatteryRegenRate:
     isPercentage: 0
+    multiply: 0
     value: 1
   attackCost:
     isPercentage: 0
+    multiply: 0
     value: 0.4
   attackHeatCostPerShot:
     isPercentage: 0
+    multiply: 0
     value: 0.2
+  laserCount:
+    isPercentage: 0
+    multiply: 0
+    value: 1
+  laserAroundCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
   currentShieldBattery:
     isPercentage: 0
+    multiply: 0
     value: 20
   maxShieldBattery:
     isPercentage: 0
+    multiply: 0
     value: 20
   shieldBatteryRegenRate:
     isPercentage: 0
+    multiply: 0
     value: 1
   currentHP:
     isPercentage: 0
+    multiply: 0
     value: 100
   maxHP:
     isPercentage: 0
+    multiply: 0
     value: 100
   currentHeat:
     isPercentage: 0
+    multiply: 0
     value: 0
   maxHeat:
     isPercentage: 0
+    multiply: 0
     value: 20
   heatCoolingRate:
     isPercentage: 0
+    multiply: 0
     value: 0.3
   heatDammage:
     isPercentage: 0
+    multiply: 0
     value: 5
   heatDammageRate:
     isPercentage: 0
+    multiply: 0
     value: 1
   pickUpRange:
     isPercentage: 0
+    multiply: 0
     value: 3

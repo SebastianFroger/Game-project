@@ -25,7 +25,7 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   moveBatteryRegenRate:
-    isPercentage: 0
+    isPercentage: 1
     value: 3
   moveCostPerSecond:
     isPercentage: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
   moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
-  dammage:
+  damage:
     isPercentage: 0
     value: 0
   attackSpeed:
@@ -95,5 +95,5 @@ MonoBehaviour:
     value: 0
   title: EnergyRevamp Technology
   description: Increase movement battery regen rate
-  price: 5
+  price: 15
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

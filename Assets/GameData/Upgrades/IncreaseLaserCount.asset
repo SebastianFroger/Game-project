@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
-  m_Name: MoveCostReduction
+  m_Name: IncreaseLaserCount
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
@@ -28,15 +28,15 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   moveCostPerSecond:
-    isPercentage: 1
-    value: -0.05
+    isPercentage: 0
+    value: 0
   moveSpeed:
     isPercentage: 0
     value: 0
   moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
-  dammage:
+  damage:
     isPercentage: 0
     value: 0
   attackSpeed:
@@ -58,6 +58,12 @@ MonoBehaviour:
     isPercentage: 0
     value: 0
   attackHeatCostPerShot:
+    isPercentage: 0
+    value: 0
+  laserCount:
+    isPercentage: 0
+    value: 1
+  laserAroundCount:
     isPercentage: 0
     value: 0
   currentShieldBattery:
@@ -93,7 +99,7 @@ MonoBehaviour:
   pickUpRange:
     isPercentage: 0
     value: 0
-  title: Momentum Maximization Module
-  description: Reduce movement battery cost
+  title: Laser Duplicator
+  description: Increase amount of shots - affects heat
   price: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}
