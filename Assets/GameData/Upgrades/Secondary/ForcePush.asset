@@ -132,10 +132,6 @@ MonoBehaviour:
     isPercentage: 0
     multiply: 0
     value: 0
-  cooldownTimeReduction:
-    isPercentage: 0
-    multiply: 0
-    value: 0
   pickUpRange:
     isPercentage: 0
     multiply: 0
@@ -147,7 +143,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  force: 1000
+  force: 1500
   unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   batteryCost: 10
-  upgradeAmount: 100
+  upgradeAmount: 250

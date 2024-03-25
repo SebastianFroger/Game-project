@@ -65,7 +65,6 @@ public class UnitStatsSO : ScriptableObject
     [Header("Secondary")]
     public Upgrade currentCooldownTime;
     public Upgrade cooldownTime;
-    public Upgrade cooldownTimeReduction;
 
     [Header("")]
     [Header("Other")]

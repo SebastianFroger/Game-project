@@ -12,14 +12,12 @@ public class Secondary : Singleton<Secondary>
     public Image imageDark;
 
     private float _nextActionTime = 0f;
-    private bool _isPressed = false;
 
     private void Update()
     {
         if (unitStats.currentCooldownTime.value > 0)
         {
             unitStats.currentCooldownTime.value -= Time.deltaTime;
-            _isPressed = false;
         }
     }
 
@@ -30,7 +28,6 @@ public class Secondary : Singleton<Secondary>
         {
             this.secondary = inst;
             image.sprite = inst.image;
-            imageDark.sprite = inst.image;
             return;
         }
 
@@ -41,20 +38,17 @@ public class Secondary : Singleton<Secondary>
         else
         {
             image.sprite = inst.image;
-            imageDark.sprite = inst.image;
             this.secondary = inst;
         }
     }
 
     void OnSecondary()
     {
-        if (Time.time < _nextActionTime || _isPressed) return;
+        if (Time.time < _nextActionTime) return;
 
         (secondary as ISecondary).Execute(transform);
         unitStats.currentCooldownTime.value = unitStats.cooldownTime.value;
 
         _nextActionTime = Time.time + unitStats.cooldownTime.value;
-
-        _isPressed = true;
     }
 }
