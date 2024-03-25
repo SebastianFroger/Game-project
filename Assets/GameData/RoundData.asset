@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RoundData
   m_EditorClassIdentifier: 
   timeCountDown: 0
-  currentRound: 4
+  currentRound: 0
   roundDatas:
   - timeSec: 60
     spawnPrSec: 2

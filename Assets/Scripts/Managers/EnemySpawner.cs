@@ -7,6 +7,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
 {
     public RoundDataSO roundDataSO;
     public GameObject player;
+    public float spawnRandomness = 0.1f;
 
     private float _spawnInterval;
     private float _spawnIntervalDecreaseRate;
@@ -26,12 +27,17 @@ public class EnemySpawner : Singleton<EnemySpawner>
             _instance = MyObjectPool.Instance.GetInstance(EnemySelector());
 
             // spawn on oposite side of the planet from the player
-            var pos = (player.transform.position * -1).normalized * Planet.Instance.GetRadius();
-            _instance.transform.position = pos;
+            _instance.transform.position = RandomPoint() * Planet.Instance.GetRadius();
 
             if (_spawnInterval > (1 / roundDataSO.roundDatas[roundDataSO.currentRound].maxspawnPrSec))
                 _spawnInterval -= _spawnIntervalDecreaseRate;
         }
+    }
+
+    Vector3 RandomPoint()
+    {
+        var randomPoint = new Vector3(Random.Range(-spawnRandomness, spawnRandomness), Random.Range(-spawnRandomness, spawnRandomness), Random.Range(-spawnRandomness, spawnRandomness));
+        return ((player.transform.position * -1) + randomPoint).normalized;
     }
 
     private GameObject EnemySelector()
@@ -58,13 +64,4 @@ public class EnemySpawner : Singleton<EnemySpawner>
         }
         return enemyList[0].prefab;
     }
-
-    // Vector3 CalculatePositionInRing(int positionID, Vector3 spawnRingPos)
-    // {
-    //     var spawnRingRadius = 1;
-    //     float angle = (positionID) * Mathf.PI * 2 / 10;
-    //     float x = Mathf.Cos(angle) * spawnRingRadius;
-    //     float z = Mathf.Sin(angle) * spawnRingRadius;
-    //     return spawnRingPos + new Vector3(x, 0, z);
-    // }
 }

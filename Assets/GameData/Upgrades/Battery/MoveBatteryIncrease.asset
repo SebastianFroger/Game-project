@@ -23,7 +23,7 @@ MonoBehaviour:
     value: 0
   maxMoveBattery:
     isPercentage: 1
-    value: 10
+    value: 15
   moveBatteryRegenRate:
     isPercentage: 0
     value: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
   moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
-  dammage:
+  damage:
     isPercentage: 0
     value: 0
   attackSpeed:
@@ -95,5 +95,5 @@ MonoBehaviour:
     value: 0
   title: PowerPak Amplifier
   description: Increase Movement Battery
-  price: 5
+  price: 10
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

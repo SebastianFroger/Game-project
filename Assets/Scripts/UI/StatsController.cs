@@ -17,10 +17,13 @@ public class StatsController : MonoBehaviour
         foreach (var field in unitStatsSO.GetAllFieldInfos())
         {
             var name = field.Name;
-            string value = (field.GetValue(unitStatsSO) as Upgrade).value.ToString();
+            Upgrade upgrade = (field.GetValue(unitStatsSO) as Upgrade);
+            string value = upgrade.value.ToString();
 
-            // if (name.StartsWith("current")) continue;
             if (name == "maxHP") continue;
+
+            if (upgrade.isPercentage)
+                name += " (%)";
 
             colorChange = !colorChange;
             if (colorChange)

@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
   player: {fileID: 0}
+  spawnRandomness: 5
 --- !u!114 &2638406913620596162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   baseStatsSO: {fileID: 11400000, guid: 6ae0afc48f1bd0649a0dfafc10741ade, type: 2}
+  UIStatsSO: {fileID: 11400000, guid: 38ab137b7b6b0ba46bedc0d5fb9dc110, type: 2}
   allUpgrades:
   - {fileID: 11400000, guid: cb5e0fff9d18178478bfb2a0f5291d64, type: 2}
   - {fileID: 11400000, guid: 8274f7b9e56d54f42bed275815b32ad9, type: 2}

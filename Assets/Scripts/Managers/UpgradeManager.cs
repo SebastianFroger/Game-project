@@ -9,7 +9,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public UnitStatsSO baseStatsSO;
     public UnitStatsSO UIStatsSO;
     public UpgradeSO[] allUpgrades;
-    private List<UnitStatsSO> _playerUpgrades = new();
+    public List<UnitStatsSO> _playerUpgrades = new();
 
     public UpgradeSO GetRandomUpgrades()
     {

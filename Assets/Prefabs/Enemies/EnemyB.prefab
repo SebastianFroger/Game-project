@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointSO: {fileID: 11400000, guid: 6d434442efb54b649bfde2c0162af6be, type: 2}
-  pointValue: 1
+  pointValue: 2
 --- !u!114 &2108351788115388616
 MonoBehaviour:
   m_ObjectHideFlags: 0

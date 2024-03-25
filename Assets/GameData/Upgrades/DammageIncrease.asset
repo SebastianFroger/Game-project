@@ -38,7 +38,7 @@ MonoBehaviour:
     value: 0
   damage:
     isPercentage: 1
-    value: 10
+    value: 15
   attackSpeed:
     isPercentage: 0
     value: 0

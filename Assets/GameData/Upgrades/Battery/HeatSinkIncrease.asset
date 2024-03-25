@@ -36,7 +36,7 @@ MonoBehaviour:
   moveHeatCostPerSecond:
     isPercentage: 0
     value: 0
-  dammage:
+  damage:
     isPercentage: 0
     value: 0
   attackSpeed:
@@ -80,7 +80,7 @@ MonoBehaviour:
     value: 0
   maxHeat:
     isPercentage: 0
-    value: 10
+    value: 15
   heatCoolingRate:
     isPercentage: 0
     value: 0
@@ -95,5 +95,5 @@ MonoBehaviour:
     value: 0
   title: Pyrocarbon
   description: Increase max heat tolerance
-  price: 5
+  price: 20
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

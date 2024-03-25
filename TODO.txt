@@ -1,7 +1,10 @@
 ------------------------------------------------------------------------
-## BUGS & SHIT CODE
+## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
+- look into % in stats upgrade. % of base stat or % of max value
+- synergy between unit stats (battery etc.) and other upgrades (weapons and secondary)
+- % in UIstatscontrol - if upgrade is % show it in ui - store Upgrade classes and add to them??
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
@@ -14,7 +17,13 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- secondary action system
+- test upgrades in types to balance gameplay
+- reactor drop (go too to get power)
+
+- think about synergies/defences with/against existing game mechanics
+
+- add additional guns(bullets)
+- secondary action systems
 - world events
 - more use of planet (sphere gameplay)
 - sound pool?
@@ -93,17 +102,17 @@ Weapon upgrades
 - shoot in all directions
 - lifesteal
 - slow enemies
+- bypass shield (if shileded enemies)
 
 
 Secondary (cooldown based / more than one?)
 
-- shield (on player or on ground)
 - traps on ground / deploy turret (damage/slow enemy)
 - dash / teleport (through environment)
 - slow enemies in range
 - faster cooldown
 - make enemies attack enemies (time based)
-- heal 
+- emp charge (explosion thing)
 
 
 Player upgrades
@@ -119,8 +128,9 @@ v armor num
 v dodge %
 v double point %
 - luck? %
-v lifesteal
+- lifesteal
 - cooldown
+- explosion resistance (synergy with exploding enemy) !!!
 
 
 

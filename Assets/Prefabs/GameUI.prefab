@@ -7472,7 +7472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623181f5e5872b24da4ac33b096a873a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  unitStatsSO: {fileID: 11400000, guid: 38ab137b7b6b0ba46bedc0d5fb9dc110, type: 2}
   textTMP: {fileID: 8663193683527075517}
   textTMPvalues: {fileID: 4371252840810035528}
 --- !u!1 &5334889556803983858
@@ -11401,7 +11401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: Restart Lvl
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

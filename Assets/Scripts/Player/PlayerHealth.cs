@@ -20,11 +20,41 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public UnityEvent OnStartEvent;
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeathEvent;
+    public ParticleSystem smokeEffect;
+    public GameObject sparksEffect;
 
     private float _nextHeatDammageTime = 0;
 
+    private void OnEnable()
+    {
+        // smokeEffect.SetActive(false);
+        smokeEffect.Stop();
+        smokeEffect.Clear();
+        sparksEffect.SetActive(false);
+    }
+
     private void FixedUpdate()
     {
+        // heat visual
+        if (unitStats.currentHeat.value > unitStats.maxHeat.value * 0.8 && smokeEffect.isStopped)
+        {
+            smokeEffect.Play();
+        }
+        else if (unitStats.currentHeat.value < unitStats.maxHeat.value * 0.8 && smokeEffect.isPlaying)
+        {
+            smokeEffect.Stop();
+        }
+
+        // HP visual
+        if (unitStats.currentHP.value < unitStats.maxHP.value * 0.2)
+        {
+            sparksEffect.SetActive(true);
+        }
+        else if (unitStats.currentHP.value > unitStats.maxHP.value * 0.2 && smokeEffect.isPlaying)
+        {
+            sparksEffect.SetActive(false);
+        }
+
         // heat cooldown
         if (unitStats.heatCoolingRate.value > 0)
         {
@@ -87,6 +117,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         if (OnHitEvent != null && gameObject.activeSelf)
             OnHitEvent.Invoke();
     }
+
 
     // IEnumerator RegenHealth()
     // {
