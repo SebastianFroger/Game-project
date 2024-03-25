@@ -2,6 +2,7 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
+- cooldown upgrade not set
 - look into % in stats upgrade. % of base stat or % of max value
 - synergy between unit stats (battery etc.) and other upgrades (weapons and secondary)
 
@@ -17,7 +18,6 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- test upgrades in types to balance gameplay
 - reactor drop (go too to get power)
 
 - think about synergies/defences with/against existing game mechanics

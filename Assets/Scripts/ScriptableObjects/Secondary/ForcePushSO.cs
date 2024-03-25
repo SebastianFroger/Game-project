@@ -7,16 +7,25 @@ public class ForcePushSO : UpgradeSO, ISecondary
 {
     public LayerMask layerMask;
     public float force;
+    public UnitStatsSO unitStats;
+    public float batteryCost;
+    public float upgradeAmount;
 
     public void Execute(Transform transform)
     {
-        var colliders = Physics.OverlapSphere(transform.position, 10, layerMask);
+        if (unitStats.currentShieldBattery.value < batteryCost) return;
+        unitStats.currentShieldBattery.value -= batteryCost;
 
+        var colliders = Physics.OverlapSphere(transform.position, 10, layerMask);
         foreach (var item in colliders)
         {
             CoroutineManager.Instance.StartCor(PushEnemy(item.gameObject, transform));
         }
-        Debug.Log("ForcePush Execute");
+    }
+
+    public void Upgrade()
+    {
+        force += upgradeAmount;
     }
 
     IEnumerator PushEnemy(GameObject item, Transform transform)

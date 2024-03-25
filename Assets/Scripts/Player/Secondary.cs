@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Secondary : Singleton<Secondary>
 {
     public UnitStatsSO unitStats;
     public UpgradeSO secondary;
+    public Image image;
+    public Image imageDark;
 
     private float _nextActionTime = 0f;
     private bool _isPressed = false;
@@ -21,9 +23,31 @@ public class Secondary : Singleton<Secondary>
         }
     }
 
-    void OnSecondary(InputAction.CallbackContext ctx)
+    public void SetSecondary(ISecondary secondary)
     {
-        DebugExt.Log(this, $"OnSecondary");
+        var inst = Instantiate(secondary as UpgradeSO);
+        if (this.secondary == null)
+        {
+            this.secondary = inst;
+            image.sprite = inst.image;
+            imageDark.sprite = inst.image;
+            return;
+        }
+
+        if (this.secondary.GetType() == secondary.GetType())
+        {
+            (secondary as ISecondary).Upgrade();
+        }
+        else
+        {
+            image.sprite = inst.image;
+            imageDark.sprite = inst.image;
+            this.secondary = inst;
+        }
+    }
+
+    void OnSecondary()
+    {
         if (Time.time < _nextActionTime || _isPressed) return;
 
         (secondary as ISecondary).Execute(transform);

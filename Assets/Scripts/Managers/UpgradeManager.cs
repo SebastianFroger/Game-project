@@ -53,6 +53,14 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     public void ApplyUpgrade(UnitStatsSO upgradeStats)
     {
+        // secondary upgrade
+        if (upgradeStats is ISecondary)
+        {
+            Secondary.Instance.SetSecondary((ISecondary)upgradeStats);
+            return;
+        }
+
+        // normal upgrade
         var upgradeFields = upgradeStats.GetAllFieldInfos();
         foreach (var field in upgradeFields)
         {

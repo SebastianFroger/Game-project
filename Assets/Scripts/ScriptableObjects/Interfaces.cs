@@ -3,6 +3,7 @@ using UnityEngine;
 public interface ISecondary
 {
     void Execute(Transform transform = null);
+    void Upgrade();
 }
 
 public interface IHealth
