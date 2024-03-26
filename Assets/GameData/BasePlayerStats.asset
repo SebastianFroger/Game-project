@@ -35,7 +35,7 @@ MonoBehaviour:
   moveCostPerSecond:
     isPercentage: 0
     multiply: 0
-    value: 0.6
+    value: 1.6
   moveSpeed:
     isPercentage: 0
     multiply: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   cooldownTime:
     isPercentage: 0
     multiply: 0
-    value: 2
+    value: 20
   pickUpRange:
     isPercentage: 0
     multiply: 0

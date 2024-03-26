@@ -55,6 +55,7 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnableConfigurationsMenu(false);
         RoundManager.Instance.StartFirstRound();
         _inConfigsMenu = false;
+        GlobalObjectsManager.Instance.player.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     public void OnResumeButtonPress() // resume button in menu

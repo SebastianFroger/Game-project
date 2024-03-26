@@ -111,36 +111,35 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
         }
 
         // place player
-        MovePlayer();
-    }
-
-    // private void FixedUpdate()
-    // {
-    //     if (_creatingMap)
-    //     {
-    //         MovePlayer();
-
-    //         _creatingMap = false;
-    //     }
-
-    // }
-
-    public void MovePlayer()
-    {
-        var player = GlobalObjectsManager.Instance.player;
-        var planetRadius = new Vector3(0, Planet.Instance.GetRadius() + 1f, 0);
-        var randomPosOnSphere = UnityEngine.Random.rotation * planetRadius;
-
         Physics.SyncTransforms();
-        var collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
-        while (collisions.Length > 0)
+        var player = GlobalObjectsManager.Instance.player;
+        var rb = player.GetComponent<Rigidbody>();
+
+        RaycastHit hitPoint = new RaycastHit();
+        var colliders = GetRandomPlacement(ref hitPoint);
+        while (colliders.Length > 0)
         {
-            randomPosOnSphere = UnityEngine.Random.rotation * planetRadius;
-            collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
+            colliders = GetRandomPlacement(ref hitPoint);
         }
 
-        player.transform.position = randomPosOnSphere;
+        rb.Move(hitPoint.point + hitPoint.point.normalized * 0.5f, Quaternion.Euler(hitPoint.normal));
         player.transform.LookAt(Vector3.zero);
         player.transform.Rotate(new Vector3(-90, 0, 0));
+        rb.isKinematic = true;
+
+        // rb.isKinematic = false;
+    }
+
+
+    Collider[] GetRandomPlacement(ref RaycastHit hitPoint)
+    {
+        var randomVector = UnityEngine.Random.rotation.eulerAngles.normalized * 1000;
+        Collider[] colliders = new Collider[1];
+        if (Physics.Raycast(randomVector, -randomVector, out RaycastHit hit, myLayerMask))
+        {
+            hitPoint = hit;
+            colliders = Physics.OverlapSphere(hit.point, 5f, myLayerMask);
+        }
+        return colliders;
     }
 }
