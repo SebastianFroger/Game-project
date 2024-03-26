@@ -2,7 +2,6 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
-- player spawns in space
 - on player death , new start laset stats are not reset
 - enemies have constant hp which makes no sense to use more bullets. maybe later with bigger enemies?
 - increase dammage feels redundant - increase enemy hp over rounds

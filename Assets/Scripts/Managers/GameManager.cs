@@ -44,6 +44,7 @@ public class GameManager : Singleton<GameManager>
     {
         MenuManager.Instance.EnableMainMenu(false);
         MenuManager.Instance.EnableConfigurationsMenu(true);
+        EnvironmentSpawner.Instance.SpawnEnvironment();
         gameStarted = true;
         _inConfigsMenu = true;
     }
@@ -145,7 +146,7 @@ public class GameManager : Singleton<GameManager>
         if (instant)    // restrt game
         {
             Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
             return;
         }
 

@@ -29,7 +29,7 @@ public class EnvironmentItem
     public float scaleFactorMax;
 }
 
-public class EnvironmentSpawner : MonoBehaviour
+public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
 {
     public EnvironmentItem[] items;
     public LayerMask myLayerMask;
@@ -39,7 +39,7 @@ public class EnvironmentSpawner : MonoBehaviour
     private bool _creatingMap;
     private Quaternion _addedRotations = Quaternion.identity;
 
-    void Start()
+    public void SpawnEnvironment()
     {
         foreach (var item in items)
         {
@@ -148,28 +148,7 @@ public class EnvironmentSpawner : MonoBehaviour
 
     }
 
-    // void InstantiateShop()
-    // {
-    //     var randomPosOnSphere = UnityEngine.Random.rotation * new Vector3(0, Planet.Instance.GetRadius() - 0.2f, 0);
-
-    //     Physics.SyncTransforms();
-    //     var collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
-    //     while (collisions.Length > 0)
-    //     {
-    //         randomPosOnSphere = UnityEngine.Random.rotation * new Vector3(0, Planet.Instance.GetRadius(), 0);
-    //         collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
-    //     }
-
-    //     var inst = Instantiate(shopPrefab);
-    //     inst.transform.position = randomPosOnSphere;
-    //     inst.transform.LookAt(Vector3.zero);
-    //     inst.transform.Rotate(new Vector3(-90, 0, 0));
-    //     inst.transform.parent = transform;
-
-    //     _creatingMap = true;
-    // }
-
-    void MovePlayer()
+    public void MovePlayer()
     {
         var randomPosOnSphere = UnityEngine.Random.rotation * new Vector3(0, Planet.Instance.GetRadius(), 0);
 
