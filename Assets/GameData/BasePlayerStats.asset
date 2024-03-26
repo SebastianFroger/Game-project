@@ -131,7 +131,7 @@ MonoBehaviour:
   cooldownTime:
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 2
   pickUpRange:
     isPercentage: 0
     multiply: 0
