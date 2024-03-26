@@ -109,64 +109,38 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
             // parent to sphere
             inst.transform.parent = transform;
         }
+
+        // place player
+        MovePlayer();
     }
 
-    void InstantiateRandomRock(EnvironmentItem item)
-    {
-        // inst obj
-        var randomItem = UnityEngine.Random.Range(0, items.Length - 1);
-        var inst = Instantiate(item.prefab[randomItem]);
+    // private void FixedUpdate()
+    // {
+    //     if (_creatingMap)
+    //     {
+    //         MovePlayer();
 
-        // set position on top of planet
-        inst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
+    //         _creatingMap = false;
+    //     }
 
-        // set random y rot
-        inst.transform.rotation = Quaternion.Euler(new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0));
-
-        // move to random position on sphere and rotate
-        inst.transform.position = UnityEngine.Random.rotation * inst.transform.position;
-        inst.transform.LookAt(Vector3.zero);
-        inst.transform.Rotate(new Vector3(-90, 0, 0));
-
-        // scale
-        var scaleVector = UnityEngine.Random.Range(item.scaleFactorMin, item.scaleFactorMax);
-        inst.transform.localScale = new Vector3(scaleVector, scaleVector / 2, scaleVector);
-
-        // parent to sphere
-        inst.transform.parent = transform;
-    }
-
-
-    private void FixedUpdate()
-    {
-        if (_creatingMap)
-        {
-            MovePlayer();
-
-            _creatingMap = false;
-        }
-
-    }
+    // }
 
     public void MovePlayer()
     {
-        var randomPosOnSphere = UnityEngine.Random.rotation * new Vector3(0, Planet.Instance.GetRadius(), 0);
+        var player = GlobalObjectsManager.Instance.player;
+        var randomPosOnSphere = UnityEngine.Random.rotation * player.transform.position;
 
         Physics.SyncTransforms();
         var collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
         while (collisions.Length > 0)
         {
-            randomPosOnSphere = UnityEngine.Random.rotation * new Vector3(0, Planet.Instance.GetRadius(), 0);
+            randomPosOnSphere = UnityEngine.Random.rotation * player.transform.position;
             collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
         }
 
-        var player = GlobalObjectsManager.Instance.player;
         player.transform.position = randomPosOnSphere;
         player.transform.LookAt(Vector3.zero);
         player.transform.Rotate(new Vector3(-90, 0, 0));
-
-        DebugExt.Log(this, "Player moved to: " + player.transform.position);
-
         _creatingMap = true;
     }
 }

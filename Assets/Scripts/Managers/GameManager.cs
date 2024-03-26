@@ -122,12 +122,9 @@ public class GameManager : Singleton<GameManager>
         _inSettingsMenu = false;
     }
 
-    public void OnRestartButtonPress() // restart round
+    public void OnRestartButtonPress() // restart game
     {
         GameReset(true);
-        MenuManager.Instance.EnablePauseMenu(false);
-        MenuManager.Instance.EnableShopMenu(false);
-        MenuManager.Instance.EnableGameUI(true);
     }
 
     public void OnQuitAppButtonPress()
@@ -162,7 +159,7 @@ public class GameManager : Singleton<GameManager>
 
         yield return new WaitForSecondsRealtime(5);
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
     }
 
     // actioncontrols

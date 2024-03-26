@@ -44,7 +44,7 @@ public class Secondary : Singleton<Secondary>
 
     void OnSecondary()
     {
-        if (Time.time < _nextActionTime) return;
+        if (Time.time < _nextActionTime || secondary == null) return;
 
         (secondary as ISecondary).Execute(transform);
         unitStats.currentCooldownTime.value = unitStats.cooldownTime.value;
