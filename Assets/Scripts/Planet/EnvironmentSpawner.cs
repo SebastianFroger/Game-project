@@ -186,6 +186,8 @@ public class EnvironmentSpawner : MonoBehaviour
         player.transform.LookAt(Vector3.zero);
         player.transform.Rotate(new Vector3(-90, 0, 0));
 
+        DebugExt.Log(this, "Player moved to: " + player.transform.position);
+
         _creatingMap = true;
     }
 }

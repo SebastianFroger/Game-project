@@ -143,9 +143,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  force: 3000
+  force: 20
   size: 10
   unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   batteryCost: 10
-  upgradeAmount: 250
+  upgradeAmount: 5
   effect: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}

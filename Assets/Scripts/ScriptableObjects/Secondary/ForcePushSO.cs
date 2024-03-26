@@ -36,11 +36,8 @@ public class ForcePushSO : UpgradeSO, ISecondary
     {
         var control = item.GetComponent<EnemyControl>();
         control.enabled = false;
-
-        item.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, 10);
-
+        item.GetComponent<Rigidbody>().velocity = (item.transform.position - GlobalObjectsManager.Instance.player.transform.position).normalized * force;
         yield return new WaitForSeconds(1);
-
         control.enabled = true;
     }
 }

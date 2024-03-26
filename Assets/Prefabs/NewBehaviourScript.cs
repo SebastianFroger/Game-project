@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Rigidbody rb;
+    public float force;
+    public float size;
+    private bool exploded;
 
-    private void Start()
+    private void Update()
     {
-        var colliders = Physics.OverlapSphere(transform.position, 10);
+        if (Time.time > 2 || exploded) return;
+        exploded = true;
 
+        DebugExt.Log(this, $"explode");
+        var colliders = Physics.OverlapSphere(transform.position, size);
         foreach (var item in colliders)
         {
-            if (item.transform == transform) continue;
-            item.GetComponent<Rigidbody>().AddExplosionForce(1000, transform.position, 10);
+            item.GetComponent<Rigidbody>().AddForce((item.transform.position - transform.position).normalized * force, ForceMode.Impulse);
         }
-        Debug.Log("ForcePush Execute");
     }
 }
+

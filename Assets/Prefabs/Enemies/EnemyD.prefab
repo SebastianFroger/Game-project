@@ -120,6 +120,7 @@ MonoBehaviour:
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
   stopped: 0
+  maxMagnitude: 30
 --- !u!114 &7335987211931231141
 MonoBehaviour:
   m_ObjectHideFlags: 0

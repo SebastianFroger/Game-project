@@ -30,6 +30,10 @@ public class PlayerAttack : MonoBehaviour
         if (Time.time < _nextAttackTime || _enemiesInRange.Items.Count == 0) return;
         _nextAttackTime = Time.time + (1f / unitStats.attackSpeed.value);
 
+        // recharge attack battery
+        if (unitStats.currentAttackBattery.value < unitStats.maxAttackBattery.value)
+            unitStats.currentAttackBattery.value += unitStats.attackBatteryRegenRate.value * Time.deltaTime;
+
         // attack battery
         if (unitStats.currentAttackBattery.value < unitStats.attackCost.value)
             return;

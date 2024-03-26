@@ -718,8 +718,7 @@ PrefabInstance:
         type: 3}
       propertyPath: secondary
       value: 
-      objectReference: {fileID: 11400000, guid: d370f6cd08932244b9407e5ac6db2ad8,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1430362499083658599, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
       propertyPath: m_UIInputModule

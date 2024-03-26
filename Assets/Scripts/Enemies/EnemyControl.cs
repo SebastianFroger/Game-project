@@ -9,6 +9,7 @@ public class EnemyControl : MonoBehaviour
     public Transform lookRotationTrs;
     public Transform lookAtarget;
     public bool stopped;
+    public float maxMagnitude = 1f;
 
     private Vector3 _moveTowards;
     private Vector3 _localMoveDir;
@@ -30,7 +31,6 @@ public class EnemyControl : MonoBehaviour
     {
         var rotTowards = Vector3.RotateTowards(transform.position, player.position, .1f, .1f);
         _moveTowards = (rotTowards - transform.position);
-        // _moveTowards = GlobalObjectsManager.Instance.player.transform.position - transform.position + transform.position;
         if (_moveTowards == Vector3.zero) return;
 
         _localMoveDir = lookAtarget.InverseTransformDirection(_moveTowards);
@@ -38,9 +38,7 @@ public class EnemyControl : MonoBehaviour
         lookRotationTrs.LookAt(lookAtarget, transform.up);
 
         if (stopped) return;
-        // _rb.velocity = (_moveTowards);
-        _rb.velocity = _moveTowards.normalized * unitStatsSO.moveSpeed.value;
 
-        Debug.DrawRay(transform.position, _moveTowards, Color.red);
+        _rb.velocity = _moveTowards.normalized * unitStatsSO.moveSpeed.value;
     }
 }
