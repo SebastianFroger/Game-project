@@ -128,19 +128,19 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
     public void MovePlayer()
     {
         var player = GlobalObjectsManager.Instance.player;
-        var randomPosOnSphere = UnityEngine.Random.rotation * player.transform.position;
+        var planetRadius = new Vector3(0, Planet.Instance.GetRadius() + 1f, 0);
+        var randomPosOnSphere = UnityEngine.Random.rotation * planetRadius;
 
         Physics.SyncTransforms();
         var collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
         while (collisions.Length > 0)
         {
-            randomPosOnSphere = UnityEngine.Random.rotation * player.transform.position;
+            randomPosOnSphere = UnityEngine.Random.rotation * planetRadius;
             collisions = Physics.OverlapSphere(randomPosOnSphere, 5f, myLayerMask);
         }
 
         player.transform.position = randomPosOnSphere;
         player.transform.LookAt(Vector3.zero);
         player.transform.Rotate(new Vector3(-90, 0, 0));
-        _creatingMap = true;
     }
 }

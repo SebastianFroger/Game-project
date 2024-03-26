@@ -34,6 +34,11 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (unitStats.currentMoveBattery.value < unitStats.maxMoveBattery.value)
+        {
+            unitStats.currentMoveBattery.value += unitStats.moveBatteryRegenRate.value * Time.fixedDeltaTime;
+        }
+
         // move battery
         if (unitStats.currentMoveBattery.value <= 0)
             return;
