@@ -19,10 +19,12 @@ public class PlayerAttack : MonoBehaviour
     private float _smallestDistance;
     private float _distance;
     private GameObject _bulletInst;
+    private List<Transform> _targets;
 
     private void Start()
     {
         _enemiesInRange.Items.Clear();
+        _targets = new();
     }
 
     private void Update()
@@ -38,7 +40,48 @@ public class PlayerAttack : MonoBehaviour
         if (unitStats.currentAttackBattery.value < unitStats.attackCost.value)
             return;
 
-        // find nearest enemy
+        // select targets
+        if (_enemiesInRange.Items.Count == 0)
+            return;
+        SelectTargets();
+
+        for (int i = 0; i < unitStats.laserCount.value; i++)
+        {
+            _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
+            _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
+            _bulletInst.transform.LookAt(_targets[i % _targets.Count]);
+
+            // heat
+            unitStats.currentHeat.value += unitStats.attackHeatCostPerShot.value;
+
+            // attack battery cost
+            if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
+                unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
+        }
+
+
+        // lasers in all directions
+        if (unitStats.laserAroundCount.value > 0)
+            LaserCircle();
+
+        OnShoot?.Invoke();
+    }
+
+    void SelectTargets()
+    {
+        _targets.Clear();
+        _targets.Add(GetClosestEnemy());
+        if (unitStats.targetsCount.value > 1)
+        {
+            while (_targets.Count < unitStats.targetsCount.value)
+            {
+                _targets.Add(_enemiesInRange.Items[Random.Range(0, _enemiesInRange.Items.Count)]);
+            }
+        }
+    }
+
+    Transform GetClosestEnemy()
+    {
         _nearestEnemy = null;
         _smallestDistance = Mathf.Infinity;
         foreach (var e in _enemiesInRange.Items)
@@ -49,23 +92,11 @@ public class PlayerAttack : MonoBehaviour
             _nearestEnemy = e;
         }
 
-        // fire
-        if (_nearestEnemy == null) return;
+        return _nearestEnemy;
+    }
 
-        for (int i = 0; i < unitStats.laserCount.value; i++)
-        {
-            _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
-            _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
-            _bulletInst.transform.LookAt(_nearestEnemy);
-
-            // heat
-            unitStats.currentHeat.value += unitStats.attackHeatCostPerShot.value;
-
-            // attack battery cost
-            if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
-                unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
-        }
-
+    void LaserCircle()
+    {
         var rotIncrement = 360 / (unitStats.laserAroundCount.value * 4);
         for (int i = 0; i < unitStats.laserAroundCount.value * 4; i++)
         {
@@ -81,9 +112,6 @@ public class PlayerAttack : MonoBehaviour
             if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
                 unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
         }
-
-
-        OnShoot?.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -18,8 +18,6 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- penetration (hit multiple targets in a row)
-- shoot different enemies each shot (random?)
 - bouncing shot
 - energysteal
 

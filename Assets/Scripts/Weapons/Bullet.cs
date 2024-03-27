@@ -18,6 +18,8 @@ public class Bullet : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 _prevPosition;
     private float _piercedEnemies;
+    private float _damage;
+    private IHealth _targetHP;
 
     private void OnEnable()
     {
@@ -38,14 +40,20 @@ public class Bullet : MonoBehaviour
         // Check if the bullet hit something, by using a linecast from previous position to current position
         if (Physics.Linecast(_prevPosition, transform.position, out RaycastHit hit, layerMask))
         {
-            var damage = unitStatsSO.damage.value;
+            _damage = unitStatsSO.damage.value;
             if (Random.Range(0f, 100f) <= unitStatsSO.critChance.value)
-                damage *= 1.5f;
-            var hp = hit.collider.gameObject.GetComponent<IHealth>();
+                _damage *= 1.5f;
+
+            _targetHP = hit.collider.gameObject.GetComponent<IHealth>();
 
             // check if we hit environment
-            if (hp == null)
+            if (_targetHP == null)
+            {
                 MyObjectPool.Instance.Release(gameObject);
+                return;
+            }
+
+            _targetHP.TakeDamage(_damage);
 
             if (_piercedEnemies < unitStatsSO.piercingCount.value)
             {
