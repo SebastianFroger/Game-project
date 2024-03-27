@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.Events;
 
 
@@ -49,14 +48,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
             sparksEffect.SetActive(false);
         }
 
-        // heat cooldown
-        if (unitStats.heatCoolingRate.value > 0)
-        {
-            unitStats.currentHeat.value -= unitStats.heatCoolingRate.value * Time.fixedDeltaTime;
-            if (unitStats.currentHeat.value < 0)
-                unitStats.currentHeat.value = 0;
-        }
-
         // heat damage player 
         if (unitStats.currentHeat.value >= unitStats.maxHeat.value)
         {
@@ -67,14 +58,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
                 TakeDamage(unitStats.heatDammage.value, true);
                 _nextHeatDammageTime = Time.fixedTime + unitStats.heatDammageRate.value;
             }
-        }
-
-        // shield regen
-        if (unitStats.shieldBatteryRegenRate.value > 0)
-        {
-            unitStats.currentShieldBattery.value += unitStats.shieldBatteryRegenRate.value * Time.fixedDeltaTime;
-            if (unitStats.currentShieldBattery.value > unitStats.maxShieldBattery.value)
-                unitStats.currentShieldBattery.value = unitStats.maxShieldBattery.value;
         }
 
         if (unitStats.currentShieldBattery.value <= 0)
@@ -94,7 +77,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
         if (!ignoreShield && shieldObject.activeSelf)
         {
-            unitStats.currentShieldBattery.value -= amount;
+            BatteryManager.Instance.AddShieldBattery(-amount);
             return;
         }
 
@@ -111,43 +94,4 @@ public class PlayerHealth : MonoBehaviour, IHealth
         if (OnHitEvent != null && gameObject.activeSelf)
             OnHitEvent.Invoke();
     }
-
-
-    // IEnumerator RegenHealth()
-    // {
-    //     while (true)
-    //     {
-    //         yield return new WaitForSeconds(1);
-    //         unitStats.currentHP.value += unitStats.HPRegen.value;
-    //     }
-    // }
 }
-
-
-
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(Health))]
-public class PlayerHealthEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        Health myTarget = (Health)target;
-        base.DrawDefaultInspector();
-
-        if (GUILayout.Button("OnHitEvent"))
-        {
-            myTarget.OnHitEvent.Invoke();
-        }
-        if (GUILayout.Button("OnDeathEvent"))
-        {
-            myTarget.OnDeathEvent.Invoke();
-        }
-
-        if (GUILayout.Button("Kill Unit"))
-        {
-            myTarget.TakeDamage(999999999);
-        }
-    }
-}
-#endif

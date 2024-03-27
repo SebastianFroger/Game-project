@@ -32,10 +32,6 @@ public class PlayerAttack : MonoBehaviour
         if (Time.time < _nextAttackTime || _enemiesInRange.Items.Count == 0) return;
         _nextAttackTime = Time.time + (1f / unitStats.attackSpeed.value);
 
-        // recharge attack battery
-        if (unitStats.currentAttackBattery.value < unitStats.maxAttackBattery.value)
-            unitStats.currentAttackBattery.value += unitStats.attackBatteryRegenRate.value * Time.deltaTime;
-
         // attack battery
         if (unitStats.currentAttackBattery.value < unitStats.attackCost.value)
             return;
@@ -52,11 +48,11 @@ public class PlayerAttack : MonoBehaviour
             _bulletInst.transform.LookAt(_targets[i % _targets.Count]);
 
             // heat
-            unitStats.currentHeat.value += unitStats.attackHeatCostPerShot.value;
+            BatteryManager.Instance.AddHeat(unitStats.attackHeatCostPerShot.value);
 
             // attack battery cost
             if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
-                unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
+                BatteryManager.Instance.AddAttackBattery(-unitStats.attackCost.value);
         }
 
 
@@ -106,11 +102,11 @@ public class PlayerAttack : MonoBehaviour
             _bulletInst.transform.Rotate(new Vector3(0, rotIncrement * i, 0), Space.Self);
 
             // heat
-            unitStats.currentHeat.value += unitStats.attackHeatCostPerShot.value;
+            BatteryManager.Instance.AddHeat(unitStats.attackHeatCostPerShot.value);
 
             // attack battery cost
             if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
-                unitStats.currentAttackBattery.value -= unitStats.attackCost.value;
+                BatteryManager.Instance.AddAttackBattery(-unitStats.attackCost.value);
         }
     }
 

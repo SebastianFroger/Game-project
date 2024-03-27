@@ -34,11 +34,6 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (unitStats.currentMoveBattery.value < unitStats.maxMoveBattery.value)
-        {
-            unitStats.currentMoveBattery.value += unitStats.moveBatteryRegenRate.value * Time.fixedDeltaTime;
-        }
-
         // move battery
         if (unitStats.currentMoveBattery.value <= 0)
             return;
@@ -50,8 +45,8 @@ public class PlayerControl : MonoBehaviour
         // apply heat and battery cost
         if (_inputDir != Vector3.zero)
         {
-            unitStats.currentHeat.value += unitStats.moveHeatCostPerSecond.value * Time.fixedDeltaTime;
-            unitStats.currentMoveBattery.value -= unitStats.moveCostPerSecond.value * Time.fixedDeltaTime;
+            BatteryManager.Instance.AddHeat(unitStats.moveHeatCostPerSecond.value * Time.fixedDeltaTime);
+            BatteryManager.Instance.AddMoveBattery(-unitStats.moveCostPerSecond.value * Time.fixedDeltaTime);
         }
     }
 }

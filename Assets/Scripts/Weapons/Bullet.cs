@@ -55,6 +55,10 @@ public class Bullet : MonoBehaviour
 
             _targetHP.TakeDamage(_damage);
 
+            if (unitStatsSO.energySteal.value > 0)
+                BatteryManager.Instance.AddToAllBatteries(unitStatsSO.energySteal.value / 3f);
+
+            // piercing
             if (_piercedEnemies < unitStatsSO.piercingCount.value)
             {
                 _piercedEnemies++;

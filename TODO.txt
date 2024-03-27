@@ -18,8 +18,8 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- bouncing shot
 - energysteal
+- bouncing shot
 
 - knock back
 - slow enemies
