@@ -51,8 +51,7 @@ public class PlayerAttack : MonoBehaviour
             BatteryManager.Instance.AddHeat(unitStats.attackHeatCostPerShot.value);
 
             // attack battery cost
-            if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
-                BatteryManager.Instance.AddAttackBattery(-unitStats.attackCost.value);
+            BatteryManager.Instance.AddAttackBattery(-unitStats.attackCost.value);
         }
 
 

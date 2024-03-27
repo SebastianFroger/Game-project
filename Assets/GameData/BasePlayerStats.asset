@@ -16,7 +16,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 100
+    value: 0
   configurationPoints:
     isActive: 0
     isPercentage: 0
@@ -56,12 +56,12 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 10
   attackSpeed:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 2
+    value: 1
   critChance:
     isActive: 0
     isPercentage: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0.4
+    value: 1.3
   attackHeatCostPerShot:
     isActive: 0
     isPercentage: 0
