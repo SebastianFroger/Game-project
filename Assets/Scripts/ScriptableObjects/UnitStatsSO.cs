@@ -8,6 +8,7 @@ using Shooter;
 [Serializable]
 public class Upgrade
 {
+    public bool isActive;
     public bool isPercentage;
     public bool multiply;
     public float value;

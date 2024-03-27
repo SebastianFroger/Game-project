@@ -63,6 +63,10 @@ public class Bullet : MonoBehaviour
             if (unitStatsSO.slowEnemies.value < 0)
                 hit.collider.gameObject.GetComponent<EnemyControl>().SlowDown(unitStatsSO.slowEnemies.value);
 
+            // knock back
+            if (unitStatsSO.knockBackEnemies.isActive)
+                hit.collider.gameObject.GetComponent<EnemyControl>().KnockBack(unitStatsSO.knockBackEnemies.value);
+
             // piercing
             if (_piercedEnemies < unitStatsSO.piercingCount.value)
             {

@@ -23,21 +23,12 @@ public class ForcePushSO : UpgradeSO, ISecondary
         var colliders = Physics.OverlapSphere(transform.position, size, layerMask);
         foreach (var item in colliders)
         {
-            CoroutineManager.Instance.StartCor(PushEnemy(item.gameObject, transform));
+            item.gameObject.GetComponent<EnemyControl>().KnockBack(force);
         }
     }
 
     public void Upgrade()
     {
         force += upgradeAmount;
-    }
-
-    IEnumerator PushEnemy(GameObject item, Transform transform)
-    {
-        var control = item.GetComponent<EnemyControl>();
-        control.enabled = false;
-        item.GetComponent<Rigidbody>().velocity = (item.transform.position - GlobalObjectsManager.Instance.player.transform.position).normalized * force;
-        yield return new WaitForSeconds(1);
-        control.enabled = true;
     }
 }

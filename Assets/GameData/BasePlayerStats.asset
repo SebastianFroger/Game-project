@@ -13,146 +13,187 @@ MonoBehaviour:
   m_Name: BasePlayerStats
   m_EditorClassIdentifier: 
   points:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 100
   configurationPoints:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 12
   currentMoveBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 20
   maxMoveBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 20
   moveBatteryRegenRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
   moveCostPerSecond:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1.6
   moveSpeed:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 10
   moveHeatCostPerSecond:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0.6
   damage:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
   attackSpeed:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 2
   critChance:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   currentAttackBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 20
   maxAttackBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 20
   attackBatteryRegenRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
   attackCost:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0.4
   attackHeatCostPerShot:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0.2
   laserCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 3
+    value: 1
   laserAroundCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   piercingCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   targetsCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
   bouncingShotCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   energySteal:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   slowEnemies:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+  knockBackEnemies:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 20
   currentShieldBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 20
   maxShieldBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 20
   shieldBatteryRegenRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
   currentHP:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 100
   maxHP:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 100
   currentHeat:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   maxHeat:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 20
   heatCoolingRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0.3
   heatDammage:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 5
   heatDammageRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
   currentCooldownTime:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   cooldownTime:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 20
   pickUpRange:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 3

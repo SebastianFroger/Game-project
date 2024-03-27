@@ -70,6 +70,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
                 current.value += current.value * (upgrade.value / 100);
             else if (upgrade.multiply)
                 current.value *= upgrade.value;
+            else if (upgrade.isActive)
+                current.value = upgrade.value;
             else
                 current.value += upgrade.value;
         }

@@ -15,7 +15,7 @@ MonoBehaviour:
   points:
     isPercentage: 0
     multiply: 0
-    value: 90
+    value: 95
   configurationPoints:
     isPercentage: 0
     multiply: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   currentMoveBattery:
     isPercentage: 0
     multiply: 0
-    value: 59.727978
+    value: 59.923515
   maxMoveBattery:
     isPercentage: 0
     multiply: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   damage:
     isPercentage: 0
     multiply: 0
-    value: 10
+    value: 1
   attackSpeed:
     isPercentage: 0
     multiply: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   currentAttackBattery:
     isPercentage: 0
     multiply: 0
-    value: 60
+    value: 59.6
   maxAttackBattery:
     isPercentage: 0
     multiply: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   targetsCount:
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 1
   bouncingShotCount:
     isPercentage: 0
     multiply: 0
@@ -101,6 +101,10 @@ MonoBehaviour:
     multiply: 0
     value: 0
   slowEnemies:
+    isPercentage: 0
+    multiply: 0
+    value: -0.3
+  knockBackEnemies:
     isPercentage: 0
     multiply: 0
     value: 0
@@ -127,7 +131,7 @@ MonoBehaviour:
   currentHeat:
     isPercentage: 0
     multiply: 0
-    value: 0.13200004
+    value: 6.1419845
   maxHeat:
     isPercentage: 0
     multiply: 0
