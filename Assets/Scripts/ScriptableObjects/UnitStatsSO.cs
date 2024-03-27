@@ -39,8 +39,17 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade attackBatteryRegenRate;
     public Upgrade attackCost;
     public Upgrade attackHeatCostPerShot;
+
+    [Header("")]
+    [Header("Laser")]
     public Upgrade laserCount;
     public Upgrade laserAroundCount;
+    public Upgrade piercingCount;
+    public Upgrade targetsCount;
+    public Upgrade bouncingShotCount;
+    public Upgrade energySteal;
+    public Upgrade slowEnemies;
+
 
     [Header("")]
     [Header("Shield")]

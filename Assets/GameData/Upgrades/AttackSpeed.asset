@@ -14,86 +14,130 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
+    multiply: 0
     value: 0
   configurationPoints:
     isPercentage: 0
+    multiply: 0
     value: 0
   currentMoveBattery:
     isPercentage: 0
+    multiply: 0
     value: 0
   maxMoveBattery:
     isPercentage: 0
+    multiply: 0
     value: 0
   moveBatteryRegenRate:
     isPercentage: 0
+    multiply: 0
     value: 0
   moveCostPerSecond:
     isPercentage: 0
+    multiply: 0
     value: 0
   moveSpeed:
     isPercentage: 0
+    multiply: 0
     value: 0
   moveHeatCostPerSecond:
     isPercentage: 0
+    multiply: 0
     value: 0
   damage:
     isPercentage: 0
+    multiply: 0
     value: 0
   attackSpeed:
     isPercentage: 1
+    multiply: 0
     value: 15
   critChance:
     isPercentage: 0
+    multiply: 0
     value: 0
   currentAttackBattery:
     isPercentage: 0
+    multiply: 0
     value: 0
   maxAttackBattery:
     isPercentage: 0
+    multiply: 0
     value: 0
   attackBatteryRegenRate:
     isPercentage: 0
+    multiply: 0
     value: 0
   attackCost:
     isPercentage: 0
+    multiply: 0
     value: 0
   attackHeatCostPerShot:
     isPercentage: 1
+    multiply: 0
     value: 10
+  laserCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  laserAroundCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
   currentShieldBattery:
     isPercentage: 0
+    multiply: 0
     value: 0
   maxShieldBattery:
     isPercentage: 0
+    multiply: 0
     value: 0
   shieldBatteryRegenRate:
     isPercentage: 0
+    multiply: 0
     value: 0
   currentHP:
     isPercentage: 0
+    multiply: 0
     value: 0
   maxHP:
     isPercentage: 0
+    multiply: 0
     value: 0
   currentHeat:
     isPercentage: 0
+    multiply: 0
     value: 0
   maxHeat:
     isPercentage: 0
+    multiply: 0
     value: 0
   heatCoolingRate:
     isPercentage: 0
+    multiply: 0
     value: 0
   heatDammage:
     isPercentage: 0
+    multiply: 0
     value: 0
   heatDammageRate:
     isPercentage: 0
+    multiply: 0
+    value: 0
+  currentCooldownTime:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  cooldownTime:
+    isPercentage: 0
+    multiply: 0
     value: 0
   pickUpRange:
     isPercentage: 0
+    multiply: 0
     value: 0
   title: Laser Blitz Accelerator
   description: Increase attack speed - Affects heat
   price: 15
+  startPrice: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

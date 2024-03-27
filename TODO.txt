@@ -2,11 +2,9 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
-- on player death , new start laset stats are not reset
 - enemies have constant hp which makes no sense to use more bullets. maybe later with bigger enemies?
 - increase dammage feels redundant - increase enemy hp over rounds
 
-- look into % in stats upgrade. % of base stat or % of max value
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
@@ -20,19 +18,20 @@
 ## TODO
 ------------------------------------------------------------------------
 
+- penetration (hit multiple targets in a row)
+- shoot different enemies each shot (random?)
+- bouncing shot
+- energysteal
+
+- knock back
+- slow enemies
+
+- attack range and homing laser?
+
+
 - reactor drop (go too to get power)
+- world events (space lasers) 
 
-- think about synergies/defences with/against existing game mechanics
-
-- add additional guns(bullets)
-- secondary action systems
-- world events
-- more use of planet (sphere gameplay)
-- sound pool?
-- options menu (resolution?)
-
-
-- graphics
 
 
 ------------------------------------------------------------------------
@@ -51,15 +50,14 @@
 
 Game Mechanics
 
-- you are a robot - what do robots have/use
--- battery (share between multiple stats? move / hp / shield / self repair) 
+- you are a robot
+-- battery  
 --- recharge battery
--- robot swarm that can be equiped
---- faster recharge / bigger charge 
--- build upgrades around tech (capacitors / better cogs / better battery)
+-- faster recharge / bigger charge 
+-- build upgrades around tech
 - planet - use sphere gameplay (shrink? / attacks from above / upgrades from above)
--- sunny and dark side
---- power stations (solar panels to defend and upgrade as they charge your battery)
+-- sunny and dark side (solar panels to recharge battery?) 
+--- power stations on map to recharge batteries? (solar panels to defend and upgrade as they charge your battery?)
 
 
 Enemies
@@ -72,11 +70,10 @@ v big guy
 - scale stats with levels?
 
 
-World/Round events (random every round)
+World events (random every round)
 
-- planet shrinks (digging machines spawn on planet and shrink it. Destroy them to stop shrink)
 - boss 
-- meteors / space lasers (damages player or all?)
+- space lasers (damages player or all?)
 
 
 Player character (choose between robot configurations at start)
@@ -88,21 +85,17 @@ Player character (choose between robot configurations at start)
 - fast cool down
 
 
-Weapons
+Weapons upgrades
 
-- more lasers 
-- shoot in all directions
+- mines
 - droids
-
-
-Weapon upgrades
-
 - knock back
-- penetration (hit multiple simultaneously)
-- multi shots
-- lifesteal
+- shoot different enemies each shot (random?)
+- penetration (hit multiple targets in a row)
+- bouncing shot
+- energysteal
 - slow enemies
-- bypass shield (if shileded enemies)
+- bypass shield (if shielded enemies)
 
 
 Secondary (cooldown based / more than one?)
@@ -110,18 +103,16 @@ Secondary (cooldown based / more than one?)
 - mines
 - dash / teleport (through environment)
 - make enemies attack enemies (time based)
-- emp charge (explosion thing)
+- emp charge (disable closest enemies)
 
 
 Player upgrades
 
-- faster cooldown
+- lifesteal
 - dodge %
 - double point %
 - luck? %
-- lifesteal
-- cooldown
-- explosion resistance (synergy with exploding enemy) !!!
+- explosion resistance (against exploding enemy)
 
 
 

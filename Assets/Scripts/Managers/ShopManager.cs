@@ -19,7 +19,7 @@ public class ShopManager : Singleton<ShopManager>
         foreach (var card in MenuManager.Instance.shopCards)
         {
             var upgrade = UpgradeManager.Instance.GetRandomUpgrades();
-            upgrade.price = _roundPrice;
+            upgrade.price = upgrade.startPrice + (priceIncreasePrRound * roundDataSO.currentRound);
             _currentUpgrades.Add(upgrade);
             card.price.text = upgrade.price.ToString();
         }

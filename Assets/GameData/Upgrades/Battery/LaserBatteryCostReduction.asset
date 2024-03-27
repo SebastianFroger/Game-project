@@ -124,6 +124,14 @@ MonoBehaviour:
     isPercentage: 0
     multiply: 0
     value: 0
+  currentCooldownTime:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  cooldownTime:
+    isPercentage: 0
+    multiply: 0
+    value: 0
   pickUpRange:
     isPercentage: 0
     multiply: 0
@@ -131,4 +139,5 @@ MonoBehaviour:
   title: Laser Pulse Enhancer
   description: Reduce laser cost
   price: 5
+  startPrice: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

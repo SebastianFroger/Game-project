@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
-  m_Name: IncreaseLaserAroundCount
+  m_Name: Piercing
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
@@ -83,7 +83,27 @@ MonoBehaviour:
   laserAroundCount:
     isPercentage: 0
     multiply: 0
+    value: 0
+  piercingCount:
+    isPercentage: 0
+    multiply: 0
     value: 1
+  targetsCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  bouncingShotCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  energySteal:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  slowEnemies:
+    isPercentage: 0
+    multiply: 0
+    value: 0
   currentShieldBattery:
     isPercentage: 0
     multiply: 0
@@ -124,11 +144,20 @@ MonoBehaviour:
     isPercentage: 0
     multiply: 0
     value: 0
+  currentCooldownTime:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  cooldownTime:
+    isPercentage: 0
+    multiply: 0
+    value: 0
   pickUpRange:
     isPercentage: 0
     multiply: 0
     value: 0
-  title: Disruptor Ray Rifle
-  description: Shoot 4 lasers in all directions - affects heat
+  title: Piercing ammo
+  description: Laser shoots through more enemies
   price: 5
+  startPrice: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

@@ -275,13 +275,13 @@ PrefabInstance:
     - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: allUpgrades.Array.size
-      value: 19
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: allUpgrades.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: a3ee0d6f33458f842b4342ab1a14cf94,
+      objectReference: {fileID: 11400000, guid: 9d03428261c2ee944b75d209963633a0,
         type: 2}
     - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
@@ -339,6 +339,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
+      propertyPath: _playerUpgrades.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
       propertyPath: allUpgrades.Array.data[10]
       value: 
       objectReference: {fileID: 11400000, guid: 8274f7b9e56d54f42bed275815b32ad9,
@@ -391,6 +396,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 97a10dc76e525a64a8bde44a74c23fab,
         type: 2}
+    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: _playerUpgrades.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4907634744181094313, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: musicVol

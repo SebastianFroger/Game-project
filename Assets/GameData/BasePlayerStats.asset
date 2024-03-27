@@ -15,7 +15,7 @@ MonoBehaviour:
   points:
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 100
   configurationPoints:
     isPercentage: 0
     multiply: 0
@@ -81,6 +81,26 @@ MonoBehaviour:
     multiply: 0
     value: 1
   laserAroundCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  piercingCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  targetsCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  bouncingShotCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  energySteal:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  slowEnemies:
     isPercentage: 0
     multiply: 0
     value: 0

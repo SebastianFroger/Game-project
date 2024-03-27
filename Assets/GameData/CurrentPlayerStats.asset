@@ -14,82 +14,145 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
-    value: 35
+    multiply: 0
+    value: 90
   configurationPoints:
     isPercentage: 0
+    multiply: 0
     value: 12
   currentMoveBattery:
     isPercentage: 0
-    value: 32.944542
+    multiply: 0
+    value: 59.727978
   maxMoveBattery:
     isPercentage: 0
+    multiply: 0
     value: 60
   moveBatteryRegenRate:
     isPercentage: 0
-    value: 0
+    multiply: 0
+    value: 1
   moveCostPerSecond:
     isPercentage: 0
-    value: 0.5
+    multiply: 0
+    value: 1.6
   moveSpeed:
     isPercentage: 0
+    multiply: 0
     value: 10
   moveHeatCostPerSecond:
     isPercentage: 0
-    value: 0.5
-  currentAttackBattery:
+    multiply: 0
+    value: 0.6
+  damage:
     isPercentage: 0
-    value: 10
-  maxAttackBattery:
-    isPercentage: 0
-    value: 60
-  attackBatteryRegenRate:
-    isPercentage: 0
-    value: 0
-  attackCost:
-    isPercentage: 0
-    value: 0.5
-  attackHeatCostPerShot:
-    isPercentage: 0
-    value: 0.3
-  currentShieldBattery:
-    isPercentage: 0
-    value: 50
-  maxShieldBattery:
-    isPercentage: 0
-    value: 60
-  shieldBatteryRegenRate:
-    isPercentage: 0
-    value: 0
-  currentHP:
-    isPercentage: 0
-    value: 100
-  maxHP:
-    isPercentage: 0
-    value: 100
-  dammage:
-    isPercentage: 0
+    multiply: 0
     value: 10
   attackSpeed:
     isPercentage: 0
+    multiply: 0
     value: 2
+  critChance:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  currentAttackBattery:
+    isPercentage: 0
+    multiply: 0
+    value: 60
+  maxAttackBattery:
+    isPercentage: 0
+    multiply: 0
+    value: 60
+  attackBatteryRegenRate:
+    isPercentage: 0
+    multiply: 0
+    value: 1
+  attackCost:
+    isPercentage: 0
+    multiply: 0
+    value: 0.4
+  attackHeatCostPerShot:
+    isPercentage: 0
+    multiply: 0
+    value: 0.2
+  laserCount:
+    isPercentage: 0
+    multiply: 0
+    value: 1
+  laserAroundCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  piercingCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  targetsCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  bouncingShotCount:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  energySteal:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  slowEnemies:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  currentShieldBattery:
+    isPercentage: 0
+    multiply: 0
+    value: 60
+  maxShieldBattery:
+    isPercentage: 0
+    multiply: 0
+    value: 60
+  shieldBatteryRegenRate:
+    isPercentage: 0
+    multiply: 0
+    value: 1
+  currentHP:
+    isPercentage: 0
+    multiply: 0
+    value: 100
+  maxHP:
+    isPercentage: 0
+    multiply: 0
+    value: 100
   currentHeat:
     isPercentage: 0
-    value: 39.11308
+    multiply: 0
+    value: 0.13200004
   maxHeat:
     isPercentage: 0
+    multiply: 0
     value: 60
   heatCoolingRate:
     isPercentage: 0
+    multiply: 0
     value: 0.3
   heatDammage:
     isPercentage: 0
+    multiply: 0
     value: 5
   heatDammageRate:
     isPercentage: 0
+    multiply: 0
     value: 1
+  currentCooldownTime:
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  cooldownTime:
+    isPercentage: 0
+    multiply: 0
+    value: 20
   pickUpRange:
     isPercentage: 0
-    value: 5
-  critChance:
-    isPercentage: 0
-    value: 0
+    multiply: 0
+    value: 3

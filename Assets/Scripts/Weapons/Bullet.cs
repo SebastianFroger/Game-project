@@ -17,11 +17,13 @@ public class Bullet : MonoBehaviour
 
     private Vector3 startPosition;
     private Vector3 _prevPosition;
+    private float _piercedEnemies;
 
     private void OnEnable()
     {
         startPosition = transform.position;
         _prevPosition = GlobalObjectsManager.Instance.player.transform.position;
+        _piercedEnemies = 0;
     }
 
     private void Update()
@@ -34,16 +36,25 @@ public class Bullet : MonoBehaviour
         if (!useRaycast) return;
 
         // Check if the bullet hit something, by using a linecast from previous position to current position
-
         if (Physics.Linecast(_prevPosition, transform.position, out RaycastHit hit, layerMask))
         {
             var damage = unitStatsSO.damage.value;
             if (Random.Range(0f, 100f) <= unitStatsSO.critChance.value)
                 damage *= 1.5f;
-            hit.collider.gameObject.GetComponent<IHealth>()?.TakeDamage(damage);
+            var hp = hit.collider.gameObject.GetComponent<IHealth>();
 
-            OnHitEvent?.Invoke();
-            MyObjectPool.Instance.Release(gameObject);
+            // check if we hit environment
+            if (hp == null)
+                MyObjectPool.Instance.Release(gameObject);
+
+            if (_piercedEnemies < unitStatsSO.piercingCount.value)
+            {
+                _piercedEnemies++;
+                OnHitEvent?.Invoke();
+            }
+            else
+                // relsease bullet
+                MyObjectPool.Instance.Release(gameObject);
 
             // hit effect
             MyObjectPool.Instance.GetInstance(hitEffect, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal));

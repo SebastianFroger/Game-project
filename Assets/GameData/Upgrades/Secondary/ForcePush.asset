@@ -139,6 +139,7 @@ MonoBehaviour:
   title: Force Push
   description: Push all enemies around you
   price: 5
+  startPrice: 5
   image: {fileID: 21300000, guid: b25cf5b1e5089b8488d5ec172b194a4f, type: 3}
   layerMask:
     serializedVersion: 2

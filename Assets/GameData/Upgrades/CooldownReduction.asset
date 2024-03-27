@@ -139,4 +139,5 @@ MonoBehaviour:
   title: Turbo Encabulator
   description: Reduce cooldown time
   price: 5
+  startPrice: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}
