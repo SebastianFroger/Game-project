@@ -90,7 +90,7 @@ MonoBehaviour:
   - timeSec: 95
     spawnPrSec: 3.5
     spawnPrSecIncrement: 0
-    maxspawnPrSec: 4
+    maxspawnPrSec: 3.5
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -105,9 +105,9 @@ MonoBehaviour:
         type: 3}
       spawnChance: 30
   - timeSec: 100
-    spawnPrSec: 3.7
+    spawnPrSec: 3.5
     spawnPrSecIncrement: 0
-    maxspawnPrSec: 4
+    maxspawnPrSec: 3.5
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -122,9 +122,9 @@ MonoBehaviour:
         type: 3}
       spawnChance: 45
   - timeSec: 105
-    spawnPrSec: 3.7
+    spawnPrSec: 3.5
     spawnPrSecIncrement: 0
-    maxspawnPrSec: 4
+    maxspawnPrSec: 3.5
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -139,9 +139,9 @@ MonoBehaviour:
         type: 3}
       spawnChance: 50
   - timeSec: 80
-    spawnPrSec: 2.9
+    spawnPrSec: 3.5
     spawnPrSecIncrement: 0
-    maxspawnPrSec: 4
+    maxspawnPrSec: 3.5
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
