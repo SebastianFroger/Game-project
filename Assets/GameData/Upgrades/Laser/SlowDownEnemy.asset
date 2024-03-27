@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
-  m_Name: EnergySteal
+  m_Name: SlowDownEnemy
   m_EditorClassIdentifier: 
   points:
     isPercentage: 0
@@ -79,32 +79,8 @@ MonoBehaviour:
   laserCount:
     isPercentage: 0
     multiply: 0
-    value: 0
-  laserAroundCount:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  piercingCount:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  targetsCount:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  bouncingShotCount:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  energySteal:
-    isPercentage: 0
-    multiply: 0
     value: 1
-  slowEnemies:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  knockBackEnemies:
+  laserAroundCount:
     isPercentage: 0
     multiply: 0
     value: 0
@@ -160,8 +136,8 @@ MonoBehaviour:
     isPercentage: 0
     multiply: 0
     value: 0
-  title: Energy Steal
-  description: Steal energy when hitting an enemy
+  title: Laser Duplicator
+  description: Increase amount of shots - affects heat
   price: 5
   startPrice: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

@@ -18,11 +18,10 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- energysteal
-- bouncing shot
-
 - knock back
 - slow enemies
+- bouncing shot
+
 
 - attack range and homing laser?
 

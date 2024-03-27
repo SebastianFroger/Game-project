@@ -49,6 +49,7 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade bouncingShotCount;
     public Upgrade energySteal;
     public Upgrade slowEnemies;
+    public Upgrade knockBackEnemies;
 
 
     [Header("")]

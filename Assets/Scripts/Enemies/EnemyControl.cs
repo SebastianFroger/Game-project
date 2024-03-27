@@ -15,16 +15,25 @@ public class EnemyControl : MonoBehaviour
     private Vector3 _localMoveDir;
     private Rigidbody _rb;
     private Transform player;
+    private float _speed;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        if (unitStatsSO == null)
-        {
-            DebugExt.LogError(this, "Missing unitStatsSO");
-        }
-
         player = GlobalObjectsManager.Instance.player.transform;
+        _speed = unitStatsSO.moveSpeed.value;
+    }
+
+    private void OnEnable()
+    {
+        _speed = unitStatsSO.moveSpeed.value;
+    }
+
+    public void SlowDown(float slowAmount)
+    {
+        _speed += slowAmount;
+        if (_speed < 0f)
+            _speed = 0f;
     }
 
     void FixedUpdate()
@@ -39,6 +48,6 @@ public class EnemyControl : MonoBehaviour
 
         if (stopped) return;
 
-        _rb.velocity = _moveTowards.normalized * unitStatsSO.moveSpeed.value;
+        _rb.velocity = _moveTowards.normalized * _speed;
     }
 }

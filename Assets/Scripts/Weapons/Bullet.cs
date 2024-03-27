@@ -55,8 +55,13 @@ public class Bullet : MonoBehaviour
 
             _targetHP.TakeDamage(_damage);
 
+            // energysteal
             if (unitStatsSO.energySteal.value > 0)
                 BatteryManager.Instance.AddToAllBatteries(unitStatsSO.energySteal.value / 3f);
+
+            // slow enemy
+            if (unitStatsSO.slowEnemies.value < 0)
+                hit.collider.gameObject.GetComponent<EnemyControl>().SlowDown(unitStatsSO.slowEnemies.value);
 
             // piercing
             if (_piercedEnemies < unitStatsSO.piercingCount.value)
