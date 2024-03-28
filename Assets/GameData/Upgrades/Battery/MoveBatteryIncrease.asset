@@ -13,131 +13,195 @@ MonoBehaviour:
   m_Name: MoveBatteryIncrease
   m_EditorClassIdentifier: 
   points:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   configurationPoints:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   currentMoveBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   maxMoveBattery:
+    isActive: 0
     isPercentage: 1
     multiply: 0
     value: 15
   moveBatteryRegenRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   moveCostPerSecond:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   moveSpeed:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   moveHeatCostPerSecond:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   damage:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   attackSpeed:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   critChance:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   currentAttackBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   maxAttackBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   attackBatteryRegenRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   attackCost:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   attackHeatCostPerShot:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   laserCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   laserAroundCount:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  piercingCount:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  targetsCount:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  bouncingShotCount:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  energySteal:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  slowEnemies:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  knockBackEnemies:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   currentShieldBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   maxShieldBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   shieldBatteryRegenRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   currentHP:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   maxHP:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   currentHeat:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   maxHeat:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   heatCoolingRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   heatDammage:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   heatDammageRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   currentCooldownTime:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   cooldownTime:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
   pickUpRange:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+  upgradeLevel: 1
+  priceMultiplier: 2
+  effectMultiplier: 2
   title: PowerPak Amplifier
-  description: Increase Movement Battery
-  price: 10
+  description: Increase max movement battery
+  price: 0
   startPrice: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     public UnityEvent OnHitEvent;
     public LayerMask layerMask;
     public bool useRaycast;
+    public float rotate;
 
     private Vector3 startPosition;
     private Vector3 _prevPosition;

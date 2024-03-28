@@ -2,7 +2,6 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
-- fix upgrade multipler to take multiply into account
 - push effect not showing
 - enemies have constant hp which makes no sense to use more bullets. maybe later with bigger enemies?
 - increase dammage feels redundant - increase enemy hp over rounds
@@ -22,16 +21,11 @@
 
 
 - attack range and shoot around the planet? laser life upgrade
-- upgrades lvl - increase cost and amount
-- better descriptions
 - jump?
 - droids
 - more lvls and space laser
 
 - bouncing shot
-
-
-
 
 - reactor drop (go too to get power)
 

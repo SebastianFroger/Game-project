@@ -14,6 +14,9 @@ public class Health : MonoBehaviour, IHealth
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeathEvent;
 
+    public delegate void MyDelegate(Transform enemy);
+    public static MyDelegate OnDeathEventDelegate;
+
     [SerializeField] private bool _isInvincible;
 
     void Start()
@@ -36,14 +39,12 @@ public class Health : MonoBehaviour, IHealth
 
         if (unitStatsSO.currentHP.value <= 0)
         {
-            if (OnDeathEvent != null)
-            {
-                OnDeathEvent.Invoke();
-            }
+            OnDeathEventDelegate?.Invoke(transform);
+            OnDeathEvent?.Invoke();
         }
 
         if (OnHitEvent != null && gameObject.activeSelf)
-            OnHitEvent.Invoke();
+            OnHitEvent?.Invoke();
     }
 
     private void OnDestroy()

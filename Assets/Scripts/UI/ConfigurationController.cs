@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Linq;
 
@@ -13,9 +14,13 @@ namespace Shooter
         public int sliderValueMultipler = 20;
         public TMPro.TMP_Text _text;
         public Slider _moveSlider;
+        public TMPro.TMP_Text _moveText;
         public Slider _laserSlider;
+        public TMPro.TMP_Text _laserText;
         public Slider _shieldSlider;
+        public TMPro.TMP_Text _shieldText;
         public Slider _heatSlider;
+        public TMPro.TMP_Text _heatText;
 
         private Slider[] _sliders;
         private string _textString = "Configuration Points ";
@@ -28,6 +33,29 @@ namespace Shooter
             _maxPoints = unitStats.configurationPoints.value;
             _usedPoints = _sliders.Sum(s => s.value);
             SetText();
+        }
+
+        private void Update()
+        {
+            if (EventSystem.current.currentSelectedGameObject == _moveSlider.gameObject)
+                _moveText.gameObject.SetActive(true);
+            else
+                _moveText.gameObject.SetActive(false);
+
+            if (EventSystem.current.currentSelectedGameObject == _laserSlider.gameObject)
+                _laserText.gameObject.SetActive(true);
+            else
+                _laserText.gameObject.SetActive(false);
+
+            if (EventSystem.current.currentSelectedGameObject == _shieldSlider.gameObject)
+                _shieldText.gameObject.SetActive(true);
+            else
+                _shieldText.gameObject.SetActive(false);
+
+            if (EventSystem.current.currentSelectedGameObject == _heatSlider.gameObject)
+                _heatText.gameObject.SetActive(true);
+            else
+                _heatText.gameObject.SetActive(false);
         }
 
         public void OnSliderValueChange(Slider slider)

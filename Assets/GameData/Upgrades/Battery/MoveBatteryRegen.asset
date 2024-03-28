@@ -197,8 +197,11 @@ MonoBehaviour:
     isPercentage: 0
     multiply: 0
     value: 0
+  upgradeLevel: 1
+  priceMultiplier: 2
+  effectMultiplier: 2
   title: EnergyRevamp Technology
   description: Increase movement battery regen rate
-  price: 20
+  price: 0
   startPrice: 5
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

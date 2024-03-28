@@ -16,7 +16,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 100
   configurationPoints:
     isActive: 0
     isPercentage: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 1
   targetsCount:
     isActive: 0
     isPercentage: 0
