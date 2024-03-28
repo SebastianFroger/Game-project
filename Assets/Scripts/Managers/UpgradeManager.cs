@@ -8,47 +8,31 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public UnitStatsSO currentStatsSO;
     public UnitStatsSO baseStatsSO;
     public UnitStatsSO UIStatsSO;
-    public UpgradeSO[] allUpgrades;
-    public List<UnitStatsSO> _playerUpgrades = new();
+    public UpgradeSO[] allBaseUpgrades;
+    public UpgradeSO[] allUpgradesInstance;
 
-    public UpgradeSO GetRandomUpgrades()
-    {
-        var random = UnityEngine.Random.Range(0, allUpgrades.Length);
-        return allUpgrades[random];
-    }
 
-    // use this to display accumulated upgrade stats in the UI, instead of full stats
-    public void AddUpgrade(UpgradeSO upgradeSO)
+    public List<UpgradeSO> GetRandomUpgrades()
     {
-        _playerUpgrades.Add((UnitStatsSO)upgradeSO);
+        List<UpgradeSO> upgrades = new();
+
+        var random = allUpgradesInstance[UnityEngine.Random.Range(0, allUpgradesInstance.Length)];
+        upgrades.Add(random);
+        while (upgrades.Count < 4)
+        {
+            while (upgrades.Contains(random))
+            {
+                random = allUpgradesInstance[UnityEngine.Random.Range(0, allUpgradesInstance.Length)];
+            }
+            upgrades.Add(random);
+        }
+
+        return upgrades;
     }
 
     public void SetStartStats()
     {
         ResetStats();
-    }
-
-    public void CalcUpgradesForUI()
-    {
-        // reset all ui stats
-        // copy all fields values from baseStatsSO to currentStatsSO
-        foreach (var field in currentStatsSO.GetAllFieldInfos())
-        {
-            var fieldVal = (Upgrade)field.GetValue(UIStatsSO);
-            fieldVal.value = 0;
-        }
-
-        // add them all up
-        foreach (var upgradeStats in _playerUpgrades)
-        {
-            var upgradeFields = upgradeStats.GetAllFieldInfos();
-            foreach (var field in upgradeFields)
-            {
-                var upgrade = (Upgrade)field.GetValue(upgradeStats);
-                var current = (Upgrade)field.GetValue(UIStatsSO);
-                current.value += upgrade.value;
-            }
-        }
     }
 
     public void ApplyUpgrade(UnitStatsSO upgradeStats)
@@ -60,24 +44,33 @@ public class UpgradeManager : Singleton<UpgradeManager>
             return;
         }
 
+        // ncrease upgradelevel
+        (upgradeStats as UpgradeSO).upgradeLevel++;
+
         // normal upgrade
         var upgradeFields = upgradeStats.GetAllFieldInfos();
         foreach (var field in upgradeFields)
         {
-            var upgrade = (Upgrade)field.GetValue(upgradeStats);
+            var upgradeField = (Upgrade)field.GetValue(upgradeStats);
             var current = (Upgrade)field.GetValue(currentStatsSO);
-            if (upgrade.isPercentage)
-                current.value += current.value * (upgrade.value / 100);
-            else if (upgrade.multiply)
-                current.value *= upgrade.value;
-            else if (upgrade.isActive)
-                current.value = upgrade.value;
+            if (upgradeField.isPercentage)
+            {
+                current.value += current.value * (upgradeField.value / 100);
+                upgradeField.value += upgradeField.value;
+            }
+            else if (upgradeField.multiply)
+            {
+                current.value *= upgradeField.value;
+                upgradeField.value *= upgradeField.value;
+            }
+            else if (upgradeField.isActive)
+                current.value = upgradeField.value;
             else
-                current.value += upgrade.value;
+            {
+                current.value += upgradeField.value;
+                upgradeField.value += upgradeField.value;
+            }
         }
-
-        AddUpgrade((UpgradeSO)upgradeStats);
-        CalcUpgradesForUI();
     }
 
     public void ResetStats()
@@ -88,6 +81,13 @@ public class UpgradeManager : Singleton<UpgradeManager>
             var current = (Upgrade)field.GetValue(currentStatsSO);
             var basest = (Upgrade)field.GetValue(baseStatsSO);
             current.value = basest.value;
+        }
+
+        // create instance of all upgrades to avoid editor value shit show
+        allUpgradesInstance = new UpgradeSO[allBaseUpgrades.Length];
+        for (int i = 0; i < allBaseUpgrades.Length; i++)
+        {
+            allUpgradesInstance[i] = Instantiate(allBaseUpgrades[i]);
         }
     }
 }

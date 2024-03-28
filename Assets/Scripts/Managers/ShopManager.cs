@@ -16,13 +16,13 @@ public class ShopManager : Singleton<ShopManager>
     {
         _currentUpgrades.Clear();
 
-        foreach (var card in MenuManager.Instance.shopCards)
+        _currentUpgrades = UpgradeManager.Instance.GetRandomUpgrades();
+        for (int i = 0; i < MenuManager.Instance.shopCards.Length; i++)
         {
-            var upgrade = UpgradeManager.Instance.GetRandomUpgrades();
-            upgrade.price = upgrade.startPrice + (priceIncreasePrRound * roundDataSO.currentRound);
-            _currentUpgrades.Add(upgrade);
-            card.price.text = upgrade.price.ToString();
+            _currentUpgrades[i].price = (_currentUpgrades[i].startPrice * _currentUpgrades[i].upgradeLevel);
+            MenuManager.Instance.shopCards[i].price.text = _currentUpgrades[i].price.ToString();
         }
+
         MenuManager.Instance.SetCardContent(_currentUpgrades.ToArray());
     }
 

@@ -59,7 +59,6 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.EnableMenuControls();
         MyObjectPool.Instance.ReleaseAll();
         GameManager.Instance.TimeActive(false);
-        UpgradeManager.Instance.CalcUpgradesForUI();
     }
 
     public void OnRestartRoundPress()

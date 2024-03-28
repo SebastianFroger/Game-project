@@ -87,12 +87,11 @@ public class MenuManager : Singleton<MenuManager>
 
         for (int i = 0; i < shopCards.Length; i++)
         {
-            shopCards[i].title.text = upgrades[i].title;
+            shopCards[i].title.text = $"{upgrades[i].title} Mark {upgrades[i].upgradeLevel}";
             shopCards[i].description.text = upgrades[i].description;
             shopCards[i].price.text = upgrades[i].price.ToString();
             shopCards[i].image.sprite = upgrades[i].image;
         }
-
     }
 
     public void DisableUpgradeCard(int index)

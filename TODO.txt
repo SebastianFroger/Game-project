@@ -2,14 +2,16 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
+- fix upgrade multipler to take multiply into account
+- push effect not showing
 - enemies have constant hp which makes no sense to use more bullets. maybe later with bigger enemies?
 - increase dammage feels redundant - increase enemy hp over rounds
-
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
 ------------------------------------------------------------------------
 
+- player spawns over planet
 - % in UIstatscontrol - if upgrade is % show it in ui - store Upgrade classes and add to them??
 - ui not scaling properly with free aspect - fix later if necessary
 
@@ -18,14 +20,22 @@
 ## TODO
 ------------------------------------------------------------------------
 
+
+- attack range and shoot around the planet? laser life upgrade
+- upgrades lvl - increase cost and amount
+- better descriptions
+- jump?
+- droids
+- more lvls and space laser
+
 - bouncing shot
 
 
-- attack range and homing laser?
 
 
 - reactor drop (go too to get power)
-- world events (space lasers) 
+
+
 
 
 
