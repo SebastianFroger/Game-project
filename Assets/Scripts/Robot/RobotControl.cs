@@ -9,31 +9,40 @@ public class RobotControl : MonoBehaviour
     public Transform lookRotationTrs;
     public Transform lookAtarget;
     public bool stopped;
-    public float playerDistance = 5f;
+    public float targetDistance = 5f;
+    public float maxPlayerDistance = 15f;
+    public bool moveTowardsEnemy;
 
     private Vector3 _moveTowards;
     private Vector3 _localMoveDir;
     private Rigidbody _rb;
     private Transform player;
+    private MiniRobotAttack _miniRobotAttack;
+    private Vector3 _rotTowards;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         player = GlobalObjectsManager.Instance.player.transform;
-    }
-
-    private void OnEnable()
-    {
-
+        _miniRobotAttack = GetComponentInChildren<MiniRobotAttack>();
     }
 
     void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, player.position) < playerDistance)
-            return;
-        var rotTowards = Vector3.RotateTowards(transform.position, player.position, .1f, .1f);
-        _moveTowards = (rotTowards - transform.position);
+        if (moveTowardsEnemy && _miniRobotAttack.nearestEnemy != null && Vector3.Distance(transform.position, player.position) < maxPlayerDistance)
+        {
+            if (Vector3.Distance(transform.position, _miniRobotAttack.nearestEnemy.position) < targetDistance)
+                return;
+            _rotTowards = Vector3.RotateTowards(transform.position, _miniRobotAttack.nearestEnemy.position, .1f, .1f);
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, player.position) < targetDistance)
+                return;
+            _rotTowards = Vector3.RotateTowards(transform.position, player.position, .1f, .1f);
+        }
 
+        _moveTowards = _rotTowards - transform.position;
         _localMoveDir = lookAtarget.InverseTransformDirection(_moveTowards);
         lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
         lookRotationTrs.LookAt(lookAtarget, transform.up);

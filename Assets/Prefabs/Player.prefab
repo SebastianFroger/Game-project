@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2998296493391144119
 Transform:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492325893476034216}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9df2887159710f44882c0f7a5017c822, type: 3}
   m_Name: 
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   shieldObject: {fileID: 4374143794184766054}
-  invincible: 1
+  invincible: 0
   OnStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -581,6 +581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   secondary: {fileID: 0}
+  image: {fileID: 0}
+  imageDark: {fileID: 0}
 --- !u!1 &5531970302393211126
 GameObject:
   m_ObjectHideFlags: 0

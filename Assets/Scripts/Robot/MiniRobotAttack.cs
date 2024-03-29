@@ -12,10 +12,11 @@ public class MiniRobotAttack : MonoBehaviour
     public List<Transform> _enemiesInRange = new();
     public UnityEvent OnShoot;
     public float laserRandomRange = 0.2f;
+    public Transform nearestEnemy;
+    public bool stopAttack;
 
 
     private float _nextAttackTime;
-    private Transform _nearestEnemy;
     private float _smallestDistance;
     private float _distance;
     private GameObject _bulletInst;
@@ -44,13 +45,19 @@ public class MiniRobotAttack : MonoBehaviour
     void RemoveDeadEnemy(Transform enemy)
     {
         _enemiesInRange.Remove(enemy.transform);
+        if (nearestEnemy == enemy)
+            nearestEnemy = null;
     }
 
     private void Update()
     {
+        if (_enemiesInRange.Count > 0 && nearestEnemy == null)
+            nearestEnemy = GetClosestEnemy();
+
+        if (stopAttack) return;
+
         if (Time.time < _nextAttackTime || _enemiesInRange.Count == 0) return;
         _nextAttackTime = Time.time + (1f / unitStatsInstance.attackSpeed.value);
-
 
         SelectTargets();
 
@@ -75,21 +82,20 @@ public class MiniRobotAttack : MonoBehaviour
                 _targets.Add(_enemiesInRange[Random.Range(0, _enemiesInRange.Count)]);
             }
         }
+        // nearestEnemy = null;
     }
 
     Transform GetClosestEnemy()
     {
-        _nearestEnemy = null;
         _smallestDistance = Mathf.Infinity;
         foreach (var enemy in _enemiesInRange)
         {
+            nearestEnemy = enemy;
             _distance = Vector3.Distance(transform.position, enemy.position);
             if (_distance > _smallestDistance) continue;
             _smallestDistance = _distance;
-            _nearestEnemy = enemy;
         }
-
-        return _nearestEnemy;
+        return nearestEnemy;
     }
 
     private void OnTriggerEnter(Collider other)

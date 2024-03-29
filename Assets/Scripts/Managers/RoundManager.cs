@@ -45,6 +45,7 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableMainMenu(false);
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
+        RobotsManager.Instance.InstantiateRobots();
         GameManager.Instance.TimeActive(true);
 
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
@@ -68,6 +69,7 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableGameUI(true);
         MenuManager.Instance.EnablePauseMenu(false);
         GameManager.Instance.EnableGameplayControls();
+        RobotsManager.Instance.InstantiateRobots();
         GameManager.Instance.TimeActive(true);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
 
@@ -80,6 +82,7 @@ public class RoundManager : Singleton<RoundManager>
         MenuManager.Instance.EnableShopMenu(false);
         MenuManager.Instance.EnableGameUI(true);
         GameManager.Instance.EnableGameplayControls();
+        RobotsManager.Instance.InstantiateRobots();
         GameManager.Instance.TimeActive(true);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
 

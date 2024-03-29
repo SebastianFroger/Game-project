@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
-  m_Name: BasePlayerStats
+  m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
+  m_Name: AttackRobot
   m_EditorClassIdentifier: 
   points:
     isActive: 0
@@ -21,47 +21,47 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 12
+    value: 0
   currentMoveBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   maxMoveBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   moveBatteryRegenRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   moveCostPerSecond:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1.6
+    value: 0
   moveSpeed:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 10
+    value: 0
   moveHeatCostPerSecond:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0.6
+    value: 0
   damage:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 10
+    value: 0
   attackSpeed:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   critChance:
     isActive: 0
     isPercentage: 0
@@ -71,32 +71,32 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   maxAttackBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   attackBatteryRegenRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   attackCost:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1.3
+    value: 0
   attackHeatCostPerShot:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0.2
+    value: 0
   laserCount:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   laserAroundCount:
     isActive: 0
     isPercentage: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   bouncingShotCount:
     isActive: 0
     isPercentage: 0
@@ -136,32 +136,32 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 1
   currentShieldBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   maxShieldBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   shieldBatteryRegenRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   currentHP:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 100
+    value: 0
   maxHP:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 100
+    value: 0
   currentHeat:
     isActive: 0
     isPercentage: 0
@@ -171,22 +171,22 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   heatCoolingRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0.3
+    value: 0
   heatDammage:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 5
+    value: 0
   heatDammageRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
   currentCooldownTime:
     isActive: 0
     isPercentage: 0
@@ -196,9 +196,17 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 20
+    value: 0
   pickUpRange:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 3
+    value: 0
+  upgradeLevel: 1
+  priceMultiplier: 2
+  effectMultiplier: 2
+  title: Robo Replicant
+  description: Spawn a mini robot that helps you fight enemies
+  price: 0
+  startPrice: 5
+  image: {fileID: 0}

@@ -46,7 +46,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 8
   moveHeatCostPerSecond:
     isActive: 0
     isPercentage: 0
@@ -56,12 +56,12 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 5
   attackSpeed:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 1
   critChance:
     isActive: 0
     isPercentage: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 1
   laserAroundCount:
     isActive: 0
     isPercentage: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 1
   bouncingShotCount:
     isActive: 0
     isPercentage: 0
@@ -128,6 +128,11 @@ MonoBehaviour:
     multiply: 0
     value: 0
   knockBackEnemies:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+  attackRobotCount:
     isActive: 0
     isPercentage: 0
     multiply: 0
@@ -151,12 +156,12 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 100
   maxHP:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 100
   currentHeat:
     isActive: 0
     isPercentage: 0

@@ -52,6 +52,10 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade slowEnemies;
     public Upgrade knockBackEnemies;
 
+    [Header("")]
+    [Header("Robots")]
+    public Upgrade attackRobotCount;
+
 
     [Header("")]
     [Header("Shield")]

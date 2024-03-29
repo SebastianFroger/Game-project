@@ -34,9 +34,6 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
     public EnvironmentItem[] items;
     public LayerMask myLayerMask;
 
-
-
-    private bool _creatingMap;
     private Quaternion _addedRotations = Quaternion.identity;
 
     public void SpawnEnvironment()
@@ -49,8 +46,6 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
 
     void Instantiate(EnvironmentItem item)
     {
-        _creatingMap = true;
-
         // clumps
         for (int i = 0; i < item.amountOfClumps; i++)
         {

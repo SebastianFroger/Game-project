@@ -14,12 +14,11 @@ GameObject:
   - component: {fileID: 8059782168554662308}
   - component: {fileID: 4293908424935782114}
   - component: {fileID: 2108351788115388616}
-  - component: {fileID: -6602115111421434538}
-  - component: {fileID: -8891610989043840020}
   - component: {fileID: -3921260601239774229}
   - component: {fileID: 4274512374158205672}
+  - component: {fileID: 2284478054824624857}
   m_Layer: 6
-  m_Name: MiniRobot
+  m_Name: AttackRobot
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,6 +39,7 @@ Transform:
   m_Children:
   - {fileID: 4593814009461411415}
   - {fileID: 5452155860448324686}
+  - {fileID: 6738596828935497879}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1953114217092605080
@@ -128,9 +128,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EnemyExplosionAttack, Assembly-CSharp
-        m_MethodName: Explode
+      - m_Target: {fileID: 2284478054824624857}
+        m_TargetAssemblyTypeName: particleEffectPlay, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -178,49 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc23af96ceae6374a97e41d31eee278c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &-6602115111421434538
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328409505970683906}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8891610989043840020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328409505970683906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7436055ef5ae549429755bd8eaec459c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2, type: 3}
-  unitStats: {fileID: 11400000, guid: 8f36b8a21f8a5244fad034e8dcd6098c, type: 2}
-  _enemiesInRange:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls: []
-  laserRandomRange: 0.2
 --- !u!114 &-3921260601239774229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +194,9 @@ MonoBehaviour:
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
   stopped: 0
-  playerDistance: 5
+  targetDistance: 8
+  maxPlayerDistance: 15
+  moveTowardsEnemy: 1
 --- !u!136 &4274512374158205672
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -261,6 +220,19 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2284478054824624857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328409505970683906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53955f5c489e71244a6f893fd80d692b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
 --- !u!1 &3691526587206051513
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,3 +379,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4462523135328065168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9199386492956009604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6738596828935497879}
+  - component: {fileID: 2886579764707684289}
+  - component: {fileID: 7831811557297397900}
+  m_Layer: 6
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6738596828935497879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199386492956009604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4462523135328065168}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2886579764707684289
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199386492956009604}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7831811557297397900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199386492956009604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7436055ef5ae549429755bd8eaec459c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2, type: 3}
+  unitStats: {fileID: 11400000, guid: 8f36b8a21f8a5244fad034e8dcd6098c, type: 2}
+  _enemiesInRange:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  laserRandomRange: 0.2
+  nearestEnemy: {fileID: 0}
+  stopAttack: 0
