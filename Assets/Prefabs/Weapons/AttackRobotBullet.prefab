@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8935969076975563778}
   - component: {fileID: 3087248801186900192}
   - component: {fileID: 1446686069841588020}
-  - component: {fileID: -3887603039642408836}
   - component: {fileID: -5194776898104458262}
+  - component: {fileID: 6688820487389407542}
   m_Layer: 3
   m_Name: AttackRobotBullet
   m_TagString: Untagged
@@ -107,43 +107,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-3887603039642408836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319917157052235949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8384449b0487db145a7d5aa6ca7d02c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitStatsSO: {fileID: 11400000, guid: 90488f930241a484eb003206867f4492, type: 2}
-  distance: 100
-  speed: 100
-  hitEffect: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b,
-    type: 3}
-  OnHitEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -5194776898104458262}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 2432
-  useRaycast: 1
-  rotate: 150
 --- !u!82 &-5194776898104458262
 AudioSource:
   m_ObjectHideFlags: 0
@@ -241,3 +204,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6688820487389407542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319917157052235949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb2afe462fdd374a802b6b29a2fd770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStatsSO: {fileID: 11400000, guid: 8f36b8a21f8a5244fad034e8dcd6098c, type: 2}
+  playerStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
+  distance: 100
+  speed: 100
+  hitEffect: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b,
+    type: 3}
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2432
+  useRaycast: 1

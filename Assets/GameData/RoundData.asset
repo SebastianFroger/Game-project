@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbd2726880031b4cb4a127607bf6267, type: 3}
   m_Name: RoundData
   m_EditorClassIdentifier: 
-  timeCountDown: 33.7
-  currentRound: 0
+  timeCountDown: 62
+  currentRound: 1
   roundDatas:
   - timeSec: 60
     spawnPrSec: 2
@@ -23,9 +23,6 @@ MonoBehaviour:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
       spawnChance: 100
-    - prefab: {fileID: 328409505970683906, guid: bd2b594f5139dde4095d545c11dd9f85,
-        type: 3}
-      spawnChance: 10
   - timeSec: 65
     spawnPrSec: 2.3
     spawnPrSecIncrement: 0

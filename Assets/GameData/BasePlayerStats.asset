@@ -160,7 +160,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 6
     dontStackValue: 0
   currentShieldBattery:
     isActive: 0

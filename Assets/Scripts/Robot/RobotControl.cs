@@ -6,12 +6,15 @@ using UnityEngine;
 public class RobotControl : MonoBehaviour
 {
     public UnitStatsSO unitStatsSO;
+    public UnitStatsSO playerStatsSO;
     public Transform lookRotationTrs;
     public Transform lookAtarget;
     public bool stopped;
-    public float targetDistance = 5f;
+
+    public float safeDistance = 5;
     public float maxPlayerDistance = 15f;
     public bool moveTowardsEnemy;
+    public float lerpValue = 0.1f;
 
     private Vector3 _moveTowards;
     private Vector3 _localMoveDir;
@@ -19,6 +22,10 @@ public class RobotControl : MonoBehaviour
     private Transform player;
     private MiniRobotAttack _miniRobotAttack;
     private Vector3 _rotTowards;
+    private UnitStatsSO unitStatsInstance;
+    private Transform target;
+    private float playerDistance;
+    private float currTargetDistance;
 
     void Start()
     {
@@ -27,29 +34,37 @@ public class RobotControl : MonoBehaviour
         _miniRobotAttack = GetComponentInChildren<MiniRobotAttack>();
     }
 
+    void OnEnable()
+    {
+        unitStatsInstance = Instantiate(unitStatsSO);
+    }
+
     void FixedUpdate()
     {
-        var playerDistance = Vector3.Distance(transform.position, player.position);
-        if (moveTowardsEnemy && _miniRobotAttack.nearestEnemy != null && Vector3.Distance(transform.position, player.position) < maxPlayerDistance)
-        {
-            if (playerDistance < targetDistance)
-                return;
-            _rotTowards = Vector3.RotateTowards(transform.position, _miniRobotAttack.nearestEnemy.position, .1f, .1f);
-        }
-        else
-        {
-            if (Vector3.Distance(transform.position, player.position) < targetDistance)
-                return;
-            _rotTowards = Vector3.RotateTowards(transform.position, player.position, .1f, .1f);
-        }
+        if (stopped) return;
 
+        // define target
+        playerDistance = Vector3.Distance(transform.position, player.position);
+
+        // move towards enemy if in range
+        if (playerDistance < maxPlayerDistance && _miniRobotAttack.nearestEnemy != null)
+            target = _miniRobotAttack.nearestEnemy;
+        else
+            target = player;
+
+        // move
+        _rotTowards = Vector3.RotateTowards(transform.position, target.position, .1f, .1f);
         _moveTowards = _rotTowards - transform.position;
+
         _localMoveDir = lookAtarget.InverseTransformDirection(_moveTowards);
         lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
         lookRotationTrs.LookAt(lookAtarget, transform.up);
 
-        if (stopped) return;
-        // var speedModifier = playerDistance / maxPlayerDistance;
-        _rb.velocity = _moveTowards.normalized * unitStatsSO.moveSpeed.value;// *speedModifier;
+        currTargetDistance = Vector3.Distance(transform.position, target.position) - safeDistance;
+        currTargetDistance = Mathf.Clamp(currTargetDistance, -1.2f, 1.2f);
+        _rb.velocity = Vector3.Slerp(_rb.velocity, _moveTowards.normalized * unitStatsInstance.moveSpeed.value * currTargetDistance, lerpValue);
+
+        // player battery use
+        playerStatsSO.currentMoveBattery.value -= unitStatsInstance.moveCostPerSecond.value * Time.fixedDeltaTime;
     }
 }

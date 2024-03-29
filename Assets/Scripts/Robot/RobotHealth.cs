@@ -23,7 +23,6 @@ public class RobotHealth : MonoBehaviour, IHealth
 
     void Start()
     {
-
         OnStartEvent.Invoke();
     }
 

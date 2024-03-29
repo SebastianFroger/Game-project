@@ -9,6 +9,7 @@ public class MiniRobotAttack : MonoBehaviour
 {
     public GameObject bullet;
     public UnitStatsSO unitStats;
+    public UnitStatsSO playerStats;
     public List<Transform> _enemiesInRange = new();
     public UnityEvent OnShoot;
     public float laserRandomRange = 0.2f;
@@ -67,6 +68,8 @@ public class MiniRobotAttack : MonoBehaviour
             _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
             _bulletInst.transform.LookAt(_targets[i % _targets.Count]);
         }
+
+        playerStats.currentAttackBattery.value -= unitStatsInstance.attackCost.value;
 
         OnShoot?.Invoke();
     }

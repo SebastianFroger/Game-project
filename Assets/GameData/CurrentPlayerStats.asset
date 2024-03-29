@@ -13,150 +13,230 @@ MonoBehaviour:
   m_Name: CurrentPlayerStats
   m_EditorClassIdentifier: 
   points:
+    isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 95
+    value: 90
+    dontStackValue: 0
   configurationPoints:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 12
+    dontStackValue: 0
   currentMoveBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 59.923515
-  maxMoveBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 60
+    dontStackValue: 0
+  maxMoveBattery:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 60
+    dontStackValue: 0
   moveBatteryRegenRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
+    dontStackValue: 0
   moveCostPerSecond:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1.6
+    dontStackValue: 0
   moveSpeed:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 10
+    dontStackValue: 0
   moveHeatCostPerSecond:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0.6
+    dontStackValue: 0
   damage:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 10
+    dontStackValue: 0
+  attackSpeed:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
-  attackSpeed:
-    isPercentage: 0
-    multiply: 0
-    value: 2
+    dontStackValue: 0
   critChance:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   currentAttackBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 59.6
-  maxAttackBattery:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 60
+    dontStackValue: 0
+  maxAttackBattery:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 60
+    dontStackValue: 0
   attackBatteryRegenRate:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
+    dontStackValue: 0
   attackCost:
+    isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0.4
+    value: 1.3
+    dontStackValue: 0
   attackHeatCostPerShot:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0.2
+    dontStackValue: 0
   laserCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
+    dontStackValue: 0
   laserAroundCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   piercingCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   targetsCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 1
+    dontStackValue: 0
   bouncingShotCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   energySteal:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   slowEnemies:
+    isActive: 0
     isPercentage: 0
     multiply: 0
-    value: -0.3
+    value: 0
+    dontStackValue: 0
   knockBackEnemies:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
-  currentShieldBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 60
-  maxShieldBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 60
-  shieldBatteryRegenRate:
-    isPercentage: 0
-    multiply: 0
-    value: 1
-  currentHP:
-    isPercentage: 0
-    multiply: 0
-    value: 100
-  maxHP:
-    isPercentage: 0
-    multiply: 0
-    value: 100
-  currentHeat:
-    isPercentage: 0
-    multiply: 0
-    value: 6.1419845
-  maxHeat:
-    isPercentage: 0
-    multiply: 0
-    value: 60
-  heatCoolingRate:
-    isPercentage: 0
-    multiply: 0
-    value: 0.3
-  heatDammage:
-    isPercentage: 0
-    multiply: 0
-    value: 5
-  heatDammageRate:
-    isPercentage: 0
-    multiply: 0
-    value: 1
-  currentCooldownTime:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  cooldownTime:
-    isPercentage: 0
-    multiply: 0
-    value: 20
-  pickUpRange:
+    dontStackValue: 0
+  attackRobotCount:
+    isActive: 0
     isPercentage: 0
     multiply: 0
     value: 3
+    dontStackValue: 0
+  currentShieldBattery:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 60
+    dontStackValue: 0
+  maxShieldBattery:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 60
+    dontStackValue: 0
+  shieldBatteryRegenRate:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 1
+    dontStackValue: 0
+  currentHP:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 100
+    dontStackValue: 0
+  maxHP:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 100
+    dontStackValue: 0
+  currentHeat:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+    dontStackValue: 0
+  maxHeat:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 60
+    dontStackValue: 0
+  heatCoolingRate:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0.3
+    dontStackValue: 0
+  heatDammage:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 5
+    dontStackValue: 0
+  heatDammageRate:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 1
+    dontStackValue: 0
+  currentCooldownTime:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+    dontStackValue: 0
+  cooldownTime:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 20
+    dontStackValue: 0
+  pickUpRange:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 3
+    dontStackValue: 0

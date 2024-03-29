@@ -141,7 +141,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _isInvincible: 0
+  _isInvincible: 1
 --- !u!114 &4293908424935782114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,12 +180,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: 8f36b8a21f8a5244fad034e8dcd6098c, type: 2}
+  playerStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
   stopped: 0
-  targetDistance: 8
+  safeDistance: 5
   maxPlayerDistance: 15
-  moveTowardsEnemy: 1
+  moveTowardsEnemy: 0
+  lerpValue: 0.1
 --- !u!136 &4274512374158205672
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -193,7 +195,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328409505970683906}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a407db65ce0a00d4397836c28dc60478, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -436,6 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 319917157052235949, guid: b4e5ffd3bbbfdd943a74c157c4289148, type: 3}
   unitStats: {fileID: 11400000, guid: 8f36b8a21f8a5244fad034e8dcd6098c, type: 2}
+  playerStats: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   _enemiesInRange:
   - {fileID: 0}
   - {fileID: 0}
