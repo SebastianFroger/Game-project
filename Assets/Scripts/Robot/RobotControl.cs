@@ -29,9 +29,10 @@ public class RobotControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        var playerDistance = Vector3.Distance(transform.position, player.position);
         if (moveTowardsEnemy && _miniRobotAttack.nearestEnemy != null && Vector3.Distance(transform.position, player.position) < maxPlayerDistance)
         {
-            if (Vector3.Distance(transform.position, _miniRobotAttack.nearestEnemy.position) < targetDistance)
+            if (playerDistance < targetDistance)
                 return;
             _rotTowards = Vector3.RotateTowards(transform.position, _miniRobotAttack.nearestEnemy.position, .1f, .1f);
         }
@@ -48,6 +49,7 @@ public class RobotControl : MonoBehaviour
         lookRotationTrs.LookAt(lookAtarget, transform.up);
 
         if (stopped) return;
-        _rb.velocity = _moveTowards.normalized * unitStatsSO.moveSpeed.value;
+        // var speedModifier = playerDistance / maxPlayerDistance;
+        _rb.velocity = _moveTowards.normalized * unitStatsSO.moveSpeed.value;// *speedModifier;
     }
 }

@@ -64,8 +64,8 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
-    dontStackValue: 0
+    value: 5
+    dontStackValue: 1
   attackSpeed:
     isActive: 0
     isPercentage: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
-    dontStackValue: 0
+    value: 100
+    dontStackValue: 1
   maxHP:
     isActive: 0
     isPercentage: 0
@@ -244,7 +244,8 @@ MonoBehaviour:
   priceMultiplier: 2
   effectMultiplier: 2
   title: Robo Replicant
-  description: Spawn a mini robot that helps you fight enemies
+  description: Spawn a mini robot that helps you fight enemies. Robot HP and daamage
+    increases the more robots you have
   price: 0
   startPrice: 5
   image: {fileID: 0}

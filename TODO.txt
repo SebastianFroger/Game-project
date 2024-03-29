@@ -19,10 +19,9 @@
 ## TODO
 ------------------------------------------------------------------------
 
-
+- upgrade robot stats somehow
 - attack range and shoot around the planet? laser life upgrade
 - jump?
-- droids
 - more lvls and space laser
 
 - bouncing shot

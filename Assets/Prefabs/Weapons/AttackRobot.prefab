@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4462523135328065168}
   - component: {fileID: 1953114217092605080}
   - component: {fileID: 2490914712944907349}
-  - component: {fileID: 8059782168554662308}
+  - component: {fileID: 9014123208737298765}
   - component: {fileID: 4293908424935782114}
   - component: {fileID: 2108351788115388616}
   - component: {fileID: -3921260601239774229}
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77e6ea37f631e347b5867ed061d447a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8059782168554662308
+--- !u!114 &9014123208737298765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,10 +90,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 328409505970683906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a0720fb6cbafe4ea601263b0d8aa5b, type: 3}
+  m_Script: {fileID: 11500000, guid: c580a55bc9989ff4dab7563915a1e643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unitStatsSO: {fileID: 11400000, guid: 8f36b8a21f8a5244fad034e8dcd6098c, type: 2}
+  playerStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   createInsance: 1
   OnStartEvent:
     m_PersistentCalls:
@@ -102,7 +103,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4293908424935782114}
-        m_TargetAssemblyTypeName: Shooter.FlashEffect, Assembly-CSharp
+        m_TargetAssemblyTypeName: FlashEffect, Assembly-CSharp
         m_MethodName: PlayEffect
         m_Mode: 1
         m_Arguments:
@@ -116,18 +117,6 @@ MonoBehaviour:
   OnDeathEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2108351788115388616}
-        m_TargetAssemblyTypeName: PoolReleaseGO, Assembly-CSharp
-        m_MethodName: Release
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2284478054824624857}
         m_TargetAssemblyTypeName: particleEffectPlay, Assembly-CSharp
         m_MethodName: Play
@@ -140,9 +129,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 2108351788115388616}
+        m_TargetAssemblyTypeName: PoolReleaseGO, Assembly-CSharp
+        m_MethodName: Release
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
