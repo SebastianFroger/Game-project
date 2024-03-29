@@ -9,6 +9,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public UnitStatsSO baseStatsSO;
     public UnitStatsSO UIStatsSO;
     public UpgradeSO[] allBaseUpgrades;
+    public bool allRandomUpgrades;
     private UpgradeSO[] allUpgradesInstance;
 
 
@@ -20,11 +21,19 @@ public class UpgradeManager : Singleton<UpgradeManager>
         upgrades.Add(random);
         while (upgrades.Count < 4)
         {
-            while (upgrades.Contains(random))
+            if (allRandomUpgrades)
+            {
+                while (upgrades.Contains(random))
+                {
+                    random = allUpgradesInstance[UnityEngine.Random.Range(0, allUpgradesInstance.Length)];
+                    upgrades.Add(random);
+                }
+            }
+            else
             {
                 random = allUpgradesInstance[UnityEngine.Random.Range(0, allUpgradesInstance.Length)];
+                upgrades.Add(random);
             }
-            upgrades.Add(random);
         }
 
         return upgrades;
@@ -44,7 +53,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             return;
         }
 
-        // ncrease upgradelevel
+        // increase upgradelevel
         (upgradeStats as UpgradeSO).upgradeLevel++;
 
         // normal upgrade
@@ -56,19 +65,22 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (upgradeField.isPercentage)
             {
                 current.value += current.value * (upgradeField.value / 100);
-                upgradeField.value += upgradeField.value;
+                if (!upgradeField.dontStackValue)
+                    upgradeField.value += upgradeField.value;
             }
             else if (upgradeField.multiply)
             {
                 current.value *= upgradeField.value;
-                upgradeField.value *= upgradeField.value;
+                if (!upgradeField.dontStackValue)
+                    upgradeField.value *= upgradeField.value;
             }
             else if (upgradeField.isActive)
                 current.value = upgradeField.value;
             else
             {
                 current.value += upgradeField.value;
-                upgradeField.value += upgradeField.value;
+                if (!upgradeField.dontStackValue)
+                    upgradeField.value += upgradeField.value;
             }
         }
     }

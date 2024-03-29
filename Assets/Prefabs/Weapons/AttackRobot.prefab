@@ -216,7 +216,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 6738596828935497879}
   - component: {fileID: 2886579764707684289}
   - component: {fileID: 7831811557297397900}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7436055ef5ae549429755bd8eaec459c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 319917157052235949, guid: ccd8cf2dda57e3e4a9b11fed5feaacf2, type: 3}
+  bullet: {fileID: 319917157052235949, guid: b4e5ffd3bbbfdd943a74c157c4289148, type: 3}
   unitStats: {fileID: 11400000, guid: 8f36b8a21f8a5244fad034e8dcd6098c, type: 2}
   _enemiesInRange:
   - {fileID: 0}

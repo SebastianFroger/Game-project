@@ -6,7 +6,6 @@ public class EnemyExplosionAttack : MonoBehaviour
 {
     public UnitStatsSO unitStatsSO;
     public float explosionRange;
-    public GameObject particle;
     public LayerMask layerMask;
 
     private Health _health;
@@ -31,10 +30,6 @@ public class EnemyExplosionAttack : MonoBehaviour
             item.gameObject.GetComponent<IHealth>().TakeDamage(unitStatsSO.damage.value);
         }
 
-        var go = MyObjectPool.Instance.GetInstance(particle, transform.position, transform.rotation);
-        var _particleEffect = go.GetComponent<ParticleSystem>();
-        _particleEffect.Play();
-
-        MyObjectPool.Instance.Release(gameObject, _particleEffect.main.duration);
+        _health.TakeDamage(500);
     }
 }

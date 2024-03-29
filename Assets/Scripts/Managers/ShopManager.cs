@@ -19,7 +19,7 @@ public class ShopManager : Singleton<ShopManager>
         _currentUpgrades = UpgradeManager.Instance.GetRandomUpgrades();
         for (int i = 0; i < MenuManager.Instance.shopCards.Length; i++)
         {
-            _currentUpgrades[i].price = (_currentUpgrades[i].startPrice * _currentUpgrades[i].upgradeLevel);
+            _currentUpgrades[i].price = _currentUpgrades[i].startPrice * _currentUpgrades[i].upgradeLevel;
             MenuManager.Instance.shopCards[i].price.text = _currentUpgrades[i].price.ToString();
         }
 

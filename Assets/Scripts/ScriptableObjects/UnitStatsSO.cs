@@ -12,6 +12,7 @@ public class Upgrade
     public bool isPercentage;
     public bool multiply;
     public float value;
+    public bool dontStackValue;
 }
 
 [CreateAssetMenu]
