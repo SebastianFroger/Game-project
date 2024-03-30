@@ -18,15 +18,15 @@ public class Bullet : MonoBehaviour
 
     private Vector3 startPosition;
     private Vector3 _prevPosition;
-    private float _piercedEnemies;
     private float _damage;
     private IHealth _targetHP;
+    private List<Collider> _hitColliders = new List<Collider>();
 
     private void OnEnable()
     {
         startPosition = transform.position;
         _prevPosition = GlobalObjectsManager.Instance.player.transform.position;
-        _piercedEnemies = 0;
+        _hitColliders.Clear();
     }
 
     private void Update()
@@ -41,6 +41,8 @@ public class Bullet : MonoBehaviour
         // Check if the bullet hit something, by using a linecast from previous position to current position
         if (Physics.Linecast(_prevPosition, transform.position, out RaycastHit hit, layerMask))
         {
+            if (_hitColliders.Contains(hit.collider)) return;
+
             _damage = unitStatsSO.damage.value;
             if (Random.Range(0f, 100f) <= unitStatsSO.critChance.value)
                 _damage *= 1.5f;
@@ -60,6 +62,7 @@ public class Bullet : MonoBehaviour
             if (unitStatsSO.energySteal.value > 0)
                 BatteryManager.Instance.AddToAllBatteries(unitStatsSO.energySteal.value / 3f);
 
+
             // slow enemy
             if (unitStatsSO.slowEnemies.value < 0)
                 hit.collider.gameObject.GetComponent<EnemyControl>().SlowDown(unitStatsSO.slowEnemies.value);
@@ -69,14 +72,21 @@ public class Bullet : MonoBehaviour
                 hit.collider.gameObject.GetComponent<EnemyControl>().KnockBack(unitStatsSO.knockBackEnemies.value);
 
             // piercing
-            if (_piercedEnemies < unitStatsSO.piercingCount.value)
+            if (_hitColliders.Count < unitStatsSO.piercingCount.value)
             {
-                _piercedEnemies++;
+                if (!_hitColliders.Contains(hit.collider))
+                {
+                    _hitColliders.Add(hit.collider);
+                    return;
+                }
+
                 OnHitEvent?.Invoke();
             }
             else
+            {
                 // relsease bullet
                 MyObjectPool.Instance.Release(gameObject);
+            }
 
             // hit effect
             MyObjectPool.Instance.GetInstance(hitEffect, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal));

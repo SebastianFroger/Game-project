@@ -43,12 +43,17 @@ public class RobotControl : MonoBehaviour
     {
         if (stopped) return;
 
+        if (playerStatsSO.currentMoveBattery.value <= 0)
+        {
+            return;
+        }
+
         // define target
         playerDistance = Vector3.Distance(transform.position, player.position);
 
         // move towards enemy if in range
-        if (playerDistance < maxPlayerDistance && _miniRobotAttack.nearestEnemy != null)
-            target = _miniRobotAttack.nearestEnemy;
+        if (playerDistance < maxPlayerDistance && _miniRobotAttack.target != null)
+            target = _miniRobotAttack.target;
         else
             target = player;
 
@@ -65,6 +70,6 @@ public class RobotControl : MonoBehaviour
         _rb.velocity = Vector3.Slerp(_rb.velocity, _moveTowards.normalized * unitStatsInstance.moveSpeed.value * currTargetDistance, lerpValue);
 
         // player battery use
-        playerStatsSO.currentMoveBattery.value -= unitStatsInstance.moveCostPerSecond.value * Time.fixedDeltaTime;
+        playerStatsSO.currentMoveBattery.value -= (playerStatsSO.moveCostPerSecond.value * Time.fixedDeltaTime) / (playerStatsSO.attackRobotCount.value * 2);
     }
 }

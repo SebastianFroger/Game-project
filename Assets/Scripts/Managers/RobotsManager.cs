@@ -7,7 +7,7 @@ public class RobotsManager : Singleton<RobotsManager>
     public UnitStatsSO unitStatsSO;
     public GameObject robotPrefab;
 
-    private List<RobotControl> robots = new List<RobotControl>();
+    private List<GameObject> robots = new();
 
     public void InstantiateRobots()
     {
@@ -26,24 +26,17 @@ public class RobotsManager : Singleton<RobotsManager>
             var posAroundPlayer = Quaternion.Euler(randomVector) * new Vector3(0, Planet.Instance.GetRadius(), 0);
             var robot = MyObjectPool.Instance.GetInstance(robotPrefab, posAroundPlayer, Quaternion.identity);
 
-            robots.Add(robot.GetComponent<RobotControl>());
+            robots.Add(robot);
         }
     }
 
-
-    public void StopAllRobots()
+    // reset robots enemies in attack range
+    public void ResetRobots()
     {
         foreach (var robot in robots)
         {
-            robot.stopped = true;
-        }
-    }
-
-    public void StartAllRobots()
-    {
-        foreach (var robot in robots)
-        {
-            robot.stopped = false;
+            var miniRobotAttack = robot.GetComponentInChildren<MiniRobotAttack>();
+            miniRobotAttack.ResetEnemies();
         }
     }
 }

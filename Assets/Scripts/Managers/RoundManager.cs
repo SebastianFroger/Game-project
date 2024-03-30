@@ -59,6 +59,7 @@ public class RoundManager : Singleton<RoundManager>
         ShopManager.Instance.SetShopContent();
         GameManager.Instance.EnableMenuControls();
         MyObjectPool.Instance.ReleaseAll();
+        RobotsManager.Instance.ResetRobots();
         GameManager.Instance.TimeActive(false);
     }
 

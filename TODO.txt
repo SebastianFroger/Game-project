@@ -2,9 +2,11 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
+- check energysteal, and count hit colliders
+- robot keeps shooting at something sometimes
+- player shots not always hitting
 - push effect not showing
-- enemies have constant hp which makes no sense to use more bullets. maybe later with bigger enemies?
-- increase dammage feels redundant - increase enemy hp over rounds
+- increase dammage feels redundant - increase enemy hp over rounds ? test after added upgrade levels
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
@@ -19,14 +21,13 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- upgrade robot stats somehow
 - attack range and shoot around the planet? laser life upgrade
 - jump?
 - more lvls and space laser
 
 - bouncing shot
 
-- reactor drop (go too to get power)
+- reactor drop (go too to get power) upgraed?
 
 
 

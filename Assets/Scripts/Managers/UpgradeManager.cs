@@ -1,6 +1,7 @@
 using System.Reflection;
 using System;
 using UnityEngine;
+using UnityEditor;
 using System.Collections.Generic;
 
 public class UpgradeManager : Singleton<UpgradeManager>
@@ -10,6 +11,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public UnitStatsSO UIStatsSO;
     public UpgradeSO[] allBaseUpgrades;
     public bool allRandomUpgrades;
+    public bool loadAllUpgradesFromDisk;
+
     private UpgradeSO[] allUpgradesInstance;
 
 
@@ -17,23 +20,24 @@ public class UpgradeManager : Singleton<UpgradeManager>
     {
         List<UpgradeSO> upgrades = new();
 
-        var random = allUpgradesInstance[UnityEngine.Random.Range(0, allUpgradesInstance.Length)];
-        upgrades.Add(random);
-        while (upgrades.Count < 4)
+        if (!allRandomUpgrades)
         {
-            if (allRandomUpgrades)
+            for (int i = 0; i < 4; i++)
             {
-                while (upgrades.Contains(random))
-                {
-                    random = allUpgradesInstance[UnityEngine.Random.Range(0, allUpgradesInstance.Length)];
-                    upgrades.Add(random);
-                }
+                upgrades.Add(allUpgradesInstance[i]);
             }
-            else
+            return upgrades;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            UpgradeSO random = allUpgradesInstance[UnityEngine.Random.Range(0, allUpgradesInstance.Length)];
+            while (upgrades.Contains(random))
             {
                 random = allUpgradesInstance[UnityEngine.Random.Range(0, allUpgradesInstance.Length)];
-                upgrades.Add(random);
             }
+
+            upgrades.Add(random);
         }
 
         return upgrades;
@@ -102,4 +106,26 @@ public class UpgradeManager : Singleton<UpgradeManager>
             allUpgradesInstance[i] = Instantiate(allBaseUpgrades[i]);
         }
     }
+
+    private void OnValidate()
+    {
+        if (loadAllUpgradesFromDisk)
+        {
+            Array.Clear(allBaseUpgrades, 0, 0);
+
+            var assets = AssetDatabase.FindAssets("t: scriptableobject", new string[] { "Assets/GameData/Upgrades" });
+
+            List<UpgradeSO> loadedAssets = new();
+            foreach (var guid in assets)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var loaded = AssetDatabase.LoadAssetAtPath(path, typeof(UpgradeSO)) as UpgradeSO;
+                loadedAssets.Add(loaded);
+            }
+            allBaseUpgrades = loadedAssets.ToArray();
+
+            loadAllUpgradesFromDisk = false;
+        }
+    }
 }
+

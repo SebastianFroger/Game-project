@@ -111,13 +111,16 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
         var rb = player.GetComponent<Rigidbody>();
 
         RaycastHit hitPoint = new RaycastHit();
-        var colliders = GetRandomPlacement(ref hitPoint);
+        Quaternion randomVector = new Quaternion();
+        var colliders = GetRandomPlacement(ref randomVector);
         while (colliders.Length > 0)
         {
-            colliders = GetRandomPlacement(ref hitPoint);
+            colliders = GetRandomPlacement(ref randomVector);
         }
 
-        rb.Move(hitPoint.point + hitPoint.point.normalized * 0.5f, Quaternion.Euler(hitPoint.normal));
+        var pos = randomVector * new Vector3(0, Planet.Instance.GetRadius() + 1, 0);
+
+        rb.Move(pos, Quaternion.Euler(hitPoint.normal));
         player.transform.LookAt(Vector3.zero);
         player.transform.Rotate(new Vector3(-90, 0, 0));
         rb.isKinematic = true;
@@ -126,13 +129,14 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
     }
 
 
-    Collider[] GetRandomPlacement(ref RaycastHit hitPoint)
+    Collider[] GetRandomPlacement(ref Quaternion randomRot)
     {
+
         var randomVector = UnityEngine.Random.rotation.eulerAngles.normalized * 1000;
+        randomRot = Quaternion.Euler(randomVector);
         Collider[] colliders = new Collider[1];
         if (Physics.Raycast(randomVector, -randomVector, out RaycastHit hit, myLayerMask))
         {
-            hitPoint = hit;
             colliders = Physics.OverlapSphere(hit.point, 5f, myLayerMask);
         }
         return colliders;
