@@ -31,7 +31,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (Time.time > _nextAttackTime && _inRange)
         {
-            _nextAttackTime = Time.time + (1f / unitStatsSO.attackSpeed.value);
+            _nextAttackTime = Time.time + (1f / unitStatsSO.attacksPerSecond);
 
             // fire
             _bulletInst = MyObjectPool.Instance.GetInstance(bulletPrefab);
@@ -69,9 +69,9 @@ public class EnemyAttack : MonoBehaviour
             if (_health == null)
                 _health = other.gameObject.GetComponent<IHealth>();
 
-            _health.TakeDamage(unitStatsSO.damage.value);
+            _health.TakeDamage(unitStatsSO.damage);
 
-            _nextAttackTime = Time.time + (1 / unitStatsSO.attackSpeed.value);
+            _nextAttackTime = Time.time + (1 / unitStatsSO.attacksPerSecond);
         }
     }
 

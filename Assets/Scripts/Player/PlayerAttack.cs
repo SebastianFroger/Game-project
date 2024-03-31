@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,45 +31,42 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         if (Time.time < _nextAttackTime || _enemiesInRange.Items.Count == 0) return;
-        _nextAttackTime = Time.time + (1f / unitStats.attackSpeed.value);
 
-        // attack battery
-        if (unitStats.currentAttackBattery.value < unitStats.attackCost.value)
+        // check if enough attack battery
+        if (!StatsManager.Instance.CanAttack())
             return;
+
+        _nextAttackTime = StatsManager.Instance.NextAttackTime();
 
         // select targets
         if (_enemiesInRange.Items.Count == 0)
             return;
         SelectTargets();
 
-        for (int i = 0; i < unitStats.laserCount.value; i++)
+        for (int i = 0; i < unitStats.lasersPerShot; i++)
         {
             _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
             _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
             _bulletInst.transform.LookAt(_targets[i % _targets.Count]);
-
-            // heat
-            BatteryManager.Instance.AddHeat(unitStats.attackHeatCostPerShot.value);
-
-            // attack battery cost
-            BatteryManager.Instance.AddAttackBattery(-unitStats.attackCost.value);
+            StatsManager.Instance.OnShot();
         }
 
 
         // lasers in all directions
-        if (unitStats.laserAroundCount.value > 0)
+        if (unitStats.quadLaserCount > 0)
             LaserCircle();
 
         OnShoot?.Invoke();
+
     }
 
     void SelectTargets()
     {
         _targets.Clear();
         _targets.Add(GetClosestEnemy());
-        if (unitStats.targetsCount.value > 1)
+        if (unitStats.numberOfTargets > 1)
         {
-            while (_targets.Count < unitStats.targetsCount.value)
+            while (_targets.Count < unitStats.numberOfTargets)
             {
                 _targets.Add(_enemiesInRange.Items[Random.Range(0, _enemiesInRange.Items.Count)]);
             }
@@ -92,20 +90,16 @@ public class PlayerAttack : MonoBehaviour
 
     void LaserCircle()
     {
-        var rotIncrement = 360 / (unitStats.laserAroundCount.value * 4);
-        for (int i = 0; i < unitStats.laserAroundCount.value * 4; i++)
+        if (!StatsManager.Instance.CanAttack())
+            return;
+        var rotIncrement = 360 / (unitStats.quadLaserCount * 4);
+        for (int i = 0; i < unitStats.quadLaserCount * 4; i++)
         {
             _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
             _bulletInst.transform.localPosition = transform.position;
             _bulletInst.transform.rotation = transform.rotation;
             _bulletInst.transform.Rotate(new Vector3(0, rotIncrement * i, 0), Space.Self);
-
-            // heat
-            BatteryManager.Instance.AddHeat(unitStats.attackHeatCostPerShot.value);
-
-            // attack battery cost
-            if (unitStats.currentAttackBattery.value >= unitStats.attackCost.value)
-                BatteryManager.Instance.AddAttackBattery(-unitStats.attackCost.value);
+            StatsManager.Instance.OnShot();
         }
     }
 

@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Point : MonoBehaviour
 {
@@ -17,7 +15,7 @@ public class Point : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        unitStats.points.value += 1;
+        unitStats.points += 1;
         MyObjectPool.Instance.Release(gameObject);
     }
 }

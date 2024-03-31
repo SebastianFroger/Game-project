@@ -29,61 +29,40 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private void FixedUpdate()
     {
         // heat visual
-        if (unitStats.currentHeat.value > unitStats.maxHeat.value * 0.8 && smokeEffect.isStopped)
-        {
+        if (unitStats.heat > unitStats.maxHeat * 0.8 && smokeEffect.isStopped)
             smokeEffect.Play();
-        }
-        else if (unitStats.currentHeat.value < unitStats.maxHeat.value * 0.8 && smokeEffect.isPlaying)
-        {
+
+        else if (unitStats.heat < unitStats.maxHeat * 0.8 && smokeEffect.isPlaying)
             smokeEffect.Stop();
-        }
 
         // HP visual
-        if (unitStats.currentHP.value < unitStats.maxHP.value * 0.2)
-        {
+        if (unitStats.hitPoints < unitStats.maxHitPoints * 0.2)
             sparksEffect.SetActive(true);
-        }
-        else if (unitStats.currentHP.value > unitStats.maxHP.value * 0.2 && smokeEffect.isPlaying)
-        {
+
+        else if (unitStats.hitPoints > unitStats.maxHitPoints * 0.2 && smokeEffect.isPlaying)
             sparksEffect.SetActive(false);
-        }
+
+        // shield visual
+        if (unitStats.shieldBattery <= 0)
+            shieldObject.SetActive(false);
+        else
+            if (!shieldObject.activeSelf && unitStats.shieldBattery > 10)
+            shieldObject.SetActive(true);
 
         // heat damage player 
-        if (unitStats.currentHeat.value >= unitStats.maxHeat.value)
-        {
-            unitStats.currentHeat.value = unitStats.maxHeat.value;
-
+        if (unitStats.heat >= unitStats.maxHeat)
             if (Time.fixedTime > _nextHeatDammageTime)
-            {
-                TakeDamage(unitStats.heatDammage.value, true);
-                _nextHeatDammageTime = Time.fixedTime + unitStats.heatDammageRate.value;
-            }
-        }
-
-        if (unitStats.currentShieldBattery.value <= 0)
-        {
-            shieldObject.SetActive(false);
-        }
-        else
-        {
-            if (!shieldObject.activeSelf && unitStats.currentShieldBattery.value > 10)
-                shieldObject.SetActive(true);
-        }
+                _nextHeatDammageTime = StatsManager.Instance.TakeHeatDamage();
     }
 
     public void TakeDamage(float amount, bool ignoreShield = false)
     {
         if (invincible) return;
 
-        if (!ignoreShield && shieldObject.activeSelf)
-        {
-            BatteryManager.Instance.AddShieldBattery(-amount);
-            return;
-        }
+        StatsManager.Instance.TakeDamage(amount);
 
-        unitStats.currentHP.value -= amount;
-
-        if (unitStats.currentHP.value <= 0)
+        // death event
+        if (unitStats.hitPoints <= 0)
         {
             if (OnDeathEvent != null)
             {

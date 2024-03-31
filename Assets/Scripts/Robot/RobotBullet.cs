@@ -48,7 +48,7 @@ public class RobotBullet : MonoBehaviour
                 return;
             }
 
-            _targetHP.TakeDamage(unitStatsSO.damage.value * playerStatsSO.attackRobotCount.value);
+            _targetHP.TakeDamage(unitStatsSO.damage * playerStatsSO.numberOfAttackRobots);
 
             // hit effect
             MyObjectPool.Instance.GetInstance(hitEffect, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal));

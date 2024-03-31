@@ -90,7 +90,7 @@ public class MenuManager : Singleton<MenuManager>
         for (int i = 0; i < shopCards.Length; i++)
         {
             shopCards[i].title.text = $"{upgrades[i].title} Mark {upgrades[i].upgradeLevel}";
-            shopCards[i].description.text = $"{upgrades[i].description} \n\n {UpgradeManager.Instance.GetUpgradeValues(upgrades[i])}";
+            shopCards[i].description.text = $"{upgrades[i].description} \n\n {StatsManager.Instance.GetUpgradeValues(upgrades[i])}";
             shopCards[i].price.text = upgrades[i].price.ToString();
             shopCards[i].image.sprite = upgrades[i].image;
         }

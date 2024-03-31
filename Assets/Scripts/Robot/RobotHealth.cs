@@ -29,8 +29,8 @@ public class RobotHealth : MonoBehaviour, IHealth
     private void OnEnable()
     {
         unitStatsSOInstance = Instantiate(unitStatsSO);
-        unitStatsSOInstance.currentHP.value = unitStatsSO.maxHP.value * playerStatsSO.attackRobotCount.value;
-        unitStatsSOInstance.damage.value = unitStatsSO.damage.value * playerStatsSO.attackRobotCount.value;
+        unitStatsSOInstance.hitPoints = unitStatsSO.maxHitPoints * playerStatsSO.numberOfAttackRobots;
+        unitStatsSOInstance.damage = unitStatsSO.damage * playerStatsSO.numberOfAttackRobots;
     }
 
     public void TakeDamage(float amount, bool ignoreShield = false)
@@ -38,10 +38,10 @@ public class RobotHealth : MonoBehaviour, IHealth
         if (_isInvincible)
             return;
 
-        unitStatsSOInstance.currentHP.value -= amount;
+        unitStatsSOInstance.hitPoints -= amount;
 
 
-        if (unitStatsSOInstance.currentHP.value <= 0)
+        if (unitStatsSOInstance.hitPoints <= 0)
         {
             OnDeathEventDelegate?.Invoke(transform);
             OnDeathEvent?.Invoke();

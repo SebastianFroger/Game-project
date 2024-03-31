@@ -19,7 +19,7 @@ public class RobotsManager : Singleton<RobotsManager>
         yield return new WaitForSecondsRealtime(1f);
 
         var playerTrs = GlobalObjectsManager.Instance.player.transform;
-        for (int i = 0; i < unitStatsSO.attackRobotCount.value; i++)
+        for (int i = 0; i < unitStatsSO.numberOfAttackRobots; i++)
         {
 
             var randomVector = playerTrs.rotation.eulerAngles + new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)).normalized * 10;

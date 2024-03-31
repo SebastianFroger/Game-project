@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour
         startPosition = transform.position;
         _prevPosition = GlobalObjectsManager.Instance.player.transform.position;
         _hitColliders.Clear();
+        _damage = StatsManager.Instance.OnShot();
     }
 
     private void Update()
@@ -43,10 +44,6 @@ public class Bullet : MonoBehaviour
         {
             if (_hitColliders.Contains(hit.collider)) return;
 
-            _damage = unitStatsSO.damage.value;
-            if (Random.Range(0f, 100f) <= unitStatsSO.critChance.value)
-                _damage *= 1.5f;
-
             _targetHP = hit.collider.gameObject.GetComponent<IHealth>();
 
             // check if we hit environment
@@ -58,21 +55,16 @@ public class Bullet : MonoBehaviour
 
             _targetHP.TakeDamage(_damage);
 
-            // energysteal
-            if (unitStatsSO.energySteal.value > 0)
-                BatteryManager.Instance.AddToAllBatteries(unitStatsSO.energySteal.value / 3f);
-
-
             // slow enemy
-            if (unitStatsSO.slowEnemies.value < 0)
-                hit.collider.gameObject.GetComponent<EnemyControl>().SlowDown(unitStatsSO.slowEnemies.value);
+            if (unitStatsSO.enemySlowPercentage < 0)
+                hit.collider.gameObject.GetComponent<EnemyControl>().SlowDown(unitStatsSO.enemySlowPercentage);
 
             // knock back
-            if (unitStatsSO.knockBackEnemies.isActive)
-                hit.collider.gameObject.GetComponent<EnemyControl>().KnockBack(unitStatsSO.knockBackEnemies.value);
+            if (unitStatsSO.enemyKnockBackForce > 0)
+                hit.collider.gameObject.GetComponent<EnemyControl>().KnockBack(unitStatsSO.enemyKnockBackForce);
 
             // piercing
-            if (_hitColliders.Count < unitStatsSO.piercingCount.value)
+            if (_hitColliders.Count < unitStatsSO.piercingCount)
             {
                 if (!_hitColliders.Contains(hit.collider))
                 {

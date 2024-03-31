@@ -13,7 +13,6 @@ public class RobotControl : MonoBehaviour
 
     public float safeDistance = 5;
     public float maxPlayerDistance = 15f;
-    public bool moveTowardsEnemy;
     public float lerpValue = 0.1f;
 
     private Vector3 _moveTowards;
@@ -23,7 +22,7 @@ public class RobotControl : MonoBehaviour
     private MiniRobotAttack _miniRobotAttack;
     private Vector3 _rotTowards;
     private UnitStatsSO unitStatsInstance;
-    private Transform target;
+    [SerializeField] private Transform target;
     private float playerDistance;
     private float currTargetDistance;
 
@@ -43,7 +42,7 @@ public class RobotControl : MonoBehaviour
     {
         if (stopped) return;
 
-        if (playerStatsSO.currentMoveBattery.value <= 0)
+        if (playerStatsSO.movementBattery <= 0)
         {
             return;
         }
@@ -61,15 +60,16 @@ public class RobotControl : MonoBehaviour
         _rotTowards = Vector3.RotateTowards(transform.position, target.position, .1f, .1f);
         _moveTowards = _rotTowards - transform.position;
 
+
         _localMoveDir = lookAtarget.InverseTransformDirection(_moveTowards);
         lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
         lookRotationTrs.LookAt(lookAtarget, transform.up);
 
         currTargetDistance = Vector3.Distance(transform.position, target.position) - safeDistance;
         currTargetDistance = Mathf.Clamp(currTargetDistance, -1.2f, 1.2f);
-        _rb.velocity = Vector3.Slerp(_rb.velocity, _moveTowards.normalized * unitStatsInstance.moveSpeed.value * currTargetDistance, lerpValue);
+        _rb.velocity = Vector3.Slerp(_rb.velocity, _moveTowards.normalized * unitStatsInstance.moveSpeed * currTargetDistance, lerpValue);
 
         // player battery use
-        playerStatsSO.currentMoveBattery.value -= (playerStatsSO.moveCostPerSecond.value * Time.fixedDeltaTime) / (playerStatsSO.attackRobotCount.value * 2);
+        playerStatsSO.movementBattery -= (playerStatsSO.moveBatteryCostPerSecond * Time.fixedDeltaTime) / (playerStatsSO.numberOfAttackRobots * 2);
     }
 }

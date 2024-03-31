@@ -6,8 +6,6 @@ using System.Collections.Generic;
 
 public class UpgradeManager : Singleton<UpgradeManager>
 {
-    public UnitStatsSO currentStatsSO;
-    public UnitStatsSO baseStatsSO;
     public RoundDataSO roundDataSO;
     public UpgradeSO[] allBaseUpgrades;
     public bool allRandomUpgrades;
@@ -77,87 +75,14 @@ public class UpgradeManager : Singleton<UpgradeManager>
             // apply upgrade
             foreach (var field in upgradeInst.GetAllFieldInfos())
             {
-                var upgradeField = (Upgrade)field.GetValue(upgradeInst);
-                if (upgradeField.value == 0)
+                var value = (float)field.GetValue(upgradeInst);
+                if (value == 0)
                     continue;
-                upgradeField.value *= tierLvl;
+                value *= tierLvl;
             }
         }
     }
 
-    public string GetUpgradeValues(UpgradeSO upgrade)
-    {
-        string values = "";
-        foreach (var field in upgrade.GetAllFieldInfos())
-        {
-            var upgradeField = (Upgrade)field.GetValue(upgrade);
-            if (upgradeField.value == 0)
-                continue;
-
-            if (upgradeField.isPercentage)
-            {
-                values += $"{field.Name}: {upgradeField.value}%\n";
-                continue;
-            }
-            if (upgradeField.multiply)
-            {
-                values += $"{field.Name}: x{upgradeField.value}\n";
-                continue;
-            }
-
-            values += $"{field.Name}: +{upgradeField.value}\n";
-        }
-
-        return values;
-    }
-    public void ApplyUpgrade(UnitStatsSO upgradeStats)
-    {
-        // secondary upgrade
-        if (upgradeStats is ISecondary)
-        {
-            Secondary.Instance.SetSecondary((ISecondary)upgradeStats);
-            return;
-        }
-
-        // normal upgrade
-        var upgradeFields = upgradeStats.GetAllFieldInfos();
-        foreach (var field in upgradeFields)
-        {
-            var upgradeField = (Upgrade)field.GetValue(upgradeStats);
-            var current = (Upgrade)field.GetValue(currentStatsSO);
-            if (upgradeField.isPercentage)
-            {
-                current.value += current.value * (upgradeField.value / 100);
-                if (!upgradeField.dontStackValue)
-                    upgradeField.value += upgradeField.value;
-            }
-            else if (upgradeField.multiply)
-            {
-                current.value *= upgradeField.value;
-                if (!upgradeField.dontStackValue)
-                    upgradeField.value *= upgradeField.value;
-            }
-            else if (upgradeField.isActive)
-                current.value = upgradeField.value;
-            else
-            {
-                current.value += upgradeField.value;
-                if (!upgradeField.dontStackValue)
-                    upgradeField.value += upgradeField.value;
-            }
-        }
-    }
-
-    public void ResetStats()
-    {
-        // copy all fields values from baseStatsSO to currentStatsSO
-        foreach (var field in currentStatsSO.GetAllFieldInfos())
-        {
-            var current = (Upgrade)field.GetValue(currentStatsSO);
-            var basest = (Upgrade)field.GetValue(baseStatsSO);
-            current.value = basest.value;
-        }
-    }
 
 #if UNITY_EDITOR
     private void OnValidate()

@@ -13,12 +13,12 @@ public class PointsController : MonoBehaviour
     private void Start()
     {
         _text = GetComponentInChildren<TMPro.TMP_Text>();
-        _text.text = "Points " + unitStats.points.value.ToString();
+        _text.text = "Points " + unitStats.points.ToString();
     }
 
     public void Update()
     {
-        _text.text = "Points " + unitStats.points.value.ToString();
+        _text.text = "Points " + unitStats.points.ToString();
     }
 }
 

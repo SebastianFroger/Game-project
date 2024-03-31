@@ -55,9 +55,9 @@ public class ShopManager : Singleton<ShopManager>
     public void OnReroll()
     {
         // take points
-        if (unitStats.points.value < _rerollPrice)
+        if (unitStats.points < _rerollPrice)
             return;
-        unitStats.points.value -= _rerollPrice;
+        unitStats.points -= _rerollPrice;
 
         // increase reroll counter
         _nrOfRerolls++;
@@ -78,11 +78,11 @@ public class ShopManager : Singleton<ShopManager>
     public void OnBuyItem(int index)
     {
         var upgrade = _currentUpgrades[index];
-        if (upgrade.price <= unitStats.points.value)
+        if (upgrade.price <= unitStats.points)
         {
             MenuManager.Instance.DisableUpgradeCard(index);
-            UpgradeManager.Instance.ApplyUpgrade(upgrade);
-            unitStats.points.value -= upgrade.price;
+            StatsManager.Instance.ApplyUpgrade(upgrade);
+            unitStats.points -= upgrade.price;
         }
     }
 }

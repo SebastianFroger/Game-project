@@ -49,7 +49,9 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.TimeActive(true);
 
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
-        SavePlayerStats();
+
+        ResetBatteriesAndHeat();
+        SavePlayerCurrentStats();
     }
 
     public void EndRound()
@@ -75,7 +77,8 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.TimeActive(true);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
 
-        ResetRoundStats(true);
+        ResetBatteriesAndHeat();
+        playerStatsSO.points = _savedPlayerStatsSO.points;
     }
 
     public void OnRoundMenuReadyPress()
@@ -88,28 +91,25 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.TimeActive(true);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
 
-        ResetRoundStats();
+        ResetBatteriesAndHeat();
 
         _stopTime = false;
-        SavePlayerStats();
+        SavePlayerCurrentStats();
     }
 
-    void SavePlayerStats()
+    void SavePlayerCurrentStats()
     {
         if (_savedPlayerStatsSO != null)
             Destroy(_savedPlayerStatsSO);
         _savedPlayerStatsSO = Instantiate(playerStatsSO);
     }
 
-    void ResetRoundStats(bool setPoints = false)
+    void ResetBatteriesAndHeat()
     {
-        playerStatsSO.currentHP.value = playerStatsSO.maxHP.value;
-        playerStatsSO.currentAttackBattery.value = playerStatsSO.maxAttackBattery.value;
-        playerStatsSO.currentShieldBattery.value = playerStatsSO.maxShieldBattery.value;
-        playerStatsSO.currentMoveBattery.value = playerStatsSO.maxMoveBattery.value;
-        playerStatsSO.currentHeat.value = 0;
-
-        if (setPoints)
-            playerStatsSO.points.value = _savedPlayerStatsSO.points.value;
+        playerStatsSO.hitPoints = playerStatsSO.maxHitPoints;
+        playerStatsSO.laserBattery = playerStatsSO.maxLaserBattery;
+        playerStatsSO.shieldBattery = playerStatsSO.maxShieldBattery;
+        playerStatsSO.movementBattery = playerStatsSO.maxMoveBattery;
+        playerStatsSO.heat = 0;
     }
 }

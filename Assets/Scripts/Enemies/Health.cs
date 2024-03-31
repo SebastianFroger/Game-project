@@ -35,9 +35,9 @@ public class Health : MonoBehaviour, IHealth
         if (_isInvincible)
             return;
 
-        unitStatsSO.currentHP.value -= amount;
+        unitStatsSO.hitPoints -= amount;
 
-        if (unitStatsSO.currentHP.value <= 0)
+        if (unitStatsSO.hitPoints <= 0)
         {
             OnDeathEventDelegate?.Invoke(transform);
             OnDeathEvent?.Invoke();

@@ -44,7 +44,7 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnableMainMenu(false);
         MenuManager.Instance.EnableConfigurationsMenu(true);
         EnvironmentSpawner.Instance.SpawnEnvironment();
-        UpgradeManager.Instance.ResetStats();
+        StatsManager.Instance.ResetStats();
         gameStarted = true;
         _inConfigsMenu = true;
     }

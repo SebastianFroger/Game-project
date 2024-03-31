@@ -21,12 +21,12 @@ public class EnemyControl : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         player = GlobalObjectsManager.Instance.player.transform;
-        _speed = unitStatsSO.moveSpeed.value;
+        _speed = unitStatsSO.moveSpeed;
     }
 
     private void OnEnable()
     {
-        _speed = unitStatsSO.moveSpeed.value;
+        _speed = unitStatsSO.moveSpeed;
         _isKnockedBack = false;
     }
 

@@ -15,12 +15,12 @@ namespace Shooter
         private void OnEnable()
         {
             _slider = GetComponentInChildren<Slider>();
-            _slider.maxValue = (float)unitStats.maxHeat.value;
+            _slider.maxValue = (float)unitStats.maxHeat;
         }
 
         public void FixedUpdate()
         {
-            _slider.value = (float)unitStats.currentHeat.value;
+            _slider.value = (float)unitStats.heat;
         }
     }
 }

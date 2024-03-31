@@ -12,231 +12,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b69e284de8b77948a6aa9b13a756fd9, type: 3}
   m_Name: HeatSinkRate
   m_EditorClassIdentifier: 
-  points:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  configurationPoints:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  currentMoveBattery:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  maxMoveBattery:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  moveBatteryRegenRate:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  moveCostPerSecond:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  moveSpeed:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  moveHeatCostPerSecond:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  damage:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  attackSpeed:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  critChance:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  currentAttackBattery:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  maxAttackBattery:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  attackBatteryRegenRate:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  attackCost:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  attackHeatCostPerShot:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  laserCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  laserAroundCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  piercingCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  targetsCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  energySteal:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  slowEnemies:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  knockBackEnemies:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  attackRobotCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  currentShieldBattery:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  maxShieldBattery:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  shieldBatteryRegenRate:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  currentHP:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  maxHP:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  currentHeat:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  maxHeat:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  heatCoolingRate:
-    isActive: 0
-    isPercentage: 1
-    multiply: 0
-    value: 15
-    dontStackValue: 0
-  heatDammage:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  heatDammageRate:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  currentCooldownTime:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  cooldownTime:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
-  pickUpRange:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
+  points: 0
+  configurationPoints: 0
+  movementBattery: 0
+  maxMoveBattery: 0
+  moveBatteryRegenPerSecond: 0
+  moveBatteryCostPerSecond: 0
+  moveSpeed: 0
+  moveHeatCostPerSecond: 0
+  damage: 0
+  attacksPerSecond: 0
+  critChancePercentage: 0
+  laserBattery: 0
+  maxLaserBattery: 0
+  LaserBatteryRegenPerSecond: 0
+  laserCost: 0
+  laserHeatCostPerShot: 0
+  lasersPerShot: 0
+  quadLaserCount: 0
+  piercingCount: 0
+  numberOfTargets: 0
+  energyStealPerLaser: 0
+  enemySlowAmount: 0
+  enemyKnockBackForce: 0
+  numberOfAttackRobots: 0
+  shieldBattery: 0
+  maxShieldBattery: 0
+  shieldBatteryRegenPerSecond: 0
+  hitPoints: 0
+  maxHitPoints: 0
+  heat: 0
+  maxHeat: 0
+  heatCoolingPerSecond: 1
+  heatDammage: 0
+  heatDammageInterval: 0
+  cooldownTime: 0
+  maxCooldownTime: 0
+  cooldownTimeReduction: 0
+  pickUpRange: 0
   upgradeLevel: 1
-  priceMultiplier: 2
-  effectMultiplier: 2
   title: Heat Sink Enhancer
   description: Increase heat cooling rate
   price: 0

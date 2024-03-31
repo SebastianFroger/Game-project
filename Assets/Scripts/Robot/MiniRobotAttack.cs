@@ -54,10 +54,10 @@ public class MiniRobotAttack : MonoBehaviour
 
     private void Update()
     {
-        if (playerStats.currentAttackBattery.value <= 0) return;
+        if (playerStats.laserBattery <= 0) return;
 
         if (Time.time < _nextAttackTime || _enemiesInRange.Count == 0) return;
-        _nextAttackTime = Time.time + (1f / unitStatsInstance.attackSpeed.value);
+        _nextAttackTime = Time.time + (1f / unitStatsInstance.attacksPerSecond);
 
         if (target == null)
             target = GetClosestEnemy();
@@ -66,7 +66,7 @@ public class MiniRobotAttack : MonoBehaviour
         _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
         _bulletInst.transform.LookAt(target);
 
-        playerStats.currentAttackBattery.value -= playerStats.attackCost.value / (playerStats.attackRobotCount.value * 2);
+        playerStats.laserBattery -= playerStats.laserCost / (playerStats.numberOfAttackRobots * 2);
 
         OnShoot?.Invoke();
     }

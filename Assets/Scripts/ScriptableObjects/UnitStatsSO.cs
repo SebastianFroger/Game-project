@@ -3,91 +3,81 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
-using Shooter;
 
-[Serializable]
-public class Upgrade
-{
-    public bool isActive;
-    public bool isPercentage;
-    public bool multiply;
-    public float value;
-    public bool dontStackValue;
-}
 
 [CreateAssetMenu]
 public class UnitStatsSO : ScriptableObject
 {
     [Header("Points")]
-    public Upgrade points;
-    public Upgrade configurationPoints;
+    public float points;
+    public float configurationPoints;
 
     [Header("")]
     [Header("Movement")]
-    public Upgrade currentMoveBattery;
-    public Upgrade maxMoveBattery;
-    public Upgrade moveBatteryRegenRate;
-    public Upgrade moveCostPerSecond;
-    public Upgrade moveSpeed;
-    public Upgrade moveHeatCostPerSecond;
+    public float movementBattery;
+    public float maxMoveBattery;
+    public float moveBatteryRegenPerSecond;
+    public float moveBatteryCostPerSecond;
+    public float moveSpeed;
+    public float moveHeatCostPerSecond;
 
     [Header("")]
     [Header("Attack")]
-    public Upgrade damage;
-    public Upgrade attackSpeed;
-    public Upgrade critChance;
-    public Upgrade currentAttackBattery;
-    public Upgrade maxAttackBattery;
-    public Upgrade attackBatteryRegenRate;
-    public Upgrade attackCost;
-    public Upgrade attackHeatCostPerShot;
+    public float damage;
+    public float attacksPerSecond;
+    public float critChancePercentage;
+    public float laserBattery;
+    public float maxLaserBattery;
+    public float LaserBatteryRegenPerSecond;
+    public float laserCost;
+    public float laserHeatCostPerShot;
 
     [Header("")]
     [Header("Laser")]
-    public Upgrade laserCount;
-    public Upgrade laserAroundCount;
-    public Upgrade piercingCount;
-    public Upgrade targetsCount;
-    public Upgrade energySteal;
-    public Upgrade slowEnemies;
-    public Upgrade knockBackEnemies;
+    public float lasersPerShot;
+    public float quadLaserCount;
+    public float piercingCount;
+    public float numberOfTargets;
+    public float energyStealPerLaser;
+    public float enemySlowPercentage;
+    public float enemyKnockBackForce;
 
     [Header("")]
     [Header("Robots")]
-    public Upgrade attackRobotCount;
+    public float numberOfAttackRobots;
 
 
     [Header("")]
     [Header("Shield")]
-    public Upgrade currentShieldBattery;
-    public Upgrade maxShieldBattery;
-    public Upgrade shieldBatteryRegenRate;
+    public float shieldBattery;
+    public float maxShieldBattery;
+    public float shieldBatteryRegenPerSecond;
 
     [Header("")]
     [Header("Health")]
-    public Upgrade currentHP;
-    public Upgrade maxHP;
+    public float hitPoints;
+    public float maxHitPoints;
 
     [Header("")]
     [Header("Heat")]
-    public Upgrade currentHeat;
-    public Upgrade maxHeat;
-    public Upgrade heatCoolingRate;
-    public Upgrade heatDammage;
-    public Upgrade heatDammageRate;
+    public float heat;
+    public float maxHeat;
+    public float heatCoolingPerSecond;
+    public float heatDammage;
+    public float heatDammageInterval;
 
     [Header("")]
     [Header("Secondary")]
-    public Upgrade currentCooldownTime;
-    public Upgrade cooldownTime;
+    public float cooldownTime;
+    public float maxCooldownTime;
+    public float cooldownTimeReduction;
 
     [Header("")]
     [Header("Other")]
-    public Upgrade pickUpRange;
+    public float pickUpRange;
 
-    // public Upgrade doublePointsChance;
-    // public Upgrade lifeSteal;
-    // public Upgrade luck;
+    // public float doublePointsChance;
+    // public float luck;
 
     // get all fields of the class
     public FieldInfo[] GetAllFieldInfos()

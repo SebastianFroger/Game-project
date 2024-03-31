@@ -17,10 +17,9 @@ public class StatsController : MonoBehaviour
         foreach (var field in unitStatsSO.GetAllFieldInfos())
         {
             var name = field.Name;
-            Upgrade upgrade = (field.GetValue(unitStatsSO) as Upgrade);
-            string value = (Mathf.Round(upgrade.value * 10f) * 0.1f).ToString();
+            string value = (Mathf.Round((float)field.GetValue(unitStatsSO) * 10f) * 0.1f).ToString();
 
-            if (name == "maxHP") continue;
+            if (name == "maxHitPoints") continue;
 
             // set color
             colorChange = !colorChange;

@@ -35,18 +35,17 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         // move battery
-        if (unitStats.currentMoveBattery.value <= 0)
+        if (!StatsManager.Instance.IsMoveBatteryEnough())
             return;
 
         // move
         _movePos = transform.rotation * _inputDir + transform.position;
-        _rb.velocity = (_movePos - transform.position) * unitStats.moveSpeed.value;
+        _rb.velocity = (_movePos - transform.position) * unitStats.moveSpeed;
 
         // apply heat and battery cost
         if (_inputDir != Vector3.zero)
         {
-            BatteryManager.Instance.AddHeat(unitStats.moveHeatCostPerSecond.value * Time.fixedDeltaTime);
-            BatteryManager.Instance.AddMoveBattery(-unitStats.moveCostPerSecond.value * Time.fixedDeltaTime);
+            StatsManager.Instance.CalcMoveCost(Time.fixedDeltaTime);
         }
     }
 }

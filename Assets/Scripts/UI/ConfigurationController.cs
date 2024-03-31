@@ -10,7 +10,7 @@ namespace Shooter
 {
     public class ConfigurationController : Singleton<ConfigurationController>
     {
-        public UnitStatsSO unitStats;
+        public UnitStatsSO unitCurrentStats;
         public int sliderValueMultipler = 20;
         public TMPro.TMP_Text _text;
         public Slider _moveSlider;
@@ -30,7 +30,7 @@ namespace Shooter
         private void OnEnable()
         {
             _sliders = GetComponentsInChildren<Slider>();
-            _maxPoints = unitStats.configurationPoints.value;
+            _maxPoints = unitCurrentStats.configurationPoints;
             _usedPoints = _sliders.Sum(s => s.value);
             SetText();
         }
@@ -83,13 +83,10 @@ namespace Shooter
 
         public void ApplyConfigValues()
         {
-            unitStats.currentMoveBattery.value = (float)_moveSlider.value * sliderValueMultipler;
-            unitStats.maxMoveBattery.value = (float)_moveSlider.value * sliderValueMultipler;
-            unitStats.maxAttackBattery.value = (float)_laserSlider.value * sliderValueMultipler;
-            unitStats.currentAttackBattery.value = (float)_laserSlider.value * sliderValueMultipler;
-            unitStats.currentShieldBattery.value = (float)_shieldSlider.value * sliderValueMultipler;
-            unitStats.maxShieldBattery.value = (float)_shieldSlider.value * sliderValueMultipler;
-            unitStats.maxHeat.value = (float)_heatSlider.value * sliderValueMultipler;
+            unitCurrentStats.maxMoveBattery = (float)_moveSlider.value * sliderValueMultipler;
+            unitCurrentStats.maxLaserBattery = (float)_laserSlider.value * sliderValueMultipler;
+            unitCurrentStats.maxShieldBattery = (float)_shieldSlider.value * sliderValueMultipler;
+            unitCurrentStats.maxHeat = (float)_heatSlider.value * sliderValueMultipler;
         }
     }
 }

@@ -15,9 +15,9 @@ public class Secondary : Singleton<Secondary>
 
     private void Update()
     {
-        if (unitStats.currentCooldownTime.value > 0)
+        if (unitStats.cooldownTime > 0)
         {
-            unitStats.currentCooldownTime.value -= Time.deltaTime;
+            unitStats.cooldownTime -= Time.deltaTime;
         }
     }
 
@@ -42,13 +42,13 @@ public class Secondary : Singleton<Secondary>
         }
     }
 
-    void OnSecondary()
-    {
-        if (Time.time < _nextActionTime || secondary == null) return;
+    // void OnSecondary()
+    // {
+    //     if (Time.time < _nextActionTime || secondary == null) return;
 
-        (secondary as ISecondary).Execute(transform);
-        unitStats.currentCooldownTime.value = unitStats.cooldownTime.value;
+    //     (secondary as ISecondary).Execute(transform);
+    //     unitStats.cooldownTime = unitStats.cooldownTime;
 
-        _nextActionTime = Time.time + unitStats.cooldownTime.value;
-    }
+    //     _nextActionTime = Time.time + unitStats.cooldownTime;
+    // }
 }

@@ -12,127 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
   m_Name: EnemyBStats
   m_EditorClassIdentifier: 
-  points:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  configurationPoints:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  currentMoveBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  maxMoveBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  moveBatteryRegenRate:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  moveCostPerSecond:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  moveSpeed:
-    isPercentage: 0
-    multiply: 0
-    value: 7
-  moveHeatCostPerSecond:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  damage:
-    isPercentage: 0
-    multiply: 0
-    value: 10
-  attackSpeed:
-    isPercentage: 0
-    multiply: 0
-    value: 1
-  critChance:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  currentAttackBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  maxAttackBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  attackBatteryRegenRate:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  attackCost:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  attackHeatCostPerShot:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  laserCount:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  laserAroundCount:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  currentShieldBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  maxShieldBattery:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  shieldBatteryRegenRate:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  currentHP:
-    isPercentage: 0
-    multiply: 0
-    value: 20
-  maxHP:
-    isPercentage: 0
-    multiply: 0
-    value: 20
-  currentHeat:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  maxHeat:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  heatCoolingRate:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  heatDammage:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  heatDammageRate:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  currentCooldownTime:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  cooldownTime:
-    isPercentage: 0
-    multiply: 0
-    value: 0
-  pickUpRange:
-    isPercentage: 0
-    multiply: 0
-    value: 0
+  points: 0
+  configurationPoints: 0
+  movementBattery: 0
+  maxMoveBattery: 0
+  moveBatteryRegenPerSecond: 0
+  moveBatteryCostPerSecond: 0
+  moveSpeed: 7
+  moveHeatCostPerSecond: 0
+  damage: 15
+  attacksPerSecond: 1
+  critChancePercentage: 0
+  laserBattery: 0
+  maxLaserBattery: 0
+  LaserBatteryRegenPerSecond: 0
+  laserCost: 0
+  laserHeatCostPerShot: 0
+  lasersPerShot: 0
+  quadLaserCount: 0
+  piercingCount: 0
+  numberOfTargets: 0
+  energyStealPerLaser: 0
+  enemySlowAmount: 0
+  enemyKnockBackForce: 0
+  numberOfAttackRobots: 0
+  shieldBattery: 0
+  maxShieldBattery: 0
+  shieldBatteryRegenPerSecond: 0
+  hitPoints: 20
+  maxHitPoints: 0
+  heat: 0
+  maxHeat: 0
+  heatCoolingPerSecond: 0
+  heatDammage: 0
+  heatDammageInterval: 0
+  cooldownTime: 0
+  maxCooldownTime: 0
+  cooldownTimeReduction: 0
+  pickUpRange: 0

@@ -11,12 +11,12 @@ public class SecondaryCoolDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (unitStats.currentCooldownTime.value <= 0)
+        if (unitStats.cooldownTime <= 0)
         {
             image.fillAmount = 0;
             return;
         }
 
-        image.fillAmount = unitStats.currentCooldownTime.value / unitStats.cooldownTime.value;
+        image.fillAmount = unitStats.cooldownTime / unitStats.maxCooldownTime;
     }
 }

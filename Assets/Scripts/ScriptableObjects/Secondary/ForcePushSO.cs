@@ -15,8 +15,8 @@ public class ForcePushSO : UpgradeSO, ISecondary
 
     public void Execute(Transform transform)
     {
-        if (unitStats.currentShieldBattery.value < batteryCost) return;
-        unitStats.currentShieldBattery.value -= batteryCost;
+        if (unitStats.shieldBattery < batteryCost) return;
+        unitStats.shieldBattery -= batteryCost;
 
         MyObjectPool.Instance.GetInstance(effect, transform.position, Quaternion.identity);
 

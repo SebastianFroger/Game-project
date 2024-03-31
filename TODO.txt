@@ -2,11 +2,7 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
-- check energysteal, and count hit colliders
-- robot keeps shooting at something sometimes
-- player shots not always hitting
-- push effect not showing
-- increase dammage feels redundant - increase enemy hp over rounds ? test after added upgrade levels
+- robots not following player!? not fast enough
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
