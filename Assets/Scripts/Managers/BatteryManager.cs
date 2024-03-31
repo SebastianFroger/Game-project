@@ -7,13 +7,13 @@ public class BatteryManager : Singleton<BatteryManager>
 {
     public UnitStatsSO unitStatsSO;
 
-    private void FixedUpdate()
+    private void Update()
     {
         // regen and cooldown
-        AddMoveBattery(unitStatsSO.moveBatteryRegenRate.value * Time.fixedDeltaTime);
-        AddAttackBattery(unitStatsSO.attackBatteryRegenRate.value * Time.fixedDeltaTime);
-        AddShieldBattery(unitStatsSO.shieldBatteryRegenRate.value * Time.fixedDeltaTime);
-        RemoveHeat(unitStatsSO.heatCoolingRate.value * Time.fixedDeltaTime);
+        AddMoveBattery(unitStatsSO.moveBatteryRegenRate.value * Time.deltaTime);
+        AddAttackBattery(unitStatsSO.attackBatteryRegenRate.value * Time.deltaTime);
+        AddShieldBattery(unitStatsSO.shieldBatteryRegenRate.value * Time.deltaTime);
+        RemoveHeat(unitStatsSO.heatCoolingRate.value * Time.deltaTime);
     }
 
     public void AddMoveBattery(float amount)

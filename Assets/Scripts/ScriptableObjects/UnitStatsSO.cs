@@ -48,7 +48,6 @@ public class UnitStatsSO : ScriptableObject
     public Upgrade laserAroundCount;
     public Upgrade piercingCount;
     public Upgrade targetsCount;
-    public Upgrade bouncingShotCount;
     public Upgrade energySteal;
     public Upgrade slowEnemies;
     public Upgrade knockBackEnemies;

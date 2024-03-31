@@ -55,6 +55,7 @@ public class RoundManager : Singleton<RoundManager>
     public void EndRound()
     {
         MenuManager.Instance.EnableGameUI(false);
+        UpgradeManager.Instance.CheckForUpgradeTier();
         MenuManager.Instance.EnableShopMenu(true);
         ShopManager.Instance.SetShopContent();
         GameManager.Instance.EnableMenuControls();

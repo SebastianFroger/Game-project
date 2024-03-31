@@ -294,7 +294,7 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
                     ""id"": ""26c7983a-7298-4edd-838f-165ae59bdd0f"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone"",
+                    ""processors"": ""StickDeadzone(min=0.25)"",
                     ""groups"": """",
                     ""action"": ""Navigate"",
                     ""isComposite"": true,

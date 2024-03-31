@@ -132,12 +132,6 @@ MonoBehaviour:
     multiply: 0
     value: 0
     dontStackValue: 0
-  bouncingShotCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
   energySteal:
     isActive: 0
     isPercentage: 0
@@ -247,5 +241,5 @@ MonoBehaviour:
   description: +1 attack robot that uses your batteries. HP and damage increases
     per upgrade.
   price: 0
-  startPrice: 5
+  startPrice: 10
   image: {fileID: 0}

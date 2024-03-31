@@ -231,6 +231,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &475454576 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6655073477855101584, guid: 197a2444f1c3fa940ac806712c5af9a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1204836642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &523919041 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2935341567308024412, guid: 197a2444f1c3fa940ac806712c5af9a1,
@@ -272,6 +284,12 @@ PrefabInstance:
       propertyPath: gravityAttractor
       value: 
       objectReference: {fileID: 34931033}
+    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: roundDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca,
+        type: 2}
     - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: allRandomUpgrades
@@ -437,6 +455,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d370f6cd08932244b9407e5ac6db2ad8,
         type: 2}
+    - target: {fileID: 2960729698760636033, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: rerollText
+      value: 
+      objectReference: {fileID: 475454576}
     - target: {fileID: 4907634744181094313, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: musicVol
@@ -717,11 +740,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1120380182}
-    - target: {fileID: 7896663212825941309, guid: 197a2444f1c3fa940ac806712c5af9a1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7997683937893390197, guid: 197a2444f1c3fa940ac806712c5af9a1,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

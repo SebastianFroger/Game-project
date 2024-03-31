@@ -30,7 +30,6 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnableShopMenu(false);
         MenuManager.Instance.EnableSettingsMenu(false);
         MenuManager.Instance.EnableConfigurationsMenu(false);
-        UpgradeManager.Instance.SetStartStats();
         EnableMenuControls();
 
         // keep music running
@@ -45,6 +44,7 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.EnableMainMenu(false);
         MenuManager.Instance.EnableConfigurationsMenu(true);
         EnvironmentSpawner.Instance.SpawnEnvironment();
+        UpgradeManager.Instance.ResetStats();
         gameStarted = true;
         _inConfigsMenu = true;
     }

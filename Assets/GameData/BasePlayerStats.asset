@@ -16,7 +16,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 0
+    value: 100
     dontStackValue: 0
   configurationPoints:
     isActive: 0
@@ -132,12 +132,6 @@ MonoBehaviour:
     multiply: 0
     value: 1
     dontStackValue: 0
-  bouncingShotCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
   energySteal:
     isActive: 0
     isPercentage: 0
@@ -160,7 +154,7 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 1
+    value: 0
     dontStackValue: 0
   currentShieldBattery:
     isActive: 0

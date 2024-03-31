@@ -17,193 +17,228 @@ MonoBehaviour:
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   configurationPoints:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   currentMoveBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   maxMoveBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   moveBatteryRegenRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   moveCostPerSecond:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   moveSpeed:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   moveHeatCostPerSecond:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   damage:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   attackSpeed:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   critChance:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   currentAttackBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   maxAttackBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   attackBatteryRegenRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   attackCost:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   attackHeatCostPerShot:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   laserCount:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   laserAroundCount:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   piercingCount:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   targetsCount:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
-  bouncingShotCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
+    dontStackValue: 0
   energySteal:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   slowEnemies:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   knockBackEnemies:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
+  attackRobotCount:
+    isActive: 0
+    isPercentage: 0
+    multiply: 0
+    value: 0
+    dontStackValue: 0
   currentShieldBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   maxShieldBattery:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   shieldBatteryRegenRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   currentHP:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   maxHP:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   currentHeat:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   maxHeat:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   heatCoolingRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   heatDammage:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   heatDammageRate:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   currentCooldownTime:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   cooldownTime:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   pickUpRange:
     isActive: 0
     isPercentage: 0
     multiply: 0
     value: 0
+    dontStackValue: 0
   upgradeLevel: 1
-  priceMultiplier: 2
-  effectMultiplier: 2
   title: Force Push
   description: Push all enemies around you
   price: 0
-  startPrice: 5
+  startPrice: 10
   image: {fileID: 21300000, guid: b25cf5b1e5089b8488d5ec172b194a4f, type: 3}
   layerMask:
     serializedVersion: 2

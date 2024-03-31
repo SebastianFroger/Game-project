@@ -18,13 +18,11 @@ public class StatsController : MonoBehaviour
         {
             var name = field.Name;
             Upgrade upgrade = (field.GetValue(unitStatsSO) as Upgrade);
-            string value = upgrade.value.ToString();
+            string value = (Mathf.Round(upgrade.value * 10f) * 0.1f).ToString();
 
             if (name == "maxHP") continue;
 
-            if (upgrade.isPercentage)
-                name += " (%)";
-
+            // set color
             colorChange = !colorChange;
             if (colorChange)
             {

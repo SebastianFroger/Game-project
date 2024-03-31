@@ -132,12 +132,6 @@ MonoBehaviour:
     multiply: 0
     value: 1
     dontStackValue: 0
-  bouncingShotCount:
-    isActive: 0
-    isPercentage: 0
-    multiply: 0
-    value: 0
-    dontStackValue: 0
   energySteal:
     isActive: 0
     isPercentage: 0
@@ -184,13 +178,13 @@ MonoBehaviour:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 200
+    value: 50
     dontStackValue: 0
   maxHP:
     isActive: 0
     isPercentage: 0
     multiply: 0
-    value: 200
+    value: 50
     dontStackValue: 0
   currentHeat:
     isActive: 0
