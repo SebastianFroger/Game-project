@@ -26,14 +26,14 @@ MonoBehaviour:
   laserBattery: 0
   maxLaserBattery: 0
   LaserBatteryRegenPerSecond: 0
-  laserCost: 0.9
+  laserCost: 0.8
   laserHeatCostPerShot: 0
   lasersPerShot: 0
   quadLaserCount: 0
   piercingCount: 0
   numberOfTargets: 0
   energyStealPerLaser: 0
-  enemySlowAmount: 0
+  enemySlowPercentage: 0
   enemyKnockBackForce: 0
   numberOfAttackRobots: 0
   shieldBattery: 0

@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Linq;
 
 public class UpgradeManager : Singleton<UpgradeManager>
 {
@@ -43,10 +44,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     public void CheckForUpgradeTier()
     {
-        if (roundDataSO.currentRound == 0)
+        if (roundDataSO.currentRound == 0) //round starts from 0 array index
             AddUpgradeTier(1);
 
-        if (roundDataSO.currentRound == 1)  // starts from 0 array index
+        if (roundDataSO.currentRound == 3)
             AddUpgradeTier(2);
 
         if (roundDataSO.currentRound == 7)
@@ -58,6 +59,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     void AddUpgradeTier(int tierLvl)
     {
+        var multiplyBySelf = new string[] {
+            "laserCost", "moveBatteryCostPerSecond", "laserHeatCostPerShot",
+            "moveHeatCostPerSecond", "moveBatteryCostPerSecond", "enemySlowPercentage" };
+
         foreach (var upgrade in allBaseUpgrades)
         {
             var upgradeInst = Instantiate(upgrade);
@@ -67,18 +72,25 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
             // set price
             if (tierLvl > 1)
-                upgradeInst.startPrice = (int)(upgradeInst.startPrice * tierLvl * .8f);
+                upgradeInst.startPrice = (int)(upgradeInst.startPrice * tierLvl);
 
 
             allUpgradesInstance.Add(upgradeInst);
 
-            // apply upgrade
+            // apply upgrade value
             foreach (var field in upgradeInst.GetAllFieldInfos())
             {
                 var value = (float)field.GetValue(upgradeInst);
                 if (value == 0)
                     continue;
-                value *= tierLvl;
+
+                if (multiplyBySelf.Contains(field.Name))
+                {
+                    field.SetValue(upgradeInst, Mathf.Pow(value, tierLvl));
+                    continue;
+                }
+
+                field.SetValue(upgradeInst, value * tierLvl);
             }
         }
     }

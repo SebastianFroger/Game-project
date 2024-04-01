@@ -123,7 +123,6 @@ MonoBehaviour:
   lookRotationTrs: {fileID: 4593814009461411415}
   lookAtarget: {fileID: 5452155860448324686}
   stopped: 0
-  maxMagnitude: 8
 --- !u!114 &7335987211931231141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointSO: {fileID: 11400000, guid: 6d434442efb54b649bfde2c0162af6be, type: 2}
-  pointValue: 2
+  pointValue: 1
 --- !u!114 &2108351788115388616
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,8 +32,8 @@ MonoBehaviour:
   quadLaserCount: 0
   piercingCount: 0
   numberOfTargets: 0
-  energyStealPerLaser: 0.3
-  enemySlowAmount: 0
+  energyStealPerLaser: 1
+  enemySlowPercentage: 0
   enemyKnockBackForce: 0
   numberOfAttackRobots: 0
   shieldBattery: 0

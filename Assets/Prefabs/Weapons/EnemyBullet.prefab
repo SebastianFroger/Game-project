@@ -132,6 +132,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2240
   useRaycast: 1
+  rotate: 0
+  target: {fileID: 0}
+  enemyBullet: 1
 --- !u!114 &-6472111142014895288
 MonoBehaviour:
   m_ObjectHideFlags: 0

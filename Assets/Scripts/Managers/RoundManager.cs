@@ -52,6 +52,8 @@ public class RoundManager : Singleton<RoundManager>
 
         ResetBatteriesAndHeat();
         SavePlayerCurrentStats();
+
+        StatsManager.Instance.ShowStats();
     }
 
     public void EndRound()
@@ -95,6 +97,8 @@ public class RoundManager : Singleton<RoundManager>
 
         _stopTime = false;
         SavePlayerCurrentStats();
+
+        StatsManager.Instance.ShowStats();
     }
 
     void SavePlayerCurrentStats()

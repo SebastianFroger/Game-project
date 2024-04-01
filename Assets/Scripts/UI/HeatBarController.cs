@@ -18,7 +18,7 @@ namespace Shooter
             _slider.maxValue = (float)unitStats.maxHeat;
         }
 
-        public void FixedUpdate()
+        public void Update()
         {
             _slider.value = (float)unitStats.heat;
         }

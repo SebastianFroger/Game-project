@@ -2,7 +2,6 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
-- robots not following player!? not fast enough
 
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
@@ -16,6 +15,9 @@
 ------------------------------------------------------------------------
 ## TODO
 ------------------------------------------------------------------------
+
+
+- bye less items - adjsut 
 
 - attack range and shoot around the planet? laser life upgrade
 - jump?

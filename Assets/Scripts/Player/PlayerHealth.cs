@@ -14,16 +14,19 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeathEvent;
     public ParticleSystem smokeEffect;
-    public GameObject sparksEffect;
+    public ParticleSystem sparksEffect;
 
     private float _nextHeatDammageTime = 0;
 
     private void OnEnable()
     {
-        // smokeEffect.SetActive(false);
         smokeEffect.Stop();
         smokeEffect.Clear();
-        sparksEffect.SetActive(false);
+        smokeEffect.gameObject.SetActive(false);
+
+        sparksEffect.Stop();
+        sparksEffect.Clear();
+        sparksEffect.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -33,14 +36,24 @@ public class PlayerHealth : MonoBehaviour, IHealth
             smokeEffect.Play();
 
         else if (unitStats.heat < unitStats.maxHeat * 0.8 && smokeEffect.isPlaying)
+        {
             smokeEffect.Stop();
+            smokeEffect.Clear();
+        }
 
         // HP visual
         if (unitStats.hitPoints < unitStats.maxHitPoints * 0.2)
-            sparksEffect.SetActive(true);
+        {
+            sparksEffect.gameObject.SetActive(true);
+            sparksEffect.Play();
+        }
 
-        else if (unitStats.hitPoints > unitStats.maxHitPoints * 0.2 && smokeEffect.isPlaying)
-            sparksEffect.SetActive(false);
+        else if (unitStats.hitPoints > unitStats.maxHitPoints * 0.2 && sparksEffect.isPlaying)
+        {
+            sparksEffect.Stop();
+            sparksEffect.Clear();
+            sparksEffect.gameObject.SetActive(false);
+        }
 
         // shield visual
         if (unitStats.shieldBattery <= 0)
@@ -50,7 +63,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
             shieldObject.SetActive(true);
 
         // heat damage player 
-        if (unitStats.heat >= unitStats.maxHeat)
+        if (unitStats.heat >= unitStats.maxHeat * 0.9f)
             if (Time.fixedTime > _nextHeatDammageTime)
                 _nextHeatDammageTime = StatsManager.Instance.TakeHeatDamage();
     }

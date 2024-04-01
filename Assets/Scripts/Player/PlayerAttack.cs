@@ -45,10 +45,10 @@ public class PlayerAttack : MonoBehaviour
 
         for (int i = 0; i < unitStats.lasersPerShot; i++)
         {
+            transform.localPosition = new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
             _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
-            _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
+            _bulletInst.transform.position = transform.position;
             _bulletInst.transform.LookAt(_targets[i % _targets.Count]);
-            StatsManager.Instance.OnShot();
         }
 
 
@@ -99,7 +99,6 @@ public class PlayerAttack : MonoBehaviour
             _bulletInst.transform.localPosition = transform.position;
             _bulletInst.transform.rotation = transform.rotation;
             _bulletInst.transform.Rotate(new Vector3(0, rotIncrement * i, 0), Space.Self);
-            StatsManager.Instance.OnShot();
         }
     }
 

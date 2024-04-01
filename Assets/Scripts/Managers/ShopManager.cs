@@ -69,7 +69,7 @@ public class ShopManager : Singleton<ShopManager>
     {
         // roundnr +  Rounddown(0.5 * Wave Number) * Reroll Number
         var currRound = (float)roundDataSO.currentRound + 1;
-        _rerollPrice = Mathf.RoundToInt((currRound + (0.5f * currRound) * _nrOfRerolls));
+        _rerollPrice = Mathf.RoundToInt((currRound + (0.25f * currRound) * _nrOfRerolls));
 
         if (_rerollPrice == 0)
             _rerollPrice = 1;

@@ -22,7 +22,7 @@ public class RobotControl : MonoBehaviour
     private MiniRobotAttack _miniRobotAttack;
     private Vector3 _rotTowards;
     private UnitStatsSO unitStatsInstance;
-    [SerializeField] private Transform target;
+    private Transform target;
     private float playerDistance;
     private float currTargetDistance;
 

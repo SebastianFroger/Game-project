@@ -27,6 +27,8 @@ public class StatsManager : Singleton<StatsManager>
         currentStatsSO.movementBattery += amount;
         if (currentStatsSO.movementBattery > currentStatsSO.maxMoveBattery)
             currentStatsSO.movementBattery = currentStatsSO.maxMoveBattery;
+        if (currentStatsSO.movementBattery < 0)
+            currentStatsSO.movementBattery = 0;
     }
 
     public void AddAttackBattery(float amount)
@@ -36,11 +38,20 @@ public class StatsManager : Singleton<StatsManager>
             currentStatsSO.laserBattery = currentStatsSO.maxLaserBattery;
     }
 
+    public void RemoveAttackBattery(float amount)
+    {
+        currentStatsSO.laserBattery -= amount;
+        if (currentStatsSO.laserBattery < 0)
+            currentStatsSO.laserBattery = 0;
+    }
+
     public void AddShieldBattery(float amount)
     {
         currentStatsSO.shieldBattery += amount;
         if (currentStatsSO.shieldBattery > currentStatsSO.maxShieldBattery)
             currentStatsSO.shieldBattery = currentStatsSO.maxShieldBattery;
+        if (currentStatsSO.shieldBattery < 0)
+            currentStatsSO.shieldBattery = 0;
     }
 
     public void AddHeat(float amount)
@@ -70,37 +81,32 @@ public class StatsManager : Singleton<StatsManager>
 
     public bool CanAttack()
     {
-        // TODO add check for quadlaser
-        var totalShots = currentStatsSO.lasersPerShot + (currentStatsSO.quadLaserCount * 4);
-        return currentStatsSO.laserBattery >= currentStatsSO.laserCost * totalShots;
+        // var totalShots = currentStatsSO.lasersPerShot + (currentStatsSO.quadLaserCount * 4);
+        return currentStatsSO.laserBattery >= currentStatsSO.laserCost * currentStatsSO.lasersPerShot;
     }
 
     public float NextAttackTime()
     {
-        return Time.time + currentStatsSO.attacksPerSecond;
+        return Time.time + (1 / currentStatsSO.attacksPerSecond);
     }
 
-    public float OnShot()
+    public void OnShot()
     {
-        CalcAttackCost();
-        if (currentStatsSO.energyStealPerLaser > 0)
-            AddToAllBatteries(currentStatsSO.energyStealPerLaser / 3f);
-        return CalcDamage();
+        RemoveAttackBattery(currentStatsSO.laserCost);
+        AddHeat(currentStatsSO.laserHeatCostPerShot);
     }
 
-    float CalcDamage()
+    public float CalcDamage()
     {
         float damage = currentStatsSO.damage;
         if (Random.Range(0f, 100f) <= currentStatsSO.critChancePercentage)
             damage *= 1.5f;
-
         return damage;
     }
 
-    void CalcAttackCost()
+    public void EnergySteal()
     {
-        currentStatsSO.laserBattery -= currentStatsSO.laserCost;
-        currentStatsSO.heat += currentStatsSO.laserHeatCostPerShot;
+        AddToAllBatteries(currentStatsSO.energyStealPerLaser / 3);
     }
 
     //******************************************************************************
@@ -113,8 +119,8 @@ public class StatsManager : Singleton<StatsManager>
 
     public void CalcMoveCost(float timeDelta)
     {
-        currentStatsSO.movementBattery -= currentStatsSO.moveBatteryCostPerSecond * timeDelta;
-        currentStatsSO.heat += currentStatsSO.moveHeatCostPerSecond * timeDelta;
+        AddMoveBattery(-currentStatsSO.moveBatteryCostPerSecond * timeDelta);
+        AddHeat(currentStatsSO.moveHeatCostPerSecond * timeDelta);
     }
 
 
@@ -206,11 +212,11 @@ public class StatsManager : Singleton<StatsManager>
                     currentValue += upgradeValue;
                     field.SetValue(currentStatsSO, currentValue);
                     break;
-                case "maxAttackBattery":
+                case "maxLaserBattery":
                     currentValue += upgradeValue;
                     field.SetValue(currentStatsSO, currentValue);
                     break;
-                case "maxLaserBattery":
+                case "LaserBatteryRegenPerSecond":
                     currentValue += upgradeValue;
                     field.SetValue(currentStatsSO, currentValue);
                     break;
@@ -344,5 +350,20 @@ public class StatsManager : Singleton<StatsManager>
             var baseVal = field.GetValue(baseStatsSO);
             field.SetValue(currentStatsSO, baseVal);
         }
+    }
+
+
+    // show stats
+    public void ShowStats()
+    {
+        var dps = currentStatsSO.damage * currentStatsSO.attacksPerSecond * currentStatsSO.lasersPerShot;
+        var laserCostSec = currentStatsSO.laserCost * currentStatsSO.lasersPerShot * currentStatsSO.attacksPerSecond;
+        var laserCost = currentStatsSO.laserCost * currentStatsSO.lasersPerShot;
+        var laserHeatCost = currentStatsSO.laserHeatCostPerShot * currentStatsSO.lasersPerShot;
+        DebugExt.Log(this, $"DPS {dps} | damage {currentStatsSO.damage} | attacksPerSecond {currentStatsSO.attacksPerSecond} | lasersPerShot {currentStatsSO.lasersPerShot}");
+        DebugExt.Log(this, $"laserCostSec {laserCostSec} | laserCost {laserCost} | laserHeatCosttotal {laserHeatCost}");
+        DebugExt.Log(this, $"LaserBattery {currentStatsSO.laserBattery} | ShieldBattery {currentStatsSO.shieldBattery} | Heat {currentStatsSO.heat} | MoveBattery {currentStatsSO.movementBattery}");
+        DebugExt.Log(this, $"LaserRegen {currentStatsSO.LaserBatteryRegenPerSecond} | heatCooling {currentStatsSO.heatCoolingPerSecond} | shieldRegen {currentStatsSO.shieldBatteryRegenPerSecond} | moveRegen {currentStatsSO.moveBatteryRegenPerSecond}");
+
     }
 }

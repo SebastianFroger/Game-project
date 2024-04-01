@@ -16,18 +16,18 @@ MonoBehaviour:
   configurationPoints: 12
   movementBattery: 75
   maxMoveBattery: 75
-  moveBatteryRegenPerSecond: 1
-  moveBatteryCostPerSecond: 1.6
+  moveBatteryRegenPerSecond: 0
+  moveBatteryCostPerSecond: 0.8
   moveSpeed: 10
-  moveHeatCostPerSecond: 1.6
+  moveHeatCostPerSecond: 0.8
   damage: 10
   attacksPerSecond: 1
   critChancePercentage: 0
   laserBattery: 75
   maxLaserBattery: 75
-  LaserBatteryRegenPerSecond: 1
-  laserCost: 0.9
-  laserHeatCostPerShot: 0.2
+  LaserBatteryRegenPerSecond: 0
+  laserCost: 1
+  laserHeatCostPerShot: 0.8
   lasersPerShot: 1
   quadLaserCount: 0
   piercingCount: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   numberOfAttackRobots: 0
   shieldBattery: 75
   maxShieldBattery: 75
-  shieldBatteryRegenPerSecond: 1
+  shieldBatteryRegenPerSecond: 0
   hitPoints: 100
   maxHitPoints: 100
   heat: 0

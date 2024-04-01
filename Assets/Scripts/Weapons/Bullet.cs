@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
     public LayerMask layerMask;
     public bool useRaycast;
     public float rotate;
+    public Transform target;
+    public bool enemyBullet;
 
     private Vector3 startPosition;
     private Vector3 _prevPosition;
@@ -27,7 +29,12 @@ public class Bullet : MonoBehaviour
         startPosition = transform.position;
         _prevPosition = GlobalObjectsManager.Instance.player.transform.position;
         _hitColliders.Clear();
-        _damage = StatsManager.Instance.OnShot();
+
+        if (enemyBullet)
+            return;
+
+        _damage = StatsManager.Instance.CalcDamage();
+        StatsManager.Instance.OnShot();
     }
 
     private void Update()
@@ -54,6 +61,9 @@ public class Bullet : MonoBehaviour
             }
 
             _targetHP.TakeDamage(_damage);
+
+            if (unitStatsSO.energyStealPerLaser > 0)
+                StatsManager.Instance.EnergySteal();
 
             // slow enemy
             if (unitStatsSO.enemySlowPercentage < 0)

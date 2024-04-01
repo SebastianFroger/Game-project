@@ -33,7 +33,7 @@ MonoBehaviour:
   piercingCount: 0
   numberOfTargets: 0
   energyStealPerLaser: 0
-  enemySlowAmount: 0.3
+  enemySlowPercentage: 0.8
   enemyKnockBackForce: 0
   numberOfAttackRobots: 0
   shieldBattery: 0
