@@ -16,7 +16,7 @@ public class GravityBody : MonoBehaviour
         _transform = transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         GlobalObjectsManager.Instance.gravityAttractor.Attract(_transform, _rb);
     }

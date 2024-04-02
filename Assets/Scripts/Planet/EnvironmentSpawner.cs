@@ -33,6 +33,7 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
 {
     public EnvironmentItem[] items;
     public LayerMask myLayerMask;
+    public float heightDivide = 1;
 
     private Quaternion _addedRotations = Quaternion.identity;
 
@@ -71,7 +72,7 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
 
                 // scale
                 var scaleVector = UnityEngine.Random.Range(item.scaleFactorMin, item.scaleFactorMax);
-                inst.transform.localScale = new Vector3(scaleVector, scaleVector / 2, scaleVector);
+                inst.transform.localScale = new Vector3(scaleVector, scaleVector / heightDivide, scaleVector);
 
                 // parent to sphere
                 inst.transform.parent = transform;
@@ -106,6 +107,7 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
         }
 
         // place player
+        return;
         Physics.SyncTransforms();
         var player = GlobalObjectsManager.Instance.player;
         var rb = player.GetComponent<Rigidbody>();

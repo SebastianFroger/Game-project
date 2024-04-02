@@ -16,7 +16,9 @@
 ## TODO
 ------------------------------------------------------------------------
 
-
+- jump and cliffs
+- adjust robot life and damage - should it scale?
+- robots should use player battery
 - bye less items - adjsut 
 
 - attack range and shoot around the planet? laser life upgrade
