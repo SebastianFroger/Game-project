@@ -12,41 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
   m_Name: CurrentPlayerStats
   m_EditorClassIdentifier: 
-  points: 0
+  points: 17
   configurationPoints: 12
-  movementBattery: 69.128426
+  movementBattery: 68.66421
   maxMoveBattery: 75
   moveBatteryRegenPerSecond: 0
-  moveBatteryCostPerSecond: 0.8
+  moveBatteryCostPerSecond: 0.71999997
   moveSpeed: 10
   moveHeatCostPerSecond: 0.8
   damage: 10
-  attacksPerSecond: 1
+  attacksPerSecond: 1.5999999
   critChancePercentage: 0
-  laserBattery: 0
-  maxLaserBattery: 75
-  LaserBatteryRegenPerSecond: 0
-  laserCost: 1
+  laserBattery: 95
+  maxLaserBattery: 95
+  LaserBatteryRegenPerSecond: 1
+  laserCost: 0.40960005
   laserHeatCostPerShot: 0.8
-  lasersPerShot: 1
+  lasersPerShot: 4
   quadLaserCount: 0
-  piercingCount: 0
+  piercingCount: 2
   numberOfTargets: 1
-  energyStealPerLaser: 0
+  energyStealPerLaser: 2
   enemySlowPercentage: 0
   enemyKnockBackForce: 0
-  numberOfAttackRobots: 0
+  numberOfAttackRobots: 5
   shieldBattery: 75
   maxShieldBattery: 75
   shieldBatteryRegenPerSecond: 0
   hitPoints: 100
   maxHitPoints: 100
-  heat: 75
-  maxHeat: 75
-  heatCoolingPerSecond: 1
+  heat: 2.1564336
+  maxHeat: 85
+  heatCoolingPerSecond: 2
   heatDammage: 5
   heatDammageInterval: 5
   cooldownTime: 0
   maxCooldownTime: 0
   cooldownTimeReduction: 0
-  pickUpRange: 3
+  pickUpRange: 5
