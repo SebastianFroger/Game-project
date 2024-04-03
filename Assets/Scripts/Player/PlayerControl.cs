@@ -11,14 +11,12 @@ public class PlayerControl : MonoBehaviour
     private Vector3 _inputDir;
     private Rigidbody _rb;
     private Vector3 _movePos;
-    private bool onGround;
+    public bool onGround;
     private bool jumpPressed = false;
 
     void Start()
     {
-        // _gravityBody = GetComponent<GravityBody>();
         _rb = GetComponent<Rigidbody>();
-        _rb.MovePosition(Vector3.up * Planet.Instance.GetRadius());
     }
 
     // player movement
@@ -53,7 +51,7 @@ public class PlayerControl : MonoBehaviour
 
         if (onGround && jumpPressed)
         {
-            _rb.AddForce(dir, ForceMode.VelocityChange);
+            // _rb.AddForce(dir, ForceMode.VelocityChange);
             _rb.AddForce(transform.position.normalized * jumpForce, ForceMode.Impulse);
             onGround = false;
         }
