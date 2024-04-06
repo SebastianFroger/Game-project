@@ -9,6 +9,9 @@ TagManager:
   - PickUpCollider
   - Shop
   - MusicManager
+  - FxTemporaire
+  - InsidePlanetTrigger
+  - InsidePlanetTransitionTrigger
   layers:
   - Default
   - TransparentFX
