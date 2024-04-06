@@ -3,11 +3,6 @@
 ------------------------------------------------------------------------
 
 
-- player rotation must be from collider normals to move on terrain - high poly ground + meshcollider + slow rot?
-- force rb-vel stops jump
-- must be able to fall from cliffs - cant stick player to ground and only add up vel on jump. 
-
-
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
 ------------------------------------------------------------------------
@@ -21,9 +16,8 @@
 ## TODO
 ------------------------------------------------------------------------
 
-
-- find solution for transition in/out of planet. - a ramp or less steep intrance?
-- create planet mockup
+- fix camera inside planet
+- create planet rocks mockup
 - add crystal currency in planet - use for higher tier upgrades
 - adjust robot life and damage - should it scale?
 - robots should use player battery

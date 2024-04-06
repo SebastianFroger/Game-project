@@ -5,17 +5,14 @@ using UnityEngine;
 
 public class GravityBody : MonoBehaviour
 {
-    private Transform _transform;
-    private Rigidbody _rb;
     public float gravity = -10;
     public float gravityFallIncrease = -1;
+    public float slerpValue = -10;
 
+    private Rigidbody _rb;
     private Vector3 _gravityDir;
     public bool isInside = true;
-    public bool inTransition;
     public LayerMask layerMask;
-    private float jumpDistance;
-    private float lastJumpDistance;
 
     private PlayerControl _playerControl;
 
@@ -25,14 +22,11 @@ public class GravityBody : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _rb.useGravity = false;
-        _transform = transform;
-
-        inTransition = false;
     }
 
     void FixedUpdate()
     {
-        Attract(_transform, _rb);
+        Attract(transform, _rb);
     }
 
     public void Attract(Transform body, Rigidbody rb)
@@ -75,7 +69,7 @@ public class GravityBody : MonoBehaviour
 
         rb.AddForce(_gravityDir * gravity);
         Quaternion targetRotation = Quaternion.FromToRotation(body.up, _gravityDir) * body.rotation;
-        body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 50 * Time.deltaTime);
+        body.rotation = Quaternion.Slerp(body.rotation, targetRotation, slerpValue);
     }
 
     private void OnTriggerStay(Collider other)
@@ -92,14 +86,5 @@ public class GravityBody : MonoBehaviour
         {
             isInside = false;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, -transform.up * 2);
-
-        Gizmos.color = Color.white;
-        Gizmos.DrawRay(Vector3.zero, -_gravityDir * 10);
     }
 }

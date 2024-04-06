@@ -7,6 +7,8 @@ public class CameraControl : MonoBehaviour
     public Vector3 rotOffset = new Vector3(0, 0, 0);
     public Vector3 posOffset = new Vector3(0, 0, -10);
     public float distance = 65;
+    public float backDistance = 10;
+    public float slerpValue = .1f;
     public LayerMask layerMask;
 
 
@@ -23,29 +25,12 @@ public class CameraControl : MonoBehaviour
         distance = transform.position.y;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-
-        // works, but avoid using player trs up. use dir from zero instead
-
-
-        from = player.transform.position * 2;
-        if (gravityBody.isInside)
-            from = -player.transform.position * 2;
-
-        direction = player.transform.position - from;
-        if (Physics.Raycast(from, direction, out RaycastHit hit, 99999, layerMask))
-        {
-            transform.position = hit.normal.normalized * distance;
-
-            Quaternion targetRotation = Quaternion.FromToRotation(transform.up, hit.normal.normalized) * transform.rotation;
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 50 * Time.deltaTime);
-
-
-            // Vector3 v = playerTransform.position - Vector3.zero;
-            // v += v.normalized * distance;
-            // transform.position = Vector3.zero + v;
-        }
+        var position = player.transform.position.normalized * distance;
+        position -= player.transform.forward * backDistance;
+        transform.position = Vector3.Lerp(transform.position, position, slerpValue);
+        transform.LookAt(player.transform.position, player.transform.forward); // Look
     }
 
     private void OnDrawGizmos()
