@@ -3,6 +3,11 @@
 ------------------------------------------------------------------------
 
 
+- player rotation must be from collider normals to move on terrain - high poly ground + meshcollider + slow rot?
+- force rb-vel stops jump
+- must be able to fall from cliffs - cant stick player to ground and only add up vel on jump. 
+
+
 ------------------------------------------------------------------------
 ## BUGS TO FIX LATER
 ------------------------------------------------------------------------
@@ -16,13 +21,13 @@
 ## TODO
 ------------------------------------------------------------------------
 
+
 - find solution for transition in/out of planet. - a ramp or less steep intrance?
-- cliffs
+- create planet mockup
+- add crystal currency in planet - use for higher tier upgrades
 - adjust robot life and damage - should it scale?
 - robots should use player battery
 - bye less items - adjsut price and upgrade value
-
-- attack range and shoot around the planet? laser life upgrade
 - more lvls and space laser
 
 - bouncing shot
@@ -44,7 +49,7 @@
 - general randomness (enemies, upgrades, world events)
 - in game upgrades/progress (hp, damage, weapons, secondary effects(shield?))
 - fun upgrade quotes
-- steam Acchievements and LeaderBoard?
+- steam Achievements and LeaderBoard?
 
 
 Game Mechanics

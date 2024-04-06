@@ -37,22 +37,34 @@ public class GravityBody : MonoBehaviour
 
     public void Attract(Transform body, Rigidbody rb)
     {
-        if (!isInside)
+        if (!_playerControl.onGround)
         {
-            // shoot ray away from player in zero direction
-            if (Physics.Raycast(body.position, -transform.position, out RaycastHit hit, 30, layerMask))
+            if (!isInside)
             {
-                _gravityDir = hit.normal.normalized;
+                // shoot ray away from player in zero direction
+                if (Physics.Raycast(body.position, -transform.position, out RaycastHit hit1, 30, layerMask))
+                {
+                    _gravityDir = hit1.normal.normalized;
+                }
+            }
+            else
+            {
+                // shoot ray away from zero in player direction
+                if (Physics.Raycast(body.position, transform.position, out RaycastHit hit2, 30, layerMask))
+                {
+                    _gravityDir = hit2.normal.normalized;
+                }
             }
         }
         else
         {
-            // shoot ray away from zero in player direction
-            if (Physics.Raycast(body.position, transform.position, out RaycastHit hit, 30, layerMask))
+            // player on ground force
+            if (Physics.Raycast(body.position, -transform.up * 2, out RaycastHit hit, 30, layerMask))
             {
                 _gravityDir = hit.normal.normalized;
             }
         }
+
 
         // adjust jump fall force
         if (!_playerControl.onGround)

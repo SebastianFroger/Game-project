@@ -6,17 +6,21 @@ public class PlayerControl : MonoBehaviour
 {
     public UnitStatsSO unitStats;
     public float jumpForce = 20;
-    public LayerMask groundLayers;
-
-    private Vector3 _inputDir;
-    private Rigidbody _rb;
-    private Vector3 _movePos;
+    public LayerMask layerMask;
     public bool onGround;
-    private bool jumpPressed = false;
+
+    Vector3 _inputDir;
+    Rigidbody _rb;
+    Vector3 _movePos;
+    bool jumpPressed = false;
+    GravityBody gravityBody;
+    Vector3 moveAmount;
+    Vector3 smoothMoveVelocity;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        gravityBody = GetComponent<GravityBody>();
     }
 
     // player movement
@@ -40,52 +44,38 @@ public class PlayerControl : MonoBehaviour
         GameManager.Instance.PauseMenuToggle();
     }
 
+    private void Update()
+    {
+        Vector3 moveDir = _inputDir.normalized;
+        Vector3 targetMoveAmount = moveDir * unitStats.moveSpeed;
+        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f);
+
+        onGround = false;
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1.1f, layerMask))
+        {
+            onGround = true;
+            Debug.DrawLine(transform.position, hit.point, Color.red);
+        }
+
+        if (onGround && jumpPressed)
+        {
+            _rb.AddForce(transform.up * jumpForce);
+            jumpPressed = false;
+        }
+
+        // apply heat and battery cost
+        if (_inputDir != Vector3.zero)
+        {
+            StatsManager.Instance.CalcMoveCost(Time.deltaTime);
+        }
+    }
+
     void FixedUpdate()
     {
         // move battery
         if (!StatsManager.Instance.IsMoveBatteryEnough())
             return;
 
-        _movePos = transform.rotation * _inputDir + transform.position;
-        var dir = (_movePos - transform.position) * unitStats.moveSpeed;
-
-        if (onGround && jumpPressed)
-        {
-            // _rb.AddForce(dir, ForceMode.VelocityChange);
-            _rb.AddForce(transform.position.normalized * jumpForce, ForceMode.Impulse);
-            onGround = false;
-        }
-
-        if (!onGround) return;
-        _rb.AddForce(dir - _rb.velocity, ForceMode.VelocityChange);
-
-        // apply heat and battery cost
-        if (_inputDir != Vector3.zero)
-        {
-            StatsManager.Instance.CalcMoveCost(Time.fixedDeltaTime);
-        }
+        _rb.MovePosition(_rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
-
-    private void OnCollisionStay(Collision other)
-    {
-        if (jumpPressed)
-        {
-            jumpPressed = false;
-            return;
-        }
-
-        if ((groundLayers & (1 << other.gameObject.layer)) != 0)
-        {
-            onGround = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if ((groundLayers & (1 << other.gameObject.layer)) != 0)
-        {
-            onGround = false;
-        }
-    }
-
 }
