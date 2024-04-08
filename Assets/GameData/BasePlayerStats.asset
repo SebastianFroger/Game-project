@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BasePlayerStats
   m_EditorClassIdentifier: 
   points: 0
+  crystals: 0
   configurationPoints: 12
   movementBattery: 75
   maxMoveBattery: 75

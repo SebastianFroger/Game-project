@@ -30,7 +30,7 @@ public class Health : MonoBehaviour, IHealth
     }
 
 
-    public void TakeDamage(float amount, bool ignoreShield = false)
+    public void TakeDamage(float amount)
     {
         if (_isInvincible)
             return;

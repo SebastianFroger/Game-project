@@ -16,9 +16,9 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- fix camera inside planet
+- fix enemy target when player is inside
+- create xp system? choose between battery upgrades
 - create planet rocks mockup
-- add crystal currency in planet - use for higher tier upgrades
 - adjust robot life and damage - should it scale?
 - robots should use player battery
 - bye less items - adjsut price and upgrade value

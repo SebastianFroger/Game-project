@@ -8,6 +8,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public RoundDataSO roundDataSO;
     public GameObject player;
     public float spawnRandomness = 0.1f;
+    public float spawnHeight;
 
     private float _spawnInterval;
     private float _spawnIntervalDecreaseRate;
@@ -27,7 +28,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
             _instance = MyObjectPool.Instance.GetInstance(EnemySelector());
 
             // spawn on oposite side of the planet from the player
-            _instance.transform.position = RandomPoint() * Planet.Instance.GetRadius();
+            _instance.transform.position = RandomPoint() * spawnHeight;
 
             if (_spawnInterval > (1 / roundDataSO.roundDatas[roundDataSO.currentRound].maxspawnPrSec))
                 _spawnInterval -= _spawnIntervalDecreaseRate;

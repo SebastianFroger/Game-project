@@ -10,6 +10,7 @@ public class UnitStatsSO : ScriptableObject
 {
     [Header("Points")]
     public float points;
+    public float crystals;
     public float configurationPoints;
 
     [Header("")]

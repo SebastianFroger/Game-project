@@ -32,7 +32,9 @@ public class ShopManager : Singleton<ShopManager>
         {
             // set price
             _currentUpgrades[i].price = CalcItemPrice(_currentUpgrades[i]);
+            _currentUpgrades[i].crystalsPrice = _currentUpgrades[i].crystalsPrice;
             MenuManager.Instance.shopCards[i].price.text = _currentUpgrades[i].price.ToString();
+            MenuManager.Instance.shopCards[i].crystalsPrice.text = _currentUpgrades[i].crystalsPrice.ToString();
         }
 
         MenuManager.Instance.SetCardContent(_currentUpgrades.ToArray());
@@ -78,11 +80,12 @@ public class ShopManager : Singleton<ShopManager>
     public void OnBuyItem(int index)
     {
         var upgrade = _currentUpgrades[index];
-        if (upgrade.price <= unitStats.points)
+        if (upgrade.price <= unitStats.points && upgrade.crystalsPrice <= unitStats.crystals)
         {
             MenuManager.Instance.DisableUpgradeCard(index);
             StatsManager.Instance.ApplyUpgrade(upgrade);
             unitStats.points -= upgrade.price;
+            unitStats.crystals -= upgrade.crystalsPrice;
         }
     }
 }

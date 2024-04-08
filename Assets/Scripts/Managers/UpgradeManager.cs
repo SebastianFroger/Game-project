@@ -12,7 +12,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public bool allRandomUpgrades;
     public bool loadAllUpgradesFromDisk;
 
-    private List<UpgradeSO> allUpgradesInstance = new();
+    [SerializeField] private List<UpgradeSO> allUpgradesInstance = new();
 
 
     public List<UpgradeSO> GetRandomUpgrades()
@@ -72,8 +72,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
             // set price
             if (tierLvl > 1)
+            {
                 upgradeInst.startPrice = (int)(upgradeInst.startPrice * tierLvl);
-
+                upgradeInst.crystalsPrice = (int)tierLvl - 1;
+            }
 
             allUpgradesInstance.Add(upgradeInst);
 

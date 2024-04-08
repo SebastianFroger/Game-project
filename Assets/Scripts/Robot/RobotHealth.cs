@@ -33,7 +33,7 @@ public class RobotHealth : MonoBehaviour, IHealth
         unitStatsSOInstance.damage = unitStatsSO.damage * playerStatsSO.numberOfAttackRobots;
     }
 
-    public void TakeDamage(float amount, bool ignoreShield = false)
+    public void TakeDamage(float amount)
     {
         if (_isInvincible)
             return;

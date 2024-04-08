@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Point : MonoBehaviour
+public class Crystal : MonoBehaviour
 {
     public UnitStatsSO unitStats;
-    public int value = 1;
-    public float groundHeightAdjust = 0.5f;
+    public float crystalPoints;
 
     private void OnTriggerEnter(Collider other)
     {
-        unitStats.points += 1;
+        unitStats.crystals += crystalPoints;
         MyObjectPool.Instance.Release(gameObject);
     }
 }

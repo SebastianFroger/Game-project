@@ -11,6 +11,7 @@ public class MenuCard
     public TMPro.TMP_Text title;
     public TMPro.TMP_Text description;
     public TMPro.TMP_Text price;
+    public TMPro.TMP_Text crystalsPrice;
     public Image image;
 }
 

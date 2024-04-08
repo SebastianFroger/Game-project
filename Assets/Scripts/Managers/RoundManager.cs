@@ -7,6 +7,9 @@ public class RoundManager : Singleton<RoundManager>
 {
     public RoundDataSO roundDataSO;
     public UnitStatsSO playerStatsSO;
+    public GameObject crystalPrefab;
+    public LayerMask layerMask;
+
     private float _nextRoundTime = 0f;
     private UnitStatsSO _savedPlayerStatsSO;
     private bool _stopTime;
@@ -50,6 +53,7 @@ public class RoundManager : Singleton<RoundManager>
 
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
 
+        SpawnCrystals();
         ResetBatteriesAndHeat();
         SavePlayerCurrentStats();
 
@@ -93,6 +97,7 @@ public class RoundManager : Singleton<RoundManager>
         GameManager.Instance.TimeActive(true);
         _nextRoundTime = Time.fixedTime + roundDataSO.roundDatas[roundDataSO.currentRound].timeSec;
 
+        SpawnCrystals();
         ResetBatteriesAndHeat();
 
         _stopTime = false;
@@ -115,5 +120,20 @@ public class RoundManager : Singleton<RoundManager>
         playerStatsSO.shieldBattery = playerStatsSO.maxShieldBattery;
         playerStatsSO.movementBattery = playerStatsSO.maxMoveBattery;
         playerStatsSO.heat = 0;
+    }
+
+    void SpawnCrystals()
+    {
+        DebugExt.Log(this, $"SpawnCrystals()");
+        var amount = (roundDataSO.currentRound + 1) * 2;
+        for (int i = 0; i < amount; i++)
+        {
+            var randomDir = UnityEngine.Random.rotation.eulerAngles;
+            if (Physics.Raycast(Vector3.zero, randomDir, out RaycastHit hit, 1000f, layerMask))
+            {
+                var inst = MyObjectPool.Instance.GetInstance(crystalPrefab);
+                inst.transform.position = hit.point - randomDir.normalized * .5f;
+            }
+        }
     }
 }

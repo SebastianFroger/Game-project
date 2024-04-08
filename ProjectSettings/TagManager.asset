@@ -12,6 +12,7 @@ TagManager:
   - FxTemporaire
   - InsidePlanetTrigger
   - InsidePlanetTransitionTrigger
+  - spheremask
   layers:
   - Default
   - TransparentFX

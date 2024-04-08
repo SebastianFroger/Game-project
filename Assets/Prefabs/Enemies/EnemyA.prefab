@@ -83,6 +83,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77e6ea37f631e347b5867ed061d447a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: -10
+  gravityFallIncrease: -2
+  slerpValue: 0.1
+  isPlayer: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  isInside: 0
 --- !u!114 &8779180441509374298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +108,10 @@ MonoBehaviour:
   lookAtarget: {fileID: 5452155860448324686}
   moveForce: 5
   stopped: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  onGround: 0
 --- !u!114 &7335987211931231141
 MonoBehaviour:
   m_ObjectHideFlags: 0

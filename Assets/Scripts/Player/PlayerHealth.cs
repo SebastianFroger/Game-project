@@ -68,7 +68,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
                 _nextHeatDammageTime = StatsManager.Instance.TakeHeatDamage();
     }
 
-    public void TakeDamage(float amount, bool ignoreShield = false)
+    public void TakeDamage(float amount)
     {
         if (invincible) return;
 

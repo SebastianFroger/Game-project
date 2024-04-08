@@ -37,11 +37,6 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
 
     private Quaternion _addedRotations = Quaternion.identity;
 
-    private void Start()
-    {
-
-    }
-
     public void SpawnEnvironment()
     {
         foreach (var item in items)
@@ -112,7 +107,6 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
         }
 
         // place player
-        return;
         Physics.SyncTransforms();
         var player = GlobalObjectsManager.Instance.player;
         var rb = player.GetComponent<Rigidbody>();

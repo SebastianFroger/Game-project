@@ -14,6 +14,7 @@ public class UpgradeSO : UnitStatsSO
     public string title;
     public string description;
     public float price;
+    public float crystalsPrice;
     public int startPrice;
     public Sprite image;
 }

@@ -8,30 +8,23 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce = 20;
     public LayerMask layerMask;
     public bool onGround;
+    public static Vector3 lastInsideTrigger;
 
     Vector3 _inputDir;
     Rigidbody _rb;
-    Vector3 _movePos;
     bool jumpPressed = false;
-    GravityBody gravityBody;
     Vector3 moveAmount;
     Vector3 smoothMoveVelocity;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        gravityBody = GetComponent<GravityBody>();
     }
 
     // player movement
     void OnMove(InputValue value)
     {
         _inputDir = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
-    }
-
-    void OnSecondary()
-    {
-        jumpPressed = true;
     }
 
     public void ResetMoveSpeed()
@@ -54,7 +47,6 @@ public class PlayerControl : MonoBehaviour
         if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1.1f, layerMask))
         {
             onGround = true;
-            Debug.DrawLine(transform.position, hit.point, Color.red);
         }
 
         if (onGround && jumpPressed)
@@ -77,5 +69,21 @@ public class PlayerControl : MonoBehaviour
             return;
 
         _rb.MovePosition(_rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("InsidePlanetTrigger"))
+        {
+            lastInsideTrigger = other.ClosestPointOnBounds(transform.position);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("InsidePlanetTrigger"))
+        {
+            lastInsideTrigger = other.ClosestPointOnBounds(transform.position);
+        }
     }
 }

@@ -8,5 +8,5 @@ public interface ISecondary
 
 public interface IHealth
 {
-    void TakeDamage(float amount, bool ignoreShield = false);
+    void TakeDamage(float amount);
 }

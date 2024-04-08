@@ -106,7 +106,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6479988335815413390}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbb362e92b22544db93e77a3a4e2be1, type: 3}
   m_Name: 
@@ -114,6 +114,7 @@ MonoBehaviour:
   roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
   player: {fileID: 0}
   spawnRandomness: 8
+  spawnHeight: 45
 --- !u!114 &2638406913620596162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +155,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d370f6cd08932244b9407e5ac6db2ad8, type: 2}
   allRandomUpgrades: 1
   loadAllUpgradesFromDisk: 0
+  allUpgradesInstance: []
 --- !u!114 &2960729698760636033
 MonoBehaviour:
   m_ObjectHideFlags: 0
