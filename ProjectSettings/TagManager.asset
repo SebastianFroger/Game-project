@@ -21,14 +21,14 @@ TagManager:
   - Water
   - UI
   - Player
-  - Planet
+  - Ground
   - Enemy
   - Weapon
   - Collectable
   - Environment
   - EnemyRangeCollider
   - EnemyProjectile
-  - CameraCollider
+  - 
   - 
   - 
   - 

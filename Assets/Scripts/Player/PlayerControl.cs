@@ -5,26 +5,35 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
     public UnitStatsSO unitStats;
-    public float jumpForce = 20;
+    public float jumpSpeed = 20;
+    public float fallForceIncrese = 1;
     public LayerMask layerMask;
-    public bool onGround;
-    public static Vector3 lastInsideTrigger;
+    public float gravity = -9.81f;
+    public float turnSpeed = 1;
+    public Transform playerMeshTrs;
+    public float slopeForce;
+    public float slopeForceRayLength;
 
     Vector3 _inputDir;
-    Rigidbody _rb;
-    bool jumpPressed = false;
-    Vector3 moveAmount;
-    Vector3 smoothMoveVelocity;
+    CharacterController _controller;
+    Vector3 moveVelocity;
+    bool jumpPressed;
+    Quaternion targetRot;
 
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        _controller = GetComponent<CharacterController>();
     }
 
     // player movement
     void OnMove(InputValue value)
     {
         _inputDir = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
+    }
+
+    void OnJump()
+    {
+        jumpPressed = true;
     }
 
     public void ResetMoveSpeed()
@@ -37,53 +46,69 @@ public class PlayerControl : MonoBehaviour
         GameManager.Instance.PauseMenuToggle();
     }
 
+    bool OnSlope()
+    {
+        if (jumpPressed) return false;
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, _controller.height / 2 * slopeForceRayLength))
+        {
+            if (hit.normal != Vector3.up)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void Update()
     {
-        Vector3 moveDir = _inputDir.normalized;
-        Vector3 targetMoveAmount = moveDir * unitStats.moveSpeed;
-        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f);
+        // // move battery
+        // if (!StatsManager.Instance.IsMoveBatteryEnough())
+        //     return;
 
-        onGround = false;
-        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1.1f, layerMask))
+        // // apply heat and battery cost
+        // if (_inputDir != Vector3.zero)
+        // {
+        //     StatsManager.Instance.CalcMoveCost(Time.deltaTime);
+        // }
+
+        // apply movement
+        if (_controller.isGrounded)
         {
-            onGround = true;
+            moveVelocity = _inputDir * unitStats.moveSpeed;
+            if (jumpPressed)
+            {
+                moveVelocity.y = jumpSpeed;
+                jumpPressed = false;
+            }
+        }
+        else    // fall acc
+        {
+            var velY = moveVelocity.y;
+            moveVelocity = _inputDir * unitStats.moveSpeed;
+            moveVelocity.y = velY;
+            moveVelocity.y += gravity * fallForceIncrese * Time.deltaTime;
+
+            targetRot = Quaternion.FromToRotation(transform.up, new Vector3(0, 1, 0)) * transform.rotation;
         }
 
-        if (onGround && jumpPressed)
+        moveVelocity.y += gravity * Time.deltaTime;
+        _controller.Move(moveVelocity * Time.deltaTime);
+
+
+        // slope force
+        if ((_inputDir.x != 0 || _inputDir.z != 0) && OnSlope())
         {
-            _rb.AddForce(transform.up * jumpForce);
-            jumpPressed = false;
+            _controller.Move(Vector3.down * _controller.height / 2 * slopeForce * Time.deltaTime);
         }
 
-        // apply heat and battery cost
-        if (_inputDir != Vector3.zero)
+        // player rotation to ground
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1.5f, layerMask))
         {
-            StatsManager.Instance.CalcMoveCost(Time.deltaTime);
+            targetRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }
-    }
 
-    void FixedUpdate()
-    {
-        // move battery
-        if (!StatsManager.Instance.IsMoveBatteryEnough())
-            return;
-
-        _rb.MovePosition(_rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("InsidePlanetTrigger"))
-        {
-            lastInsideTrigger = other.ClosestPointOnBounds(transform.position);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("InsidePlanetTrigger"))
-        {
-            lastInsideTrigger = other.ClosestPointOnBounds(transform.position);
-        }
+        playerMeshTrs.rotation = Quaternion.Slerp(playerMeshTrs.rotation, targetRot, turnSpeed * Time.deltaTime);
     }
 }

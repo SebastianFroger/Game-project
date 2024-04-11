@@ -124,7 +124,6 @@ public class RoundManager : Singleton<RoundManager>
 
     void SpawnCrystals()
     {
-        DebugExt.Log(this, $"SpawnCrystals()");
         var amount = (roundDataSO.currentRound + 1) * 2;
         for (int i = 0; i < amount; i++)
         {

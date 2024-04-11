@@ -15,13 +15,11 @@ public class CameraControl : MonoBehaviour
     private Vector3 from;
     private Vector3 direction;
     private GameObject player;
-    private GravityBody gravityBody;
 
 
     private void Start()
     {
         player = GlobalObjectsManager.Instance.player;
-        gravityBody = player.GetComponent<GravityBody>();
         distance = transform.position.y;
     }
 

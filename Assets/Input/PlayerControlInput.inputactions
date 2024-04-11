@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Secondary",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "9c75c433-2c7c-4bea-a8ca-088f044a0426",
                     "expectedControlType": "Button",
@@ -217,7 +217,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Secondary",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -228,7 +228,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Secondary",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

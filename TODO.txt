@@ -7,7 +7,6 @@
 ## BUGS TO FIX LATER
 ------------------------------------------------------------------------
 
-- player spawns over planet
 - % in UIstatscontrol - if upgrade is % show it in ui - store Upgrade classes and add to them??
 - ui not scaling properly with free aspect - fix later if necessary
 
@@ -16,20 +15,33 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- fix enemy target when player is inside
+- create level mockup
+- adjust and test player movement over terrain (no slowdown on slopes, rotate to match ground)
+- pathfinding for enemies 
+- enemy spawn ouside camera view
+- use camera brain (test top down and over shoulder)
+
+- precreated terrain modules?
+- new environment spawn (maybe only for small items)
+
+
 - create xp system? choose between battery upgrades
 - create planet rocks mockup
-- adjust robot life and damage - should it scale?
+- adjust robots life and damage - should it scale?
 - robots should use player battery
 - bye less items - adjsut price and upgrade value
-- more lvls and space laser
 
 - bouncing shot
 
 - reactor drop (go too to get power) upgraed?
 
 
+------------------------------------------------------------------------
+## ENVIRONMENT 
+------------------------------------------------------------------------
 
+- arena like levels
+- up and down levels where to get crystals
 
 
 ------------------------------------------------------------------------

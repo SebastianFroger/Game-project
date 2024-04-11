@@ -10,7 +10,6 @@ public class RuntimeObjectsSO : ScriptableObject
     [HideInInspector] public GameObject playerInst;
     public GameObject planet;
     [HideInInspector] public GameObject planetInst;
-    [HideInInspector] public GravityAttractor gravityAttractorInst;
     public GameObject managers;
     [HideInInspector] public GameObject managersInst;
     public GameObject UI;
@@ -21,7 +20,6 @@ public class RuntimeObjectsSO : ScriptableObject
     {
         // Debug.Log()
         planetInst = Instantiate(planet);
-        gravityAttractorInst = planetInst.GetComponent<GravityAttractor>();
         playerInst = Instantiate(player);
         UIInst = Instantiate(UI);
         managersInst = Instantiate(managers);
