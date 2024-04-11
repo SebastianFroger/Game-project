@@ -1,47 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class EnemyControl : MonoBehaviour
 {
     public UnitStatsSO unitStatsSO;
-    public Transform lookRotationTrs;
-    public Transform lookAtarget;
-    public float moveForce;
-    public bool stopped;
     public LayerMask layerMask;
+    public Transform unitMeshTrs;
+    public float turnSpeed = 1;
 
-    private Vector3 _moveDir;
-    private Vector3 _localMoveDir;
     private Rigidbody _rb;
     private Transform player;
-    private float _speed;
+    private float _startSpeed;
     private bool _isKnockedBack;
-    Vector3 moveAmount;
-    Vector3 smoothMoveVelocity;
-    Vector3 targetVector;
+    NavMeshAgent navMeshAgent;
+    Quaternion targetRot;
+    float _nextDestinationResetTime = 0f;
+    EnemyAttack _enemyAttack;
 
-    void Start()
+    void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         player = GlobalObjectsManager.Instance.player.transform;
-        _speed = unitStatsSO.moveSpeed;
-        targetVector = player.position;
+        _enemyAttack = GetComponent<EnemyAttack>();
+
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.stoppingDistance = _enemyAttack.attackRange;
+        navMeshAgent.destination = player.position;
+        _startSpeed = unitStatsSO.moveSpeed;
+        navMeshAgent.speed = _startSpeed;
     }
 
     private void OnEnable()
     {
-        _speed = unitStatsSO.moveSpeed;
+        navMeshAgent.speed = _startSpeed;
         _isKnockedBack = false;
-        targetVector = GlobalObjectsManager.Instance.player.transform.position;
+    }
+
+    private void Update()
+    {
+        // set destination
+        navMeshAgent.destination = player.position;
+
+        if (Time.time > _nextDestinationResetTime)
+        {
+            navMeshAgent.SetDestination(player.position);
+            _nextDestinationResetTime = Time.time + 5f;
+        }
+
+        // player rotation to ground
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1f, layerMask))
+        {
+            targetRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+        }
+        else
+        {
+            targetRot = Quaternion.FromToRotation(transform.up, new Vector3(0, 1, 0)) * transform.rotation;
+        }
+
+        unitMeshTrs.rotation = Quaternion.Slerp(unitMeshTrs.rotation, targetRot, turnSpeed * Time.deltaTime);
     }
 
     public void SlowDown(float slowAmount)
     {
-        _speed += slowAmount;
-        if (_speed < 0f)
-            _speed = 0f;
+        _startSpeed += slowAmount;
+        if (_startSpeed < 0f)
+            _startSpeed = 0f;
     }
 
     public void KnockBack(float force)
@@ -56,20 +82,5 @@ public class EnemyControl : MonoBehaviour
         _rb.velocity = (transform.position - player.position).normalized * force;
         yield return new WaitForSeconds(1);
         _isKnockedBack = false;
-    }
-
-    private void Update()
-    {
-        if (_isKnockedBack || stopped) return;
-
-
-    }
-
-
-    void FixedUpdate()
-    {
-        if (_isKnockedBack || stopped) return;
-
-        _rb.MovePosition(_rb.position + transform.forward.normalized * unitStatsSO.moveSpeed * Time.fixedDeltaTime);
     }
 }

@@ -48,83 +48,83 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
     void Instantiate(EnvironmentItem item)
     {
         // clumps
-        for (int i = 0; i < item.amountOfClumps; i++)
-        {
-            _addedRotations = UnityEngine.Random.rotation;
+        // for (int i = 0; i < item.amountOfClumps; i++)
+        // {
+        //     _addedRotations = UnityEngine.Random.rotation;
 
-            for (int j = 0; j < item.itemsPrClump; j++)
-            {
-                // inst obj
-                var randomItem = UnityEngine.Random.Range(0, items.Length - 1);
-                var inst = Instantiate(item.prefab[randomItem]);
+        //     for (int j = 0; j < item.itemsPrClump; j++)
+        //     {
+        //         // inst obj
+        //         var randomItem = UnityEngine.Random.Range(0, items.Length - 1);
+        //         var inst = Instantiate(item.prefab[randomItem]);
 
-                // set random y rot
-                inst.transform.rotation = Quaternion.Euler(new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0));
+        //         // set random y rot
+        //         inst.transform.rotation = Quaternion.Euler(new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0));
 
-                var randDist = UnityEngine.Random.Range(item.minDistance, item.maxDistance);
-                var rotAdjusment = Quaternion.Euler(new Vector3(UnityEngine.Random.Range(-randDist, randDist), UnityEngine.Random.Range(-randDist, randDist), UnityEngine.Random.Range(-randDist, randDist)));
-                inst.transform.position = _addedRotations * new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
-                _addedRotations *= rotAdjusment;
+        //         var randDist = UnityEngine.Random.Range(item.minDistance, item.maxDistance);
+        //         var rotAdjusment = Quaternion.Euler(new Vector3(UnityEngine.Random.Range(-randDist, randDist), UnityEngine.Random.Range(-randDist, randDist), UnityEngine.Random.Range(-randDist, randDist)));
+        //         inst.transform.position = _addedRotations * new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
+        //         _addedRotations *= rotAdjusment;
 
-                // rotate to sphere
-                inst.transform.LookAt(Vector3.zero);
-                inst.transform.Rotate(new Vector3(-90, 0, 0));
+        //         // rotate to sphere
+        //         inst.transform.LookAt(Vector3.zero);
+        //         inst.transform.Rotate(new Vector3(-90, 0, 0));
 
-                // scale
-                var scaleVector = UnityEngine.Random.Range(item.scaleFactorMin, item.scaleFactorMax);
-                inst.transform.localScale = new Vector3(scaleVector, scaleVector / heightDivide, scaleVector);
+        //         // scale
+        //         var scaleVector = UnityEngine.Random.Range(item.scaleFactorMin, item.scaleFactorMax);
+        //         inst.transform.localScale = new Vector3(scaleVector, scaleVector / heightDivide, scaleVector);
 
-                // parent to sphere
-                inst.transform.parent = transform;
-            }
-        }
+        //         // parent to sphere
+        //         inst.transform.parent = transform;
+        //     }
+        // }
 
 
-        // total random placment
-        for (int i = 0; i < item.amount; i++)
-        {
-            // inst obj
-            var randomItem = UnityEngine.Random.Range(0, items.Length - 1);
-            var inst = Instantiate(item.prefab[randomItem]);
+        // // total random placment
+        // for (int i = 0; i < item.amount; i++)
+        // {
+        //     // inst obj
+        //     var randomItem = UnityEngine.Random.Range(0, items.Length - 1);
+        //     var inst = Instantiate(item.prefab[randomItem]);
 
-            // set position on top of planet
-            inst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
+        //     // set position on top of planet
+        //     inst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
 
-            // set random y rot
-            inst.transform.rotation = Quaternion.Euler(new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0));
+        //     // set random y rot
+        //     inst.transform.rotation = Quaternion.Euler(new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0));
 
-            // move to random position on sphere and rotate
-            inst.transform.position = UnityEngine.Random.rotation * inst.transform.position;
-            inst.transform.LookAt(Vector3.zero);
-            inst.transform.Rotate(new Vector3(-90, 0, 0));
+        //     // move to random position on sphere and rotate
+        //     inst.transform.position = UnityEngine.Random.rotation * inst.transform.position;
+        //     inst.transform.LookAt(Vector3.zero);
+        //     inst.transform.Rotate(new Vector3(-90, 0, 0));
 
-            // scale
-            var scaleVector = UnityEngine.Random.Range(item.scaleFactorMin, item.scaleFactorMax);
-            inst.transform.localScale = new Vector3(scaleVector, scaleVector / 2, scaleVector);
+        //     // scale
+        //     var scaleVector = UnityEngine.Random.Range(item.scaleFactorMin, item.scaleFactorMax);
+        //     inst.transform.localScale = new Vector3(scaleVector, scaleVector / 2, scaleVector);
 
-            // parent to sphere
-            inst.transform.parent = transform;
-        }
+        //     // parent to sphere
+        //     inst.transform.parent = transform;
+        // }
 
-        // place player
-        Physics.SyncTransforms();
-        var player = GlobalObjectsManager.Instance.player;
-        var rb = player.GetComponent<Rigidbody>();
+        // // place player
+        // Physics.SyncTransforms();
+        // var player = GlobalObjectsManager.Instance.player;
+        // var rb = player.GetComponent<Rigidbody>();
 
-        RaycastHit hitPoint = new RaycastHit();
-        Quaternion randomVector = new Quaternion();
-        var colliders = GetRandomPlacement(ref randomVector);
-        while (colliders.Length > 0)
-        {
-            colliders = GetRandomPlacement(ref randomVector);
-        }
+        // RaycastHit hitPoint = new RaycastHit();
+        // Quaternion randomVector = new Quaternion();
+        // var colliders = GetRandomPlacement(ref randomVector);
+        // while (colliders.Length > 0)
+        // {
+        //     colliders = GetRandomPlacement(ref randomVector);
+        // }
 
-        var pos = randomVector * new Vector3(0, Planet.Instance.GetRadius() + 1, 0);
+        // var pos = randomVector * new Vector3(0, Planet.Instance.GetRadius() + 1, 0);
 
-        rb.Move(pos, Quaternion.Euler(hitPoint.normal));
-        player.transform.LookAt(Vector3.zero);
-        player.transform.Rotate(new Vector3(-90, 0, 0));
-        rb.isKinematic = true;
+        // rb.Move(pos, Quaternion.Euler(hitPoint.normal));
+        // player.transform.LookAt(Vector3.zero);
+        // player.transform.Rotate(new Vector3(-90, 0, 0));
+        // rb.isKinematic = true;
 
         // rb.isKinematic = false;
     }

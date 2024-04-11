@@ -120,6 +120,7 @@ public class RoundManager : Singleton<RoundManager>
         playerStatsSO.shieldBattery = playerStatsSO.maxShieldBattery;
         playerStatsSO.movementBattery = playerStatsSO.maxMoveBattery;
         playerStatsSO.heat = 0;
+        playerStatsSO.points = 0;
     }
 
     void SpawnCrystals()

@@ -63,15 +63,15 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        // // move battery
-        // if (!StatsManager.Instance.IsMoveBatteryEnough())
-        //     return;
+        // move battery
+        if (!StatsManager.Instance.IsMoveBatteryEnough())
+            return;
 
-        // // apply heat and battery cost
-        // if (_inputDir != Vector3.zero)
-        // {
-        //     StatsManager.Instance.CalcMoveCost(Time.deltaTime);
-        // }
+        // apply heat and battery cost
+        if (_inputDir != Vector3.zero)
+        {
+            StatsManager.Instance.CalcMoveCost(Time.deltaTime);
+        }
 
         // apply movement
         if (_controller.isGrounded)
@@ -95,7 +95,6 @@ public class PlayerControl : MonoBehaviour
 
         moveVelocity.y += gravity * Time.deltaTime;
         _controller.Move(moveVelocity * Time.deltaTime);
-
 
         // slope force
         if ((_inputDir.x != 0 || _inputDir.z != 0) && OnSlope())

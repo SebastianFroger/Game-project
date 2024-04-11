@@ -15,13 +15,12 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- create level mockup
-- adjust and test player movement over terrain (no slowdown on slopes, rotate to match ground)
-- pathfinding for enemies 
-- enemy spawn ouside camera view
+- stop enemie agents instantly
+- player death explosion plays multiple times
+
 - use camera brain (test top down and over shoulder)
 
-- precreated terrain modules?
+- precreated terrain modules? 
 - new environment spawn (maybe only for small items)
 
 
@@ -43,6 +42,8 @@
 - arena like levels
 - up and down levels where to get crystals
 
+- pathfinding notes
+-- jump off needs child go with navmesh links - setup per object
 
 ------------------------------------------------------------------------
 ## GAME RULES & STUFF

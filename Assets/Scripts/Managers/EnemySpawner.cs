@@ -6,14 +6,11 @@ using UnityEngine;
 public class EnemySpawner : Singleton<EnemySpawner>
 {
     public RoundDataSO roundDataSO;
-    public GameObject player;
-    public float spawnRandomness = 0.1f;
-    public float spawnHeight;
+    public float mapSizeX = 10f;
+    public float mapSizeZ = 10f;
 
-    private float _spawnInterval;
-    private float _spawnIntervalDecreaseRate;
     private float _nextSpawTime = 0f;
-    private GameObject _instance;
+
 
     private void Update()
     {
@@ -25,20 +22,20 @@ public class EnemySpawner : Singleton<EnemySpawner>
         if (Time.time > _nextSpawTime)
         {
             _nextSpawTime = Time.time + (1 / roundDataSO.roundDatas[roundDataSO.currentRound].spawnPrSec);
-            _instance = MyObjectPool.Instance.GetInstance(EnemySelector());
-
-            // spawn on oposite side of the planet from the player
-            _instance.transform.position = RandomPoint() * spawnHeight;
-
-            if (_spawnInterval > (1 / roundDataSO.roundDatas[roundDataSO.currentRound].maxspawnPrSec))
-                _spawnInterval -= _spawnIntervalDecreaseRate;
+            MyObjectPool.Instance.GetInstance(EnemySelector(), SpawnPoint(), Quaternion.identity);
         }
     }
 
-    Vector3 RandomPoint()
+    private Vector3 SpawnPoint()
     {
-        var randomPoint = new Vector3(Random.Range(-spawnRandomness, spawnRandomness), Random.Range(-spawnRandomness, spawnRandomness), Random.Range(-spawnRandomness, spawnRandomness));
-        return ((player.transform.position * -1) + randomPoint).normalized;
+        var randomPoint = new Vector3(Random.Range(-mapSizeX, mapSizeX), 0, Random.Range(-mapSizeZ, mapSizeZ));
+        Vector3 camViewPos = Camera.main.WorldToViewportPoint(randomPoint);
+        while (camViewPos.x > 0 && camViewPos.x < 1 && camViewPos.y > 0 && camViewPos.y < 1)
+        {
+            randomPoint = new Vector3(Random.Range(-mapSizeX, mapSizeX), 0, Random.Range(-mapSizeZ, mapSizeZ));
+            camViewPos = Camera.main.WorldToViewportPoint(randomPoint);
+        }
+        return randomPoint;
     }
 
     private GameObject EnemySelector()

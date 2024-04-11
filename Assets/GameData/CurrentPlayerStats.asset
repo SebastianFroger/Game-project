@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ade6c83b22923442b6fa3162562cf0b, type: 3}
   m_Name: CurrentPlayerStats
   m_EditorClassIdentifier: 
-  points: 100
+  points: 8
   crystals: 10
   configurationPoints: 12
-  movementBattery: 75
+  movementBattery: 62.60756
   maxMoveBattery: 75
   moveBatteryRegenPerSecond: 0
   moveBatteryCostPerSecond: 0.8
@@ -24,7 +24,7 @@ MonoBehaviour:
   damage: 10
   attacksPerSecond: 1
   critChancePercentage: 0
-  laserBattery: 74
+  laserBattery: 61
   maxLaserBattery: 75
   LaserBatteryRegenPerSecond: 0
   laserCost: 1
@@ -37,12 +37,12 @@ MonoBehaviour:
   enemySlowPercentage: 0
   enemyKnockBackForce: 0
   numberOfAttackRobots: 0
-  shieldBattery: 75
+  shieldBattery: 0
   maxShieldBattery: 75
   shieldBatteryRegenPerSecond: 0
-  hitPoints: 100
+  hitPoints: 75
   maxHitPoints: 100
-  heat: 0
+  heat: 6.3455577
   maxHeat: 75
   heatCoolingPerSecond: 1
   heatDammage: 5

@@ -21,10 +21,8 @@ public class RobotsManager : Singleton<RobotsManager>
         var playerTrs = GlobalObjectsManager.Instance.player.transform;
         for (int i = 0; i < unitStatsSO.numberOfAttackRobots; i++)
         {
-
-            var randomVector = playerTrs.rotation.eulerAngles + new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)).normalized * 10;
-            var posAroundPlayer = Quaternion.Euler(randomVector) * new Vector3(0, Planet.Instance.GetRadius(), 0);
-            var robot = MyObjectPool.Instance.GetInstance(robotPrefab, posAroundPlayer, Quaternion.identity);
+            var randomVector = playerTrs.position + new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)).normalized * 10;
+            var robot = MyObjectPool.Instance.GetInstance(robotPrefab, randomVector, Quaternion.identity);
 
             robots.Add(robot);
         }

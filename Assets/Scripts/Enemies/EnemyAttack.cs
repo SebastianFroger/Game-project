@@ -2,90 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class EnemyAttack : MonoBehaviour
 {
     public UnitStatsSO unitStatsSO;
+    public float attackRange;
     public bool rangedAttack;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+    public bool inAttackRange;
 
     private IHealth _health;
     private float _nextAttackTime = 0f;
-    private bool _inRange;
     private GameObject _bulletInst;
     private Transform _player;
-    private EnemyControl _enemyControl;
 
-    private void OnEnable()
+    private void Start()
     {
-        if (_enemyControl == null)
-            _enemyControl = GetComponent<EnemyControl>();
-        _enemyControl.stopped = false;
+        _player = GlobalObjectsManager.Instance.player.transform;
     }
 
     private void Update()
     {
-        if (!rangedAttack) return;
+        CheckIfInRange();
 
-        if (Time.time > _nextAttackTime && _inRange)
+        if (!inAttackRange)
+            return;
+
+        if (Time.time > _nextAttackTime)
         {
             _nextAttackTime = Time.time + (1f / unitStatsSO.attacksPerSecond);
 
-            // fire
-            _bulletInst = MyObjectPool.Instance.GetInstance(bulletPrefab);
-            _bulletInst.transform.position = bulletSpawn.position;
-            _bulletInst.transform.LookAt(_player);
+            if (rangedAttack)
+            {
+                // fire
+                _bulletInst = MyObjectPool.Instance.GetInstance(bulletPrefab);
+                _bulletInst.transform.position = bulletSpawn.position;
+                _bulletInst.transform.LookAt(_player);
+            }
+            else
+            {
+                // melee
+                if (_health == null)
+                    _health = _player.GetComponent<IHealth>();
+                _health.TakeDamage(unitStatsSO.damage);
+            }
         }
     }
 
-    // ranged
-    private void OnTriggerEnter(Collider other)
+    // calculate distance to player if less than attack range return true
+    void CheckIfInRange()
     {
-        if (!other.gameObject.CompareTag("Player")) return;
-        _enemyControl.stopped = true;
-        _inRange = true;
-        if (_player == null)
-            _player = other.transform;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.gameObject.CompareTag("Player")) return;
-        _enemyControl.stopped = false;
-        _inRange = false;
-    }
-
-    // melee
-    private void OnCollisionStay(Collision other)
-    {
-        if (!other.gameObject.CompareTag("Player")) return;
-        if (!rangedAttack)
+        inAttackRange = false;
+        if (Vector3.Distance(transform.position, _player.position) < attackRange)
         {
-            _enemyControl.stopped = true;
-            if (Time.time < _nextAttackTime) return;
-
-            if (_health == null)
-                _health = other.gameObject.GetComponent<IHealth>();
-
-            _health.TakeDamage(unitStatsSO.damage);
-
-            _nextAttackTime = Time.time + (1 / unitStatsSO.attacksPerSecond);
+            inAttackRange = true;
         }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (!other.gameObject.CompareTag("Player")) return;
-        if (!rangedAttack)
-        {
-            _enemyControl.stopped = false;
-        }
-    }
-
-    private void OnDisable()
-    {
-        _inRange = false;
     }
 }
