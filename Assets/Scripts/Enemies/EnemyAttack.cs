@@ -5,14 +5,12 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class EnemyAttack : MonoBehaviour
+public class EnemyAttack : Attack
 {
     public UnitStatsSO unitStatsSO;
-    public float attackRange;
     public bool rangedAttack;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    public bool inAttackRange;
 
     private IHealth _health;
     private float _nextAttackTime = 0f;

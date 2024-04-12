@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyExplosionAttack : MonoBehaviour
+public class EnemyExplosionAttack : Attack
 {
     public UnitStatsSO unitStatsSO;
     public float explosionRange;
     public LayerMask layerMask;
 
     private Health _health;
+    private Transform _player;
 
     private void Start()
     {
         _health = GetComponent<Health>();
+        _player = GlobalObjectsManager.Instance.player.transform;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (!other.gameObject.CompareTag("Player")) return;
-        _health.TakeDamage(500);
+        CheckIfInRange();
+        if (inAttackRange)
+        {
+            Explode();
+        }
     }
 
     // called by Healt OnDeathEvent
@@ -31,5 +36,15 @@ public class EnemyExplosionAttack : MonoBehaviour
         }
 
         _health.TakeDamage(500);
+    }
+
+    // calculate distance to player if less than attack range return true
+    void CheckIfInRange()
+    {
+        inAttackRange = false;
+        if (Vector3.Distance(transform.position, _player.position) < attackRange)
+        {
+            inAttackRange = true;
+        }
     }
 }

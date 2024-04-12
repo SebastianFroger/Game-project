@@ -15,17 +15,12 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- stop enemie agents instantly
-- player death explosion plays multiple times
-
-- use camera brain (test top down and over shoulder)
-
-- precreated terrain modules? 
+- use camera brain (test top down and over shoulder) - will it mess up the control directions
+- create planet rocks mockup
 - new environment spawn (maybe only for small items)
 
 
 - create xp system? choose between battery upgrades
-- create planet rocks mockup
 - adjust robots life and damage - should it scale?
 - robots should use player battery
 - bye less items - adjsut price and upgrade value

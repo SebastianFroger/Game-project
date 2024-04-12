@@ -18,13 +18,13 @@ public class EnemyControl : MonoBehaviour
     NavMeshAgent navMeshAgent;
     Quaternion targetRot;
     float _nextDestinationResetTime = 0f;
-    EnemyAttack _enemyAttack;
+    Attack _enemyAttack;
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         player = GlobalObjectsManager.Instance.player.transform;
-        _enemyAttack = GetComponent<EnemyAttack>();
+        _enemyAttack = GetComponent<Attack>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.stoppingDistance = _enemyAttack.attackRange;
@@ -41,6 +41,16 @@ public class EnemyControl : MonoBehaviour
 
     private void Update()
     {
+        if (_enemyAttack.inAttackRange)
+        {
+            navMeshAgent.isStopped = true;
+            return;
+        }
+        else
+        {
+            navMeshAgent.isStopped = false;
+        }
+
         // set destination
         navMeshAgent.destination = player.position;
 

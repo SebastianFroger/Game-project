@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public ParticleSystem sparksEffect;
 
     private float _nextHeatDammageTime = 0;
+    bool isDead = false;
 
     private void OnEnable()
     {
@@ -75,8 +76,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
         StatsManager.Instance.TakeDamage(amount);
 
         // death event
-        if (unitStats.hitPoints <= 0)
+        if (unitStats.hitPoints <= 0 && !isDead)
         {
+            isDead = true;
             if (OnDeathEvent != null)
             {
                 OnDeathEvent.Invoke();

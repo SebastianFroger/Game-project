@@ -48,7 +48,7 @@ public class PlayerAttack : MonoBehaviour
             transform.localPosition = new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);
             _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
             _bulletInst.transform.position = transform.position;
-            _bulletInst.transform.LookAt(_targets[i % _targets.Count]);
+            _bulletInst.transform.LookAt(_targets[i % _targets.Count].position + new Vector3(0, .5f, 0));
         }
 
 
