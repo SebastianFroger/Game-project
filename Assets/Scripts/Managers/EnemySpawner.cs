@@ -30,15 +30,16 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private Vector3 SpawnPoint()
     {
         Vector3 raycastHit = Vector3.zero;
-        var randomPoint = GetRandomPoint();
+        var randomPoint = new Vector3();
+        var inCameraView = true;
 
-        while (raycastHit == Vector3.zero || IsInCameraView(randomPoint))
+        while (raycastHit == Vector3.zero || inCameraView)
         {
             randomPoint = GetRandomPoint();
             if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 1000f, groundLayer))
             {
                 raycastHit = hit2.point;
-                DebugExt.Log(this, $"raycastHit");
+                inCameraView = IsInCameraView(raycastHit);
             }
         }
 

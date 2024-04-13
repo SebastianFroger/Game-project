@@ -41,6 +41,7 @@ public class MyObjectPool : Singleton<MyObjectPool>
 
         newInst.transform.position = position;
         newInst.transform.rotation = rotation;
+        newInst.SetActive(true);
 
         return newInst;
     }

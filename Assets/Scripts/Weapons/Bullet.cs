@@ -17,18 +17,29 @@ public class Bullet : MonoBehaviour
     public float rotate;
     public Transform target;
     public bool enemyBullet;
+    public float flashIntensity = 10f;
+    public float normalLightIntensity = 1f;
 
     private Vector3 startPosition;
     private Vector3 _prevPosition;
     private float _damage;
     private IHealth _targetHP;
     private List<Collider> _hitColliders = new List<Collider>();
+    Light _light;
+
+    private void Start()
+    {
+        _light = GetComponentInChildren<Light>();
+        normalLightIntensity = _light.intensity;
+    }
 
     private void OnEnable()
     {
         startPosition = transform.position;
         _prevPosition = GlobalObjectsManager.Instance.player.transform.position;
         _hitColliders.Clear();
+
+        _light.intensity = flashIntensity;
 
         if (enemyBullet)
             return;
@@ -39,6 +50,9 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
+        DebugExt.Log(this, $"_light.intensity = {_light.intensity}");
+        _light.intensity = Mathf.Lerp(_light.intensity, normalLightIntensity, .7f);
+
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (Vector3.Distance(startPosition, transform.position) >= distance)

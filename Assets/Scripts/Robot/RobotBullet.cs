@@ -15,11 +15,19 @@ public class RobotBullet : MonoBehaviour
     public UnityEvent OnHitEvent;
     public LayerMask layerMask;
     public bool useRaycast;
-
+    public float flashIntensity = 10f;
+    public float normalLightIntensity = 1f;
 
     private Vector3 startPosition;
     private Vector3 _prevPosition;
     private IHealth _targetHP;
+    Light _light;
+
+    private void Start()
+    {
+        _light = GetComponentInChildren<Light>();
+        normalLightIntensity = _light.intensity;
+    }
 
     private void OnEnable()
     {
@@ -29,6 +37,8 @@ public class RobotBullet : MonoBehaviour
 
     private void Update()
     {
+        _light.intensity = Mathf.Lerp(_light.intensity, normalLightIntensity, .7f);
+
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (Vector3.Distance(startPosition, transform.position) >= distance)

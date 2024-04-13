@@ -16,7 +16,7 @@ MonoBehaviour:
   currentRound: 0
   roundDatas:
   - timeSec: 60
-    spawnPrSec: 2
+    spawnPrSec: 1
     spawnPrSecIncrement: 0
     maxspawnPrSec: 10
     enemies:
@@ -24,7 +24,7 @@ MonoBehaviour:
         type: 3}
       spawnChance: 100
   - timeSec: 65
-    spawnPrSec: 2.3
+    spawnPrSec: 1.3
     spawnPrSecIncrement: 0
     maxspawnPrSec: 10
     enemies:
@@ -35,7 +35,7 @@ MonoBehaviour:
         type: 3}
       spawnChance: 0
   - timeSec: 70
-    spawnPrSec: 2.5
+    spawnPrSec: 1.5
     spawnPrSecIncrement: 0
     maxspawnPrSec: 90
     enemies:
@@ -46,7 +46,7 @@ MonoBehaviour:
         type: 3}
       spawnChance: 15
   - timeSec: 75
-    spawnPrSec: 2.7
+    spawnPrSec: 1.7
     spawnPrSecIncrement: 0
     maxspawnPrSec: 4
     enemies:
@@ -57,7 +57,7 @@ MonoBehaviour:
         type: 3}
       spawnChance: 50
   - timeSec: 85
-    spawnPrSec: 2.9
+    spawnPrSec: 1.9
     spawnPrSecIncrement: 0
     maxspawnPrSec: 4
     enemies:
@@ -71,7 +71,7 @@ MonoBehaviour:
         type: 3}
       spawnChance: 15
   - timeSec: 90
-    spawnPrSec: 3.1
+    spawnPrSec: 2.1
     spawnPrSecIncrement: 0
     maxspawnPrSec: 4
     enemies:
@@ -88,7 +88,7 @@ MonoBehaviour:
         type: 3}
       spawnChance: 15
   - timeSec: 95
-    spawnPrSec: 3.3
+    spawnPrSec: 2
     spawnPrSecIncrement: 0
     maxspawnPrSec: 3.5
     enemies:
@@ -105,9 +105,9 @@ MonoBehaviour:
         type: 3}
       spawnChance: 30
   - timeSec: 100
-    spawnPrSec: 3
+    spawnPrSec: 2
     spawnPrSecIncrement: 0
-    maxspawnPrSec: 3.5
+    maxspawnPrSec: 2.5
     enemies:
     - prefab: {fileID: 328409505970683906, guid: 464cc7c4f7ea10b47a36d7848aa9ca9a,
         type: 3}
@@ -122,7 +122,7 @@ MonoBehaviour:
         type: 3}
       spawnChance: 45
   - timeSec: 105
-    spawnPrSec: 3
+    spawnPrSec: 2
     spawnPrSecIncrement: 0
     maxspawnPrSec: 3.5
     enemies:
@@ -139,7 +139,7 @@ MonoBehaviour:
         type: 3}
       spawnChance: 50
   - timeSec: 80
-    spawnPrSec: 3
+    spawnPrSec: 2
     spawnPrSecIncrement: 0
     maxspawnPrSec: 3.5
     enemies:

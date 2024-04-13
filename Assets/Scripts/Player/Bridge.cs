@@ -111,7 +111,7 @@ public class Bridge : MonoBehaviour
 
             if (_barrierActive)
             {
-                _instance.transform.position = transform.position + new Vector3(0, 2, 0) + _lastInputDir * 5;
+                _instance.transform.position = transform.position + new Vector3(0, 0, 0) + _lastInputDir * 5;
                 _instance.transform.rotation = Quaternion.Slerp(_instance.transform.rotation, Quaternion.LookRotation(_lastInputDir), slerpValue);
             }
         }

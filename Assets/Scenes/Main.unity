@@ -2820,6 +2820,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4519636139055943188, guid: c343ff799921e054ea4bfb150fe574a8,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116086132111266359, guid: c343ff799921e054ea4bfb150fe574a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Backlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642104203467200724, guid: c343ff799921e054ea4bfb150fe574a8,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8404484069609113354, guid: c343ff799921e054ea4bfb150fe574a8,
         type: 3}
       propertyPath: m_Name
