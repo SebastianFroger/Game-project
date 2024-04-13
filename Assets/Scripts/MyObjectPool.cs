@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class MyObjectPool : Singleton<MyObjectPool>
 {
@@ -31,6 +29,7 @@ public class MyObjectPool : Singleton<MyObjectPool>
                     newInst.transform.position = position;
                     newInst.transform.rotation = rotation;
                     _poolDict[key].Add(newInst);
+                    newInst.SetActive(true);
                     return newInst;
                 }
             }
@@ -49,8 +48,8 @@ public class MyObjectPool : Singleton<MyObjectPool>
 
     private GameObject InstantiateNew(GameObject obj)
     {
-        var inst = Instantiate(obj);
-        inst.transform.parent = this.transform;
+        var inst = Instantiate(obj, this.transform);
+        inst.SetActive(false);
         return inst;
     }
 

@@ -15,7 +15,6 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- use camera brain (test top down and over shoulder) - will it mess up the control directions
 - create planet rocks mockup
 - new environment spawn (maybe only for small items)
 

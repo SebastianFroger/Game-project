@@ -69,9 +69,10 @@ public class UnitStatsSO : ScriptableObject
 
     [Header("")]
     [Header("Secondary")]
-    public float cooldownTime;
-    public float maxCooldownTime;
-    public float cooldownTimeReduction;
+    public float barrierCooldownTime;
+    public float barrierCooldownTimeMax;
+    public float bridgeCooldownTime;
+    public float bridgeCooldownTimeMax;
 
     [Header("")]
     [Header("Other")]

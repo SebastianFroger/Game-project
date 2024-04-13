@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +7,9 @@ public class RoundManager : Singleton<RoundManager>
     public RoundDataSO roundDataSO;
     public UnitStatsSO playerStatsSO;
     public GameObject crystalPrefab;
-    public LayerMask layerMask;
+    public LayerMask groundLayer;
+    float mapSizeX = 100f;
+    float mapSizeZ = 100f;
 
     private float _nextRoundTime = 0f;
     private UnitStatsSO _savedPlayerStatsSO;
@@ -121,6 +122,7 @@ public class RoundManager : Singleton<RoundManager>
         playerStatsSO.movementBattery = playerStatsSO.maxMoveBattery;
         playerStatsSO.heat = 0;
         playerStatsSO.points = 0;
+        playerStatsSO.crystals = 0;
     }
 
     void SpawnCrystals()
@@ -128,12 +130,30 @@ public class RoundManager : Singleton<RoundManager>
         var amount = (roundDataSO.currentRound + 1) * 2;
         for (int i = 0; i < amount; i++)
         {
-            var randomDir = UnityEngine.Random.rotation.eulerAngles;
-            if (Physics.Raycast(Vector3.zero, randomDir, out RaycastHit hit, 1000f, layerMask))
+            var crystal = Instantiate(crystalPrefab);
+            crystal.transform.position = SpawnPoint();
+        }
+    }
+
+    private Vector3 SpawnPoint()
+    {
+        Vector3 raycastHit = Vector3.zero;
+        var randomPoint = GetRandomPoint();
+
+        while (raycastHit == Vector3.zero)
+        {
+            randomPoint = GetRandomPoint();
+            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 1000f, groundLayer))
             {
-                var inst = MyObjectPool.Instance.GetInstance(crystalPrefab);
-                inst.transform.position = hit.point - randomDir.normalized * .5f;
+                raycastHit = hit2.point;
             }
         }
+
+        return randomPoint;
+    }
+
+    Vector3 GetRandomPoint()
+    {
+        return new Vector3(Random.Range(-mapSizeX, mapSizeX), 0, Random.Range(-mapSizeZ, mapSizeZ));
     }
 }

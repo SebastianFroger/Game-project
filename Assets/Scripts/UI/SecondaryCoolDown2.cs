@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SecondaryCoolDown : MonoBehaviour
+public class SecondaryCoolDown2 : MonoBehaviour
 {
     public Image image;
     public UnitStatsSO unitStats;
@@ -11,12 +11,12 @@ public class SecondaryCoolDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (unitStats.bridgeCooldownTime <= 0)
+        if (unitStats.barrierCooldownTime <= 0)
         {
             image.fillAmount = 0;
             return;
         }
 
-        image.fillAmount = unitStats.bridgeCooldownTime / unitStats.bridgeCooldownTimeMax;
+        image.fillAmount = unitStats.barrierCooldownTime / unitStats.barrierCooldownTimeMax;
     }
 }

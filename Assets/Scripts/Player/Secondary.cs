@@ -13,34 +13,34 @@ public class Secondary : Singleton<Secondary>
 
     private float _nextActionTime = 0f;
 
-    private void Update()
-    {
-        if (unitStats.cooldownTime > 0)
-        {
-            unitStats.cooldownTime -= Time.deltaTime;
-        }
-    }
+    // private void Update()
+    // {
+    //     if (unitStats.cooldownTime > 0)
+    //     {
+    //         unitStats.cooldownTime -= Time.deltaTime;
+    //     }
+    // }
 
-    public void SetSecondary(ISecondary secondary)
-    {
-        var inst = Instantiate(secondary as UpgradeSO);
-        if (this.secondary == null)
-        {
-            this.secondary = inst;
-            image.sprite = inst.image;
-            return;
-        }
+    // public void SetSecondary(ISecondary secondary)
+    // {
+    //     var inst = Instantiate(secondary as UpgradeSO);
+    //     if (this.secondary == null)
+    //     {
+    //         this.secondary = inst;
+    //         image.sprite = inst.image;
+    //         return;
+    //     }
 
-        if (this.secondary.GetType() == secondary.GetType())
-        {
-            (secondary as ISecondary).Upgrade();
-        }
-        else
-        {
-            image.sprite = inst.image;
-            this.secondary = inst;
-        }
-    }
+    //     if (this.secondary.GetType() == secondary.GetType())
+    //     {
+    //         (secondary as ISecondary).Upgrade();
+    //     }
+    //     else
+    //     {
+    //         image.sprite = inst.image;
+    //         this.secondary = inst;
+    //     }
+    // }
 
     // void OnSecondary()
     // {

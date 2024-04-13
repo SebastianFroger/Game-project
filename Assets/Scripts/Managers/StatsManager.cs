@@ -157,12 +157,12 @@ public class StatsManager : Singleton<StatsManager>
 
     public void ApplyUpgrade(UnitStatsSO upgradeStats)
     {
-        // secondary upgrade
-        if (upgradeStats is ISecondary)
-        {
-            Secondary.Instance.SetSecondary((ISecondary)upgradeStats);
-            return;
-        }
+        // // secondary upgrade
+        // if (upgradeStats is ISecondary)
+        // {
+        //     Secondary.Instance.SetSecondary((ISecondary)upgradeStats);
+        //     return;
+        // }
 
 
         // normal upgrade

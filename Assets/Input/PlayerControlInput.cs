@@ -53,6 +53,33 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BridgeControl"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8a565e19-b978-49d6-89ba-92059cda1750"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BridgeInstantiate"",
+                    ""type"": ""Button"",
+                    ""id"": ""ada22ab5-2194-4a9f-bcc3-00a152b8deba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BarrierInstantiate"",
+                    ""type"": ""Button"",
+                    ""id"": ""41bfb548-999e-40ce-bbb7-ad0ce35a7bd4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -251,6 +278,83 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""226c3469-6a28-427e-a25f-1647ac018b0e"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BridgeControl"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d226aeb8-733c-4602-b3a0-80e2fd012c98"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BridgeControl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""dc6e2c16-5334-411a-8d14-4841d01e0142"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BridgeControl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""4b68cb4c-dbd8-488f-84a8-917a29dce194"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BridgeControl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""82dc5a23-0dcc-4452-a4e6-f9fb0ea4bc02"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BridgeControl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cac42ca9-9f9e-44ef-9f94-b0a81ca81a0c"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BridgeInstantiate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46bc9e02-fc02-4c30-8acd-6264dc6f4af8"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BarrierInstantiate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -553,6 +657,9 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
         m_PlayerControl_TogglePause = m_PlayerControl.FindAction("TogglePause", throwIfNotFound: true);
         m_PlayerControl_Move = m_PlayerControl.FindAction("Move", throwIfNotFound: true);
         m_PlayerControl_Jump = m_PlayerControl.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerControl_BridgeControl = m_PlayerControl.FindAction("BridgeControl", throwIfNotFound: true);
+        m_PlayerControl_BridgeInstantiate = m_PlayerControl.FindAction("BridgeInstantiate", throwIfNotFound: true);
+        m_PlayerControl_BarrierInstantiate = m_PlayerControl.FindAction("BarrierInstantiate", throwIfNotFound: true);
         // Menu Control
         m_MenuControl = asset.FindActionMap("Menu Control", throwIfNotFound: true);
         m_MenuControl_Navigate = m_MenuControl.FindAction("Navigate", throwIfNotFound: true);
@@ -622,6 +729,9 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControl_TogglePause;
     private readonly InputAction m_PlayerControl_Move;
     private readonly InputAction m_PlayerControl_Jump;
+    private readonly InputAction m_PlayerControl_BridgeControl;
+    private readonly InputAction m_PlayerControl_BridgeInstantiate;
+    private readonly InputAction m_PlayerControl_BarrierInstantiate;
     public struct PlayerControlActions
     {
         private @PlayerControlInput m_Wrapper;
@@ -629,6 +739,9 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
         public InputAction @TogglePause => m_Wrapper.m_PlayerControl_TogglePause;
         public InputAction @Move => m_Wrapper.m_PlayerControl_Move;
         public InputAction @Jump => m_Wrapper.m_PlayerControl_Jump;
+        public InputAction @BridgeControl => m_Wrapper.m_PlayerControl_BridgeControl;
+        public InputAction @BridgeInstantiate => m_Wrapper.m_PlayerControl_BridgeInstantiate;
+        public InputAction @BarrierInstantiate => m_Wrapper.m_PlayerControl_BarrierInstantiate;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -647,6 +760,15 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @BridgeControl.started += instance.OnBridgeControl;
+            @BridgeControl.performed += instance.OnBridgeControl;
+            @BridgeControl.canceled += instance.OnBridgeControl;
+            @BridgeInstantiate.started += instance.OnBridgeInstantiate;
+            @BridgeInstantiate.performed += instance.OnBridgeInstantiate;
+            @BridgeInstantiate.canceled += instance.OnBridgeInstantiate;
+            @BarrierInstantiate.started += instance.OnBarrierInstantiate;
+            @BarrierInstantiate.performed += instance.OnBarrierInstantiate;
+            @BarrierInstantiate.canceled += instance.OnBarrierInstantiate;
         }
 
         private void UnregisterCallbacks(IPlayerControlActions instance)
@@ -660,6 +782,15 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @BridgeControl.started -= instance.OnBridgeControl;
+            @BridgeControl.performed -= instance.OnBridgeControl;
+            @BridgeControl.canceled -= instance.OnBridgeControl;
+            @BridgeInstantiate.started -= instance.OnBridgeInstantiate;
+            @BridgeInstantiate.performed -= instance.OnBridgeInstantiate;
+            @BridgeInstantiate.canceled -= instance.OnBridgeInstantiate;
+            @BarrierInstantiate.started -= instance.OnBarrierInstantiate;
+            @BarrierInstantiate.performed -= instance.OnBarrierInstantiate;
+            @BarrierInstantiate.canceled -= instance.OnBarrierInstantiate;
         }
 
         public void RemoveCallbacks(IPlayerControlActions instance)
@@ -762,6 +893,9 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
         void OnTogglePause(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnBridgeControl(InputAction.CallbackContext context);
+        void OnBridgeInstantiate(InputAction.CallbackContext context);
+        void OnBarrierInstantiate(InputAction.CallbackContext context);
     }
     public interface IMenuControlActions
     {

@@ -33,7 +33,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                     {
                         Debug.LogError("[Singleton] Something went really wrong " +
                             " - there should never be more than 1 singleton!" +
-                            " Reopening the scene might fix it.");
+                            " Reopening the scene might fix it." +
+                            $"{typeof(T).ToString()}");
                         return _instance;
                     }
 
@@ -52,7 +53,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                         //Debug.Log("[Singleton] Using instance already created: " + _instance.gameObject.name);
                     }
                 }
-
                 return _instance;
             }
         }

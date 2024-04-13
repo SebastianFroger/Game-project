@@ -106,27 +106,6 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
         //     inst.transform.parent = transform;
         // }
 
-        // // place player
-        // Physics.SyncTransforms();
-        // var player = GlobalObjectsManager.Instance.player;
-        // var rb = player.GetComponent<Rigidbody>();
-
-        // RaycastHit hitPoint = new RaycastHit();
-        // Quaternion randomVector = new Quaternion();
-        // var colliders = GetRandomPlacement(ref randomVector);
-        // while (colliders.Length > 0)
-        // {
-        //     colliders = GetRandomPlacement(ref randomVector);
-        // }
-
-        // var pos = randomVector * new Vector3(0, Planet.Instance.GetRadius() + 1, 0);
-
-        // rb.Move(pos, Quaternion.Euler(hitPoint.normal));
-        // player.transform.LookAt(Vector3.zero);
-        // player.transform.Rotate(new Vector3(-90, 0, 0));
-        // rb.isKinematic = true;
-
-        // rb.isKinematic = false;
     }
 
 

@@ -8,6 +8,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public RoundDataSO roundDataSO;
     public float mapSizeX = 10f;
     public float mapSizeZ = 10f;
+    public LayerMask groundLayer;
 
     private float _nextSpawTime = 0f;
 
@@ -28,14 +29,31 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
     private Vector3 SpawnPoint()
     {
-        var randomPoint = new Vector3(Random.Range(-mapSizeX, mapSizeX), 0, Random.Range(-mapSizeZ, mapSizeZ));
-        Vector3 camViewPos = Camera.main.WorldToViewportPoint(randomPoint);
-        while (camViewPos.x > 0 && camViewPos.x < 1 && camViewPos.y > 0 && camViewPos.y < 1)
+        Vector3 raycastHit = Vector3.zero;
+        var randomPoint = GetRandomPoint();
+
+        while (raycastHit == Vector3.zero || IsInCameraView(randomPoint))
         {
-            randomPoint = new Vector3(Random.Range(-mapSizeX, mapSizeX), 0, Random.Range(-mapSizeZ, mapSizeZ));
-            camViewPos = Camera.main.WorldToViewportPoint(randomPoint);
+            randomPoint = GetRandomPoint();
+            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 1000f, groundLayer))
+            {
+                raycastHit = hit2.point;
+                DebugExt.Log(this, $"raycastHit");
+            }
         }
-        return randomPoint;
+
+        return raycastHit;
+    }
+
+    Vector3 GetRandomPoint()
+    {
+        return new Vector3(Random.Range(-mapSizeX, mapSizeX), 100, Random.Range(-mapSizeZ, mapSizeZ));
+    }
+
+    bool IsInCameraView(Vector3 point)
+    {
+        Vector3 camViewPos = Camera.main.WorldToViewportPoint(point);
+        return camViewPos.x > 0 && camViewPos.x < 1 && camViewPos.y > 0 && camViewPos.y < 1;
     }
 
     private GameObject EnemySelector()
