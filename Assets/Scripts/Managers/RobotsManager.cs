@@ -21,7 +21,7 @@ public class RobotsManager : Singleton<RobotsManager>
         var playerTrs = GlobalObjectsManager.Instance.player.transform;
         for (int i = 0; i < unitStatsSO.numberOfAttackRobots; i++)
         {
-            var randomVector = playerTrs.position + new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)).normalized * 10;
+            var randomVector = playerTrs.position + new Vector3(Random.Range(-5, 5), 1, Random.Range(-5, 5)).normalized * 10;
             var robot = MyObjectPool.Instance.GetInstance(robotPrefab, randomVector, Quaternion.identity);
 
             robots.Add(robot);

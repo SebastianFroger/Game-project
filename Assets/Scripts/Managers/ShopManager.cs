@@ -56,6 +56,7 @@ public class ShopManager : Singleton<ShopManager>
 
     public void OnReroll()
     {
+        DebugExt.Log(this, $"Reroll");
         // take points
         if (unitStats.points < _rerollPrice)
             return;

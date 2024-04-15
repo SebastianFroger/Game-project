@@ -83,6 +83,7 @@ public class PlayerControl : MonoBehaviour
                 jumpPressed = false;
             }
         }
+
         else    // fall acc
         {
             var velY = moveVelocity.y;

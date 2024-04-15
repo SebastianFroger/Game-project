@@ -2,31 +2,29 @@
 ## BUGS & SHIT CODE & GAMEPLAY ISSUES
 ------------------------------------------------------------------------
 
-
-------------------------------------------------------------------------
-## BUGS TO FIX LATER
-------------------------------------------------------------------------
-
-- % in UIstatscontrol - if upgrade is % show it in ui - store Upgrade classes and add to them??
-- ui not scaling properly with free aspect - fix later if necessary
+- knockback navmesh error?
 
 
 ------------------------------------------------------------------------
 ## TODO
 ------------------------------------------------------------------------
 
-- create planet rocks mockup
-- new environment spawn (maybe only for small items)
+- up and down levels where to get crystals
 
+
+------------------------------------------------------------------------
+## BACKLOG
+------------------------------------------------------------------------
 
 - create xp system? choose between battery upgrades
+- too many batteries? remove shield?
+- player spider legs movement
+- new environment spawn (maybe only for small items)
 - adjust robots life and damage - should it scale?
-- robots should use player battery
-- bye less items - adjsut price and upgrade value
-
 - bouncing shot
-
-- reactor drop (go too to get power) upgraed?
+- spinning shield
+- barrier and brigde upgrades?
+BUG - ui not scaling properly with free aspect - fix later if necessary
 
 
 ------------------------------------------------------------------------

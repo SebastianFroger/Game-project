@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4907634744181094313}
   - component: {fileID: 4467087028518532923}
   - component: {fileID: 822406928159154117}
+  - component: {fileID: 4760781453223780871}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -83,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  planet: {fileID: 0}
+  navMeshSurface: {fileID: 0}
 --- !u!114 &4503044677826738530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +101,7 @@ MonoBehaviour:
   playerStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   crystalPrefab: {fileID: 2215293219151836541, guid: 675e51a976354d84a9587a2cdc198de1,
     type: 3}
-  layerMask:
+  groundLayer:
     serializedVersion: 2
     m_Bits: 128
 --- !u!114 &9196481844530961011
@@ -118,6 +119,9 @@ MonoBehaviour:
   roundDataSO: {fileID: 11400000, guid: cc5f8d6ddb6551d40961f8bb5e4232ca, type: 2}
   mapSizeX: 50
   mapSizeZ: 75
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &2638406913620596162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,3 +223,20 @@ MonoBehaviour:
   unitStatsSO: {fileID: 11400000, guid: c9400a3ff2e7763419c63050e1cd8935, type: 2}
   robotPrefab: {fileID: 328409505970683906, guid: dbdfbef7218bb3f41954d46559625bff,
     type: 3}
+--- !u!114 &4760781453223780871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479988335815413390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fcd7e6815bf9a4e8adb369c5c963c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  heightDivide: 1

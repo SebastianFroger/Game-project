@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: EnemyDStats
   m_EditorClassIdentifier: 
   points: 0
+  crystals: 0
   configurationPoints: 0
   movementBattery: 0
   maxMoveBattery: 0
   moveBatteryRegenPerSecond: 0
   moveBatteryCostPerSecond: 0
-  moveSpeed: 8
+  moveSpeed: 5
   moveHeatCostPerSecond: 0
   damage: 25
   attacksPerSecond: 0.5
@@ -46,7 +47,8 @@ MonoBehaviour:
   heatCoolingPerSecond: 0
   heatDammage: 0
   heatDammageInterval: 0
-  cooldownTime: 0
-  maxCooldownTime: 0
-  cooldownTimeReduction: 0
+  barrierCooldownTime: 0
+  barrierCooldownTimeMax: 0
+  bridgeCooldownTime: 0
+  bridgeCooldownTimeMax: 0
   pickUpRange: 0

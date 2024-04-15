@@ -1,17 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Unity.AI.Navigation;
 
 public class EnemySpawner : Singleton<EnemySpawner>
 {
     public RoundDataSO roundDataSO;
-    public float mapSizeX = 10f;
-    public float mapSizeZ = 10f;
     public LayerMask groundLayer;
 
     private float _nextSpawTime = 0f;
+    float topPlatformHeight = 0f;
+    GameObject lvlRoot;
+    Bounds bounds;
 
+
+    private void Start()
+    {
+        lvlRoot = GlobalObjectsManager.Instance.navMeshSurface.gameObject;
+        bounds = lvlRoot.GetComponent<NavMeshSurface>().navMeshData.sourceBounds;
+
+        // loop through all the platforms and find the highest one
+        for (int i = 0; i < lvlRoot.transform.childCount; i++)
+        {
+            var child = lvlRoot.transform.GetChild(i);
+            if (child.position.y > topPlatformHeight)
+            {
+                topPlatformHeight = child.position.y;
+            }
+        }
+    }
 
     private void Update()
     {
@@ -36,7 +53,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
         while (raycastHit == Vector3.zero || inCameraView)
         {
             randomPoint = GetRandomPoint();
-            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 1000f, groundLayer))
+            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 2f, groundLayer))
             {
                 raycastHit = hit2.point;
                 inCameraView = IsInCameraView(raycastHit);
@@ -48,7 +65,8 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
     Vector3 GetRandomPoint()
     {
-        return new Vector3(Random.Range(-mapSizeX, mapSizeX), 100, Random.Range(-mapSizeZ, mapSizeZ));
+        var randomLvl = Random.Range(0, topPlatformHeight / 10) * 10 + 1;
+        return new Vector3(Random.Range(bounds.min.x, bounds.max.x), randomLvl, Random.Range(bounds.min.z, bounds.max.z));
     }
 
     bool IsInCameraView(Vector3 point)

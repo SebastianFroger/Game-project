@@ -15,4 +15,5 @@ public class Attack : MonoBehaviour
 {
     public float attackRange;
     public bool inAttackRange;
+    public bool armed;
 }

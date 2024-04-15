@@ -46,15 +46,6 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""9c75c433-2c7c-4bea-a8ca-088f044a0426"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""BridgeControl"",
                     ""type"": ""PassThrough"",
                     ""id"": ""8a565e19-b978-49d6-89ba-92059cda1750"",
@@ -258,28 +249,6 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2670487b-f125-4587-9010-f272da471061"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""948300df-bcaa-4e10-891e-654ff2866c2d"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""Gamepad"",
@@ -656,7 +625,6 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
         m_PlayerControl = asset.FindActionMap("Player Control", throwIfNotFound: true);
         m_PlayerControl_TogglePause = m_PlayerControl.FindAction("TogglePause", throwIfNotFound: true);
         m_PlayerControl_Move = m_PlayerControl.FindAction("Move", throwIfNotFound: true);
-        m_PlayerControl_Jump = m_PlayerControl.FindAction("Jump", throwIfNotFound: true);
         m_PlayerControl_BridgeControl = m_PlayerControl.FindAction("BridgeControl", throwIfNotFound: true);
         m_PlayerControl_BridgeInstantiate = m_PlayerControl.FindAction("BridgeInstantiate", throwIfNotFound: true);
         m_PlayerControl_BarrierInstantiate = m_PlayerControl.FindAction("BarrierInstantiate", throwIfNotFound: true);
@@ -728,7 +696,6 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
     private List<IPlayerControlActions> m_PlayerControlActionsCallbackInterfaces = new List<IPlayerControlActions>();
     private readonly InputAction m_PlayerControl_TogglePause;
     private readonly InputAction m_PlayerControl_Move;
-    private readonly InputAction m_PlayerControl_Jump;
     private readonly InputAction m_PlayerControl_BridgeControl;
     private readonly InputAction m_PlayerControl_BridgeInstantiate;
     private readonly InputAction m_PlayerControl_BarrierInstantiate;
@@ -738,7 +705,6 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
         public PlayerControlActions(@PlayerControlInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @TogglePause => m_Wrapper.m_PlayerControl_TogglePause;
         public InputAction @Move => m_Wrapper.m_PlayerControl_Move;
-        public InputAction @Jump => m_Wrapper.m_PlayerControl_Jump;
         public InputAction @BridgeControl => m_Wrapper.m_PlayerControl_BridgeControl;
         public InputAction @BridgeInstantiate => m_Wrapper.m_PlayerControl_BridgeInstantiate;
         public InputAction @BarrierInstantiate => m_Wrapper.m_PlayerControl_BarrierInstantiate;
@@ -757,9 +723,6 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
             @BridgeControl.started += instance.OnBridgeControl;
             @BridgeControl.performed += instance.OnBridgeControl;
             @BridgeControl.canceled += instance.OnBridgeControl;
@@ -779,9 +742,6 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
             @BridgeControl.started -= instance.OnBridgeControl;
             @BridgeControl.performed -= instance.OnBridgeControl;
             @BridgeControl.canceled -= instance.OnBridgeControl;
@@ -892,7 +852,6 @@ public partial class @PlayerControlInput: IInputActionCollection2, IDisposable
     {
         void OnTogglePause(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
         void OnBridgeControl(InputAction.CallbackContext context);
         void OnBridgeInstantiate(InputAction.CallbackContext context);
         void OnBarrierInstantiate(InputAction.CallbackContext context);

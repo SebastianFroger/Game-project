@@ -1,124 +1,68 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
-
-[System.Serializable]
-public class EnvironmentItem
-{
-    public GameObject[] prefab;
-    public float yGblPosSubtract = 0.2f;
-
-    [Header("Single items placed randomly")]
-    public int amount;
-
-    [Header("Clumps of item")]
-    [Range(1, 30)]
-    public int amountOfClumps;
-    [Range(1, 30)]
-    public int itemsPrClump;
-    [Range(1, 30)]
-    public float minDistance = 2;
-    [Range(1, 30)]
-    public float maxDistance = 5;
-
-    [Header("Scaling")]
-    [Range(1, 10)]
-    public float scaleFactorMin;
-    [Range(1, 10)]
-    public float scaleFactorMax;
-}
 
 public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
 {
-    public EnvironmentItem[] items;
-    public LayerMask myLayerMask;
-    public float heightDivide = 1;
+    public RoundDataSO roundDataSO;
+    public GameObject crystalPrefab;
+    public LayerMask groundLayer;
 
-    private Quaternion _addedRotations = Quaternion.identity;
+    float topPlatformHeight = 0f;
+    GameObject lvlRoot;
+    Bounds bounds;
 
     public void SpawnEnvironment()
     {
-        foreach (var item in items)
+        lvlRoot = GlobalObjectsManager.Instance.navMeshSurface.gameObject;
+        bounds = lvlRoot.GetComponent<NavMeshSurface>().navMeshData.sourceBounds;
+        GetHighestLevel();
+        DebugExt.Log(this, $"bounds.min {bounds.min} bounds.max {bounds.max} topPlatformHeight {topPlatformHeight}");
+        SpawnCrystals();
+    }
+
+    void SpawnCrystals()
+    {
+        var amount = (roundDataSO.currentRound + 1) * 2;
+        for (int i = 0; i < amount; i++)
         {
-            Instantiate(item);
+            MyObjectPool.Instance.GetInstance(crystalPrefab, SpawnPoint(), Quaternion.identity);
         }
     }
 
-    void Instantiate(EnvironmentItem item)
+    void GetHighestLevel()
     {
-        // clumps
-        // for (int i = 0; i < item.amountOfClumps; i++)
-        // {
-        //     _addedRotations = UnityEngine.Random.rotation;
-
-        //     for (int j = 0; j < item.itemsPrClump; j++)
-        //     {
-        //         // inst obj
-        //         var randomItem = UnityEngine.Random.Range(0, items.Length - 1);
-        //         var inst = Instantiate(item.prefab[randomItem]);
-
-        //         // set random y rot
-        //         inst.transform.rotation = Quaternion.Euler(new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0));
-
-        //         var randDist = UnityEngine.Random.Range(item.minDistance, item.maxDistance);
-        //         var rotAdjusment = Quaternion.Euler(new Vector3(UnityEngine.Random.Range(-randDist, randDist), UnityEngine.Random.Range(-randDist, randDist), UnityEngine.Random.Range(-randDist, randDist)));
-        //         inst.transform.position = _addedRotations * new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
-        //         _addedRotations *= rotAdjusment;
-
-        //         // rotate to sphere
-        //         inst.transform.LookAt(Vector3.zero);
-        //         inst.transform.Rotate(new Vector3(-90, 0, 0));
-
-        //         // scale
-        //         var scaleVector = UnityEngine.Random.Range(item.scaleFactorMin, item.scaleFactorMax);
-        //         inst.transform.localScale = new Vector3(scaleVector, scaleVector / heightDivide, scaleVector);
-
-        //         // parent to sphere
-        //         inst.transform.parent = transform;
-        //     }
-        // }
-
-
-        // // total random placment
-        // for (int i = 0; i < item.amount; i++)
-        // {
-        //     // inst obj
-        //     var randomItem = UnityEngine.Random.Range(0, items.Length - 1);
-        //     var inst = Instantiate(item.prefab[randomItem]);
-
-        //     // set position on top of planet
-        //     inst.transform.position = new Vector3(0, Planet.Instance.GetRadius() - item.yGblPosSubtract, 0);
-
-        //     // set random y rot
-        //     inst.transform.rotation = Quaternion.Euler(new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0));
-
-        //     // move to random position on sphere and rotate
-        //     inst.transform.position = UnityEngine.Random.rotation * inst.transform.position;
-        //     inst.transform.LookAt(Vector3.zero);
-        //     inst.transform.Rotate(new Vector3(-90, 0, 0));
-
-        //     // scale
-        //     var scaleVector = UnityEngine.Random.Range(item.scaleFactorMin, item.scaleFactorMax);
-        //     inst.transform.localScale = new Vector3(scaleVector, scaleVector / 2, scaleVector);
-
-        //     // parent to sphere
-        //     inst.transform.parent = transform;
-        // }
-
+        topPlatformHeight = 0f;
+        // loop through all the platforms and find the highest one
+        for (int i = 0; i < lvlRoot.transform.childCount; i++)
+        {
+            var child = lvlRoot.transform.GetChild(i);
+            if (child.position.y > topPlatformHeight)
+            {
+                topPlatformHeight = child.position.y;
+            }
+        }
     }
 
-
-    Collider[] GetRandomPlacement(ref Quaternion randomRot)
+    private Vector3 SpawnPoint()
     {
-
-        var randomVector = UnityEngine.Random.rotation.eulerAngles.normalized * 1000;
-        randomRot = Quaternion.Euler(randomVector);
-        Collider[] colliders = new Collider[1];
-        if (Physics.Raycast(randomVector, -randomVector, out RaycastHit hit, myLayerMask))
+        Vector3 raycastHit = Vector3.zero;
+        var randomPoint = new Vector3();
+        while (raycastHit == Vector3.zero)
         {
-            colliders = Physics.OverlapSphere(hit.point, 5f, myLayerMask);
+            randomPoint = GetRandomPoint();
+            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 1f, groundLayer))
+            {
+                raycastHit = hit2.point;
+            }
         }
-        return colliders;
+
+        return raycastHit;
+    }
+
+    Vector3 GetRandomPoint()
+    {
+        return new Vector3(Random.Range(bounds.min.x, bounds.max.x), topPlatformHeight + 1, Random.Range(bounds.min.z, bounds.max.z));
     }
 }

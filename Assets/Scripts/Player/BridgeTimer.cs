@@ -6,6 +6,9 @@ using UnityEngine;
 public class BridgeTimer : MonoBehaviour
 {
     public float lifeTime = 10f;
+    public delegate void OnBridgeDestroyed();
+    public static event OnBridgeDestroyed onBridgeDestroyed;
+
 
     float destroyTime;
 
@@ -21,6 +24,7 @@ public class BridgeTimer : MonoBehaviour
         {
             MyObjectPool.Instance.Release(gameObject);
             GlobalObjectsManager.Instance.navMeshSurface.BuildNavMesh();
+            onBridgeDestroyed?.Invoke();
         }
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HeatSinkIncrease
   m_EditorClassIdentifier: 
   points: 0
+  crystals: 0
   configurationPoints: 0
   movementBattery: 0
   maxMoveBattery: 0
@@ -33,7 +34,7 @@ MonoBehaviour:
   piercingCount: 0
   numberOfTargets: 0
   energyStealPerLaser: 0
-  enemySlowAmount: 0
+  enemySlowPercentage: 0
   enemyKnockBackForce: 0
   numberOfAttackRobots: 0
   shieldBattery: 0
@@ -46,13 +47,15 @@ MonoBehaviour:
   heatCoolingPerSecond: 0
   heatDammage: 0
   heatDammageInterval: 0
-  cooldownTime: 0
-  maxCooldownTime: 0
-  cooldownTimeReduction: 0
+  barrierCooldownTime: 0
+  barrierCooldownTimeMax: 0
+  bridgeCooldownTime: 0
+  bridgeCooldownTimeMax: 0
   pickUpRange: 0
   upgradeLevel: 1
   title: Pyrocarbon
   description: Increase max heat tolerance
   price: 0
-  startPrice: 10
+  crystalsPrice: 0
+  startPrice: 6
   image: {fileID: 21300000, guid: 9db345e459ca4e14fac127b6320fdd1c, type: 3}

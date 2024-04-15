@@ -8,6 +8,8 @@ public class CrystalRock : MonoBehaviour, IHealth
     public float hitPoints;
     public GameObject crystalPrefab;
 
+    public delegate void MyDelegate(Transform enemy);
+    public static MyDelegate OnDeathEventDelegate;
 
     float currentHitPoints;
 
@@ -27,6 +29,7 @@ public class CrystalRock : MonoBehaviour, IHealth
 
         if (currentHitPoints <= 0)
         {
+            OnDeathEventDelegate?.Invoke(transform);
             MyObjectPool.Instance.GetInstance(crystalPrefab, transform.position, Quaternion.identity);
             MyObjectPool.Instance.Release(gameObject);
         }

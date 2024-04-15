@@ -7,7 +7,6 @@ public class PoolReleaseGO : MonoBehaviour
 {
     public void Release()
     {
-
         MyObjectPool.Instance.Release(gameObject);
     }
 }

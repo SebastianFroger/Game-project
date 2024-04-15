@@ -32,10 +32,12 @@ public class MiniRobotAttack : MonoBehaviour
         _enemiesInRange.Clear();
         unitStatsInstance = Instantiate(unitStats);
         Health.OnDeathEventDelegate += RemoveDeadEnemy;
+        CrystalRock.OnDeathEventDelegate += RemoveDeadEnemy;
     }
 
     void OnDisable()
     {
+        CrystalRock.OnDeathEventDelegate -= RemoveDeadEnemy;
         Health.OnDeathEventDelegate -= RemoveDeadEnemy;
     }
 
@@ -61,6 +63,7 @@ public class MiniRobotAttack : MonoBehaviour
 
         if (target == null)
             target = GetClosestEnemy();
+
 
         _bulletInst = MyObjectPool.Instance.GetInstance(bullet);
         _bulletInst.transform.localPosition = transform.position + new Vector3(Random.Range(-laserRandomRange, laserRandomRange), 0, 0);

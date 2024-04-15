@@ -14,8 +14,6 @@ public class Bullet : MonoBehaviour
     public UnityEvent OnHitEvent;
     public LayerMask layerMask;
     public bool useRaycast;
-    public float rotate;
-    public Transform target;
     public bool enemyBullet;
     public float flashIntensity = 10f;
     public float normalLightIntensity = 1f;
@@ -27,7 +25,7 @@ public class Bullet : MonoBehaviour
     private List<Collider> _hitColliders = new List<Collider>();
     Light _light;
 
-    private void Start()
+    private void Awake()
     {
         _light = GetComponentInChildren<Light>();
         normalLightIntensity = _light.intensity;
@@ -41,6 +39,8 @@ public class Bullet : MonoBehaviour
 
         _light.intensity = flashIntensity;
 
+        _damage = unitStatsSO.damage;
+
         if (enemyBullet)
             return;
 
@@ -50,7 +50,6 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        DebugExt.Log(this, $"_light.intensity = {_light.intensity}");
         _light.intensity = Mathf.Lerp(_light.intensity, normalLightIntensity, .7f);
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -81,11 +80,13 @@ public class Bullet : MonoBehaviour
 
             // slow enemy
             if (unitStatsSO.enemySlowPercentage < 0)
-                hit.collider.gameObject.GetComponent<EnemyControl>().SlowDown(unitStatsSO.enemySlowPercentage);
+                hit.collider.gameObject.GetComponent<EnemyControl>()?.SlowDown(unitStatsSO.enemySlowPercentage);
 
             // knock back
             if (unitStatsSO.enemyKnockBackForce > 0)
-                hit.collider.gameObject.GetComponent<EnemyControl>().KnockBack(unitStatsSO.enemyKnockBackForce);
+            {
+                hit.collider.gameObject.GetComponent<EnemyControl>()?.KnockBack(unitStatsSO.enemyKnockBackForce);
+            }
 
             // piercing
             if (_hitColliders.Count < unitStatsSO.piercingCount)

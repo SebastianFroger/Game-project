@@ -57,14 +57,7 @@ public class RobotControl : MonoBehaviour
             target = player;
 
         // move
-        _rotTowards = Vector3.RotateTowards(transform.position, target.position, .1f, .1f);
-        _moveTowards = _rotTowards - transform.position;
-
-
-        _localMoveDir = lookAtarget.InverseTransformDirection(_moveTowards);
-        lookAtarget.localPosition = new Vector3(_localMoveDir.x, 0f, _localMoveDir.z);
-        lookRotationTrs.LookAt(lookAtarget, transform.up);
-
+        _moveTowards = (target.position - transform.position).normalized;
         currTargetDistance = Vector3.Distance(transform.position, target.position) - safeDistance;
         currTargetDistance = Mathf.Clamp(currTargetDistance, -1.2f, 1.2f);
         _rb.velocity = Vector3.Slerp(_rb.velocity, _moveTowards.normalized * unitStatsInstance.moveSpeed * currTargetDistance, lerpValue);

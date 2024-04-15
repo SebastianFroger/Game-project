@@ -47,7 +47,8 @@ MonoBehaviour:
   heatCoolingPerSecond: 1
   heatDammage: 5
   heatDammageInterval: 5
-  cooldownTime: 0
-  maxCooldownTime: 0
-  cooldownTimeReduction: 0
+  barrierCooldownTime: 0
+  barrierCooldownTimeMax: 0
+  bridgeCooldownTime: 0
+  bridgeCooldownTimeMax: 0
   pickUpRange: 3

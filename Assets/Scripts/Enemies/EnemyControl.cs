@@ -37,11 +37,24 @@ public class EnemyControl : MonoBehaviour
     {
         navMeshAgent.speed = _startSpeed;
         _isKnockedBack = false;
+        navMeshAgent.enabled = true;
+        BridgeTimer.onBridgeDestroyed += AgentOnNavmeshCheckEvent;
+    }
+
+    private void OnDisable()
+    {
+        BridgeTimer.onBridgeDestroyed -= AgentOnNavmeshCheckEvent;
     }
 
     private void Update()
     {
-        if (_enemyAttack.inAttackRange)
+        if (!navMeshAgent.enabled)
+            return;
+
+        if (_isKnockedBack)
+            return;
+
+        if (_enemyAttack.inAttackRange || _enemyAttack.armed)
         {
             navMeshAgent.isStopped = true;
             return;
@@ -73,6 +86,24 @@ public class EnemyControl : MonoBehaviour
         unitMeshTrs.rotation = Quaternion.Slerp(unitMeshTrs.rotation, targetRot, turnSpeed * Time.deltaTime);
     }
 
+    private void AgentOnNavmeshCheckEvent()
+    {
+        AgentOnNavmeshCheck();
+    }
+
+    private bool AgentOnNavmeshCheck()
+    {
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1f, layerMask))
+        {
+            return true;
+        }
+
+        navMeshAgent.enabled = false;
+        _rb.isKinematic = false;
+        _rb.useGravity = true;
+        return false;
+    }
+
     public void SlowDown(float slowAmount)
     {
         _startSpeed += slowAmount;
@@ -89,8 +120,17 @@ public class EnemyControl : MonoBehaviour
     IEnumerator KnockBackCoroutine(float force)
     {
         _isKnockedBack = true;
+        _rb.isKinematic = false;
+        navMeshAgent.enabled = false;
         _rb.velocity = (transform.position - player.position).normalized * force;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2f);
+
+        if (AgentOnNavmeshCheck())
+        {
+            _rb.isKinematic = true;
+            navMeshAgent.enabled = true;
+        }
+
         _isKnockedBack = false;
     }
 }

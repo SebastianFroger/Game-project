@@ -13,7 +13,7 @@ public class SecondaryCoolDown2 : MonoBehaviour
     {
         if (unitStats.barrierCooldownTime <= 0)
         {
-            image.fillAmount = 0;
+            image.fillAmount = 1;
             return;
         }
 
