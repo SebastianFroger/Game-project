@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class Bridge : MonoBehaviour
@@ -19,6 +20,8 @@ public class Bridge : MonoBehaviour
     Vector3 _lastInputDir;
     bool _bridgeActive;
     bool _barrierActive;
+    Collider _barrierCollider;
+    NavMeshObstacle _barrierNavMeshObstacle;
 
     private void Start()
     {
@@ -40,16 +43,18 @@ public class Bridge : MonoBehaviour
 
         if (_instance == null)
         {
+            _bridgeActive = true;
             _instance = MyObjectPool.Instance.GetInstance(bridgePrefab);
             _instance.transform.position = transform.position + transform.forward * (_instance.transform.localScale.z / 2 + 2);
             _lastInputDir = Vector3.forward;
-            _bridgeActive = true;
         }
         else
         {
             _instance.transform.parent = root;
-            _instance = null;
+            // _instance.transform.position -= _instance.transform.up * .1f;
+            _instance.GetComponent<BridgeTimer>().Place();
             GlobalObjectsManager.Instance.navMeshSurface.BuildNavMesh();
+            _instance = null;
             _bridgeActive = false;
 
             unitStatsSO.bridgeCooldownTimeMax = bridgeCooldownTime;
@@ -66,16 +71,23 @@ public class Bridge : MonoBehaviour
 
         if (_instance == null)
         {
+            _barrierActive = true;
             _instance = MyObjectPool.Instance.GetInstance(barrierPrefab);
             _instance.transform.position = transform.position + transform.forward * 5;
+            _barrierCollider = _instance.GetComponent<Collider>();
+            _barrierCollider.enabled = false;
+            _barrierNavMeshObstacle = _instance.GetComponent<NavMeshObstacle>();
+            _barrierNavMeshObstacle.enabled = false;
             _lastInputDir = Vector3.forward;
-            _barrierActive = true;
         }
         else
         {
             _instance.transform.parent = root;
-            _instance = null;
+            _barrierNavMeshObstacle.enabled = true;
+            _barrierCollider.enabled = true;
+            _instance.GetComponent<BridgeTimer>().Place();
             GlobalObjectsManager.Instance.navMeshSurface.BuildNavMesh();
+            _instance = null;
             _barrierActive = false;
 
             unitStatsSO.barrierCooldownTimeMax = barrierCooldownTime;

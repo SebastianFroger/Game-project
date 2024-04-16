@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -8512392491668696987}
   - component: {fileID: 6060619978539211757}
   - component: {fileID: 8166029420871092509}
+  - component: {fileID: 915636699822499980}
   m_Layer: 8
   m_Name: EnemyD
   m_TagString: Enemy
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 2
   inAttackRange: 0
+  armed: 0
   unitStatsSO: {fileID: 11400000, guid: c13bf3546f0b7c646b4a8696ad21e785, type: 2}
   rangedAttack: 0
   bulletPrefab: {fileID: 0}
@@ -299,6 +301,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &915636699822499980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328409505970683906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd74611fd5f9cfb4abdd1fe774e3af34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentMaterial: {fileID: 2100000, guid: 1ac08f1a190098846b78603938cc8dd1, type: 2}
 --- !u!1 &4966573821260998714
 GameObject:
   m_ObjectHideFlags: 0

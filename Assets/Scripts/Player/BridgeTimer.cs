@@ -12,7 +12,7 @@ public class BridgeTimer : MonoBehaviour
 
     float destroyTime;
 
-    private void OnEnable()
+    public void Place()
     {
         destroyTime = Time.time + lifeTime;
     }

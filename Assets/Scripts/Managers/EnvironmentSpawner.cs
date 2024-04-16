@@ -52,7 +52,7 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
         while (raycastHit == Vector3.zero)
         {
             randomPoint = GetRandomPoint();
-            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 1f, groundLayer))
+            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 11f, groundLayer))
             {
                 raycastHit = hit2.point;
             }
@@ -63,6 +63,8 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
 
     Vector3 GetRandomPoint()
     {
-        return new Vector3(Random.Range(bounds.min.x, bounds.max.x), topPlatformHeight + 1, Random.Range(bounds.min.z, bounds.max.z));
+        var height = Mathf.Round(Random.Range(0, topPlatformHeight) / 10);
+        DebugExt.Log(this, $"height {height}");
+        return new Vector3(Random.Range(bounds.min.x, bounds.max.x), height * 10 + 1, Random.Range(bounds.min.z, bounds.max.z));
     }
 }

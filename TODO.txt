@@ -9,7 +9,7 @@
 ## TODO
 ------------------------------------------------------------------------
 
-- up and down levels where to get crystals
+- barrier disappears before set
 
 
 ------------------------------------------------------------------------
@@ -49,18 +49,6 @@ BUG - ui not scaling properly with free aspect - fix later if necessary
 - in game upgrades/progress (hp, damage, weapons, secondary effects(shield?))
 - fun upgrade quotes
 - steam Achievements and LeaderBoard?
-
-
-Game Mechanics
-
-- you are a robot
--- battery  
---- recharge battery
--- faster recharge / bigger charge 
--- build upgrades around tech
-- planet - use sphere gameplay (shrink? / attacks from above / upgrades from above)
--- sunny and dark side (solar panels to recharge battery?) 
---- power stations on map to recharge batteries? (solar panels to defend and upgrade as they charge your battery?)
 
 
 Enemies

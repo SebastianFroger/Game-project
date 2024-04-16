@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7239153397523797011}
   - component: {fileID: 4249385027314934335}
   - component: {fileID: 8713013168765399871}
+  - component: {fileID: 1001246494372656612}
   m_Layer: 8
   m_Name: EnemyA
   m_TagString: Enemy
@@ -73,12 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02228f2bb938e44593e06281f13267f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStatsSO: {fileID: 11400000, guid: 70765984d1714d343b3208473adec670, type: 2}
   attackRange: 2
+  inAttackRange: 0
+  armed: 0
+  unitStatsSO: {fileID: 11400000, guid: 70765984d1714d343b3208473adec670, type: 2}
   rangedAttack: 0
   bulletPrefab: {fileID: 0}
   bulletSpawn: {fileID: 0}
-  inAttackRange: 0
 --- !u!114 &8059782168554662308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +301,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1001246494372656612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328409505970683906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd74611fd5f9cfb4abdd1fe774e3af34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standardMaterial: {fileID: 0}
+  transparentMaterial: {fileID: 2100000, guid: 8eaeef5a6535db34fbbf49246eb29d53, type: 2}
 --- !u!1 &4966573821260998714
 GameObject:
   m_ObjectHideFlags: 0
