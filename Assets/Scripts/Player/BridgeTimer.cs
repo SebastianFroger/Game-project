@@ -6,6 +6,7 @@ using UnityEngine;
 public class BridgeTimer : MonoBehaviour
 {
     public float lifeTime = 10f;
+
     public delegate void OnBridgeDestroyed();
     public static event OnBridgeDestroyed onBridgeDestroyed;
 

@@ -20,6 +20,7 @@ public class StatsManager : Singleton<StatsManager>
         AddAttackBattery(currentStatsSO.LaserBatteryRegenPerSecond * Time.deltaTime);
         AddShieldBattery(currentStatsSO.shieldBatteryRegenPerSecond * Time.deltaTime);
         RemoveHeat(currentStatsSO.heatCoolingPerSecond * Time.deltaTime);
+        UpdateBridgeBarrierCooldown();
     }
 
     public void AddMoveBattery(float amount)
@@ -150,6 +151,19 @@ public class StatsManager : Singleton<StatsManager>
         currentStatsSO.hitPoints -= currentStatsSO.heatDammage;
         return Time.time + currentStatsSO.heatDammageInterval;
     }
+
+    //******************************************************************************
+    // Bridge Barrier cooldown
+    //******************************************************************************
+
+    void UpdateBridgeBarrierCooldown()
+    {
+        if (currentStatsSO.bridgeCooldownTime > 0)
+            currentStatsSO.bridgeCooldownTime -= Time.deltaTime;
+        if (currentStatsSO.barrierCooldownTime > 0)
+            currentStatsSO.barrierCooldownTime -= Time.deltaTime;
+    }
+
 
     //******************************************************************************
     // Upgrades calculations

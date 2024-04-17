@@ -29,10 +29,10 @@ public class Bridge : MonoBehaviour
         unitStatsSO.barrierCooldownTime = 0;
     }
 
-    // void OnBridgeControl(InputValue value)
-    // {
-    //     _inputDir = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
-    // }
+    void OnBridgeControl(InputValue value)
+    {
+        _inputDir = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
+    }
 
     void OnBridgeInstantiate()
     {

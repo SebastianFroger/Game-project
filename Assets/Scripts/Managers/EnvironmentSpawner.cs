@@ -64,7 +64,6 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
     Vector3 GetRandomPoint()
     {
         var height = Mathf.Round(Random.Range(0, topPlatformHeight) / 10);
-        DebugExt.Log(this, $"height {height}");
         return new Vector3(Random.Range(bounds.min.x, bounds.max.x), height * 10 + 1, Random.Range(bounds.min.z, bounds.max.z));
     }
 }
