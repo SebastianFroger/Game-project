@@ -506,11 +506,6 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 373433525}
-    - target: {fileID: 2998296493391144119, guid: 8f5e135a19626f544908fc8f156144b9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4074230473935586270, guid: 8f5e135a19626f544908fc8f156144b9,
         type: 3}
       propertyPath: root

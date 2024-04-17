@@ -15,13 +15,13 @@ public class Bridge : MonoBehaviour
     public float bridgeCooldownTime = 10f;
     public float barrierCooldownTime = 10f;
 
-    Vector3 _inputDir;
     GameObject _instance;
+    Vector3 _inputDir;
     Vector3 _lastInputDir;
-    bool _bridgeActive;
-    bool _barrierActive;
     Collider _barrierCollider;
     NavMeshObstacle _barrierNavMeshObstacle;
+    bool _bridgeActive = false;
+    bool _barrierActive = false;
 
     private void Start()
     {
@@ -29,29 +29,26 @@ public class Bridge : MonoBehaviour
         unitStatsSO.barrierCooldownTime = 0;
     }
 
-    void OnBridgeControl(InputValue value)
-    {
-        _inputDir = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
-    }
+    // void OnBridgeControl(InputValue value)
+    // {
+    //     _inputDir = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
+    // }
 
     void OnBridgeInstantiate()
     {
         if (unitStatsSO.bridgeCooldownTime > 0)
             return;
 
-        if (_barrierActive) return;
-
         if (_instance == null)
         {
-            _bridgeActive = true;
             _instance = MyObjectPool.Instance.GetInstance(bridgePrefab);
             _instance.transform.position = transform.position + transform.forward * (_instance.transform.localScale.z / 2 + 2);
             _lastInputDir = Vector3.forward;
+            _bridgeActive = true;
         }
         else
         {
             _instance.transform.parent = root;
-            // _instance.transform.position -= _instance.transform.up * .1f;
             _instance.GetComponent<BridgeTimer>().Place();
             GlobalObjectsManager.Instance.navMeshSurface.BuildNavMesh();
             _instance = null;
@@ -67,11 +64,8 @@ public class Bridge : MonoBehaviour
         if (unitStatsSO.barrierCooldownTime > 0)
             return;
 
-        if (_bridgeActive) return;
-
         if (_instance == null)
         {
-            _barrierActive = true;
             _instance = MyObjectPool.Instance.GetInstance(barrierPrefab);
             _instance.transform.position = transform.position + transform.forward * 5;
             _barrierCollider = _instance.GetComponent<Collider>();
@@ -79,6 +73,8 @@ public class Bridge : MonoBehaviour
             _barrierNavMeshObstacle = _instance.GetComponent<NavMeshObstacle>();
             _barrierNavMeshObstacle.enabled = false;
             _lastInputDir = Vector3.forward;
+
+            _barrierActive = true;
         }
         else
         {
@@ -98,34 +94,23 @@ public class Bridge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (unitStatsSO.bridgeCooldownTime > 0)
+        if (_instance == null) return;
+
+        if (_inputDir != Vector3.zero)
         {
-            unitStatsSO.bridgeCooldownTime -= Time.deltaTime;
+            _lastInputDir = _inputDir;
         }
 
-        if (unitStatsSO.barrierCooldownTime > 0)
+        if (_bridgeActive)
         {
-            unitStatsSO.barrierCooldownTime -= Time.deltaTime;
+            _instance.transform.position = transform.position + -Vector3.up + _lastInputDir * (_instance.transform.localScale.z / 2 + 2);
+            _instance.transform.rotation = Quaternion.Slerp(_instance.transform.rotation, Quaternion.LookRotation(_lastInputDir), slerpValue);
         }
 
-        if (_instance != null)
+        if (_barrierActive)
         {
-            if (_inputDir != Vector3.zero)
-            {
-                _lastInputDir = _inputDir;
-            }
-
-            if (_bridgeActive)
-            {
-                _instance.transform.position = transform.position + -Vector3.up + _lastInputDir * (_instance.transform.localScale.z / 2 + 2);
-                _instance.transform.rotation = Quaternion.Slerp(_instance.transform.rotation, Quaternion.LookRotation(_lastInputDir), slerpValue);
-            }
-
-            if (_barrierActive)
-            {
-                _instance.transform.position = transform.position + new Vector3(0, 0, 0) + _lastInputDir * 5;
-                _instance.transform.rotation = Quaternion.Slerp(_instance.transform.rotation, Quaternion.LookRotation(_lastInputDir), slerpValue);
-            }
+            _instance.transform.position = transform.position + new Vector3(0, 0, 0) + _lastInputDir * 5;
+            _instance.transform.rotation = Quaternion.Slerp(_instance.transform.rotation, Quaternion.LookRotation(_lastInputDir), slerpValue);
         }
     }
 }

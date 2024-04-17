@@ -12,6 +12,11 @@ public class BridgeTimer : MonoBehaviour
 
     float destroyTime;
 
+    private void OnEnable()
+    {
+        destroyTime = 0;
+    }
+
     public void Place()
     {
         destroyTime = Time.time + lifeTime;
@@ -20,7 +25,7 @@ public class BridgeTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > destroyTime)
+        if (destroyTime > 0 && Time.time > destroyTime)
         {
             MyObjectPool.Instance.Release(gameObject);
             GlobalObjectsManager.Instance.navMeshSurface.BuildNavMesh();
