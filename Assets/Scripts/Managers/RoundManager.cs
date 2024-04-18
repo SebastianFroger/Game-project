@@ -54,6 +54,9 @@ public class RoundManager : Singleton<RoundManager>
         ResetBatteriesAndHeat();
         SavePlayerCurrentStats();
 
+        playerStatsSO.points = 0;
+        playerStatsSO.crystals = 0;
+
         StatsManager.Instance.ShowStats();
     }
 
@@ -68,6 +71,7 @@ public class RoundManager : Singleton<RoundManager>
         MyObjectPool.Instance.ReleaseAll();
         RobotsManager.Instance.ResetRobots();
         GameManager.Instance.TimeActive(false);
+        GlobalObjectsManager.Instance.navMeshSurface.BuildNavMesh();
     }
 
     public void OnRestartRoundPress()
@@ -120,7 +124,5 @@ public class RoundManager : Singleton<RoundManager>
         playerStatsSO.bridgeCooldownTime = 0;
         playerStatsSO.barrierCooldownTime = 0;
         playerStatsSO.heat = 0;
-        playerStatsSO.points = 0;
-        playerStatsSO.crystals = 0;
     }
 }

@@ -19,7 +19,7 @@ MonoBehaviour:
   maxMoveBattery: 0
   moveBatteryRegenPerSecond: 0
   moveBatteryCostPerSecond: 0
-  moveSpeed: 6
+  moveSpeed: 5
   moveHeatCostPerSecond: 0
   damage: 10
   attacksPerSecond: 1

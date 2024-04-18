@@ -265,7 +265,7 @@ public class StatsManager : Singleton<StatsManager>
                     field.SetValue(currentStatsSO, currentValue);
                     break;
                 case "enemySlowPercentage":
-                    currentValue *= upgradeValue;
+                    currentValue += upgradeValue;
                     field.SetValue(currentStatsSO, currentValue);
                     break;
                 case "enemyKnockBackForce":

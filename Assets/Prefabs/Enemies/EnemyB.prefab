@@ -85,7 +85,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   unitMeshTrs: {fileID: 350992076915738958}
-  turnSpeed: 5
+  turnSpeed: 10
 --- !u!114 &7335987211931231141
 MonoBehaviour:
   m_ObjectHideFlags: 0

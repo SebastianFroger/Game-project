@@ -61,7 +61,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   unitMeshTrs: {fileID: 350992076915738958}
-  turnSpeed: 5
+  turnSpeed: 10
 --- !u!114 &7335987211931231141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd74611fd5f9cfb4abdd1fe774e3af34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardMaterial: {fileID: 0}
   transparentMaterial: {fileID: 2100000, guid: 8eaeef5a6535db34fbbf49246eb29d53, type: 2}
 --- !u!1 &4966573821260998714
 GameObject:

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AttackRobotBaseStats
   m_EditorClassIdentifier: 
   points: 0
+  crystals: 0
   configurationPoints: 0
   movementBattery: 0
   maxMoveBattery: 0
@@ -39,14 +40,15 @@ MonoBehaviour:
   shieldBattery: 0
   maxShieldBattery: 0
   shieldBatteryRegenPerSecond: 0
-  hitPoints: 50
-  maxHitPoints: 50
+  hitPoints: 100
+  maxHitPoints: 100
   heat: 0
   maxHeat: 0
   heatCoolingPerSecond: 0
   heatDammage: 0
   heatDammageInterval: 0
-  cooldownTime: 0
-  maxCooldownTime: 0
-  cooldownTimeReduction: 0
+  barrierCooldownTime: 0
+  barrierCooldownTimeMax: 0
+  bridgeCooldownTime: 0
+  bridgeCooldownTimeMax: 0
   pickUpRange: 0

@@ -9,7 +9,7 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
     public GameObject crystalPrefab;
     public LayerMask groundLayer;
 
-    float topPlatformHeight = 0f;
+    // float topPlatformHeight = 0f;
     GameObject lvlRoot;
     Bounds bounds;
 
@@ -17,44 +17,42 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
     {
         lvlRoot = GlobalObjectsManager.Instance.navMeshSurface.gameObject;
         bounds = lvlRoot.GetComponent<NavMeshSurface>().navMeshData.sourceBounds;
-        GetHighestLevel();
-        DebugExt.Log(this, $"bounds.min {bounds.min} bounds.max {bounds.max} topPlatformHeight {topPlatformHeight}");
         SpawnCrystals();
     }
 
     void SpawnCrystals()
     {
-        var amount = (roundDataSO.currentRound + 1) * 2;
+        var amount = (roundDataSO.currentRound + 1);
         for (int i = 0; i < amount; i++)
         {
-            MyObjectPool.Instance.GetInstance(crystalPrefab, SpawnPoint(), Quaternion.identity);
+            MyObjectPool.Instance.GetInstance(crystalPrefab, SpawnPoint(Vector3.up / 2), Quaternion.identity);
         }
     }
 
-    void GetHighestLevel()
-    {
-        topPlatformHeight = 0f;
-        // loop through all the platforms and find the highest one
-        for (int i = 0; i < lvlRoot.transform.childCount; i++)
-        {
-            var child = lvlRoot.transform.GetChild(i);
-            if (child.position.y > topPlatformHeight)
-            {
-                topPlatformHeight = child.position.y;
-            }
-        }
-    }
+    // void GetHighestLevel()
+    // {
+    //     topPlatformHeight = 0f;
+    //     // loop through all the platforms and find the highest one
+    //     for (int i = 0; i < lvlRoot.transform.childCount; i++)
+    //     {
+    //         var child = lvlRoot.transform.GetChild(i);
+    //         if (child.position.y > topPlatformHeight)
+    //         {
+    //             topPlatformHeight = child.position.y;
+    //         }
+    //     }
+    // }
 
-    private Vector3 SpawnPoint()
+    private Vector3 SpawnPoint(Vector3 offset = new Vector3())
     {
         Vector3 raycastHit = Vector3.zero;
         var randomPoint = new Vector3();
         while (raycastHit == Vector3.zero)
         {
             randomPoint = GetRandomPoint();
-            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 11f, groundLayer))
+            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit2, 110f, groundLayer))
             {
-                raycastHit = hit2.point;
+                raycastHit = hit2.point + offset;
             }
         }
 
@@ -63,7 +61,7 @@ public class EnvironmentSpawner : Singleton<EnvironmentSpawner>
 
     Vector3 GetRandomPoint()
     {
-        var height = Mathf.Round(Random.Range(0, topPlatformHeight) / 10);
-        return new Vector3(Random.Range(bounds.min.x, bounds.max.x), height * 10 + 1, Random.Range(bounds.min.z, bounds.max.z));
+        // var height = Mathf.Round(Random.Range(0, topPlatformHeight) / 10);
+        return new Vector3(Random.Range(bounds.min.x, bounds.max.x), 100, Random.Range(bounds.min.z, bounds.max.z));
     }
 }

@@ -9,24 +9,25 @@ public class EnemyExplosionAttack : Attack
     public LayerMask layerMask;
     public float explosionDelay = 2f;
 
-    private Health _health;
     private Transform _player;
     Light blinkLight;
+    float _speed;
 
     private void Awake()
     {
         blinkLight = GetComponentInChildren<Light>();
         blinkLight.intensity = 0;
 
-        _health = GetComponent<Health>();
         _player = GlobalObjectsManager.Instance.player.transform;
         armed = false;
+        _speed = unitStatsSO.moveSpeed;
     }
 
     private void OnEnable()
     {
         blinkLight.intensity = 0;
         armed = false;
+        _speed = unitStatsSO.moveSpeed;
     }
 
     IEnumerator ExplosionDelayed()
@@ -50,6 +51,7 @@ public class EnemyExplosionAttack : Attack
         if (inAttackRange && !armed)
         {
             armed = true;
+            _speed = 0;
             StartCoroutine(ExplosionDelayed());
         }
     }
@@ -60,11 +62,10 @@ public class EnemyExplosionAttack : Attack
         var colliders = Physics.OverlapSphere(transform.position, explosionRange, layerMask);
         foreach (var item in colliders)
         {
-
             item.gameObject.GetComponent<IHealth>()?.TakeDamage(unitStatsSO.damage);
         }
 
-        _health.TakeDamage(500);
+        MyObjectPool.Instance.Release(gameObject);
     }
 
     // calculate distance to player if less than attack range return true

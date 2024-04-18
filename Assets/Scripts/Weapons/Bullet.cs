@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviour
     public GameObject hitEffect;
     public UnityEvent OnHitEvent;
     public LayerMask layerMask;
-    public bool useRaycast;
     public bool enemyBullet;
     public float flashIntensity = 10f;
     public float normalLightIntensity = 1f;
@@ -57,8 +56,6 @@ public class Bullet : MonoBehaviour
         if (Vector3.Distance(startPosition, transform.position) >= distance)
             MyObjectPool.Instance.Release(gameObject);
 
-        if (!useRaycast) return;
-
         // Check if the bullet hit something, by using a linecast from previous position to current position
         if (Physics.Linecast(_prevPosition, transform.position, out RaycastHit hit, layerMask))
         {
@@ -74,6 +71,9 @@ public class Bullet : MonoBehaviour
             }
 
             _targetHP.TakeDamage(_damage);
+
+            // hit effect
+            MyObjectPool.Instance.GetInstance(hitEffect, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal));
 
             if (unitStatsSO.energyStealPerLaser > 0)
                 StatsManager.Instance.EnergySteal();
@@ -104,9 +104,6 @@ public class Bullet : MonoBehaviour
                 // relsease bullet
                 MyObjectPool.Instance.Release(gameObject);
             }
-
-            // hit effect
-            MyObjectPool.Instance.GetInstance(hitEffect, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal));
         }
 
         _prevPosition = transform.position;

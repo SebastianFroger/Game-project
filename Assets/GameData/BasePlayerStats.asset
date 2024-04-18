@@ -21,14 +21,14 @@ MonoBehaviour:
   moveBatteryCostPerSecond: 0.8
   moveSpeed: 8
   moveHeatCostPerSecond: 0.8
-  damage: 10
-  attacksPerSecond: 1
+  damage: 5
+  attacksPerSecond: 2
   critChancePercentage: 0
   laserBattery: 75
   maxLaserBattery: 75
   LaserBatteryRegenPerSecond: 0
-  laserCost: 1
-  laserHeatCostPerShot: 0.8
+  laserCost: 0.6
+  laserHeatCostPerShot: 0.6
   lasersPerShot: 1
   quadLaserCount: 0
   piercingCount: 0

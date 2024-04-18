@@ -106,7 +106,7 @@ public class EnemyControl : MonoBehaviour
 
     public void SlowDown(float slowAmount)
     {
-        _startSpeed += slowAmount;
+        _startSpeed -= slowAmount;
         if (_startSpeed < 0f)
             _startSpeed = 0f;
     }
@@ -123,11 +123,12 @@ public class EnemyControl : MonoBehaviour
         _rb.isKinematic = false;
         navMeshAgent.enabled = false;
         _rb.velocity = (transform.position - player.position).normalized * force;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
+
+        _rb.isKinematic = true;
 
         if (AgentOnNavmeshCheck())
         {
-            _rb.isKinematic = true;
             navMeshAgent.enabled = true;
         }
 

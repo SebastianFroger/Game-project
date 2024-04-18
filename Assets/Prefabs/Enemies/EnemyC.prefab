@@ -63,7 +63,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   unitMeshTrs: {fileID: 350992076915738958}
-  turnSpeed: 5
+  turnSpeed: 10
 --- !u!114 &8059782168554662308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +126,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5536541364197817067}
         m_TargetAssemblyTypeName: particleEffectPlay, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3485938154433265220}
+        m_TargetAssemblyTypeName: EnemyExplosionAttack, Assembly-CSharp
+        m_MethodName: Explode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
