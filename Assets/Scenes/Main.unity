@@ -166,6 +166,11 @@ PrefabInstance:
       propertyPath: navMeshSurface
       value: 
       objectReference: {fileID: 2046438518}
+    - target: {fileID: 2638406913620596162, guid: 7cb1cae516c0f1749a14e84927147490,
+        type: 3}
+      propertyPath: allBaseUpgrades.Array.size
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 2960729698760636033, guid: 7cb1cae516c0f1749a14e84927147490,
         type: 3}
       propertyPath: rerollText

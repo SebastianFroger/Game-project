@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EnemyCStats
   m_EditorClassIdentifier: 
   points: 0
+  crystals: 0
   configurationPoints: 0
   movementBattery: 0
   maxMoveBattery: 0
@@ -33,20 +34,21 @@ MonoBehaviour:
   piercingCount: 0
   numberOfTargets: 0
   energyStealPerLaser: 0
-  enemySlowAmount: 0
+  enemySlowPercentage: 0
   enemyKnockBackForce: 0
   numberOfAttackRobots: 0
   shieldBattery: 0
   maxShieldBattery: 0
   shieldBatteryRegenPerSecond: 0
-  hitPoints: 5
-  maxHitPoints: 0
+  hitPoints: 8
+  maxHitPoints: 5
   heat: 0
   maxHeat: 0
   heatCoolingPerSecond: 0
   heatDammage: 0
   heatDammageInterval: 0
-  cooldownTime: 0
-  maxCooldownTime: 0
-  cooldownTimeReduction: 0
+  barrierCooldownTime: 0
+  barrierCooldownTimeMax: 0
+  bridgeCooldownTime: 0
+  bridgeCooldownTimeMax: 0
   pickUpRange: 0

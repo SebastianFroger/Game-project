@@ -29,6 +29,10 @@ public class Health : MonoBehaviour, IHealth
         OnStartEvent.Invoke();
     }
 
+    private void OnEnable()
+    {
+        unitStatsSO.hitPoints = unitStatsSO.maxHitPoints + Mathf.Round((RoundManager.Instance.roundDataSO.currentRound + 1) / 2);
+    }
 
     public void TakeDamage(float amount)
     {

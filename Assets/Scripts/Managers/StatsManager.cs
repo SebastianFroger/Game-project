@@ -8,6 +8,7 @@ public class StatsManager : Singleton<StatsManager>
 {
     public UnitStatsSO baseStatsSO;
     public UnitStatsSO currentStatsSO;
+    public RoundDataSO roundDataSO;
 
     //******************************************************************************
     // Battery and Heat

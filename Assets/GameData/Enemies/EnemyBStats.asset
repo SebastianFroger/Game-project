@@ -40,8 +40,8 @@ MonoBehaviour:
   shieldBattery: 0
   maxShieldBattery: 0
   shieldBatteryRegenPerSecond: 0
-  hitPoints: 20
-  maxHitPoints: 0
+  hitPoints: 13
+  maxHitPoints: 10
   heat: 0
   maxHeat: 0
   heatCoolingPerSecond: 0

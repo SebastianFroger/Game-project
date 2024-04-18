@@ -58,5 +58,5 @@ MonoBehaviour:
     per upgrade.
   price: 0
   crystalsPrice: 0
-  startPrice: 10
+  startPrice: 15
   image: {fileID: 0}

@@ -104,7 +104,8 @@ public class Bridge : MonoBehaviour
         if (_bridgeActive)
         {
             _instance.transform.position = transform.position + -Vector3.up + _lastInputDir * (_instance.transform.localScale.z / 2 + 2);
-            _instance.transform.rotation = Quaternion.Slerp(_instance.transform.rotation, Quaternion.LookRotation(_lastInputDir), slerpValue);
+            var rotation = Quaternion.Slerp(_instance.transform.rotation, Quaternion.LookRotation(_lastInputDir), slerpValue);
+            _instance.transform.rotation = Quaternion.Euler(new Vector3(0, rotation.eulerAngles.y, 0));
         }
 
         if (_barrierActive)
