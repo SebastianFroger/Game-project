@@ -1,6 +1,6 @@
 # Game project
 
-The game is a rogue like auto shooter I am working on in my spare time, as a fun project, with the intent of releasing one day. It is made using Unity and C#.
+The game is a rogue like auto shooter I am working on in my spare time, as a fun project, with the intent of releasing one day. It is made using Unity and C#. It's currently in very early development, all graphics is placeholder, and the code has not been yet been refactored, optimized, or use any proper design patterns.
 
 The player controls a robot that has health, battery and heat rescources. Moving, shooting and placing bridges an barriers drains the battery. Shooting and moving also produce heat that will damage the player when too high. 
 Bridges create a path between parts of the map, and barriers can be used to block the enemies. Both are temporary, and have a cooldown after use.
@@ -41,6 +41,10 @@ Point pick up range
 Energy steal on hit
 
 
-[ingame](https://github.com/SebastianFroger/Game-project/assets/43187719/e6b4b377-431f-4c65-bffc-27a4a8289543)
+
+
+![ingame](https://github.com/SebastianFroger/Game-project/assets/43187719/e6b4b377-431f-4c65-bffc-27a4a8289543)
+
 ![shop](https://github.com/SebastianFroger/Game-project/assets/43187719/6c37dbdd-1c0e-49c9-945e-c0260633ba19)
-![menu](https://github!.com/SebastianFroger/Game-project/assets/43187719/d64ecf7c-2728-4242-a741-6a3877949833)
+
+![menu](https://github.com/SebastianFroger/Game-project/assets/43187719/f1c13f23-6eaf-4cb7-a65a-a12eb3600be3)
