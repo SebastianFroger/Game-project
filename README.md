@@ -1,6 +1,6 @@
 # Game project
 
-The game is a rogue like auto shooter I am working on in my spare time, as a fun project, with the intent of releasing one day. It is made using Unity and C#. It's currently in very early development, all graphics is placeholder, and the code has not been yet been refactored, optimized, or use any proper design patterns.
+The game is a rogue like auto shooter I am working on in my spare time, as a fun project, with the intent of releasing one day. It is made using Unity, C# and Blender. It's currently in very early development, all graphics is placeholder, and the code has not been yet been refactored, optimized, or use any proper design patterns.
 
 The player controls a robot that has health, battery and heat rescources. Moving, shooting and placing bridges an barriers drains the battery. Shooting and moving also produce heat that will damage the player when too high. 
 Bridges create a path between parts of the map, and barriers can be used to block the enemies. Both are temporary, and have a cooldown after use.
